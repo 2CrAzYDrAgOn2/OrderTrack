@@ -1,14 +1,75 @@
-CREATE DATABASE LibraryDB;
-USE LibraryDB;
+CREATE DATABASE OrderTrack;
+USE OrderTrack;
 
-CREATE TABLE Books (
-    BookID INT PRIMARY KEY IDENTITY(1,1),
-    Title NVARCHAR(255) NOT NULL,
-    Author NVARCHAR(255),
-    Genre NVARCHAR(50),
-    PublishedYear INT,
-    ISBN NVARCHAR(20) UNIQUE,
-    CopiesAvailable INT DEFAULT 1 CHECK (CopiesAvailable >= 0)
+CREATE TABLE ClientTypes(
+	ClientTypeID INT PRIMARY KEY IDENTITY(1,1),
+	ClientType NVARCHAR(150) NOT NULL
+);
+
+CREATE TABLE Genders(
+	GenderID INT PRIMARY KEY IDENTITY(1,1),
+	Gender NVARCHAR(150) NOT NULL
+);
+
+CREATE TABLE Posts(
+	PostID INT PRIMARY KEY IDENTITY(1,1),
+	Post NVARCHAR(150) NOT NULL
+);
+
+CREATE TABLE Statuses(
+	StatusID INT PRIMARY KEY IDENTITY(1,1),
+	Status NVARCHAR(150) NOT NULL
+);
+
+CREATE TABLE Clients (
+    ClientID INT PRIMARY KEY IDENTITY(1,1),
+	FullName NVARCHAR(150) NOT NULL,
+	ClientTypeID INT DEFAULT 0,
+	Email NVARCHAR(100) UNIQUE,
+    Phone NVARCHAR(18) UNIQUE NOT NULL,
+    Address NVARCHAR(255),
+	INN NVARCHAR(10) DEFAULT '',
+    RegistrationDate DATETIME DEFAULT GETDATE(),
+	FOREIGN KEY (ClientTypeID) REFERENCES ClientTypes(ClientTypeID)
+);
+
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY IDENTITY(1,1),
+    FullName NVARCHAR(150) NOT NULL,
+    Phone NVARCHAR(18) UNIQUE NOT NULL,
+    Email NVARCHAR(100) UNIQUE,
+	GenderID INT DEFAULT 0,
+	PostID INT DEFAULT 0,
+	FOREIGN KEY (GenderID) REFERENCES Genders(GenderID),
+	FOREIGN KEY (PostID) REFERENCES Posts(PostID)
+);
+
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY IDENTITY(1,1),
+    ClientID INT NOT NULL,
+    EmployeeID INT NOT NULL,
+    OrderDate DATETIME DEFAULT GETDATE(),
+    TotalAmount FLOAT DEFAULT 0.00,
+    StatusID INT DEFAULT 0,
+    FOREIGN KEY (ClientID) REFERENCES Clients(ClientID) ON DELETE CASCADE,
+    FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID),
+	FOREIGN KEY (StatusID) REFERENCES Statuses(StatusID) ON DELETE CASCADE
+);
+
+CREATE TABLE Products (
+    ProductID INT PRIMARY KEY IDENTITY(1,1),
+    Name NVARCHAR(150) NOT NULL,
+    Description NVARCHAR(255),
+    Price FLOAT NOT NULL
+);
+
+CREATE TABLE OrderDetails (
+    OrderDetailID INT PRIMARY KEY IDENTITY(1,1),
+    OrderID INT NOT NULL,
+    ProductID INT NOT NULL,
+    Price FLOAT,
+    FOREIGN KEY (OrderID) REFERENCES Orders(OrderID) ON DELETE CASCADE,
+    FOREIGN KEY (ProductID) REFERENCES Products(ProductID) ON DELETE CASCADE
 );
 
 CREATE TABLE Registration (
@@ -18,58 +79,86 @@ CREATE TABLE Registration (
 	IsAdmin BIT DEFAULT 0
 );
 
-CREATE TABLE Loans (
-    LoanID INT PRIMARY KEY IDENTITY(1,1),
-    RegistrationID INT NOT NULL FOREIGN KEY REFERENCES Registration(RegistrationID),
-    BookID INT NOT NULL FOREIGN KEY REFERENCES Books(BookID),
-    LoanDate DATE DEFAULT GETDATE(),
-    ReturnDate DATE NULL,
-    IsReturned BIT DEFAULT 0
-);
+CREATE TRIGGER trg_InsertOrderDetailsPrice
+ON OrderDetails
+AFTER INSERT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+    UPDATE od
+    SET od.Price = p.Price
+    FROM OrderDetails od
+    INNER JOIN inserted i ON od.OrderDetailID = i.OrderDetailID
+    INNER JOIN Products p ON i.ProductID = p.ProductID;
+END;
 
+CREATE TRIGGER trg_UpdateOrderTotalAmount
+ON OrderDetails
+AFTER INSERT, UPDATE, DELETE
+AS
+BEGIN
+    SET NOCOUNT ON;
 
-INSERT INTO Books (Title, Author, Genre, PublishedYear, ISBN, CopiesAvailable)
+    UPDATE o
+    SET o.TotalAmount = (
+        SELECT COALESCE(SUM(od.Price), 0)
+        FROM OrderDetails od
+        WHERE od.OrderID = o.OrderID
+    )
+    FROM Orders o
+    INNER JOIN (SELECT DISTINCT OrderID FROM inserted UNION SELECT DISTINCT OrderID FROM deleted) AS affectedOrders
+    ON o.OrderID = affectedOrders.OrderID;
+END;
+
+INSERT INTO ClientTypes (ClientType) VALUES ('Физическое лицо'), ('Юридическое лицо');
+
+INSERT INTO Genders (Gender) VALUES ('Мужской'), ('Женский');
+
+INSERT INTO Posts (Post) VALUES ('Менеджер по продажам'), ('Администратор');
+
+INSERT INTO Statuses (Status) VALUES ('В обработке'), ('Подтвержден'), ('Отменен'), ('Выполнен');
+
+INSERT INTO Clients (FullName, ClientTypeID, Email, Phone, Address, INN)
 VALUES 
-('To Kill a Mockingbird', 'Harper Lee', 'Fiction', 1960, '978-0-06-112008-4', 3),
-('1984', 'George Orwell', 'Dystopian', 1949, '978-0-452-28423-4', 5),
-('The Great Gatsby', 'F. Scott Fitzgerald', 'Classic', 1925, '978-0-7432-7356-5', 2),
-('Moby Dick', 'Herman Melville', 'Adventure', 1851, '978-0-14-243724-7', 1),
-('Pride and Prejudice', 'Jane Austen', 'Romance', 1813, '978-0-19-953556-9', 4);
+    ('Иванов Иван Иванович', 1, 'ivanov@mail.ru', '+79991234567', 'г. Москва, ул. Ленина, д. 10', ''),
+    ('ООО "Ромашка"', 2, 'romashka@mail.ru', '+79991112233', 'г. Санкт-Петербург, пр. Невский, д. 25', '0987654321');
+
+INSERT INTO Employees (FullName, Phone, Email, GenderID, PostID)
+VALUES 
+    ('Петров Петр Петрович', '+79998887766', 'petrov@mail.ru', 1, 1),
+    ('Сидорова Анна Сергеевна', '+79995554433', 'sidorova@mail.ru', 2, 2);
+
+INSERT INTO Products (Name, Description, Price)
+VALUES 
+    ('Квартира в доме 1', 'Дом 1', 85000000.00),
+    ('Квартира в доме 12', 'Дом 2', 3500000.00),
+    ('Квартира в доме 13', 'Дом 3', 1500000.00);
+
+INSERT INTO Orders (ClientID, EmployeeID, StatusID)
+VALUES 
+    (1, 1, 1),
+    (2, 2, 2);
+
+INSERT INTO OrderDetails (OrderID, ProductID)
+VALUES 
+    (1, 1),
+    (1, 2),
+    (2, 3);
 
 INSERT INTO Registration (UserLogin, UserPassword, IsAdmin) VALUES
 ('admin', 'admin', 1),
 ('user', 'user', 0);
 
-INSERT INTO Loans (RegistrationID, BookID, LoanDate, ReturnDate, IsReturned)
-VALUES 
-(1, 1, '2023-11-01', '2023-11-10', 1),
-(1, 2, '2023-11-03', NULL, 0),
-(1, 3, '2023-10-15', '2023-10-25', 1),
-(1, 4, '2023-11-04', NULL, 0),
-(1, 5, '2023-09-20', '2023-09-30', 1);
-
-CREATE TRIGGER trg_UpdateCopiesAvailable
-ON Loans
-AFTER UPDATE
-AS
-BEGIN
-    IF UPDATE(IsReturned)
-    BEGIN
-        UPDATE Books
-        SET CopiesAvailable = CASE 
-            WHEN l.IsReturned = 1 AND i.IsReturned = 0 THEN CopiesAvailable + 1  -- Книга возвращена
-            WHEN l.IsReturned = 0 AND i.IsReturned = 1 THEN CopiesAvailable - 1  -- Книга выдана
-            ELSE CopiesAvailable 
-        END
-        FROM Books b
-        INNER JOIN Inserted i ON i.BookID = b.BookID
-        INNER JOIN Deleted l ON l.LoanID = i.LoanID
-        WHERE i.BookID = b.BookID;
-    END
-END;
-
-SELECT * FROM Books;
-SELECT * FROM Loans;
+SELECT * FROM ClientTypes;
+SELECT * FROM Genders;
+SELECT * FROM Posts;
+SELECT * FROM Statuses;
+SELECT * FROM Clients;
+SELECT * FROM Employees;
+SELECT * FROM Orders;
+SELECT * FROM Products;
+SELECT * FROM OrderDetails;
 SELECT * FROM Registration;
 
-DROP DATABASE LibraryDB;
+DROP DATABASE OrderTrack;

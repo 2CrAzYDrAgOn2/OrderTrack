@@ -35,7 +35,7 @@ namespace OrderTrack
                 StartPosition = FormStartPosition.CenterScreen;
                 InitializeNotifyIcon();
                 InitializeTimer();
-                ClearFields();
+                //ClearFields();
                 ShowBalloonTip();
             }
             catch (Exception ex)
@@ -48,21 +48,39 @@ namespace OrderTrack
         {
             try
             {
-                dataGridViewBooks.Columns.Add("BookID", "Номер");
-                dataGridViewBooks.Columns.Add("Title", "Заголовок");
-                dataGridViewBooks.Columns.Add("Author", "Автор");
-                dataGridViewBooks.Columns.Add("Genre", "Жанр");
-                dataGridViewBooks.Columns.Add("PublishedYear", "Год выпуска");
-                dataGridViewBooks.Columns.Add("ISBN", "ISBN");
-                dataGridViewBooks.Columns.Add("CopiesAvailable", "Доступно копий");
-                dataGridViewBooks.Columns.Add("IsNew", String.Empty);
-                dataGridViewLoans.Columns.Add("LoanID", "Номер");
-                dataGridViewLoans.Columns.Add("RegistrationID", "Номер пользователя");
-                dataGridViewLoans.Columns.Add("BookID", "Номер книги");
-                dataGridViewLoans.Columns.Add("LoanDate", "Дата выдачи");
-                dataGridViewLoans.Columns.Add("ReturnDate", "Дата возврата");
-                dataGridViewLoans.Columns.Add("IsReturned", "Статус");
-                dataGridViewLoans.Columns.Add("IsNew", String.Empty);
+                dataGridViewClients.Columns.Add("ClientID", "Номер");
+                dataGridViewClients.Columns.Add("FullName", "Наименование");
+                dataGridViewClients.Columns.Add("ClientTypeID", "Тип клиента");
+                dataGridViewClients.Columns.Add("Email", "Электронная почта");
+                dataGridViewClients.Columns.Add("Phone", "Телефон");
+                dataGridViewClients.Columns.Add("Address", "Адрес");
+                dataGridViewClients.Columns.Add("INN", "ИНН");
+                dataGridViewClients.Columns.Add("RegistrationDate", "Дата регистрации");
+                dataGridViewClients.Columns.Add("IsNew", String.Empty);
+                dataGridViewEmployees.Columns.Add("EmployeeID", "Номер");
+                dataGridViewEmployees.Columns.Add("FullName", "ФИО");
+                dataGridViewEmployees.Columns.Add("Phone", "Телефон");
+                dataGridViewEmployees.Columns.Add("Email", "Почта");
+                dataGridViewEmployees.Columns.Add("GenderID", "Пол");
+                dataGridViewEmployees.Columns.Add("PostID", "Должность");
+                dataGridViewEmployees.Columns.Add("IsNew", String.Empty);
+                dataGridViewOrders.Columns.Add("OrderID", "Номер");
+                dataGridViewOrders.Columns.Add("ClientID", "Наименование клиента");
+                dataGridViewOrders.Columns.Add("EmployeeID", "ФИО сотрудника");
+                dataGridViewOrders.Columns.Add("OrderDate", "Дата заказа");
+                dataGridViewOrders.Columns.Add("TotalAmount", "Итого");
+                dataGridViewOrders.Columns.Add("StatusID", "Статус");
+                dataGridViewOrders.Columns.Add("IsNew", String.Empty);
+                dataGridViewProducts.Columns.Add("ProductID", "Номер");
+                dataGridViewProducts.Columns.Add("Name", "Наименование");
+                dataGridViewProducts.Columns.Add("Description", "Описание");
+                dataGridViewProducts.Columns.Add("Price", "Цена");
+                dataGridViewProducts.Columns.Add("IsNew", String.Empty);
+                dataGridViewOrderDetails.Columns.Add("OrderDetailID", "Номер");
+                dataGridViewOrderDetails.Columns.Add("OrderID", "Номер заказа");
+                dataGridViewOrderDetails.Columns.Add("ProductID", "Наименование продукта");
+                dataGridViewOrderDetails.Columns.Add("Price", "Цена");
+                dataGridViewOrderDetails.Columns.Add("IsNew", String.Empty);
             }
             catch (Exception ex)
             {
@@ -70,29 +88,29 @@ namespace OrderTrack
             }
         }
 
-        private void ClearFields()
-        {
-            try
-            {
-                textBoxBookID.Text = "";
-                textBoxTitleBooks.Text = "";
-                textBoxAuthorBooks.Text = "";
-                textBoxGenreBooks.Text = "";
-                textBoxPublishedYearBooks.Text = "";
-                textBoxISBNBooks.Text = "";
-                textBoxCopiesAvailableBooks.Text = "";
-                textBoxLoanID.Text = "";
-                textBoxRegistrationIDLoans.Text = "";
-                textBoxBookIDLoans.Text = "";
-                dateTimePickerLoanDateLoans.Text = "";
-                dateTimePickerReturnDateLoans.Text = "";
-                textBoxIsReturnedLoans.Text = "";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+        //private void ClearFields()
+        //{
+        //    try
+        //    {
+        //        textBoxBookID.Text = "";
+        //        textBoxTitleBooks.Text = "";
+        //        textBoxAuthorBooks.Text = "";
+        //        textBoxGenreBooks.Text = "";
+        //        textBoxPublishedYearBooks.Text = "";
+        //        textBoxISBNBooks.Text = "";
+        //        textBoxCopiesAvailableBooks.Text = "";
+        //        textBoxLoanID.Text = "";
+        //        textBoxRegistrationIDLoans.Text = "";
+        //        textBoxBookIDLoans.Text = "";
+        //        dateTimePickerLoanDateLoans.Text = "";
+        //        dateTimePickerReturnDateLoans.Text = "";
+        //        textBoxIsReturnedLoans.Text = "";
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
 
         private static void ReadSingleRow(DataGridView dataGridView, IDataRecord iDataRecord)
         {
@@ -100,12 +118,24 @@ namespace OrderTrack
             {
                 switch (dataGridView.Name)
                 {
-                    case "dataGridViewBooks":
-                        dataGridView.Rows.Add(iDataRecord.GetInt32(0), iDataRecord.GetString(1), iDataRecord.GetString(2), iDataRecord.GetString(3), iDataRecord.GetInt32(4), iDataRecord.GetString(5), iDataRecord.GetInt32(6), RowState.Modified);
+                    case "dataGridViewClients":
+                        dataGridView.Rows.Add(iDataRecord.GetInt32(0), iDataRecord.GetString(1), iDataRecord.GetInt32(2), iDataRecord.GetString(3), iDataRecord.GetString(4), iDataRecord.GetString(5), iDataRecord.GetString(6), iDataRecord.GetDateTime(7).ToString("yyyy-MM-dd"), RowState.Modified);
                         break;
 
-                    case "dataGridViewLoans":
-                        dataGridView.Rows.Add(iDataRecord.GetInt32(0), iDataRecord.GetInt32(1), iDataRecord.GetInt32(2), iDataRecord.GetDateTime(3).ToString("yyyy-MM-dd"), iDataRecord.IsDBNull(4) ? "" : iDataRecord.GetDateTime(4).ToString("yyyy-MM-dd"), iDataRecord.GetBoolean(5), RowState.Modified);
+                    case "dataGridViewEmployees":
+                        dataGridView.Rows.Add(iDataRecord.GetInt32(0), iDataRecord.GetString(1), iDataRecord.GetString(2), iDataRecord.GetString(3), iDataRecord.GetInt32(4), iDataRecord.GetInt32(5), RowState.Modified);
+                        break;
+
+                    case "dataGridViewOrders":
+                        dataGridView.Rows.Add(iDataRecord.GetInt32(0), iDataRecord.GetInt32(1), iDataRecord.GetInt32(2), iDataRecord.GetDateTime(3).ToString("yyyy-MM-dd"), iDataRecord.GetDouble(4), iDataRecord.GetInt32(5), RowState.Modified);
+                        break;
+
+                    case "dataGridViewProducts":
+                        dataGridView.Rows.Add(iDataRecord.GetInt32(0), iDataRecord.GetString(1), iDataRecord.GetString(2), iDataRecord.GetDouble(3), RowState.Modified);
+                        break;
+
+                    case "dataGridViewOrderDetails":
+                        dataGridView.Rows.Add(iDataRecord.GetInt32(0), iDataRecord.GetInt32(1), iDataRecord.GetInt32(2), iDataRecord.GetDouble(3), RowState.Modified);
                         break;
                 }
             }
@@ -162,7 +192,7 @@ namespace OrderTrack
 
         private void ShowBalloonTip()
         {
-            notifyIcon.BalloonTipTitle = "Учет библиотеки";
+            notifyIcon.BalloonTipTitle = "СитиСервисПлюс";
             notifyIcon.BalloonTipText = $"Все права защищены.";
             notifyIcon.ShowBalloonTip(3000);
         }
@@ -172,8 +202,11 @@ namespace OrderTrack
             try
             {
                 CreateColumns();
-                RefreshDataGrid(dataGridViewBooks, "Books");
-                RefreshDataGrid(dataGridViewLoans, "Loans");
+                RefreshDataGrid(dataGridViewClients, "Clients");
+                RefreshDataGrid(dataGridViewEmployees, "Employees");
+                RefreshDataGrid(dataGridViewOrders, "Orders");
+                RefreshDataGrid(dataGridViewProducts, "Products");
+                RefreshDataGrid(dataGridViewOrderDetails, "OrderDetails");
             }
             catch (Exception ex)
             {
@@ -181,275 +214,275 @@ namespace OrderTrack
             }
         }
 
-        private void DataGridView_CellClick(DataGridView dataGridView, int selectedRow)
-        {
-            try
-            {
-                DataGridViewRow dataGridViewRow = dataGridView.Rows[selectedRow];
-                switch (dataGridView.Name)
-                {
-                    case "dataGridViewBooks":
-                        textBoxBookID.Text = dataGridViewRow.Cells[0].Value.ToString();
-                        textBoxTitleBooks.Text = dataGridViewRow.Cells[1].Value.ToString();
-                        textBoxAuthorBooks.Text = dataGridViewRow.Cells[2].Value.ToString();
-                        textBoxGenreBooks.Text = dataGridViewRow.Cells[3].Value.ToString();
-                        textBoxPublishedYearBooks.Text = dataGridViewRow.Cells[4].Value.ToString();
-                        textBoxISBNBooks.Text = dataGridViewRow.Cells[5].Value.ToString();
-                        textBoxCopiesAvailableBooks.Text = dataGridViewRow.Cells[6].Value.ToString();
-                        break;
+        //private void DataGridView_CellClick(DataGridView dataGridView, int selectedRow)
+        //{
+        //    try
+        //    {
+        //        DataGridViewRow dataGridViewRow = dataGridView.Rows[selectedRow];
+        //        switch (dataGridView.Name)
+        //        {
+        //            case "dataGridViewBooks":
+        //                textBoxBookID.Text = dataGridViewRow.Cells[0].Value.ToString();
+        //                textBoxTitleBooks.Text = dataGridViewRow.Cells[1].Value.ToString();
+        //                textBoxAuthorBooks.Text = dataGridViewRow.Cells[2].Value.ToString();
+        //                textBoxGenreBooks.Text = dataGridViewRow.Cells[3].Value.ToString();
+        //                textBoxPublishedYearBooks.Text = dataGridViewRow.Cells[4].Value.ToString();
+        //                textBoxISBNBooks.Text = dataGridViewRow.Cells[5].Value.ToString();
+        //                textBoxCopiesAvailableBooks.Text = dataGridViewRow.Cells[6].Value.ToString();
+        //                break;
 
-                    case "dataGridViewLoans":
-                        textBoxLoanID.Text = dataGridViewRow.Cells[0].Value.ToString();
-                        var registrationID = dataGridViewRow.Cells[1].Value.ToString();
-                        string query = $"SELECT UserLogin FROM Registration WHERE RegistrationID = {registrationID}";
-                        SqlCommand command = new(query, dataBase.GetConnection());
-                        dataBase.OpenConnection();
-                        object result = command.ExecuteScalar();
-                        textBoxRegistrationIDLoans.Text = result.ToString();
-                        textBoxBookIDLoans.Text = dataGridViewRow.Cells[2].Value.ToString();
-                        dateTimePickerLoanDateLoans.Text = dataGridViewRow.Cells[3].Value.ToString();
-                        dateTimePickerReturnDateLoans.Text = dataGridViewRow.Cells[4].Value?.ToString();
-                        if (dataGridViewRow.Cells[4].Value?.ToString() == "")
-                        {
-                            checkBoxReturnDateLoans.Checked = true;
-                        }
-                        else
-                        {
-                            checkBoxReturnDateLoans.Checked = false;
-                        }
-                        textBoxIsReturnedLoans.Text = dataGridViewRow.Cells[5].Value.ToString();
-                        break;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+        //            case "dataGridViewLoans":
+        //                textBoxLoanID.Text = dataGridViewRow.Cells[0].Value.ToString();
+        //                var registrationID = dataGridViewRow.Cells[1].Value.ToString();
+        //                string query = $"SELECT UserLogin FROM Registration WHERE RegistrationID = {registrationID}";
+        //                SqlCommand command = new(query, dataBase.GetConnection());
+        //                dataBase.OpenConnection();
+        //                object result = command.ExecuteScalar();
+        //                textBoxRegistrationIDLoans.Text = result.ToString();
+        //                textBoxBookIDLoans.Text = dataGridViewRow.Cells[2].Value.ToString();
+        //                dateTimePickerLoanDateLoans.Text = dataGridViewRow.Cells[3].Value.ToString();
+        //                dateTimePickerReturnDateLoans.Text = dataGridViewRow.Cells[4].Value?.ToString();
+        //                if (dataGridViewRow.Cells[4].Value?.ToString() == "")
+        //                {
+        //                    checkBoxReturnDateLoans.Checked = true;
+        //                }
+        //                else
+        //                {
+        //                    checkBoxReturnDateLoans.Checked = false;
+        //                }
+        //                textBoxIsReturnedLoans.Text = dataGridViewRow.Cells[5].Value.ToString();
+        //                break;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
 
-        private void Search(DataGridView dataGridView)
-        {
-            try
-            {
-                dataGridView.Rows.Clear();
-                switch (dataGridView.Name)
-                {
-                    case "dataGridViewBooks":
-                        string searchStringEquipment = $"select * from Books where concat (BookID, Title, Author, Genre, PublishedYear, ISBN, CopiesAvailable) like '%" + textBoxSearchBooks.Text + "%'";
-                        SqlCommand sqlCommandEquipment = new(searchStringEquipment, dataBase.GetConnection());
-                        dataBase.OpenConnection();
-                        SqlDataReader sqlDataReaderEquipment = sqlCommandEquipment.ExecuteReader();
-                        while (sqlDataReaderEquipment.Read())
-                        {
-                            ReadSingleRow(dataGridView, sqlDataReaderEquipment);
-                        }
-                        sqlDataReaderEquipment.Close();
-                        break;
+        //private void Search(DataGridView dataGridView)
+        //{
+        //    try
+        //    {
+        //        dataGridView.Rows.Clear();
+        //        switch (dataGridView.Name)
+        //        {
+        //            case "dataGridViewBooks":
+        //                string searchStringEquipment = $"select * from Books where concat (BookID, Title, Author, Genre, PublishedYear, ISBN, CopiesAvailable) like '%" + textBoxSearchBooks.Text + "%'";
+        //                SqlCommand sqlCommandEquipment = new(searchStringEquipment, dataBase.GetConnection());
+        //                dataBase.OpenConnection();
+        //                SqlDataReader sqlDataReaderEquipment = sqlCommandEquipment.ExecuteReader();
+        //                while (sqlDataReaderEquipment.Read())
+        //                {
+        //                    ReadSingleRow(dataGridView, sqlDataReaderEquipment);
+        //                }
+        //                sqlDataReaderEquipment.Close();
+        //                break;
 
-                    case "dataGridViewLoans":
-                        string searchStringSupplier = $"select * from Loans where concat (LoanID, RegistrationID, BookID, LoanDate, ReturnDate, IsReturned) like '%" + textBoxSearchLoans.Text + "%'";
-                        SqlCommand sqlCommandSupplier = new(searchStringSupplier, dataBase.GetConnection());
-                        dataBase.OpenConnection();
-                        SqlDataReader sqlDataReaderSupplier = sqlCommandSupplier.ExecuteReader();
-                        while (sqlDataReaderSupplier.Read())
-                        {
-                            ReadSingleRow(dataGridView, sqlDataReaderSupplier);
-                        }
-                        sqlDataReaderSupplier.Close();
-                        break;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+        //            case "dataGridViewLoans":
+        //                string searchStringSupplier = $"select * from Loans where concat (LoanID, RegistrationID, BookID, LoanDate, ReturnDate, IsReturned) like '%" + textBoxSearchClients.Text + "%'";
+        //                SqlCommand sqlCommandSupplier = new(searchStringSupplier, dataBase.GetConnection());
+        //                dataBase.OpenConnection();
+        //                SqlDataReader sqlDataReaderSupplier = sqlCommandSupplier.ExecuteReader();
+        //                while (sqlDataReaderSupplier.Read())
+        //                {
+        //                    ReadSingleRow(dataGridView, sqlDataReaderSupplier);
+        //                }
+        //                sqlDataReaderSupplier.Close();
+        //                break;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
 
-        private static void DeleteRow(DataGridView dataGridView)
-        {
-            try
-            {
-                int index = dataGridView.CurrentCell.RowIndex;
-                dataGridView.Rows[index].Visible = false;
-                switch (dataGridView.Name)
-                {
-                    case "dataGridViewBooks":
-                        if (dataGridView.Rows[index].Cells[0].Value.ToString() == string.Empty)
-                        {
-                            dataGridView.Rows[index].Cells[7].Value = RowState.Deleted;
-                            return;
-                        }
-                        dataGridView.Rows[index].Cells[7].Value = RowState.Deleted;
-                        break;
+        //private static void DeleteRow(DataGridView dataGridView)
+        //{
+        //    try
+        //    {
+        //        int index = dataGridView.CurrentCell.RowIndex;
+        //        dataGridView.Rows[index].Visible = false;
+        //        switch (dataGridView.Name)
+        //        {
+        //            case "dataGridViewBooks":
+        //                if (dataGridView.Rows[index].Cells[0].Value.ToString() == string.Empty)
+        //                {
+        //                    dataGridView.Rows[index].Cells[7].Value = RowState.Deleted;
+        //                    return;
+        //                }
+        //                dataGridView.Rows[index].Cells[7].Value = RowState.Deleted;
+        //                break;
 
-                    case "dataGridViewLoans":
-                        if (dataGridView.Rows[index].Cells[0].Value.ToString() == string.Empty)
-                        {
-                            dataGridView.Rows[index].Cells[6].Value = RowState.Deleted;
-                            return;
-                        }
-                        dataGridView.Rows[index].Cells[6].Value = RowState.Deleted;
-                        break;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+        //            case "dataGridViewLoans":
+        //                if (dataGridView.Rows[index].Cells[0].Value.ToString() == string.Empty)
+        //                {
+        //                    dataGridView.Rows[index].Cells[6].Value = RowState.Deleted;
+        //                    return;
+        //                }
+        //                dataGridView.Rows[index].Cells[6].Value = RowState.Deleted;
+        //                break;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
 
-        private void UpdateBase(DataGridView dataGridView)
-        {
-            try
-            {
-                dataBase.OpenConnection();
-                for (int index = 0; index < dataGridView.Rows.Count; index++)
-                {
-                    switch (dataGridView.Name)
-                    {
-                        case "dataGridViewBooks":
-                            var rowStateBooks = (RowState)dataGridView.Rows[index].Cells[7].Value;
-                            if (rowStateBooks == RowState.Existed)
-                            {
-                                continue;
-                            }
-                            if (rowStateBooks == RowState.Deleted)
-                            {
-                                var bookID = Convert.ToInt32(dataGridView.Rows[index].Cells[0].Value);
-                                var deleteQuery = $"delete from Books where BookID = '{bookID}'";
-                                var sqlCommand = new SqlCommand(deleteQuery, dataBase.GetConnection());
-                                sqlCommand.ExecuteNonQuery();
-                            }
-                            if (rowStateBooks == RowState.Modified)
-                            {
-                                var bookID = dataGridView.Rows[index].Cells[0].Value.ToString();
-                                var title = dataGridView.Rows[index].Cells[1].Value.ToString();
-                                var author = dataGridView.Rows[index].Cells[2].Value.ToString();
-                                var genre = dataGridView.Rows[index].Cells[3].Value.ToString();
-                                var publishedYear = dataGridView.Rows[index].Cells[4].Value.ToString();
-                                var iSBN = dataGridView.Rows[index].Cells[5].Value.ToString();
-                                var copiesAvailable = dataGridView.Rows[index].Cells[6].Value.ToString();
-                                var changeQuery = $"update Books set Title = '{title}', Author = '{author}', Genre = '{genre}', PublishedYear = '{publishedYear}', ISBN = '{iSBN}', CopiesAvailable = '{copiesAvailable}' where BookID = '{bookID}'";
-                                var sqlCommand = new SqlCommand(changeQuery, dataBase.GetConnection());
-                                sqlCommand.ExecuteNonQuery();
-                            }
-                            if (rowStateBooks == RowState.New)
-                            {
-                                var title = dataGridView.Rows[index].Cells[1].Value.ToString();
-                                var author = dataGridView.Rows[index].Cells[2].Value.ToString();
-                                var genre = dataGridView.Rows[index].Cells[3].Value.ToString();
-                                var publishedYear = dataGridView.Rows[index].Cells[4].Value.ToString();
-                                var iSBN = dataGridView.Rows[index].Cells[5].Value.ToString();
-                                var copiesAvailable = dataGridView.Rows[index].Cells[6].Value.ToString();
-                                var newQuery = $"insert into Books (Title, Author, Genre, PublishedYear, ISBN, CopiesAvailable) values ('{title}', '{author}', '{genre}', '{publishedYear}', '{iSBN}', '{copiesAvailable}')";
-                                var sqlCommand = new SqlCommand(newQuery, dataBase.GetConnection());
-                                sqlCommand.ExecuteNonQuery();
-                            }
-                            break;
+        //private void UpdateBase(DataGridView dataGridView)
+        //{
+        //    try
+        //    {
+        //        dataBase.OpenConnection();
+        //        for (int index = 0; index < dataGridView.Rows.Count; index++)
+        //        {
+        //            switch (dataGridView.Name)
+        //            {
+        //                case "dataGridViewBooks":
+        //                    var rowStateBooks = (RowState)dataGridView.Rows[index].Cells[7].Value;
+        //                    if (rowStateBooks == RowState.Existed)
+        //                    {
+        //                        continue;
+        //                    }
+        //                    if (rowStateBooks == RowState.Deleted)
+        //                    {
+        //                        var bookID = Convert.ToInt32(dataGridView.Rows[index].Cells[0].Value);
+        //                        var deleteQuery = $"delete from Books where BookID = '{bookID}'";
+        //                        var sqlCommand = new SqlCommand(deleteQuery, dataBase.GetConnection());
+        //                        sqlCommand.ExecuteNonQuery();
+        //                    }
+        //                    if (rowStateBooks == RowState.Modified)
+        //                    {
+        //                        var bookID = dataGridView.Rows[index].Cells[0].Value.ToString();
+        //                        var title = dataGridView.Rows[index].Cells[1].Value.ToString();
+        //                        var author = dataGridView.Rows[index].Cells[2].Value.ToString();
+        //                        var genre = dataGridView.Rows[index].Cells[3].Value.ToString();
+        //                        var publishedYear = dataGridView.Rows[index].Cells[4].Value.ToString();
+        //                        var iSBN = dataGridView.Rows[index].Cells[5].Value.ToString();
+        //                        var copiesAvailable = dataGridView.Rows[index].Cells[6].Value.ToString();
+        //                        var changeQuery = $"update Books set Title = '{title}', Author = '{author}', Genre = '{genre}', PublishedYear = '{publishedYear}', ISBN = '{iSBN}', CopiesAvailable = '{copiesAvailable}' where BookID = '{bookID}'";
+        //                        var sqlCommand = new SqlCommand(changeQuery, dataBase.GetConnection());
+        //                        sqlCommand.ExecuteNonQuery();
+        //                    }
+        //                    if (rowStateBooks == RowState.New)
+        //                    {
+        //                        var title = dataGridView.Rows[index].Cells[1].Value.ToString();
+        //                        var author = dataGridView.Rows[index].Cells[2].Value.ToString();
+        //                        var genre = dataGridView.Rows[index].Cells[3].Value.ToString();
+        //                        var publishedYear = dataGridView.Rows[index].Cells[4].Value.ToString();
+        //                        var iSBN = dataGridView.Rows[index].Cells[5].Value.ToString();
+        //                        var copiesAvailable = dataGridView.Rows[index].Cells[6].Value.ToString();
+        //                        var newQuery = $"insert into Books (Title, Author, Genre, PublishedYear, ISBN, CopiesAvailable) values ('{title}', '{author}', '{genre}', '{publishedYear}', '{iSBN}', '{copiesAvailable}')";
+        //                        var sqlCommand = new SqlCommand(newQuery, dataBase.GetConnection());
+        //                        sqlCommand.ExecuteNonQuery();
+        //                    }
+        //                    break;
 
-                        case "dataGridViewLoans":
-                            var rowStateLoans = (RowState)dataGridView.Rows[index].Cells[6].Value;
-                            if (rowStateLoans == RowState.Existed)
-                            {
-                                continue;
-                            }
-                            if (rowStateLoans == RowState.Deleted)
-                            {
-                                var loanID = Convert.ToInt32(dataGridView.Rows[index].Cells[0].Value);
-                                var bookID = dataGridView.Rows[index].Cells[2].Value.ToString();
-                                var isReturned = dataGridView.Rows[index].Cells[5].Value.ToString();
-                                if (isReturned == "False")
-                                {
-                                    string updateCopiesQuery = $"UPDATE Books SET CopiesAvailable = CopiesAvailable + 1 WHERE BookID = '{bookID}'";
-                                    SqlCommand updateCopiesCommand = new(updateCopiesQuery, dataBase.GetConnection());
-                                    updateCopiesCommand.ExecuteNonQuery();
-                                }
-                                var deleteQuery = $"delete from Loans where LoanID = '{loanID}'";
-                                var sqlCommand = new SqlCommand(deleteQuery, dataBase.GetConnection());
-                                sqlCommand.ExecuteNonQuery();
-                            }
-                            if (rowStateLoans == RowState.Modified)
-                            {
-                                var loanID = dataGridView.Rows[index].Cells[0].Value.ToString();
-                                var registrationID = dataGridView.Rows[index].Cells[1].Value.ToString();
-                                var bookID = dataGridView.Rows[index].Cells[2].Value.ToString();
-                                var loanDate = dataGridView.Rows[index].Cells[3].Value.ToString();
-                                var returnDate = dataGridView.Rows[index].Cells[4].Value?.ToString();
-                                var isReturned = dataGridView.Rows[index].Cells[5].Value.ToString();
-                                var changeQuery = $"update Loans set RegistrationID = '{registrationID}', BookID = '{bookID}', LoanDate = '{loanDate}', ReturnDate = {(string.IsNullOrEmpty(returnDate) ? "NULL" : $"'{returnDate}'")}, IsReturned = '{isReturned}' where LoanID = '{loanID}'";
-                                var sqlCommand = new SqlCommand(changeQuery, dataBase.GetConnection());
-                                sqlCommand.ExecuteNonQuery();
-                            }
-                            if (rowStateLoans == RowState.New)
-                            {
-                                var registrationID = dataGridView.Rows[index].Cells[1].Value.ToString();
-                                var bookID = dataGridView.Rows[index].Cells[2].Value.ToString();
-                                var loanDate = dataGridView.Rows[index].Cells[3].Value.ToString();
-                                var returnDate = dataGridView.Rows[index].Cells[4].Value.ToString();
-                                var isReturned = dataGridView.Rows[index].Cells[5].Value.ToString();
-                                var newQuery = $"insert into Loans (RegistrationID, BookID, LoanDate, ReturnDate, ReturnDate, IsReturned) values ('{registrationID}', '{bookID}', '{loanDate}', '{returnDate}', '{isReturned}')";
-                                var sqlCommand = new SqlCommand(newQuery, dataBase.GetConnection());
-                                sqlCommand.ExecuteNonQuery();
-                            }
-                            break;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                dataBase.CloseConnection();
-            }
-        }
+        //                case "dataGridViewLoans":
+        //                    var rowStateLoans = (RowState)dataGridView.Rows[index].Cells[6].Value;
+        //                    if (rowStateLoans == RowState.Existed)
+        //                    {
+        //                        continue;
+        //                    }
+        //                    if (rowStateLoans == RowState.Deleted)
+        //                    {
+        //                        var loanID = Convert.ToInt32(dataGridView.Rows[index].Cells[0].Value);
+        //                        var bookID = dataGridView.Rows[index].Cells[2].Value.ToString();
+        //                        var isReturned = dataGridView.Rows[index].Cells[5].Value.ToString();
+        //                        if (isReturned == "False")
+        //                        {
+        //                            string updateCopiesQuery = $"UPDATE Books SET CopiesAvailable = CopiesAvailable + 1 WHERE BookID = '{bookID}'";
+        //                            SqlCommand updateCopiesCommand = new(updateCopiesQuery, dataBase.GetConnection());
+        //                            updateCopiesCommand.ExecuteNonQuery();
+        //                        }
+        //                        var deleteQuery = $"delete from Loans where LoanID = '{loanID}'";
+        //                        var sqlCommand = new SqlCommand(deleteQuery, dataBase.GetConnection());
+        //                        sqlCommand.ExecuteNonQuery();
+        //                    }
+        //                    if (rowStateLoans == RowState.Modified)
+        //                    {
+        //                        var loanID = dataGridView.Rows[index].Cells[0].Value.ToString();
+        //                        var registrationID = dataGridView.Rows[index].Cells[1].Value.ToString();
+        //                        var bookID = dataGridView.Rows[index].Cells[2].Value.ToString();
+        //                        var loanDate = dataGridView.Rows[index].Cells[3].Value.ToString();
+        //                        var returnDate = dataGridView.Rows[index].Cells[4].Value?.ToString();
+        //                        var isReturned = dataGridView.Rows[index].Cells[5].Value.ToString();
+        //                        var changeQuery = $"update Loans set RegistrationID = '{registrationID}', BookID = '{bookID}', LoanDate = '{loanDate}', ReturnDate = {(string.IsNullOrEmpty(returnDate) ? "NULL" : $"'{returnDate}'")}, IsReturned = '{isReturned}' where LoanID = '{loanID}'";
+        //                        var sqlCommand = new SqlCommand(changeQuery, dataBase.GetConnection());
+        //                        sqlCommand.ExecuteNonQuery();
+        //                    }
+        //                    if (rowStateLoans == RowState.New)
+        //                    {
+        //                        var registrationID = dataGridView.Rows[index].Cells[1].Value.ToString();
+        //                        var bookID = dataGridView.Rows[index].Cells[2].Value.ToString();
+        //                        var loanDate = dataGridView.Rows[index].Cells[3].Value.ToString();
+        //                        var returnDate = dataGridView.Rows[index].Cells[4].Value.ToString();
+        //                        var isReturned = dataGridView.Rows[index].Cells[5].Value.ToString();
+        //                        var newQuery = $"insert into Loans (RegistrationID, BookID, LoanDate, ReturnDate, ReturnDate, IsReturned) values ('{registrationID}', '{bookID}', '{loanDate}', '{returnDate}', '{isReturned}')";
+        //                        var sqlCommand = new SqlCommand(newQuery, dataBase.GetConnection());
+        //                        sqlCommand.ExecuteNonQuery();
+        //                    }
+        //                    break;
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //    finally
+        //    {
+        //        dataBase.CloseConnection();
+        //    }
+        //}
 
-        private void Change(DataGridView dataGridView)
-        {
-            try
-            {
-                var selectedRowIndex = dataGridView.CurrentCell.RowIndex;
-                switch (dataGridView.Name)
-                {
-                    case "dataGridViewBooks":
-                        var bookID = textBoxBookID.Text;
-                        var titleBooks = textBoxTitleBooks.Text;
-                        var authorBooks = textBoxAuthorBooks.Text;
-                        var genreBooks = textBoxGenreBooks.Text;
-                        var publishedYearBooks = textBoxPublishedYearBooks.Text;
-                        var iSBNBooks = textBoxISBNBooks.Text;
-                        var copiesAvailableBooks = textBoxCopiesAvailableBooks.Text;
-                        dataGridView.Rows[selectedRowIndex].SetValues(bookID, titleBooks, authorBooks, genreBooks, publishedYearBooks, iSBNBooks, copiesAvailableBooks);
-                        dataGridView.Rows[selectedRowIndex].Cells[7].Value = RowState.Modified;
-                        break;
+        //private void Change(DataGridView dataGridView)
+        //{
+        //    try
+        //    {
+        //        var selectedRowIndex = dataGridView.CurrentCell.RowIndex;
+        //        switch (dataGridView.Name)
+        //        {
+        //            case "dataGridViewBooks":
+        //                var bookID = textBoxBookID.Text;
+        //                var titleBooks = textBoxTitleBooks.Text;
+        //                var authorBooks = textBoxAuthorBooks.Text;
+        //                var genreBooks = textBoxGenreBooks.Text;
+        //                var publishedYearBooks = textBoxPublishedYearBooks.Text;
+        //                var iSBNBooks = textBoxISBNBooks.Text;
+        //                var copiesAvailableBooks = textBoxCopiesAvailableBooks.Text;
+        //                dataGridView.Rows[selectedRowIndex].SetValues(bookID, titleBooks, authorBooks, genreBooks, publishedYearBooks, iSBNBooks, copiesAvailableBooks);
+        //                dataGridView.Rows[selectedRowIndex].Cells[7].Value = RowState.Modified;
+        //                break;
 
-                    case "dataGridViewLoans":
-                        var loanID = textBoxLoanID.Text;
-                        var userLogin = textBoxRegistrationIDLoans.Text;
-                        string query = $"SELECT RegistrationID FROM Registration WHERE UserLogin = '{userLogin}'";
-                        SqlCommand command = new(query, dataBase.GetConnection());
-                        dataBase.OpenConnection();
-                        object result = command.ExecuteScalar();
-                        var registrationIDLoans = result.ToString();
-                        var bookIDLoans = textBoxBookIDLoans.Text;
-                        var loanDateLoans = dateTimePickerLoanDateLoans.Value;
-                        DateTime? returnDateLoans = dateTimePickerReturnDateLoans.Value;
-                        if (checkBoxReturnDateLoans.Checked)
-                        {
-                            returnDateLoans = null;
-                        }
-                        var isReturnedLoans = textBoxIsReturnedLoans.Text;
-                        dataGridView.Rows[selectedRowIndex].SetValues(loanID, registrationIDLoans, bookIDLoans, loanDateLoans, returnDateLoans, isReturnedLoans);
-                        dataGridView.Rows[selectedRowIndex].Cells[6].Value = RowState.Modified;
-                        break;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+        //            case "dataGridViewLoans":
+        //                var loanID = textBoxLoanID.Text;
+        //                var userLogin = textBoxRegistrationIDLoans.Text;
+        //                string query = $"SELECT RegistrationID FROM Registration WHERE UserLogin = '{userLogin}'";
+        //                SqlCommand command = new(query, dataBase.GetConnection());
+        //                dataBase.OpenConnection();
+        //                object result = command.ExecuteScalar();
+        //                var registrationIDLoans = result.ToString();
+        //                var bookIDLoans = textBoxBookIDLoans.Text;
+        //                var loanDateLoans = dateTimePickerLoanDateLoans.Value;
+        //                DateTime? returnDateLoans = dateTimePickerReturnDateLoans.Value;
+        //                if (checkBoxReturnDateLoans.Checked)
+        //                {
+        //                    returnDateLoans = null;
+        //                }
+        //                var isReturnedLoans = textBoxIsReturnedLoans.Text;
+        //                dataGridView.Rows[selectedRowIndex].SetValues(loanID, registrationIDLoans, bookIDLoans, loanDateLoans, returnDateLoans, isReturnedLoans);
+        //                dataGridView.Rows[selectedRowIndex].Cells[6].Value = RowState.Modified;
+        //                break;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
 
         private void ExportToWord(DataGridView dataGridView)
         {
@@ -463,12 +496,24 @@ namespace OrderTrack
                 Paragraph title = doc.Paragraphs.Add();
                 switch (dataGridView.Name)
                 {
-                    case "dataGridViewBooks":
-                        title.Range.Text = "Данные книг";
+                    case "dataGridViewClients":
+                        title.Range.Text = "Данные клиентов";
                         break;
 
-                    case "dataGridViewLoans":
-                        title.Range.Text = "Данные выдач";
+                    case "dataGridViewEmployees":
+                        title.Range.Text = "Данные сотрудников";
+                        break;
+
+                    case "dataGridViewOrders":
+                        title.Range.Text = "Данные заказов";
+                        break;
+
+                    case "dataGridViewProducts":
+                        title.Range.Text = "Данные продуктов";
+                        break;
+
+                    case "dataGridViewOrderDetails":
+                        title.Range.Text = "Данные деталей заказов";
                         break;
                 }
                 title.Range.Font.Bold = 1;
@@ -507,12 +552,24 @@ namespace OrderTrack
                 string title = "";
                 switch (dataGridView.Name)
                 {
-                    case "dataGridViewBooks":
-                        title = "Данные книг";
+                    case "dataGridViewClients":
+                        title = "Данные клиентов";
                         break;
 
-                    case "dataGridViewLoans":
-                        title = "Данные выдач";
+                    case "dataGridViewEmployees":
+                        title = "Данные сотрудников";
+                        break;
+
+                    case "dataGridViewOrders":
+                        title = "Данные заказов";
+                        break;
+
+                    case "dataGridViewProducts":
+                        title = "Данные продуктов";
+                        break;
+
+                    case "dataGridViewOrderDetails":
+                        title = "Данные деталей заказов";
                         break;
                 }
                 Excel.Range titleRange = worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, dataGridView.ColumnCount - 1]];
@@ -549,12 +606,24 @@ namespace OrderTrack
             string text = "";
             switch (dataGridView.Name)
             {
-                case "dataGridViewBooks":
-                    text += "Данные книг\n\n";
+                case "dataGridViewClients":
+                    text += "Данные клиентов\n\n";
                     break;
 
-                case "dataGridViewLoans":
-                    text += "Данные выдач\n\n";
+                case "dataGridViewEmployees":
+                    text += "Данные сотрудников\n\n";
+                    break;
+
+                case "dataGridViewOrders":
+                    text += "Данные заказов\n\n";
+                    break;
+
+                case "dataGridViewProducts":
+                    text += "Данные продуктов\n\n";
+                    break;
+
+                case "dataGridViewOrderDetails":
+                    text += "Данные деталей заказов\n\n";
                     break;
             }
             for (int col = 0; col < dataGridView.ColumnCount; col++)
@@ -575,27 +644,152 @@ namespace OrderTrack
             Process.Start(new ProcessStartInfo(filePath) { UseShellExecute = true });
         }
 
-        private void CheckBoxReturnDateLoans_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBoxReturnDateLoans.Checked)
-            {
-                dateTimePickerReturnDateLoans.Enabled = false;
-                textBoxIsReturnedLoans.Text = "0";
-            }
-            else
-            {
-                dateTimePickerReturnDateLoans.Enabled = true;
-                textBoxIsReturnedLoans.Text = "1";
-            }
-        }
+        //private void ButtonRefresh_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        RefreshDataGrid(dataGridViewBooks, "Books");
+        //        RefreshDataGrid(dataGridViewClients, "Loans");
+        //        ClearFields();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
 
-        private void ButtonRefresh_Click(object sender, EventArgs e)
+        //private void ButtonClear_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        ClearFields();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
+
+        //private void ButtonNewBook_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        AddFormBooks addForm = new();
+        //        addForm.Show();
+        //        ClearFields();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
+
+        //private void ButtonNewLoan_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        AddFormLoans addForm = new();
+        //        addForm.Show();
+        //        ClearFields();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
+
+        //private void ButtonDeleteBook_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        DeleteRow(dataGridViewBooks);
+        //        ClearFields();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
+
+        //private void ButtonDeleteLoan_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        DeleteRow(dataGridViewClients);
+        //        ClearFields();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
+
+        //private void ButtonChangeBook_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        Change(dataGridViewBooks);
+        //        ClearFields();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
+
+        //private void ButtonChangeLoan_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        Change(dataGridViewClients);
+        //        ClearFields();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
+
+        //private void ButtonSaveBook_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (admin)
+        //        {
+        //            UpdateBase(dataGridViewBooks);
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("У вас недостаточно прав!");
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
+
+        //private void ButtonSaveLoan_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        UpdateBase(dataGridViewClients);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
+        /// <summary>
+        /// ButtonWordClient_Click() вызывается при нажатии на кнопку "Вывод в Word" на вкладке "Клиенты"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonWordClient_Click(object sender, EventArgs e)
         {
             try
             {
-                RefreshDataGrid(dataGridViewBooks, "Books");
-                RefreshDataGrid(dataGridViewLoans, "Loans");
-                ClearFields();
+                ExportToWord(dataGridViewClients);
             }
             catch (Exception ex)
             {
@@ -603,11 +797,16 @@ namespace OrderTrack
             }
         }
 
-        private void ButtonClear_Click(object sender, EventArgs e)
+        /// <summary>
+        /// ButtonWordEmployee_Click() вызывается при нажатии на кнопку "Вывод в Word" на вкладке "Сотрудники"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonWordEmployee_Click(object sender, EventArgs e)
         {
             try
             {
-                ClearFields();
+                ExportToWord(dataGridViewClients);
             }
             catch (Exception ex)
             {
@@ -615,13 +814,16 @@ namespace OrderTrack
             }
         }
 
-        private void ButtonNewBook_Click(object sender, EventArgs e)
+        /// <summary>
+        /// ButtonWordOrder_Click() вызывается при нажатии на кнопку "Вывод в Word" на вкладке "Заказы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonWordOrder_Click(object sender, EventArgs e)
         {
             try
             {
-                AddFormBooks addForm = new();
-                addForm.Show();
-                ClearFields();
+                ExportToWord(dataGridViewClients);
             }
             catch (Exception ex)
             {
@@ -629,13 +831,16 @@ namespace OrderTrack
             }
         }
 
-        private void ButtonNewLoan_Click(object sender, EventArgs e)
+        /// <summary>
+        /// ButtonWordProduct_Click() вызывается при нажатии на кнопку "Вывод в Word" на вкладке "Продукты"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonWordProduct_Click(object sender, EventArgs e)
         {
             try
             {
-                AddFormLoans addForm = new();
-                addForm.Show();
-                ClearFields();
+                ExportToWord(dataGridViewClients);
             }
             catch (Exception ex)
             {
@@ -643,12 +848,16 @@ namespace OrderTrack
             }
         }
 
-        private void ButtonDeleteBook_Click(object sender, EventArgs e)
+        /// <summary>
+        /// ButtonWordOrderDetails_Click() вызывается при нажатии на кнопку "Вывод в Word" на вкладке "Детали заказов"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonWordOrderDetails_Click(object sender, EventArgs e)
         {
             try
             {
-                DeleteRow(dataGridViewBooks);
-                ClearFields();
+                ExportToWord(dataGridViewClients);
             }
             catch (Exception ex)
             {
@@ -656,12 +865,16 @@ namespace OrderTrack
             }
         }
 
-        private void ButtonDeleteLoan_Click(object sender, EventArgs e)
+        /// <summary>
+        /// ButtonExcelClient_Click() вызывается при нажатии на кнопку "Вывод в Excel" на вкладке "Клиенты"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonExcelClient_Click(object sender, EventArgs e)
         {
             try
             {
-                DeleteRow(dataGridViewLoans);
-                ClearFields();
+                ExportToExcel(dataGridViewClients);
             }
             catch (Exception ex)
             {
@@ -669,12 +882,16 @@ namespace OrderTrack
             }
         }
 
-        private void ButtonChangeBook_Click(object sender, EventArgs e)
+        /// <summary>
+        /// ButtonExcelEmployee_Click() вызывается при нажатии на кнопку "Вывод в Excel" на вкладке "Сотрудники"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonExcelEmployee_Click(object sender, EventArgs e)
         {
             try
             {
-                Change(dataGridViewBooks);
-                ClearFields();
+                ExportToExcel(dataGridViewClients);
             }
             catch (Exception ex)
             {
@@ -682,12 +899,16 @@ namespace OrderTrack
             }
         }
 
-        private void ButtonChangeLoan_Click(object sender, EventArgs e)
+        /// <summary>
+        /// ButtonExcelOrder_Click() вызывается при нажатии на кнопку "Вывод в Excel" на вкладке "Заказы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonExcelOrder_Click(object sender, EventArgs e)
         {
             try
             {
-                Change(dataGridViewLoans);
-                ClearFields();
+                ExportToExcel(dataGridViewClients);
             }
             catch (Exception ex)
             {
@@ -695,18 +916,16 @@ namespace OrderTrack
             }
         }
 
-        private void ButtonSaveBook_Click(object sender, EventArgs e)
+        /// <summary>
+        /// ButtonExcelProduct_Click() вызывается при нажатии на кнопку "Вывод в Excel" на вкладке "Продукты"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonExcelProduct_Click(object sender, EventArgs e)
         {
             try
             {
-                if (admin)
-                {
-                    UpdateBase(dataGridViewBooks);
-                }
-                else
-                {
-                    MessageBox.Show("У вас недостаточно прав!");
-                }
+                ExportToExcel(dataGridViewClients);
             }
             catch (Exception ex)
             {
@@ -714,11 +933,16 @@ namespace OrderTrack
             }
         }
 
-        private void ButtonSaveLoan_Click(object sender, EventArgs e)
+        /// <summary>
+        /// ButtonExcelOrderDetails_Click() вызывается при нажатии на кнопку "Вывод в Excel" на вкладке "Детали заказов"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonExcelOrderDetails_Click(object sender, EventArgs e)
         {
             try
             {
-                UpdateBase(dataGridViewLoans);
+                ExportToExcel(dataGridViewClients);
             }
             catch (Exception ex)
             {
@@ -726,11 +950,16 @@ namespace OrderTrack
             }
         }
 
-        private void ButtonWordBook_Click(object sender, EventArgs e)
+        /// <summary>
+        /// ButtonTXTClient_Click() вызывается при нажатии на кнопку "Вывод в TXT" на вкладке "Клиенты"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonTXTClient_Click(object sender, EventArgs e)
         {
             try
             {
-                ExportToWord(dataGridViewBooks);
+                ExportToTXT(dataGridViewClients);
             }
             catch (Exception ex)
             {
@@ -738,11 +967,16 @@ namespace OrderTrack
             }
         }
 
-        private void ButtonWordLoan_Click(object sender, EventArgs e)
+        /// <summary>
+        /// ButtonTXTEmployee_Click() вызывается при нажатии на кнопку "Вывод в TXT" на вкладке "Сотрудники"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonTXTEmployee_Click(object sender, EventArgs e)
         {
             try
             {
-                ExportToWord(dataGridViewLoans);
+                ExportToTXT(dataGridViewClients);
             }
             catch (Exception ex)
             {
@@ -750,11 +984,16 @@ namespace OrderTrack
             }
         }
 
-        private void ButtonExcelBook_Click(object sender, EventArgs e)
+        /// <summary>
+        /// ButtonTXTOrder_Click() вызывается при нажатии на кнопку "Вывод в TXT" на вкладке "Заказы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonTXTOrder_Click(object sender, EventArgs e)
         {
             try
             {
-                ExportToExcel(dataGridViewBooks);
+                ExportToTXT(dataGridViewClients);
             }
             catch (Exception ex)
             {
@@ -762,11 +1001,16 @@ namespace OrderTrack
             }
         }
 
-        private void ButtonExcelLoan_Click(object sender, EventArgs e)
+        /// <summary>
+        /// ButtonTXTProduct_Click() вызывается при нажатии на кнопку "Вывод в TXT" на вкладке "Продукты"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonTXTProduct_Click(object sender, EventArgs e)
         {
             try
             {
-                ExportToExcel(dataGridViewLoans);
+                ExportToTXT(dataGridViewClients);
             }
             catch (Exception ex)
             {
@@ -774,11 +1018,16 @@ namespace OrderTrack
             }
         }
 
-        private void ButtonTXTBook_Click(object sender, EventArgs e)
+        /// <summary>
+        /// ButtonTXTOrderDetails_Click() вызывается при нажатии на кнопку "Вывод в TXT" на вкладке "Детали заказов"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonTXTOrderDetails_Click(object sender, EventArgs e)
         {
             try
             {
-                ExportToTXT(dataGridViewBooks);
+                ExportToTXT(dataGridViewClients);
             }
             catch (Exception ex)
             {
@@ -786,72 +1035,60 @@ namespace OrderTrack
             }
         }
 
-        private void ButtonTXTLoan_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ExportToTXT(dataGridViewLoans);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+        //private void DataGridViewBooks_CellClick(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    try
+        //    {
+        //        selectedRow = e.RowIndex;
+        //        if (e.RowIndex >= 0)
+        //        {
+        //            DataGridView_CellClick(dataGridViewBooks, selectedRow);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
 
-        private void DataGridViewBooks_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                selectedRow = e.RowIndex;
-                if (e.RowIndex >= 0)
-                {
-                    DataGridView_CellClick(dataGridViewBooks, selectedRow);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+        //private void DataGridViewLoans_CellClick(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    try
+        //    {
+        //        selectedRow = e.RowIndex;
+        //        if (e.RowIndex >= 0)
+        //        {
+        //            DataGridView_CellClick(dataGridViewClients, selectedRow);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
 
-        private void DataGridViewLoans_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                selectedRow = e.RowIndex;
-                if (e.RowIndex >= 0)
-                {
-                    DataGridView_CellClick(dataGridViewLoans, selectedRow);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+        //private void TextBoxSearchBooks_TextChanged(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        Search(dataGridViewBooks);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
 
-        private void TextBoxSearchBooks_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                Search(dataGridViewBooks);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void TextBoxSearchLoans_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                Search(dataGridViewLoans);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+        //private void TextBoxSearchLoans_TextChanged(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        Search(dataGridViewClients);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
     }
 }

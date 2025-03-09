@@ -44,7 +44,7 @@
             buttonEnter.BackColor = Color.Transparent;
             buttonEnter.FlatStyle = FlatStyle.Flat;
             buttonEnter.Font = new Font("Segoe UI Semibold", 48F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            buttonEnter.ForeColor = Color.WhiteSmoke;
+            buttonEnter.ForeColor = Color.Black;
             buttonEnter.Location = new Point(424, 349);
             buttonEnter.Name = "buttonEnter";
             buttonEnter.Size = new Size(230, 93);
@@ -77,7 +77,7 @@
             labelRegister.AutoSize = true;
             labelRegister.BackColor = Color.Transparent;
             labelRegister.Font = new Font("Segoe UI Semibold", 48F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            labelRegister.ForeColor = Color.WhiteSmoke;
+            labelRegister.ForeColor = Color.Black;
             labelRegister.Location = new Point(298, 12);
             labelRegister.Name = "labelRegister";
             labelRegister.Size = new Size(412, 86);
@@ -89,7 +89,7 @@
             labelPassword.AutoSize = true;
             labelPassword.BackColor = Color.Transparent;
             labelPassword.Font = new Font("Segoe UI Semibold", 48F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            labelPassword.ForeColor = Color.WhiteSmoke;
+            labelPassword.ForeColor = Color.Black;
             labelPassword.Location = new Point(12, 253);
             labelPassword.Name = "labelPassword";
             labelPassword.Size = new Size(279, 86);
@@ -101,7 +101,7 @@
             labelLogin.AutoSize = true;
             labelLogin.BackColor = Color.Transparent;
             labelLogin.Font = new Font("Segoe UI Semibold", 48F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            labelLogin.ForeColor = Color.WhiteSmoke;
+            labelLogin.ForeColor = Color.Black;
             labelLogin.Location = new Point(54, 154);
             labelLogin.Name = "labelLogin";
             labelLogin.Size = new Size(237, 86);
@@ -111,8 +111,9 @@
             // buttonClear
             // 
             buttonClear.BackColor = Color.Transparent;
+            buttonClear.BackgroundImage = (Image)resources.GetObject("buttonClear.BackgroundImage");
+            buttonClear.BackgroundImageLayout = ImageLayout.Stretch;
             buttonClear.FlatStyle = FlatStyle.Flat;
-            buttonClear.Image = (Image)resources.GetObject("buttonClear.Image");
             buttonClear.Location = new Point(903, 12);
             buttonClear.Name = "buttonClear";
             buttonClear.Size = new Size(93, 93);
@@ -124,7 +125,7 @@
             // 
             buttonShow.BackColor = Color.Transparent;
             buttonShow.BackgroundImage = Properties.Resources.ShowPassword1;
-            buttonShow.BackgroundImageLayout = ImageLayout.Center;
+            buttonShow.BackgroundImageLayout = ImageLayout.Stretch;
             buttonShow.FlatStyle = FlatStyle.Flat;
             buttonShow.Location = new Point(786, 250);
             buttonShow.Name = "buttonShow";
@@ -148,7 +149,6 @@
             Controls.Add(labelLogin);
             Controls.Add(labelPassword);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Icon = (Icon)resources.GetObject("$this.Icon");
             MinimizeBox = false;
             Name = "Signup";
             Text = "Signup";

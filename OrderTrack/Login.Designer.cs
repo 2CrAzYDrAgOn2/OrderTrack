@@ -45,7 +45,7 @@
             labelLogin.AutoSize = true;
             labelLogin.BackColor = Color.Transparent;
             labelLogin.Font = new Font("Segoe UI Semibold", 48F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            labelLogin.ForeColor = Color.WhiteSmoke;
+            labelLogin.ForeColor = Color.Black;
             labelLogin.Location = new Point(54, 154);
             labelLogin.Name = "labelLogin";
             labelLogin.Size = new Size(237, 86);
@@ -57,7 +57,7 @@
             labelPassword.AutoSize = true;
             labelPassword.BackColor = Color.Transparent;
             labelPassword.Font = new Font("Segoe UI Semibold", 48F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            labelPassword.ForeColor = Color.WhiteSmoke;
+            labelPassword.ForeColor = Color.Black;
             labelPassword.Location = new Point(12, 253);
             labelPassword.Name = "labelPassword";
             labelPassword.Size = new Size(279, 86);
@@ -69,7 +69,7 @@
             labelRegister.AutoSize = true;
             labelRegister.BackColor = Color.Transparent;
             labelRegister.Font = new Font("Segoe UI Semibold", 48F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            labelRegister.ForeColor = Color.WhiteSmoke;
+            labelRegister.ForeColor = Color.Black;
             labelRegister.Location = new Point(287, 9);
             labelRegister.Name = "labelRegister";
             labelRegister.Size = new Size(434, 86);
@@ -79,6 +79,8 @@
             // buttonClear
             // 
             buttonClear.BackColor = Color.Transparent;
+            buttonClear.BackgroundImage = (Image)resources.GetObject("buttonClear.BackgroundImage");
+            buttonClear.BackgroundImageLayout = ImageLayout.Stretch;
             buttonClear.FlatStyle = FlatStyle.Flat;
             buttonClear.Location = new Point(903, 12);
             buttonClear.Name = "buttonClear";
@@ -111,7 +113,7 @@
             buttonEnter.BackColor = Color.Transparent;
             buttonEnter.FlatStyle = FlatStyle.Flat;
             buttonEnter.Font = new Font("Segoe UI Semibold", 48F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            buttonEnter.ForeColor = Color.WhiteSmoke;
+            buttonEnter.ForeColor = Color.Black;
             buttonEnter.Location = new Point(424, 349);
             buttonEnter.Name = "buttonEnter";
             buttonEnter.Size = new Size(230, 93);
@@ -125,7 +127,7 @@
             labelAuth.AutoSize = true;
             labelAuth.BackColor = Color.Transparent;
             labelAuth.Font = new Font("Segoe UI", 36F, FontStyle.Underline);
-            labelAuth.ForeColor = Color.WhiteSmoke;
+            labelAuth.ForeColor = Color.Black;
             labelAuth.Location = new Point(290, 463);
             labelAuth.Name = "labelAuth";
             labelAuth.Size = new Size(429, 65);
@@ -137,7 +139,7 @@
             // 
             buttonShow.BackColor = Color.Transparent;
             buttonShow.BackgroundImage = Properties.Resources.ShowPassword1;
-            buttonShow.BackgroundImageLayout = ImageLayout.Center;
+            buttonShow.BackgroundImageLayout = ImageLayout.Stretch;
             buttonShow.FlatStyle = FlatStyle.Flat;
             buttonShow.Location = new Point(786, 250);
             buttonShow.Name = "buttonShow";
@@ -150,6 +152,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1008, 537);
             Controls.Add(textBoxLogin);
             Controls.Add(textBoxPassword);
