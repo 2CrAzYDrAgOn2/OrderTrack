@@ -165,6 +165,7 @@
             Controls.Add(labelPassword);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MinimizeBox = false;
             Name = "Login";
             Text = "Login";
