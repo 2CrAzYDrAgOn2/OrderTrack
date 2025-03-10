@@ -247,6 +247,8 @@
             // 
             // buttonClearClients
             // 
+            buttonClearClients.BackgroundImage = (Image)resources.GetObject("buttonClearClients.BackgroundImage");
+            buttonClearClients.BackgroundImageLayout = ImageLayout.Stretch;
             buttonClearClients.FlatStyle = FlatStyle.Flat;
             buttonClearClients.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             buttonClearClients.Location = new Point(528, 3);
@@ -258,6 +260,8 @@
             // 
             // buttonRefreshClients
             // 
+            buttonRefreshClients.BackgroundImage = (Image)resources.GetObject("buttonRefreshClients.BackgroundImage");
+            buttonRefreshClients.BackgroundImageLayout = ImageLayout.Stretch;
             buttonRefreshClients.FlatStyle = FlatStyle.Flat;
             buttonRefreshClients.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             buttonRefreshClients.Location = new Point(614, 3);
@@ -659,6 +663,8 @@
             // 
             // buttonClearEmployees
             // 
+            buttonClearEmployees.BackgroundImage = (Image)resources.GetObject("buttonClearEmployees.BackgroundImage");
+            buttonClearEmployees.BackgroundImageLayout = ImageLayout.Stretch;
             buttonClearEmployees.FlatStyle = FlatStyle.Flat;
             buttonClearEmployees.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             buttonClearEmployees.Location = new Point(528, 3);
@@ -670,6 +676,8 @@
             // 
             // buttonRefreshEmployees
             // 
+            buttonRefreshEmployees.BackgroundImage = (Image)resources.GetObject("buttonRefreshEmployees.BackgroundImage");
+            buttonRefreshEmployees.BackgroundImageLayout = ImageLayout.Stretch;
             buttonRefreshEmployees.FlatStyle = FlatStyle.Flat;
             buttonRefreshEmployees.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             buttonRefreshEmployees.Location = new Point(614, 3);
@@ -1014,6 +1022,8 @@
             // 
             // buttonClearOrders
             // 
+            buttonClearOrders.BackgroundImage = (Image)resources.GetObject("buttonClearOrders.BackgroundImage");
+            buttonClearOrders.BackgroundImageLayout = ImageLayout.Stretch;
             buttonClearOrders.FlatStyle = FlatStyle.Flat;
             buttonClearOrders.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             buttonClearOrders.Location = new Point(528, 3);
@@ -1025,6 +1035,8 @@
             // 
             // buttonRefreshOrders
             // 
+            buttonRefreshOrders.BackgroundImage = (Image)resources.GetObject("buttonRefreshOrders.BackgroundImage");
+            buttonRefreshOrders.BackgroundImageLayout = ImageLayout.Stretch;
             buttonRefreshOrders.FlatStyle = FlatStyle.Flat;
             buttonRefreshOrders.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             buttonRefreshOrders.Location = new Point(614, 3);
@@ -1368,6 +1380,8 @@
             // 
             // buttonClearProducts
             // 
+            buttonClearProducts.BackgroundImage = (Image)resources.GetObject("buttonClearProducts.BackgroundImage");
+            buttonClearProducts.BackgroundImageLayout = ImageLayout.Stretch;
             buttonClearProducts.FlatStyle = FlatStyle.Flat;
             buttonClearProducts.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             buttonClearProducts.Location = new Point(528, 3);
@@ -1379,6 +1393,8 @@
             // 
             // buttonRefreshProducts
             // 
+            buttonRefreshProducts.BackgroundImage = (Image)resources.GetObject("buttonRefreshProducts.BackgroundImage");
+            buttonRefreshProducts.BackgroundImageLayout = ImageLayout.Stretch;
             buttonRefreshProducts.FlatStyle = FlatStyle.Flat;
             buttonRefreshProducts.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             buttonRefreshProducts.Location = new Point(614, 3);
@@ -1678,6 +1694,8 @@
             // 
             // buttonClearOrderDetails
             // 
+            buttonClearOrderDetails.BackgroundImage = (Image)resources.GetObject("buttonClearOrderDetails.BackgroundImage");
+            buttonClearOrderDetails.BackgroundImageLayout = ImageLayout.Stretch;
             buttonClearOrderDetails.FlatStyle = FlatStyle.Flat;
             buttonClearOrderDetails.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             buttonClearOrderDetails.Location = new Point(528, 3);
@@ -1689,6 +1707,8 @@
             // 
             // buttonRefreshOrderDetails
             // 
+            buttonRefreshOrderDetails.BackgroundImage = (Image)resources.GetObject("buttonRefreshOrderDetails.BackgroundImage");
+            buttonRefreshOrderDetails.BackgroundImageLayout = ImageLayout.Stretch;
             buttonRefreshOrderDetails.FlatStyle = FlatStyle.Flat;
             buttonRefreshOrderDetails.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             buttonRefreshOrderDetails.Location = new Point(614, 3);
