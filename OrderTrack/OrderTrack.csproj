@@ -34,7 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="AddFormLoans.cs">
+    <Compile Update="AddFormClients.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Properties\Resources.Designer.cs">

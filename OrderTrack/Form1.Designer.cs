@@ -37,23 +37,21 @@
             textBoxSearchClients = new TextBox();
             dataGridViewClients = new DataGridView();
             panelRecordClients = new Panel();
-            labelRecordLoans = new Label();
-            labelLoanID = new Label();
-            textBoxLoanID = new TextBox();
-            labelRegistrationIDLoans = new Label();
-            textBoxRegistrationIDLoans = new TextBox();
-            labelBookIDLoans = new Label();
-            textBoxBookIDLoans = new TextBox();
-            labelLoanDateLoans = new Label();
-            textBox2 = new TextBox();
-            labelReturnDateLoans = new Label();
-            textBox3 = new TextBox();
-            labelIsReturnedLoans = new Label();
-            textBoxIsReturnedLoans = new TextBox();
-            label1 = new Label();
-            textBox1 = new TextBox();
-            label2 = new Label();
-            dateTimePickerLoanDateLoans = new DateTimePicker();
+            labelRecordClients = new Label();
+            labelClientID = new Label();
+            textBoxClientID = new TextBox();
+            labelFullNameClients = new Label();
+            textBoxFullNameClients = new TextBox();
+            labelClientTypeID = new Label();
+            labelEmailClients = new Label();
+            textBoxEmailClients = new TextBox();
+            labelPhoneClients = new Label();
+            labelAddress = new Label();
+            textBoxAddress = new TextBox();
+            labelINN = new Label();
+            textBoxINN = new TextBox();
+            labelRegistrationDate = new Label();
+            dateTimePickerRegistrationDate = new DateTimePicker();
             labelControlClients = new Label();
             panelControlClients = new Panel();
             buttonNewClient = new Button();
@@ -72,19 +70,16 @@
             textBoxSearchEmployees = new TextBox();
             dataGridViewEmployees = new DataGridView();
             panelRecordEmployees = new Panel();
-            label4 = new Label();
-            label5 = new Label();
-            textBox4 = new TextBox();
-            label6 = new Label();
-            textBox5 = new TextBox();
-            label7 = new Label();
-            textBox6 = new TextBox();
-            label8 = new Label();
-            textBox17 = new TextBox();
-            label9 = new Label();
-            textBox24 = new TextBox();
-            label10 = new Label();
-            textBox7 = new TextBox();
+            labelRecordEmployees = new Label();
+            labelEmployeeID = new Label();
+            textBoxEmployeeID = new TextBox();
+            labelFullNameEmployees = new Label();
+            textBoxFullNameEmployees = new TextBox();
+            labelPhoneEmployees = new Label();
+            labelEmailEmployees = new Label();
+            textBoxEmailEmployees = new TextBox();
+            labelGender = new Label();
+            labelPost = new Label();
             labelControlEmployees = new Label();
             panelControlEmployees = new Panel();
             buttonNewEmployee = new Button();
@@ -102,19 +97,18 @@
             textBoxSearchOrders = new TextBox();
             dataGridViewOrders = new DataGridView();
             panelRecordOrders = new Panel();
-            label15 = new Label();
-            label16 = new Label();
-            textBox11 = new TextBox();
-            label17 = new Label();
-            textBox12 = new TextBox();
-            label18 = new Label();
-            textBox13 = new TextBox();
-            label19 = new Label();
-            dateTimePicker3 = new DateTimePicker();
-            label20 = new Label();
-            textBox10 = new TextBox();
-            label21 = new Label();
-            textBox14 = new TextBox();
+            labelRecordOrders = new Label();
+            labelOrderID = new Label();
+            textBoxOrderID = new TextBox();
+            labelClientFullNameOrders = new Label();
+            textBoxClientFullNameOrders = new TextBox();
+            labelEmployeeFullNameOrders = new Label();
+            textBoxEmployeeFullNameOrders = new TextBox();
+            labelOrderDate = new Label();
+            dateTimePickerOrderDate = new DateTimePicker();
+            labelTotalAmount = new Label();
+            textBoxTotalAmount = new TextBox();
+            labelStatus = new Label();
             labelControlOrders = new Label();
             panelControlOrders = new Panel();
             buttonNewOrder = new Button();
@@ -132,15 +126,15 @@
             textBoxSearchProducts = new TextBox();
             dataGridViewProducts = new DataGridView();
             panelRecordProducts = new Panel();
-            label26 = new Label();
-            label27 = new Label();
-            textBox18 = new TextBox();
-            label28 = new Label();
-            textBox19 = new TextBox();
-            label29 = new Label();
-            textBox20 = new TextBox();
-            label30 = new Label();
-            textBox31 = new TextBox();
+            labelRecordProducts = new Label();
+            labelProductID = new Label();
+            textBoxProductID = new TextBox();
+            labelName = new Label();
+            textBoxName = new TextBox();
+            labelDescription = new Label();
+            textBoxDescription = new TextBox();
+            labelPrice = new Label();
+            textBoxPrice = new TextBox();
             labelControlProducts = new Label();
             panelControlProducts = new Panel();
             buttonNewProduct = new Button();
@@ -158,15 +152,15 @@
             textBoxSearchOrderDetails = new TextBox();
             dataGridViewOrderDetails = new DataGridView();
             panelRecordOrderDetails = new Panel();
-            label37 = new Label();
-            label38 = new Label();
-            textBox25 = new TextBox();
-            label39 = new Label();
-            textBox26 = new TextBox();
-            label40 = new Label();
-            textBox27 = new TextBox();
-            label41 = new Label();
-            textBox33 = new TextBox();
+            labelRecordOrderDetails = new Label();
+            labelOrderDetailID = new Label();
+            textBoxOrderDetailID = new TextBox();
+            labelOrderIDOrderDetails = new Label();
+            textBoxOrderIDOrderDetails = new TextBox();
+            labelNameOrderDetails = new Label();
+            textBoxNameIDOrderDetails = new TextBox();
+            labelPriceOrderDetails = new Label();
+            textBoxPriceOrderDetails = new TextBox();
             labelControlOrderDetails = new Label();
             panelControlOrderDetails = new Panel();
             buttonNewOrderDetails = new Button();
@@ -176,6 +170,12 @@
             buttonWordOrderDetails = new Button();
             buttonExcelOrderDetails = new Button();
             buttonTXTOrderDetails = new Button();
+            maskedTextBoxPhoneClients = new MaskedTextBox();
+            comboBoxClientTypeID = new ComboBox();
+            comboBoxGender = new ComboBox();
+            comboBoxPost = new ComboBox();
+            comboBoxStatus = new ComboBox();
+            maskedTextBox1 = new MaskedTextBox();
             tabPageClients.SuspendLayout();
             panelTitleClients.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewClients).BeginInit();
@@ -295,201 +295,182 @@
             // 
             // panelRecordClients
             // 
-            panelRecordClients.Controls.Add(labelRecordLoans);
-            panelRecordClients.Controls.Add(labelLoanID);
-            panelRecordClients.Controls.Add(textBoxLoanID);
-            panelRecordClients.Controls.Add(labelRegistrationIDLoans);
-            panelRecordClients.Controls.Add(textBoxRegistrationIDLoans);
-            panelRecordClients.Controls.Add(labelBookIDLoans);
-            panelRecordClients.Controls.Add(textBoxBookIDLoans);
-            panelRecordClients.Controls.Add(labelLoanDateLoans);
-            panelRecordClients.Controls.Add(textBox2);
-            panelRecordClients.Controls.Add(labelReturnDateLoans);
-            panelRecordClients.Controls.Add(textBox3);
-            panelRecordClients.Controls.Add(labelIsReturnedLoans);
-            panelRecordClients.Controls.Add(textBoxIsReturnedLoans);
-            panelRecordClients.Controls.Add(label1);
-            panelRecordClients.Controls.Add(textBox1);
-            panelRecordClients.Controls.Add(label2);
-            panelRecordClients.Controls.Add(dateTimePickerLoanDateLoans);
+            panelRecordClients.Controls.Add(labelRecordClients);
+            panelRecordClients.Controls.Add(labelClientID);
+            panelRecordClients.Controls.Add(textBoxClientID);
+            panelRecordClients.Controls.Add(labelFullNameClients);
+            panelRecordClients.Controls.Add(textBoxFullNameClients);
+            panelRecordClients.Controls.Add(labelClientTypeID);
+            panelRecordClients.Controls.Add(comboBoxClientTypeID);
+            panelRecordClients.Controls.Add(labelEmailClients);
+            panelRecordClients.Controls.Add(textBoxEmailClients);
+            panelRecordClients.Controls.Add(labelPhoneClients);
+            panelRecordClients.Controls.Add(maskedTextBoxPhoneClients);
+            panelRecordClients.Controls.Add(labelAddress);
+            panelRecordClients.Controls.Add(textBoxAddress);
+            panelRecordClients.Controls.Add(labelINN);
+            panelRecordClients.Controls.Add(textBoxINN);
+            panelRecordClients.Controls.Add(labelRegistrationDate);
+            panelRecordClients.Controls.Add(dateTimePickerRegistrationDate);
             panelRecordClients.Location = new Point(9, 450);
             panelRecordClients.Margin = new Padding(4, 3, 4, 3);
             panelRecordClients.Name = "panelRecordClients";
             panelRecordClients.Size = new Size(611, 552);
             panelRecordClients.TabIndex = 1;
             // 
-            // labelRecordLoans
+            // labelRecordClients
             // 
-            labelRecordLoans.AutoSize = true;
-            labelRecordLoans.Font = new Font("Segoe UI Semibold", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            labelRecordLoans.ForeColor = Color.WhiteSmoke;
-            labelRecordLoans.Location = new Point(4, 10);
-            labelRecordLoans.Margin = new Padding(4, 0, 4, 0);
-            labelRecordLoans.Name = "labelRecordLoans";
-            labelRecordLoans.Size = new Size(142, 47);
-            labelRecordLoans.TabIndex = 7;
-            labelRecordLoans.Text = "Запись:";
+            labelRecordClients.AutoSize = true;
+            labelRecordClients.Font = new Font("Segoe UI Semibold", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            labelRecordClients.ForeColor = Color.WhiteSmoke;
+            labelRecordClients.Location = new Point(4, 10);
+            labelRecordClients.Margin = new Padding(4, 0, 4, 0);
+            labelRecordClients.Name = "labelRecordClients";
+            labelRecordClients.Size = new Size(142, 47);
+            labelRecordClients.TabIndex = 8;
+            labelRecordClients.Text = "Запись:";
             // 
-            // labelLoanID
+            // labelClientID
             // 
-            labelLoanID.AutoSize = true;
-            labelLoanID.ForeColor = Color.WhiteSmoke;
-            labelLoanID.Location = new Point(98, 79);
-            labelLoanID.Margin = new Padding(4, 0, 4, 0);
-            labelLoanID.Name = "labelLoanID";
-            labelLoanID.Size = new Size(48, 15);
-            labelLoanID.TabIndex = 8;
-            labelLoanID.Text = "Номер:";
+            labelClientID.AutoSize = true;
+            labelClientID.ForeColor = Color.WhiteSmoke;
+            labelClientID.Location = new Point(98, 79);
+            labelClientID.Margin = new Padding(4, 0, 4, 0);
+            labelClientID.Name = "labelClientID";
+            labelClientID.Size = new Size(48, 15);
+            labelClientID.TabIndex = 9;
+            labelClientID.Text = "Номер:";
             // 
-            // textBoxLoanID
+            // textBoxClientID
             // 
-            textBoxLoanID.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxLoanID.Location = new Point(152, 68);
-            textBoxLoanID.Margin = new Padding(4, 3, 4, 3);
-            textBoxLoanID.Name = "textBoxLoanID";
-            textBoxLoanID.Size = new Size(455, 33);
-            textBoxLoanID.TabIndex = 0;
+            textBoxClientID.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxClientID.Location = new Point(152, 68);
+            textBoxClientID.Margin = new Padding(4, 3, 4, 3);
+            textBoxClientID.Name = "textBoxClientID";
+            textBoxClientID.Size = new Size(455, 33);
+            textBoxClientID.TabIndex = 0;
             // 
-            // labelRegistrationIDLoans
+            // labelFullNameClients
             // 
-            labelRegistrationIDLoans.AutoSize = true;
-            labelRegistrationIDLoans.ForeColor = Color.WhiteSmoke;
-            labelRegistrationIDLoans.Location = new Point(53, 124);
-            labelRegistrationIDLoans.Margin = new Padding(4, 0, 4, 0);
-            labelRegistrationIDLoans.Name = "labelRegistrationIDLoans";
-            labelRegistrationIDLoans.Size = new Size(93, 15);
-            labelRegistrationIDLoans.TabIndex = 9;
-            labelRegistrationIDLoans.Text = "Наименование:";
+            labelFullNameClients.AutoSize = true;
+            labelFullNameClients.ForeColor = Color.WhiteSmoke;
+            labelFullNameClients.Location = new Point(53, 124);
+            labelFullNameClients.Margin = new Padding(4, 0, 4, 0);
+            labelFullNameClients.Name = "labelFullNameClients";
+            labelFullNameClients.Size = new Size(93, 15);
+            labelFullNameClients.TabIndex = 10;
+            labelFullNameClients.Text = "Наименование:";
             // 
-            // textBoxRegistrationIDLoans
+            // textBoxFullNameClients
             // 
-            textBoxRegistrationIDLoans.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxRegistrationIDLoans.Location = new Point(152, 113);
-            textBoxRegistrationIDLoans.Margin = new Padding(4, 3, 4, 3);
-            textBoxRegistrationIDLoans.Name = "textBoxRegistrationIDLoans";
-            textBoxRegistrationIDLoans.Size = new Size(455, 33);
-            textBoxRegistrationIDLoans.TabIndex = 1;
+            textBoxFullNameClients.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxFullNameClients.Location = new Point(152, 113);
+            textBoxFullNameClients.Margin = new Padding(4, 3, 4, 3);
+            textBoxFullNameClients.Name = "textBoxFullNameClients";
+            textBoxFullNameClients.Size = new Size(455, 33);
+            textBoxFullNameClients.TabIndex = 1;
             // 
-            // labelBookIDLoans
+            // labelClientTypeID
             // 
-            labelBookIDLoans.AutoSize = true;
-            labelBookIDLoans.ForeColor = Color.WhiteSmoke;
-            labelBookIDLoans.Location = new Point(69, 169);
-            labelBookIDLoans.Margin = new Padding(4, 0, 4, 0);
-            labelBookIDLoans.Name = "labelBookIDLoans";
-            labelBookIDLoans.Size = new Size(77, 15);
-            labelBookIDLoans.TabIndex = 10;
-            labelBookIDLoans.Text = "Тип клиента:";
+            labelClientTypeID.AutoSize = true;
+            labelClientTypeID.ForeColor = Color.WhiteSmoke;
+            labelClientTypeID.Location = new Point(69, 169);
+            labelClientTypeID.Margin = new Padding(4, 0, 4, 0);
+            labelClientTypeID.Name = "labelClientTypeID";
+            labelClientTypeID.Size = new Size(77, 15);
+            labelClientTypeID.TabIndex = 11;
+            labelClientTypeID.Text = "Тип клиента:";
             // 
-            // textBoxBookIDLoans
+            // labelEmailClients
             // 
-            textBoxBookIDLoans.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxBookIDLoans.Location = new Point(152, 158);
-            textBoxBookIDLoans.Margin = new Padding(4, 3, 4, 3);
-            textBoxBookIDLoans.Name = "textBoxBookIDLoans";
-            textBoxBookIDLoans.Size = new Size(455, 33);
-            textBoxBookIDLoans.TabIndex = 2;
+            labelEmailClients.AutoSize = true;
+            labelEmailClients.ForeColor = Color.WhiteSmoke;
+            labelEmailClients.Location = new Point(30, 217);
+            labelEmailClients.Margin = new Padding(4, 0, 4, 0);
+            labelEmailClients.Name = "labelEmailClients";
+            labelEmailClients.Size = new Size(116, 15);
+            labelEmailClients.TabIndex = 12;
+            labelEmailClients.Text = "Электронная почта:";
             // 
-            // labelLoanDateLoans
+            // textBoxEmailClients
             // 
-            labelLoanDateLoans.AutoSize = true;
-            labelLoanDateLoans.ForeColor = Color.WhiteSmoke;
-            labelLoanDateLoans.Location = new Point(30, 217);
-            labelLoanDateLoans.Margin = new Padding(4, 0, 4, 0);
-            labelLoanDateLoans.Name = "labelLoanDateLoans";
-            labelLoanDateLoans.Size = new Size(116, 15);
-            labelLoanDateLoans.TabIndex = 11;
-            labelLoanDateLoans.Text = "Электронная почта:";
+            textBoxEmailClients.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxEmailClients.Location = new Point(152, 206);
+            textBoxEmailClients.Margin = new Padding(4, 3, 4, 3);
+            textBoxEmailClients.Name = "textBoxEmailClients";
+            textBoxEmailClients.Size = new Size(455, 33);
+            textBoxEmailClients.TabIndex = 3;
             // 
-            // textBox2
+            // labelPhoneClients
             // 
-            textBox2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBox2.Location = new Point(152, 206);
-            textBox2.Margin = new Padding(4, 3, 4, 3);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(455, 33);
-            textBox2.TabIndex = 15;
+            labelPhoneClients.AutoSize = true;
+            labelPhoneClients.ForeColor = Color.WhiteSmoke;
+            labelPhoneClients.Location = new Point(88, 259);
+            labelPhoneClients.Margin = new Padding(4, 0, 4, 0);
+            labelPhoneClients.Name = "labelPhoneClients";
+            labelPhoneClients.Size = new Size(58, 15);
+            labelPhoneClients.TabIndex = 13;
+            labelPhoneClients.Text = "Телефон:";
             // 
-            // labelReturnDateLoans
+            // labelAddress
             // 
-            labelReturnDateLoans.AutoSize = true;
-            labelReturnDateLoans.ForeColor = Color.WhiteSmoke;
-            labelReturnDateLoans.Location = new Point(88, 259);
-            labelReturnDateLoans.Margin = new Padding(4, 0, 4, 0);
-            labelReturnDateLoans.Name = "labelReturnDateLoans";
-            labelReturnDateLoans.Size = new Size(58, 15);
-            labelReturnDateLoans.TabIndex = 12;
-            labelReturnDateLoans.Text = "Телефон:";
+            labelAddress.AutoSize = true;
+            labelAddress.ForeColor = Color.WhiteSmoke;
+            labelAddress.Location = new Point(103, 304);
+            labelAddress.Margin = new Padding(4, 0, 4, 0);
+            labelAddress.Name = "labelAddress";
+            labelAddress.Size = new Size(43, 15);
+            labelAddress.TabIndex = 14;
+            labelAddress.Text = "Адрес:";
             // 
-            // textBox3
+            // textBoxAddress
             // 
-            textBox3.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBox3.Location = new Point(152, 248);
-            textBox3.Margin = new Padding(4, 3, 4, 3);
-            textBox3.Name = "textBox3";
-            textBox3.ReadOnly = true;
-            textBox3.Size = new Size(455, 33);
-            textBox3.TabIndex = 18;
+            textBoxAddress.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxAddress.Location = new Point(152, 293);
+            textBoxAddress.Margin = new Padding(4, 3, 4, 3);
+            textBoxAddress.Name = "textBoxAddress";
+            textBoxAddress.ReadOnly = true;
+            textBoxAddress.Size = new Size(455, 33);
+            textBoxAddress.TabIndex = 5;
             // 
-            // labelIsReturnedLoans
+            // labelINN
             // 
-            labelIsReturnedLoans.AutoSize = true;
-            labelIsReturnedLoans.ForeColor = Color.WhiteSmoke;
-            labelIsReturnedLoans.Location = new Point(103, 304);
-            labelIsReturnedLoans.Margin = new Padding(4, 0, 4, 0);
-            labelIsReturnedLoans.Name = "labelIsReturnedLoans";
-            labelIsReturnedLoans.Size = new Size(43, 15);
-            labelIsReturnedLoans.TabIndex = 13;
-            labelIsReturnedLoans.Text = "Адрес:";
+            labelINN.AutoSize = true;
+            labelINN.ForeColor = Color.WhiteSmoke;
+            labelINN.Location = new Point(109, 349);
+            labelINN.Margin = new Padding(4, 0, 4, 0);
+            labelINN.Name = "labelINN";
+            labelINN.Size = new Size(37, 15);
+            labelINN.TabIndex = 15;
+            labelINN.Text = "ИНН:";
             // 
-            // textBoxIsReturnedLoans
+            // textBoxINN
             // 
-            textBoxIsReturnedLoans.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxIsReturnedLoans.Location = new Point(152, 293);
-            textBoxIsReturnedLoans.Margin = new Padding(4, 3, 4, 3);
-            textBoxIsReturnedLoans.Name = "textBoxIsReturnedLoans";
-            textBoxIsReturnedLoans.ReadOnly = true;
-            textBoxIsReturnedLoans.Size = new Size(455, 33);
-            textBoxIsReturnedLoans.TabIndex = 6;
+            textBoxINN.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxINN.Location = new Point(152, 338);
+            textBoxINN.Margin = new Padding(4, 3, 4, 3);
+            textBoxINN.Name = "textBoxINN";
+            textBoxINN.Size = new Size(455, 33);
+            textBoxINN.TabIndex = 6;
             // 
-            // label1
+            // labelRegistrationDate
             // 
-            label1.AutoSize = true;
-            label1.ForeColor = Color.WhiteSmoke;
-            label1.Location = new Point(109, 349);
-            label1.Margin = new Padding(4, 0, 4, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(37, 15);
-            label1.TabIndex = 16;
-            label1.Text = "ИНН:";
+            labelRegistrationDate.AutoSize = true;
+            labelRegistrationDate.ForeColor = Color.WhiteSmoke;
+            labelRegistrationDate.Location = new Point(38, 394);
+            labelRegistrationDate.Margin = new Padding(4, 0, 4, 0);
+            labelRegistrationDate.Name = "labelRegistrationDate";
+            labelRegistrationDate.Size = new Size(108, 15);
+            labelRegistrationDate.TabIndex = 16;
+            labelRegistrationDate.Text = "Дата регистрации:";
             // 
-            // textBox1
+            // dateTimePickerRegistrationDate
             // 
-            textBox1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBox1.Location = new Point(152, 338);
-            textBox1.Margin = new Padding(4, 3, 4, 3);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(455, 33);
-            textBox1.TabIndex = 14;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.ForeColor = Color.WhiteSmoke;
-            label2.Location = new Point(38, 394);
-            label2.Margin = new Padding(4, 0, 4, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(108, 15);
-            label2.TabIndex = 17;
-            label2.Text = "Дата регистрации:";
-            // 
-            // dateTimePickerLoanDateLoans
-            // 
-            dateTimePickerLoanDateLoans.Font = new Font("Segoe UI", 14.25F);
-            dateTimePickerLoanDateLoans.Location = new Point(152, 380);
-            dateTimePickerLoanDateLoans.Name = "dateTimePickerLoanDateLoans";
-            dateTimePickerLoanDateLoans.Size = new Size(455, 33);
-            dateTimePickerLoanDateLoans.TabIndex = 3;
+            dateTimePickerRegistrationDate.Font = new Font("Segoe UI", 14.25F);
+            dateTimePickerRegistrationDate.Location = new Point(152, 380);
+            dateTimePickerRegistrationDate.Name = "dateTimePickerRegistrationDate";
+            dateTimePickerRegistrationDate.Size = new Size(455, 33);
+            dateTimePickerRegistrationDate.TabIndex = 7;
             // 
             // labelControlClients
             // 
@@ -711,158 +692,130 @@
             // 
             // panelRecordEmployees
             // 
-            panelRecordEmployees.Controls.Add(label4);
-            panelRecordEmployees.Controls.Add(label5);
-            panelRecordEmployees.Controls.Add(textBox4);
-            panelRecordEmployees.Controls.Add(label6);
-            panelRecordEmployees.Controls.Add(textBox5);
-            panelRecordEmployees.Controls.Add(label7);
-            panelRecordEmployees.Controls.Add(textBox6);
-            panelRecordEmployees.Controls.Add(label8);
-            panelRecordEmployees.Controls.Add(textBox17);
-            panelRecordEmployees.Controls.Add(label9);
-            panelRecordEmployees.Controls.Add(textBox24);
-            panelRecordEmployees.Controls.Add(label10);
-            panelRecordEmployees.Controls.Add(textBox7);
+            panelRecordEmployees.Controls.Add(labelRecordEmployees);
+            panelRecordEmployees.Controls.Add(labelEmployeeID);
+            panelRecordEmployees.Controls.Add(textBoxEmployeeID);
+            panelRecordEmployees.Controls.Add(labelFullNameEmployees);
+            panelRecordEmployees.Controls.Add(textBoxFullNameEmployees);
+            panelRecordEmployees.Controls.Add(labelPhoneEmployees);
+            panelRecordEmployees.Controls.Add(maskedTextBox1);
+            panelRecordEmployees.Controls.Add(labelEmailEmployees);
+            panelRecordEmployees.Controls.Add(textBoxEmailEmployees);
+            panelRecordEmployees.Controls.Add(labelGender);
+            panelRecordEmployees.Controls.Add(comboBoxGender);
+            panelRecordEmployees.Controls.Add(labelPost);
+            panelRecordEmployees.Controls.Add(comboBoxPost);
             panelRecordEmployees.Location = new Point(9, 450);
             panelRecordEmployees.Margin = new Padding(4, 3, 4, 3);
             panelRecordEmployees.Name = "panelRecordEmployees";
             panelRecordEmployees.Size = new Size(611, 552);
             panelRecordEmployees.TabIndex = 1;
             // 
-            // label4
+            // labelRecordEmployees
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI Semibold", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label4.ForeColor = Color.WhiteSmoke;
-            label4.Location = new Point(4, 10);
-            label4.Margin = new Padding(4, 0, 4, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(142, 47);
-            label4.TabIndex = 7;
-            label4.Text = "Запись:";
+            labelRecordEmployees.AutoSize = true;
+            labelRecordEmployees.Font = new Font("Segoe UI Semibold", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            labelRecordEmployees.ForeColor = Color.WhiteSmoke;
+            labelRecordEmployees.Location = new Point(4, 10);
+            labelRecordEmployees.Margin = new Padding(4, 0, 4, 0);
+            labelRecordEmployees.Name = "labelRecordEmployees";
+            labelRecordEmployees.Size = new Size(142, 47);
+            labelRecordEmployees.TabIndex = 6;
+            labelRecordEmployees.Text = "Запись:";
             // 
-            // label5
+            // labelEmployeeID
             // 
-            label5.AutoSize = true;
-            label5.ForeColor = Color.WhiteSmoke;
-            label5.Location = new Point(93, 82);
-            label5.Margin = new Padding(4, 0, 4, 0);
-            label5.Name = "label5";
-            label5.Size = new Size(48, 15);
-            label5.TabIndex = 8;
-            label5.Text = "Номер:";
+            labelEmployeeID.AutoSize = true;
+            labelEmployeeID.ForeColor = Color.WhiteSmoke;
+            labelEmployeeID.Location = new Point(93, 82);
+            labelEmployeeID.Margin = new Padding(4, 0, 4, 0);
+            labelEmployeeID.Name = "labelEmployeeID";
+            labelEmployeeID.Size = new Size(48, 15);
+            labelEmployeeID.TabIndex = 7;
+            labelEmployeeID.Text = "Номер:";
             // 
-            // textBox4
+            // textBoxEmployeeID
             // 
-            textBox4.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBox4.Location = new Point(152, 68);
-            textBox4.Margin = new Padding(4, 3, 4, 3);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(455, 33);
-            textBox4.TabIndex = 0;
+            textBoxEmployeeID.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxEmployeeID.Location = new Point(152, 68);
+            textBoxEmployeeID.Margin = new Padding(4, 3, 4, 3);
+            textBoxEmployeeID.Name = "textBoxEmployeeID";
+            textBoxEmployeeID.Size = new Size(455, 33);
+            textBoxEmployeeID.TabIndex = 0;
             // 
-            // label6
+            // labelFullNameEmployees
             // 
-            label6.AutoSize = true;
-            label6.ForeColor = Color.WhiteSmoke;
-            label6.Location = new Point(104, 124);
-            label6.Margin = new Padding(4, 0, 4, 0);
-            label6.Name = "label6";
-            label6.Size = new Size(37, 15);
-            label6.TabIndex = 9;
-            label6.Text = "ФИО:";
+            labelFullNameEmployees.AutoSize = true;
+            labelFullNameEmployees.ForeColor = Color.WhiteSmoke;
+            labelFullNameEmployees.Location = new Point(104, 124);
+            labelFullNameEmployees.Margin = new Padding(4, 0, 4, 0);
+            labelFullNameEmployees.Name = "labelFullNameEmployees";
+            labelFullNameEmployees.Size = new Size(37, 15);
+            labelFullNameEmployees.TabIndex = 8;
+            labelFullNameEmployees.Text = "ФИО:";
             // 
-            // textBox5
+            // textBoxFullNameEmployees
             // 
-            textBox5.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBox5.Location = new Point(152, 113);
-            textBox5.Margin = new Padding(4, 3, 4, 3);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(455, 33);
-            textBox5.TabIndex = 1;
+            textBoxFullNameEmployees.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxFullNameEmployees.Location = new Point(152, 113);
+            textBoxFullNameEmployees.Margin = new Padding(4, 3, 4, 3);
+            textBoxFullNameEmployees.Name = "textBoxFullNameEmployees";
+            textBoxFullNameEmployees.Size = new Size(455, 33);
+            textBoxFullNameEmployees.TabIndex = 1;
             // 
-            // label7
+            // labelPhoneEmployees
             // 
-            label7.AutoSize = true;
-            label7.ForeColor = Color.WhiteSmoke;
-            label7.Location = new Point(83, 169);
-            label7.Margin = new Padding(4, 0, 4, 0);
-            label7.Name = "label7";
-            label7.Size = new Size(58, 15);
-            label7.TabIndex = 10;
-            label7.Text = "Телефон:";
+            labelPhoneEmployees.AutoSize = true;
+            labelPhoneEmployees.ForeColor = Color.WhiteSmoke;
+            labelPhoneEmployees.Location = new Point(83, 169);
+            labelPhoneEmployees.Margin = new Padding(4, 0, 4, 0);
+            labelPhoneEmployees.Name = "labelPhoneEmployees";
+            labelPhoneEmployees.Size = new Size(58, 15);
+            labelPhoneEmployees.TabIndex = 9;
+            labelPhoneEmployees.Text = "Телефон:";
             // 
-            // textBox6
+            // labelEmailEmployees
             // 
-            textBox6.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBox6.Location = new Point(152, 158);
-            textBox6.Margin = new Padding(4, 3, 4, 3);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(455, 33);
-            textBox6.TabIndex = 2;
+            labelEmailEmployees.AutoSize = true;
+            labelEmailEmployees.ForeColor = Color.WhiteSmoke;
+            labelEmailEmployees.Location = new Point(97, 217);
+            labelEmailEmployees.Margin = new Padding(4, 0, 4, 0);
+            labelEmailEmployees.Name = "labelEmailEmployees";
+            labelEmailEmployees.Size = new Size(44, 15);
+            labelEmailEmployees.TabIndex = 10;
+            labelEmailEmployees.Text = "Почта:";
             // 
-            // label8
+            // textBoxEmailEmployees
             // 
-            label8.AutoSize = true;
-            label8.ForeColor = Color.WhiteSmoke;
-            label8.Location = new Point(97, 217);
-            label8.Margin = new Padding(4, 0, 4, 0);
-            label8.Name = "label8";
-            label8.Size = new Size(44, 15);
-            label8.TabIndex = 11;
-            label8.Text = "Почта:";
+            textBoxEmailEmployees.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxEmailEmployees.Location = new Point(152, 206);
+            textBoxEmailEmployees.Margin = new Padding(4, 3, 4, 3);
+            textBoxEmailEmployees.Name = "textBoxEmailEmployees";
+            textBoxEmailEmployees.ReadOnly = true;
+            textBoxEmailEmployees.Size = new Size(455, 33);
+            textBoxEmailEmployees.TabIndex = 3;
             // 
-            // textBox17
+            // labelGender
             // 
-            textBox17.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBox17.Location = new Point(152, 206);
-            textBox17.Margin = new Padding(4, 3, 4, 3);
-            textBox17.Name = "textBox17";
-            textBox17.ReadOnly = true;
-            textBox17.Size = new Size(455, 33);
-            textBox17.TabIndex = 18;
+            labelGender.AutoSize = true;
+            labelGender.ForeColor = Color.WhiteSmoke;
+            labelGender.Location = new Point(108, 262);
+            labelGender.Margin = new Padding(4, 0, 4, 0);
+            labelGender.Name = "labelGender";
+            labelGender.Size = new Size(33, 15);
+            labelGender.TabIndex = 11;
+            labelGender.Text = "Пол:";
             // 
-            // label9
+            // labelPost
             // 
-            label9.AutoSize = true;
-            label9.ForeColor = Color.WhiteSmoke;
-            label9.Location = new Point(108, 262);
-            label9.Margin = new Padding(4, 0, 4, 0);
-            label9.Name = "label9";
-            label9.Size = new Size(33, 15);
-            label9.TabIndex = 12;
-            label9.Text = "Пол:";
-            // 
-            // textBox24
-            // 
-            textBox24.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBox24.Location = new Point(152, 251);
-            textBox24.Margin = new Padding(4, 3, 4, 3);
-            textBox24.Name = "textBox24";
-            textBox24.Size = new Size(455, 33);
-            textBox24.TabIndex = 19;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.ForeColor = Color.WhiteSmoke;
-            label10.Location = new Point(69, 304);
-            label10.Margin = new Padding(4, 0, 4, 0);
-            label10.Name = "label10";
-            label10.Size = new Size(72, 15);
-            label10.TabIndex = 13;
-            label10.Text = "Должность:";
-            // 
-            // textBox7
-            // 
-            textBox7.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBox7.Location = new Point(152, 293);
-            textBox7.Margin = new Padding(4, 3, 4, 3);
-            textBox7.Name = "textBox7";
-            textBox7.ReadOnly = true;
-            textBox7.Size = new Size(455, 33);
-            textBox7.TabIndex = 6;
+            labelPost.AutoSize = true;
+            labelPost.ForeColor = Color.WhiteSmoke;
+            labelPost.Location = new Point(69, 304);
+            labelPost.Margin = new Padding(4, 0, 4, 0);
+            labelPost.Name = "labelPost";
+            labelPost.Size = new Size(72, 15);
+            labelPost.TabIndex = 12;
+            labelPost.Text = "Должность:";
             // 
             // labelControlEmployees
             // 
@@ -1070,157 +1023,147 @@
             // 
             // panelRecordOrders
             // 
-            panelRecordOrders.Controls.Add(label15);
-            panelRecordOrders.Controls.Add(label16);
-            panelRecordOrders.Controls.Add(textBox11);
-            panelRecordOrders.Controls.Add(label17);
-            panelRecordOrders.Controls.Add(textBox12);
-            panelRecordOrders.Controls.Add(label18);
-            panelRecordOrders.Controls.Add(textBox13);
-            panelRecordOrders.Controls.Add(label19);
-            panelRecordOrders.Controls.Add(dateTimePicker3);
-            panelRecordOrders.Controls.Add(label20);
-            panelRecordOrders.Controls.Add(textBox10);
-            panelRecordOrders.Controls.Add(label21);
-            panelRecordOrders.Controls.Add(textBox14);
+            panelRecordOrders.Controls.Add(labelRecordOrders);
+            panelRecordOrders.Controls.Add(labelOrderID);
+            panelRecordOrders.Controls.Add(textBoxOrderID);
+            panelRecordOrders.Controls.Add(labelClientFullNameOrders);
+            panelRecordOrders.Controls.Add(textBoxClientFullNameOrders);
+            panelRecordOrders.Controls.Add(labelEmployeeFullNameOrders);
+            panelRecordOrders.Controls.Add(textBoxEmployeeFullNameOrders);
+            panelRecordOrders.Controls.Add(labelOrderDate);
+            panelRecordOrders.Controls.Add(dateTimePickerOrderDate);
+            panelRecordOrders.Controls.Add(labelTotalAmount);
+            panelRecordOrders.Controls.Add(textBoxTotalAmount);
+            panelRecordOrders.Controls.Add(labelStatus);
+            panelRecordOrders.Controls.Add(comboBoxStatus);
             panelRecordOrders.Location = new Point(9, 450);
             panelRecordOrders.Margin = new Padding(4, 3, 4, 3);
             panelRecordOrders.Name = "panelRecordOrders";
             panelRecordOrders.Size = new Size(611, 552);
             panelRecordOrders.TabIndex = 1;
             // 
-            // label15
+            // labelRecordOrders
             // 
-            label15.AutoSize = true;
-            label15.Font = new Font("Segoe UI Semibold", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label15.ForeColor = Color.WhiteSmoke;
-            label15.Location = new Point(4, 10);
-            label15.Margin = new Padding(4, 0, 4, 0);
-            label15.Name = "label15";
-            label15.Size = new Size(142, 47);
-            label15.TabIndex = 7;
-            label15.Text = "Запись:";
+            labelRecordOrders.AutoSize = true;
+            labelRecordOrders.Font = new Font("Segoe UI Semibold", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            labelRecordOrders.ForeColor = Color.WhiteSmoke;
+            labelRecordOrders.Location = new Point(4, 10);
+            labelRecordOrders.Margin = new Padding(4, 0, 4, 0);
+            labelRecordOrders.Name = "labelRecordOrders";
+            labelRecordOrders.Size = new Size(142, 47);
+            labelRecordOrders.TabIndex = 6;
+            labelRecordOrders.Text = "Запись:";
             // 
-            // label16
+            // labelOrderID
             // 
-            label16.AutoSize = true;
-            label16.ForeColor = Color.WhiteSmoke;
-            label16.Location = new Point(93, 82);
-            label16.Margin = new Padding(4, 0, 4, 0);
-            label16.Name = "label16";
-            label16.Size = new Size(48, 15);
-            label16.TabIndex = 8;
-            label16.Text = "Номер:";
+            labelOrderID.AutoSize = true;
+            labelOrderID.ForeColor = Color.WhiteSmoke;
+            labelOrderID.Location = new Point(93, 82);
+            labelOrderID.Margin = new Padding(4, 0, 4, 0);
+            labelOrderID.Name = "labelOrderID";
+            labelOrderID.Size = new Size(48, 15);
+            labelOrderID.TabIndex = 7;
+            labelOrderID.Text = "Номер:";
             // 
-            // textBox11
+            // textBoxOrderID
             // 
-            textBox11.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBox11.Location = new Point(152, 68);
-            textBox11.Margin = new Padding(4, 3, 4, 3);
-            textBox11.Name = "textBox11";
-            textBox11.Size = new Size(455, 33);
-            textBox11.TabIndex = 0;
+            textBoxOrderID.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxOrderID.Location = new Point(152, 68);
+            textBoxOrderID.Margin = new Padding(4, 3, 4, 3);
+            textBoxOrderID.Name = "textBoxOrderID";
+            textBoxOrderID.Size = new Size(455, 33);
+            textBoxOrderID.TabIndex = 0;
             // 
-            // label17
+            // labelClientFullNameOrders
             // 
-            label17.AutoSize = true;
-            label17.ForeColor = Color.WhiteSmoke;
-            label17.Location = new Point(6, 124);
-            label17.Margin = new Padding(4, 0, 4, 0);
-            label17.Name = "label17";
-            label17.Size = new Size(140, 15);
-            label17.TabIndex = 9;
-            label17.Text = "Наименование клиента:";
+            labelClientFullNameOrders.AutoSize = true;
+            labelClientFullNameOrders.ForeColor = Color.WhiteSmoke;
+            labelClientFullNameOrders.Location = new Point(6, 124);
+            labelClientFullNameOrders.Margin = new Padding(4, 0, 4, 0);
+            labelClientFullNameOrders.Name = "labelClientFullNameOrders";
+            labelClientFullNameOrders.Size = new Size(140, 15);
+            labelClientFullNameOrders.TabIndex = 8;
+            labelClientFullNameOrders.Text = "Наименование клиента:";
             // 
-            // textBox12
+            // textBoxClientFullNameOrders
             // 
-            textBox12.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBox12.Location = new Point(152, 113);
-            textBox12.Margin = new Padding(4, 3, 4, 3);
-            textBox12.Name = "textBox12";
-            textBox12.Size = new Size(455, 33);
-            textBox12.TabIndex = 1;
+            textBoxClientFullNameOrders.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxClientFullNameOrders.Location = new Point(152, 113);
+            textBoxClientFullNameOrders.Margin = new Padding(4, 3, 4, 3);
+            textBoxClientFullNameOrders.Name = "textBoxClientFullNameOrders";
+            textBoxClientFullNameOrders.Size = new Size(455, 33);
+            textBoxClientFullNameOrders.TabIndex = 1;
             // 
-            // label18
+            // labelEmployeeFullNameOrders
             // 
-            label18.AutoSize = true;
-            label18.ForeColor = Color.WhiteSmoke;
-            label18.Location = new Point(36, 169);
-            label18.Margin = new Padding(4, 0, 4, 0);
-            label18.Name = "label18";
-            label18.Size = new Size(105, 15);
-            label18.TabIndex = 10;
-            label18.Text = "ФИО Сотрудника:";
+            labelEmployeeFullNameOrders.AutoSize = true;
+            labelEmployeeFullNameOrders.ForeColor = Color.WhiteSmoke;
+            labelEmployeeFullNameOrders.Location = new Point(36, 169);
+            labelEmployeeFullNameOrders.Margin = new Padding(4, 0, 4, 0);
+            labelEmployeeFullNameOrders.Name = "labelEmployeeFullNameOrders";
+            labelEmployeeFullNameOrders.Size = new Size(105, 15);
+            labelEmployeeFullNameOrders.TabIndex = 9;
+            labelEmployeeFullNameOrders.Text = "ФИО Сотрудника:";
             // 
-            // textBox13
+            // textBoxEmployeeFullNameOrders
             // 
-            textBox13.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBox13.Location = new Point(152, 158);
-            textBox13.Margin = new Padding(4, 3, 4, 3);
-            textBox13.Name = "textBox13";
-            textBox13.Size = new Size(455, 33);
-            textBox13.TabIndex = 2;
+            textBoxEmployeeFullNameOrders.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxEmployeeFullNameOrders.Location = new Point(152, 158);
+            textBoxEmployeeFullNameOrders.Margin = new Padding(4, 3, 4, 3);
+            textBoxEmployeeFullNameOrders.Name = "textBoxEmployeeFullNameOrders";
+            textBoxEmployeeFullNameOrders.Size = new Size(455, 33);
+            textBoxEmployeeFullNameOrders.TabIndex = 2;
             // 
-            // label19
+            // labelOrderDate
             // 
-            label19.AutoSize = true;
-            label19.ForeColor = Color.WhiteSmoke;
-            label19.Location = new Point(69, 217);
-            label19.Margin = new Padding(4, 0, 4, 0);
-            label19.Name = "label19";
-            label19.Size = new Size(72, 15);
-            label19.TabIndex = 11;
-            label19.Text = "Дата заказа:";
+            labelOrderDate.AutoSize = true;
+            labelOrderDate.ForeColor = Color.WhiteSmoke;
+            labelOrderDate.Location = new Point(69, 217);
+            labelOrderDate.Margin = new Padding(4, 0, 4, 0);
+            labelOrderDate.Name = "labelOrderDate";
+            labelOrderDate.Size = new Size(72, 15);
+            labelOrderDate.TabIndex = 10;
+            labelOrderDate.Text = "Дата заказа:";
             // 
-            // dateTimePicker3
+            // dateTimePickerOrderDate
             // 
-            dateTimePicker3.Font = new Font("Segoe UI", 14.25F);
-            dateTimePicker3.Location = new Point(152, 203);
-            dateTimePicker3.Name = "dateTimePicker3";
-            dateTimePicker3.Size = new Size(455, 33);
-            dateTimePicker3.TabIndex = 3;
+            dateTimePickerOrderDate.Font = new Font("Segoe UI", 14.25F);
+            dateTimePickerOrderDate.Location = new Point(152, 203);
+            dateTimePickerOrderDate.Name = "dateTimePickerOrderDate";
+            dateTimePickerOrderDate.Size = new Size(455, 33);
+            dateTimePickerOrderDate.TabIndex = 3;
             // 
-            // label20
+            // labelTotalAmount
             // 
-            label20.AutoSize = true;
-            label20.ForeColor = Color.WhiteSmoke;
-            label20.Location = new Point(98, 259);
-            label20.Margin = new Padding(4, 0, 4, 0);
-            label20.Name = "label20";
-            label20.Size = new Size(43, 15);
-            label20.TabIndex = 12;
-            label20.Text = "Итого:";
+            labelTotalAmount.AutoSize = true;
+            labelTotalAmount.ForeColor = Color.WhiteSmoke;
+            labelTotalAmount.Location = new Point(98, 259);
+            labelTotalAmount.Margin = new Padding(4, 0, 4, 0);
+            labelTotalAmount.Name = "labelTotalAmount";
+            labelTotalAmount.Size = new Size(43, 15);
+            labelTotalAmount.TabIndex = 11;
+            labelTotalAmount.Text = "Итого:";
             // 
-            // textBox10
+            // textBoxTotalAmount
             // 
-            textBox10.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBox10.Location = new Point(152, 248);
-            textBox10.Margin = new Padding(4, 3, 4, 3);
-            textBox10.Name = "textBox10";
-            textBox10.ReadOnly = true;
-            textBox10.Size = new Size(455, 33);
-            textBox10.TabIndex = 18;
+            textBoxTotalAmount.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxTotalAmount.Location = new Point(152, 248);
+            textBoxTotalAmount.Margin = new Padding(4, 3, 4, 3);
+            textBoxTotalAmount.Name = "textBoxTotalAmount";
+            textBoxTotalAmount.ReadOnly = true;
+            textBoxTotalAmount.Size = new Size(455, 33);
+            textBoxTotalAmount.TabIndex = 4;
             // 
-            // label21
+            // labelStatus
             // 
-            label21.AutoSize = true;
-            label21.ForeColor = Color.WhiteSmoke;
-            label21.Location = new Point(95, 304);
-            label21.Margin = new Padding(4, 0, 4, 0);
-            label21.Name = "label21";
-            label21.Size = new Size(46, 15);
-            label21.TabIndex = 13;
-            label21.Text = "Статус:";
-            // 
-            // textBox14
-            // 
-            textBox14.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBox14.Location = new Point(152, 293);
-            textBox14.Margin = new Padding(4, 3, 4, 3);
-            textBox14.Name = "textBox14";
-            textBox14.ReadOnly = true;
-            textBox14.Size = new Size(455, 33);
-            textBox14.TabIndex = 6;
+            labelStatus.AutoSize = true;
+            labelStatus.ForeColor = Color.WhiteSmoke;
+            labelStatus.Location = new Point(95, 304);
+            labelStatus.Margin = new Padding(4, 0, 4, 0);
+            labelStatus.Name = "labelStatus";
+            labelStatus.Size = new Size(46, 15);
+            labelStatus.TabIndex = 12;
+            labelStatus.Text = "Статус:";
             // 
             // labelControlOrders
             // 
@@ -1428,113 +1371,113 @@
             // 
             // panelRecordProducts
             // 
-            panelRecordProducts.Controls.Add(label26);
-            panelRecordProducts.Controls.Add(label27);
-            panelRecordProducts.Controls.Add(textBox18);
-            panelRecordProducts.Controls.Add(label28);
-            panelRecordProducts.Controls.Add(textBox19);
-            panelRecordProducts.Controls.Add(label29);
-            panelRecordProducts.Controls.Add(textBox20);
-            panelRecordProducts.Controls.Add(label30);
-            panelRecordProducts.Controls.Add(textBox31);
+            panelRecordProducts.Controls.Add(labelRecordProducts);
+            panelRecordProducts.Controls.Add(labelProductID);
+            panelRecordProducts.Controls.Add(textBoxProductID);
+            panelRecordProducts.Controls.Add(labelName);
+            panelRecordProducts.Controls.Add(textBoxName);
+            panelRecordProducts.Controls.Add(labelDescription);
+            panelRecordProducts.Controls.Add(textBoxDescription);
+            panelRecordProducts.Controls.Add(labelPrice);
+            panelRecordProducts.Controls.Add(textBoxPrice);
             panelRecordProducts.Location = new Point(9, 450);
             panelRecordProducts.Margin = new Padding(4, 3, 4, 3);
             panelRecordProducts.Name = "panelRecordProducts";
             panelRecordProducts.Size = new Size(611, 552);
             panelRecordProducts.TabIndex = 1;
             // 
-            // label26
+            // labelRecordProducts
             // 
-            label26.AutoSize = true;
-            label26.Font = new Font("Segoe UI Semibold", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label26.ForeColor = Color.WhiteSmoke;
-            label26.Location = new Point(4, 10);
-            label26.Margin = new Padding(4, 0, 4, 0);
-            label26.Name = "label26";
-            label26.Size = new Size(142, 47);
-            label26.TabIndex = 7;
-            label26.Text = "Запись:";
+            labelRecordProducts.AutoSize = true;
+            labelRecordProducts.Font = new Font("Segoe UI Semibold", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            labelRecordProducts.ForeColor = Color.WhiteSmoke;
+            labelRecordProducts.Location = new Point(4, 10);
+            labelRecordProducts.Margin = new Padding(4, 0, 4, 0);
+            labelRecordProducts.Name = "labelRecordProducts";
+            labelRecordProducts.Size = new Size(142, 47);
+            labelRecordProducts.TabIndex = 7;
+            labelRecordProducts.Text = "Запись:";
             // 
-            // label27
+            // labelProductID
             // 
-            label27.AutoSize = true;
-            label27.ForeColor = Color.WhiteSmoke;
-            label27.Location = new Point(93, 82);
-            label27.Margin = new Padding(4, 0, 4, 0);
-            label27.Name = "label27";
-            label27.Size = new Size(48, 15);
-            label27.TabIndex = 8;
-            label27.Text = "Номер:";
+            labelProductID.AutoSize = true;
+            labelProductID.ForeColor = Color.WhiteSmoke;
+            labelProductID.Location = new Point(93, 82);
+            labelProductID.Margin = new Padding(4, 0, 4, 0);
+            labelProductID.Name = "labelProductID";
+            labelProductID.Size = new Size(48, 15);
+            labelProductID.TabIndex = 8;
+            labelProductID.Text = "Номер:";
             // 
-            // textBox18
+            // textBoxProductID
             // 
-            textBox18.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBox18.Location = new Point(152, 68);
-            textBox18.Margin = new Padding(4, 3, 4, 3);
-            textBox18.Name = "textBox18";
-            textBox18.Size = new Size(455, 33);
-            textBox18.TabIndex = 0;
+            textBoxProductID.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxProductID.Location = new Point(152, 68);
+            textBoxProductID.Margin = new Padding(4, 3, 4, 3);
+            textBoxProductID.Name = "textBoxProductID";
+            textBoxProductID.Size = new Size(455, 33);
+            textBoxProductID.TabIndex = 0;
             // 
-            // label28
+            // labelName
             // 
-            label28.AutoSize = true;
-            label28.ForeColor = Color.WhiteSmoke;
-            label28.Location = new Point(48, 124);
-            label28.Margin = new Padding(4, 0, 4, 0);
-            label28.Name = "label28";
-            label28.Size = new Size(93, 15);
-            label28.TabIndex = 9;
-            label28.Text = "Наименование:";
+            labelName.AutoSize = true;
+            labelName.ForeColor = Color.WhiteSmoke;
+            labelName.Location = new Point(48, 124);
+            labelName.Margin = new Padding(4, 0, 4, 0);
+            labelName.Name = "labelName";
+            labelName.Size = new Size(93, 15);
+            labelName.TabIndex = 9;
+            labelName.Text = "Наименование:";
             // 
-            // textBox19
+            // textBoxName
             // 
-            textBox19.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBox19.Location = new Point(152, 113);
-            textBox19.Margin = new Padding(4, 3, 4, 3);
-            textBox19.Name = "textBox19";
-            textBox19.Size = new Size(455, 33);
-            textBox19.TabIndex = 1;
+            textBoxName.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxName.Location = new Point(152, 113);
+            textBoxName.Margin = new Padding(4, 3, 4, 3);
+            textBoxName.Name = "textBoxName";
+            textBoxName.Size = new Size(455, 33);
+            textBoxName.TabIndex = 1;
             // 
-            // label29
+            // labelDescription
             // 
-            label29.AutoSize = true;
-            label29.ForeColor = Color.WhiteSmoke;
-            label29.Location = new Point(76, 169);
-            label29.Margin = new Padding(4, 0, 4, 0);
-            label29.Name = "label29";
-            label29.Size = new Size(65, 15);
-            label29.TabIndex = 10;
-            label29.Text = "Описание:";
+            labelDescription.AutoSize = true;
+            labelDescription.ForeColor = Color.WhiteSmoke;
+            labelDescription.Location = new Point(76, 169);
+            labelDescription.Margin = new Padding(4, 0, 4, 0);
+            labelDescription.Name = "labelDescription";
+            labelDescription.Size = new Size(65, 15);
+            labelDescription.TabIndex = 10;
+            labelDescription.Text = "Описание:";
             // 
-            // textBox20
+            // textBoxDescription
             // 
-            textBox20.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBox20.Location = new Point(152, 158);
-            textBox20.Margin = new Padding(4, 3, 4, 3);
-            textBox20.Name = "textBox20";
-            textBox20.Size = new Size(455, 33);
-            textBox20.TabIndex = 2;
+            textBoxDescription.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxDescription.Location = new Point(152, 158);
+            textBoxDescription.Margin = new Padding(4, 3, 4, 3);
+            textBoxDescription.Name = "textBoxDescription";
+            textBoxDescription.Size = new Size(455, 33);
+            textBoxDescription.TabIndex = 2;
             // 
-            // label30
+            // labelPrice
             // 
-            label30.AutoSize = true;
-            label30.ForeColor = Color.WhiteSmoke;
-            label30.Location = new Point(103, 217);
-            label30.Margin = new Padding(4, 0, 4, 0);
-            label30.Name = "label30";
-            label30.Size = new Size(38, 15);
-            label30.TabIndex = 11;
-            label30.Text = "Цена:";
+            labelPrice.AutoSize = true;
+            labelPrice.ForeColor = Color.WhiteSmoke;
+            labelPrice.Location = new Point(103, 217);
+            labelPrice.Margin = new Padding(4, 0, 4, 0);
+            labelPrice.Name = "labelPrice";
+            labelPrice.Size = new Size(38, 15);
+            labelPrice.TabIndex = 11;
+            labelPrice.Text = "Цена:";
             // 
-            // textBox31
+            // textBoxPrice
             // 
-            textBox31.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBox31.Location = new Point(152, 206);
-            textBox31.Margin = new Padding(4, 3, 4, 3);
-            textBox31.Name = "textBox31";
-            textBox31.ReadOnly = true;
-            textBox31.Size = new Size(455, 33);
-            textBox31.TabIndex = 18;
+            textBoxPrice.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxPrice.Location = new Point(152, 206);
+            textBoxPrice.Margin = new Padding(4, 3, 4, 3);
+            textBoxPrice.Name = "textBoxPrice";
+            textBoxPrice.ReadOnly = true;
+            textBoxPrice.Size = new Size(455, 33);
+            textBoxPrice.TabIndex = 18;
             // 
             // labelControlProducts
             // 
@@ -1742,112 +1685,112 @@
             // 
             // panelRecordOrderDetails
             // 
-            panelRecordOrderDetails.Controls.Add(label37);
-            panelRecordOrderDetails.Controls.Add(label38);
-            panelRecordOrderDetails.Controls.Add(textBox25);
-            panelRecordOrderDetails.Controls.Add(label39);
-            panelRecordOrderDetails.Controls.Add(textBox26);
-            panelRecordOrderDetails.Controls.Add(label40);
-            panelRecordOrderDetails.Controls.Add(textBox27);
-            panelRecordOrderDetails.Controls.Add(label41);
-            panelRecordOrderDetails.Controls.Add(textBox33);
+            panelRecordOrderDetails.Controls.Add(labelRecordOrderDetails);
+            panelRecordOrderDetails.Controls.Add(labelOrderDetailID);
+            panelRecordOrderDetails.Controls.Add(textBoxOrderDetailID);
+            panelRecordOrderDetails.Controls.Add(labelOrderIDOrderDetails);
+            panelRecordOrderDetails.Controls.Add(textBoxOrderIDOrderDetails);
+            panelRecordOrderDetails.Controls.Add(labelNameOrderDetails);
+            panelRecordOrderDetails.Controls.Add(textBoxNameIDOrderDetails);
+            panelRecordOrderDetails.Controls.Add(labelPriceOrderDetails);
+            panelRecordOrderDetails.Controls.Add(textBoxPriceOrderDetails);
             panelRecordOrderDetails.Location = new Point(9, 450);
             panelRecordOrderDetails.Margin = new Padding(4, 3, 4, 3);
             panelRecordOrderDetails.Name = "panelRecordOrderDetails";
             panelRecordOrderDetails.Size = new Size(611, 552);
             panelRecordOrderDetails.TabIndex = 1;
             // 
-            // label37
+            // labelRecordOrderDetails
             // 
-            label37.AutoSize = true;
-            label37.Font = new Font("Segoe UI Semibold", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label37.ForeColor = Color.WhiteSmoke;
-            label37.Location = new Point(4, 10);
-            label37.Margin = new Padding(4, 0, 4, 0);
-            label37.Name = "label37";
-            label37.Size = new Size(142, 47);
-            label37.TabIndex = 7;
-            label37.Text = "Запись:";
+            labelRecordOrderDetails.AutoSize = true;
+            labelRecordOrderDetails.Font = new Font("Segoe UI Semibold", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            labelRecordOrderDetails.ForeColor = Color.WhiteSmoke;
+            labelRecordOrderDetails.Location = new Point(4, 10);
+            labelRecordOrderDetails.Margin = new Padding(4, 0, 4, 0);
+            labelRecordOrderDetails.Name = "labelRecordOrderDetails";
+            labelRecordOrderDetails.Size = new Size(142, 47);
+            labelRecordOrderDetails.TabIndex = 4;
+            labelRecordOrderDetails.Text = "Запись:";
             // 
-            // label38
+            // labelOrderDetailID
             // 
-            label38.AutoSize = true;
-            label38.ForeColor = Color.WhiteSmoke;
-            label38.Location = new Point(93, 82);
-            label38.Margin = new Padding(4, 0, 4, 0);
-            label38.Name = "label38";
-            label38.Size = new Size(48, 15);
-            label38.TabIndex = 8;
-            label38.Text = "Номер:";
+            labelOrderDetailID.AutoSize = true;
+            labelOrderDetailID.ForeColor = Color.WhiteSmoke;
+            labelOrderDetailID.Location = new Point(93, 82);
+            labelOrderDetailID.Margin = new Padding(4, 0, 4, 0);
+            labelOrderDetailID.Name = "labelOrderDetailID";
+            labelOrderDetailID.Size = new Size(48, 15);
+            labelOrderDetailID.TabIndex = 5;
+            labelOrderDetailID.Text = "Номер:";
             // 
-            // textBox25
+            // textBoxOrderDetailID
             // 
-            textBox25.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBox25.Location = new Point(152, 68);
-            textBox25.Margin = new Padding(4, 3, 4, 3);
-            textBox25.Name = "textBox25";
-            textBox25.Size = new Size(455, 33);
-            textBox25.TabIndex = 0;
+            textBoxOrderDetailID.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxOrderDetailID.Location = new Point(152, 68);
+            textBoxOrderDetailID.Margin = new Padding(4, 3, 4, 3);
+            textBoxOrderDetailID.Name = "textBoxOrderDetailID";
+            textBoxOrderDetailID.Size = new Size(455, 33);
+            textBoxOrderDetailID.TabIndex = 0;
             // 
-            // label39
+            // labelOrderIDOrderDetails
             // 
-            label39.AutoSize = true;
-            label39.ForeColor = Color.WhiteSmoke;
-            label39.Location = new Point(56, 124);
-            label39.Margin = new Padding(4, 0, 4, 0);
-            label39.Name = "label39";
-            label39.Size = new Size(85, 15);
-            label39.TabIndex = 9;
-            label39.Text = "Номер заказа:";
+            labelOrderIDOrderDetails.AutoSize = true;
+            labelOrderIDOrderDetails.ForeColor = Color.WhiteSmoke;
+            labelOrderIDOrderDetails.Location = new Point(56, 124);
+            labelOrderIDOrderDetails.Margin = new Padding(4, 0, 4, 0);
+            labelOrderIDOrderDetails.Name = "labelOrderIDOrderDetails";
+            labelOrderIDOrderDetails.Size = new Size(85, 15);
+            labelOrderIDOrderDetails.TabIndex = 6;
+            labelOrderIDOrderDetails.Text = "Номер заказа:";
             // 
-            // textBox26
+            // textBoxOrderIDOrderDetails
             // 
-            textBox26.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBox26.Location = new Point(152, 113);
-            textBox26.Margin = new Padding(4, 3, 4, 3);
-            textBox26.Name = "textBox26";
-            textBox26.Size = new Size(455, 33);
-            textBox26.TabIndex = 1;
+            textBoxOrderIDOrderDetails.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxOrderIDOrderDetails.Location = new Point(152, 113);
+            textBoxOrderIDOrderDetails.Margin = new Padding(4, 3, 4, 3);
+            textBoxOrderIDOrderDetails.Name = "textBoxOrderIDOrderDetails";
+            textBoxOrderIDOrderDetails.Size = new Size(455, 33);
+            textBoxOrderIDOrderDetails.TabIndex = 1;
             // 
-            // label40
+            // labelNameOrderDetails
             // 
-            label40.AutoSize = true;
-            label40.ForeColor = Color.WhiteSmoke;
-            label40.Location = new Point(0, 169);
-            label40.Margin = new Padding(4, 0, 4, 0);
-            label40.Name = "label40";
-            label40.Size = new Size(146, 15);
-            label40.TabIndex = 10;
-            label40.Text = "Наименование продукта:";
+            labelNameOrderDetails.AutoSize = true;
+            labelNameOrderDetails.ForeColor = Color.WhiteSmoke;
+            labelNameOrderDetails.Location = new Point(0, 169);
+            labelNameOrderDetails.Margin = new Padding(4, 0, 4, 0);
+            labelNameOrderDetails.Name = "labelNameOrderDetails";
+            labelNameOrderDetails.Size = new Size(146, 15);
+            labelNameOrderDetails.TabIndex = 7;
+            labelNameOrderDetails.Text = "Наименование продукта:";
             // 
-            // textBox27
+            // textBoxNameIDOrderDetails
             // 
-            textBox27.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBox27.Location = new Point(152, 158);
-            textBox27.Margin = new Padding(4, 3, 4, 3);
-            textBox27.Name = "textBox27";
-            textBox27.Size = new Size(455, 33);
-            textBox27.TabIndex = 2;
+            textBoxNameIDOrderDetails.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxNameIDOrderDetails.Location = new Point(152, 158);
+            textBoxNameIDOrderDetails.Margin = new Padding(4, 3, 4, 3);
+            textBoxNameIDOrderDetails.Name = "textBoxNameIDOrderDetails";
+            textBoxNameIDOrderDetails.Size = new Size(455, 33);
+            textBoxNameIDOrderDetails.TabIndex = 2;
             // 
-            // label41
+            // labelPriceOrderDetails
             // 
-            label41.AutoSize = true;
-            label41.ForeColor = Color.WhiteSmoke;
-            label41.Location = new Point(103, 217);
-            label41.Margin = new Padding(4, 0, 4, 0);
-            label41.Name = "label41";
-            label41.Size = new Size(38, 15);
-            label41.TabIndex = 11;
-            label41.Text = "Цена:";
+            labelPriceOrderDetails.AutoSize = true;
+            labelPriceOrderDetails.ForeColor = Color.WhiteSmoke;
+            labelPriceOrderDetails.Location = new Point(103, 217);
+            labelPriceOrderDetails.Margin = new Padding(4, 0, 4, 0);
+            labelPriceOrderDetails.Name = "labelPriceOrderDetails";
+            labelPriceOrderDetails.Size = new Size(38, 15);
+            labelPriceOrderDetails.TabIndex = 8;
+            labelPriceOrderDetails.Text = "Цена:";
             // 
-            // textBox33
+            // textBoxPriceOrderDetails
             // 
-            textBox33.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBox33.Location = new Point(152, 206);
-            textBox33.Margin = new Padding(4, 3, 4, 3);
-            textBox33.Name = "textBox33";
-            textBox33.Size = new Size(455, 33);
-            textBox33.TabIndex = 18;
+            textBoxPriceOrderDetails.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxPriceOrderDetails.Location = new Point(152, 206);
+            textBoxPriceOrderDetails.Margin = new Padding(4, 3, 4, 3);
+            textBoxPriceOrderDetails.Name = "textBoxPriceOrderDetails";
+            textBoxPriceOrderDetails.Size = new Size(455, 33);
+            textBoxPriceOrderDetails.TabIndex = 3;
             // 
             // labelControlOrderDetails
             // 
@@ -1964,6 +1907,64 @@
             buttonTXTOrderDetails.UseVisualStyleBackColor = true;
             buttonTXTOrderDetails.Click += ButtonTXTOrderDetails_Click;
             // 
+            // maskedTextBoxPhoneClients
+            // 
+            maskedTextBoxPhoneClients.Font = new Font("Segoe UI", 14.25F);
+            maskedTextBoxPhoneClients.Location = new Point(152, 248);
+            maskedTextBoxPhoneClients.Mask = "+7 (999) 999-99-99";
+            maskedTextBoxPhoneClients.Name = "maskedTextBoxPhoneClients";
+            maskedTextBoxPhoneClients.Size = new Size(455, 33);
+            maskedTextBoxPhoneClients.TabIndex = 4;
+            // 
+            // comboBoxClientTypeID
+            // 
+            comboBoxClientTypeID.Font = new Font("Segoe UI", 14.25F);
+            comboBoxClientTypeID.FormattingEnabled = true;
+            comboBoxClientTypeID.Items.AddRange(new object[] { "Физическое лицо", "Юридическое лицо" });
+            comboBoxClientTypeID.Location = new Point(152, 158);
+            comboBoxClientTypeID.Name = "comboBoxClientTypeID";
+            comboBoxClientTypeID.Size = new Size(455, 33);
+            comboBoxClientTypeID.TabIndex = 2;
+            // 
+            // comboBoxGender
+            // 
+            comboBoxGender.Font = new Font("Segoe UI", 14.25F);
+            comboBoxGender.FormattingEnabled = true;
+            comboBoxGender.Items.AddRange(new object[] { "Мужской", "Женский" });
+            comboBoxGender.Location = new Point(152, 251);
+            comboBoxGender.Name = "comboBoxGender";
+            comboBoxGender.Size = new Size(455, 33);
+            comboBoxGender.TabIndex = 4;
+            // 
+            // comboBoxPost
+            // 
+            comboBoxPost.Font = new Font("Segoe UI", 14.25F);
+            comboBoxPost.FormattingEnabled = true;
+            comboBoxPost.Items.AddRange(new object[] { "Менеджер по продажам", "Администратор" });
+            comboBoxPost.Location = new Point(152, 293);
+            comboBoxPost.Name = "comboBoxPost";
+            comboBoxPost.Size = new Size(455, 33);
+            comboBoxPost.TabIndex = 5;
+            // 
+            // comboBoxStatus
+            // 
+            comboBoxStatus.Font = new Font("Segoe UI", 14.25F);
+            comboBoxStatus.FormattingEnabled = true;
+            comboBoxStatus.Items.AddRange(new object[] { "В обработке", "Подтвержден", "Отменен", "Выполнен" });
+            comboBoxStatus.Location = new Point(152, 293);
+            comboBoxStatus.Name = "comboBoxStatus";
+            comboBoxStatus.Size = new Size(455, 33);
+            comboBoxStatus.TabIndex = 5;
+            // 
+            // maskedTextBox1
+            // 
+            maskedTextBox1.Font = new Font("Segoe UI", 14.25F);
+            maskedTextBox1.Location = new Point(152, 158);
+            maskedTextBox1.Mask = "+7 (999) 999-99-99";
+            maskedTextBox1.Name = "maskedTextBox1";
+            maskedTextBox1.Size = new Size(455, 33);
+            maskedTextBox1.TabIndex = 2;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -2032,21 +2033,21 @@
         private TextBox textBoxSearchClients;
         private DataGridView dataGridViewClients;
         private Panel panelRecordClients;
-        private Label labelRecordLoans;
-        private Label labelLoanID;
-        private TextBox textBoxLoanID;
-        private Label labelRegistrationIDLoans;
-        private TextBox textBoxRegistrationIDLoans;
-        private Label labelBookIDLoans;
-        private TextBox textBoxBookIDLoans;
-        private Label labelLoanDateLoans;
-        private Label labelReturnDateLoans;
-        private Label labelIsReturnedLoans;
-        private TextBox textBoxIsReturnedLoans;
-        private Label label1;
-        private TextBox textBox1;
-        private Label label2;
-        private TextBox textBox2;
+        private Label labelRecordClients;
+        private Label labelClientID;
+        private TextBox textBoxClientID;
+        private Label labelFullNameClients;
+        private TextBox textBoxFullNameClients;
+        private Label labelClientTypeID;
+        private TextBox textBoxClientTypeID;
+        private Label labelEmailClients;
+        private Label labelPhoneClients;
+        private Label labelAddress;
+        private TextBox textBoxAddress;
+        private Label labelINN;
+        private TextBox textBoxINN;
+        private Label labelRegistrationDate;
+        private TextBox textBoxEmailClients;
         private Label labelControlClients;
         private Panel panelControlClients;
         private Button buttonNewClient;
@@ -2065,17 +2066,17 @@
         private TextBox textBoxSearchEmployees;
         private DataGridView dataGridViewEmployees;
         private Panel panelRecordEmployees;
-        private Label label4;
-        private Label label5;
-        private TextBox textBox4;
-        private Label label6;
-        private TextBox textBox5;
-        private Label label7;
-        private TextBox textBox6;
-        private Label label8;
-        private Label label9;
-        private Label label10;
-        private TextBox textBox7;
+        private Label labelRecordEmployees;
+        private Label labelEmployeeID;
+        private TextBox textBoxEmployeeID;
+        private Label labelFullNameEmployees;
+        private TextBox textBoxFullNameEmployees;
+        private Label labelPhoneEmployees;
+        private TextBox textBoxPhoneEmployees;
+        private Label labelEmailEmployees;
+        private Label labelGender;
+        private Label labelPost;
+        private TextBox textBoxPost;
         private Label labelControlEmployees;
         private Panel panelControlEmployees;
         private Button buttonNewEmployee;
@@ -2093,18 +2094,18 @@
         private TextBox textBoxSearchOrders;
         private DataGridView dataGridViewOrders;
         private Panel panelRecordOrders;
-        private Label label15;
-        private Label label16;
-        private TextBox textBox11;
-        private Label label17;
-        private TextBox textBox12;
-        private Label label18;
-        private TextBox textBox13;
-        private Label label19;
-        private DateTimePicker dateTimePicker3;
-        private Label label20;
-        private Label label21;
-        private TextBox textBox14;
+        private Label labelRecordOrders;
+        private Label labelOrderID;
+        private TextBox textBoxOrderID;
+        private Label labelClientFullNameOrders;
+        private TextBox textBoxClientFullNameOrders;
+        private Label labelEmployeeFullNameOrders;
+        private TextBox textBoxEmployeeFullNameOrders;
+        private Label labelOrderDate;
+        private DateTimePicker dateTimePickerOrderDate;
+        private Label labelTotalAmount;
+        private Label labelStatus;
+        private TextBox textBoxStatus;
         private Label labelControlOrders;
         private Panel panelControlOrders;
         private Button buttonNewOrder;
@@ -2122,14 +2123,14 @@
         private TextBox textBoxSearchProducts;
         private DataGridView dataGridViewProducts;
         private Panel panelRecordProducts;
-        private Label label26;
-        private Label label27;
-        private TextBox textBox18;
-        private Label label28;
-        private TextBox textBox19;
-        private Label label29;
-        private TextBox textBox20;
-        private Label label30;
+        private Label labelRecordProducts;
+        private Label labelProductID;
+        private TextBox textBoxProductID;
+        private Label labelName;
+        private TextBox textBoxName;
+        private Label labelDescription;
+        private TextBox textBoxDescription;
+        private Label labelPrice;
         private Label labelControlProducts;
         private Panel panelControlProducts;
         private Button buttonNewProduct;
@@ -2147,14 +2148,14 @@
         private TextBox textBoxSearchOrderDetails;
         private DataGridView dataGridViewOrderDetails;
         private Panel panelRecordOrderDetails;
-        private Label label37;
-        private Label label38;
-        private TextBox textBox25;
-        private Label label39;
-        private TextBox textBox26;
-        private Label label40;
-        private TextBox textBox27;
-        private Label label41;
+        private Label labelRecordOrderDetails;
+        private Label labelOrderDetailID;
+        private TextBox textBoxOrderDetailID;
+        private Label labelOrderIDOrderDetails;
+        private TextBox textBoxOrderIDOrderDetails;
+        private Label labelNameOrderDetails;
+        private TextBox textBoxNameIDOrderDetails;
+        private Label labelPriceOrderDetails;
         private Label labelControlOrderDetails;
         private Panel panelControlOrderDetails;
         private Button buttonNewOrderDetails;
@@ -2164,12 +2165,18 @@
         private Button buttonWordOrderDetails;
         private Button buttonExcelOrderDetails;
         private Button buttonTXTOrderDetails;
-        private DateTimePicker dateTimePickerLoanDateLoans;
-        private TextBox textBox3;
-        private TextBox textBox17;
-        private TextBox textBox24;
-        private TextBox textBox10;
-        private TextBox textBox31;
-        private TextBox textBox33;
+        private DateTimePicker dateTimePickerRegistrationDate;
+        private TextBox textBoxPhoneClients;
+        private TextBox textBoxEmailEmployees;
+        private TextBox textBoxGender;
+        private TextBox textBoxTotalAmount;
+        private TextBox textBoxPrice;
+        private TextBox textBoxPriceOrderDetails;
+        private ComboBox comboBoxClientTypeID;
+        private MaskedTextBox maskedTextBoxPhoneClients;
+        private ComboBox comboBoxGender;
+        private ComboBox comboBoxPost;
+        private ComboBox comboBoxStatus;
+        private MaskedTextBox maskedTextBox1;
     }
 }
