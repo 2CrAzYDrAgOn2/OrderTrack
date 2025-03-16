@@ -78,6 +78,7 @@
             buttonSave.TabIndex = 3;
             buttonSave.Text = "Сохранить";
             buttonSave.UseVisualStyleBackColor = false;
+            buttonSave.Click += ButtonSave_Click;
             // 
             // labelName
             // 
@@ -139,7 +140,6 @@
             textBoxPrice.Location = new Point(293, 582);
             textBoxPrice.Margin = new Padding(4, 3, 4, 3);
             textBoxPrice.Name = "textBoxPrice";
-            textBoxPrice.ReadOnly = true;
             textBoxPrice.Size = new Size(455, 33);
             textBoxPrice.TabIndex = 2;
             // 
@@ -150,14 +150,14 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(896, 841);
+            Controls.Add(labelTitle);
+            Controls.Add(label1);
             Controls.Add(labelName);
             Controls.Add(textBoxName);
             Controls.Add(labelDescription);
             Controls.Add(textBoxDescription);
             Controls.Add(labelPrice);
             Controls.Add(textBoxPrice);
-            Controls.Add(labelTitle);
-            Controls.Add(label1);
             Controls.Add(buttonSave);
             DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");

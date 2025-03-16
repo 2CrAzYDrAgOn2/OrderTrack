@@ -29,7 +29,7 @@ CREATE TABLE Clients (
     Phone NVARCHAR(18) UNIQUE NOT NULL,
     Address NVARCHAR(255),
 	INN NVARCHAR(10) DEFAULT '',
-    RegistrationDate DATETIME DEFAULT GETDATE(),
+    RegistrationDate DATE DEFAULT GETDATE(),
 	FOREIGN KEY (ClientTypeID) REFERENCES ClientTypes(ClientTypeID)
 );
 
@@ -48,7 +48,7 @@ CREATE TABLE Orders (
     OrderID INT PRIMARY KEY IDENTITY(1,1),
     ClientID INT NOT NULL,
     EmployeeID INT NOT NULL,
-    OrderDate DATETIME DEFAULT GETDATE(),
+    OrderDate DATE DEFAULT GETDATE(),
     TotalAmount FLOAT DEFAULT 0.00,
     StatusID INT DEFAULT 0,
     FOREIGN KEY (ClientID) REFERENCES Clients(ClientID) ON DELETE CASCADE,
@@ -126,8 +126,8 @@ VALUES
 
 INSERT INTO Employees (FullName, Phone, Email, GenderID, PostID)
 VALUES 
-    ('Петров Петр Петрович', '+79998887766', 'petrov@mail.ru', 1, 1),
-    ('Сидорова Анна Сергеевна', '+79995554433', 'sidorova@mail.ru', 2, 2);
+    ('Петров Петр Петрович', '+7 (999) 888-77-66', 'petrov@mail.ru', 1, 1),
+    ('Сидорова Анна Сергеевна', '+7 (999) 555-44-33', 'sidorova@mail.ru', 2, 2);
 
 INSERT INTO Products (Name, Description, Price)
 VALUES 
@@ -160,5 +160,40 @@ SELECT * FROM Orders;
 SELECT * FROM Products;
 SELECT * FROM OrderDetails;
 SELECT * FROM Registration;
+
+-- 1. Отчет по заказам клиентов
+SELECT 
+    o.OrderID AS 'Номер заказа',
+    c.FullName AS 'Клиент',
+    e.FullName AS 'Менеджер',
+    s.Status AS 'Статус',
+    o.OrderDate AS 'Дата заказа',
+    o.TotalAmount AS 'Сумма заказа'
+FROM Orders o
+JOIN Clients c ON o.ClientID = c.ClientID
+JOIN Employees e ON o.EmployeeID = e.EmployeeID
+JOIN Statuses s ON o.StatusID = s.StatusID
+ORDER BY o.OrderDate DESC;
+
+-- 2. Отчет по продажам за месяц
+SELECT 
+    YEAR(OrderDate) AS 'Год',
+    MONTH(OrderDate) AS 'Месяц',
+    COUNT(OrderID) AS 'Количество заказов',
+    SUM(TotalAmount) AS 'Общая сумма продаж'
+FROM Orders
+GROUP BY YEAR(OrderDate), MONTH(OrderDate)
+ORDER BY YEAR(OrderDate) DESC, MONTH(OrderDate) DESC;
+
+-- 3. Отчет по популярным товарам
+SELECT 
+    p.Name AS 'Товар',
+    COUNT(od.OrderDetailID) AS 'Количество продаж',
+    SUM(od.Price) AS 'Общая сумма'
+FROM OrderDetails od
+JOIN Products p ON od.ProductID = p.ProductID
+GROUP BY p.Name
+ORDER BY COUNT(od.OrderDetailID) DESC, SUM(od.Price) DESC;
+
 
 DROP DATABASE OrderTrack;

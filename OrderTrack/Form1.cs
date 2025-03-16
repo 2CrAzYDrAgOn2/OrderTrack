@@ -1,10 +1,7 @@
 ﻿using Microsoft.Office.Interop.Word;
-using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
-using System.Net;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using Application = Microsoft.Office.Interop.Word.Application;
 using Excel = Microsoft.Office.Interop.Excel;
 
 namespace OrderTrack
@@ -21,10 +18,10 @@ namespace OrderTrack
     public partial class Form1 : Form
     {
         private readonly DataBase dataBase = new();
-        private bool admin;
+        private readonly bool admin;
         private int selectedRow;
-        private System.Windows.Forms.Timer timer;
-        private NotifyIcon notifyIcon;
+        private System.Windows.Forms.Timer? timer;
+        private NotifyIcon? notifyIcon;
 
         public Form1(bool admin)
         {
@@ -35,7 +32,7 @@ namespace OrderTrack
                 StartPosition = FormStartPosition.CenterScreen;
                 InitializeNotifyIcon();
                 InitializeTimer();
-                //ClearFields();
+                ClearFields();
                 ShowBalloonTip();
             }
             catch (Exception ex)
@@ -44,6 +41,9 @@ namespace OrderTrack
             }
         }
 
+        /// <summary>
+        /// CreateColumns() вызывается при создании колонок
+        /// </summary>
         private void CreateColumns()
         {
             try
@@ -88,31 +88,52 @@ namespace OrderTrack
             }
         }
 
-        //private void ClearFields()
-        //{
-        //    try
-        //    {
-        //        textBoxBookID.Text = "";
-        //        textBoxTitleBooks.Text = "";
-        //        textBoxAuthorBooks.Text = "";
-        //        textBoxGenreBooks.Text = "";
-        //        textBoxPublishedYearBooks.Text = "";
-        //        textBoxISBNBooks.Text = "";
-        //        textBoxCopiesAvailableBooks.Text = "";
-        //        textBoxLoanID.Text = "";
-        //        textBoxRegistrationIDLoans.Text = "";
-        //        textBoxBookIDLoans.Text = "";
-        //        dateTimePickerLoanDateLoans.Text = "";
-        //        dateTimePickerReturnDateLoans.Text = "";
-        //        textBoxIsReturnedLoans.Text = "";
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
+        /// <summary>
+        /// ClearFields() вызывается при очистке полей
+        /// </summary>
+        private void ClearFields()
+        {
+            try
+            {
+                textBoxClientID.Text = "";
+                textBoxFullNameClients.Text = "";
+                comboBoxClientTypeID.Text = "Физическое лицо";
+                textBoxEmailClients.Text = "";
+                maskedTextBoxPhoneClients.Text = "";
+                textBoxAddress.Text = "";
+                textBoxINN.Text = "";
+                textBoxEmployeeID.Text = "";
+                textBoxFullNameEmployees.Text = "";
+                maskedTextBoxPhoneEmployees.Text = "";
+                textBoxEmailEmployees.Text = "";
+                comboBoxGenderID.Text = "Мужской";
+                comboBoxPostID.Text = "Менеджер по продажам";
+                textBoxOrderID.Text = "";
+                textBoxClientIDOrders.Text = "";
+                textBoxEmployeeIDOrders.Text = "";
+                textBoxTotalAmount.Text = "";
+                comboBoxStatusID.Text = "В обработке";
+                textBoxProductID.Text = "";
+                textBoxName.Text = "";
+                textBoxDescription.Text = "";
+                textBoxPrice.Text = "";
+                textBoxOrderDetailID.Text = "";
+                textBoxOrderIDOrderDetails.Text = "";
+                textBoxProductIDOrderDetails.Text = "";
+                textBoxPriceOrderDetails.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
-        private static void ReadSingleRow(DataGridView dataGridView, IDataRecord iDataRecord)
+        /// <summary>
+        /// ReadSingleRow() вызывается при чтении каждой строки
+        /// </summary>
+        /// <param name="dataGridView"></param>
+        /// <param name="iDataRecord"></param>
+        private static void ReadSingleRow(DataGridView dataGridView, SqlDataReader iDataRecord)
         {
             try
             {
@@ -145,6 +166,11 @@ namespace OrderTrack
             }
         }
 
+        /// <summary>
+        /// RefreshDataGrid() вызывается при обновлении базы данных
+        /// </summary>
+        /// <param name="dataGridView"></param>
+        /// <param name="tableName"></param>
         private void RefreshDataGrid(DataGridView dataGridView, string tableName)
         {
             try
@@ -166,6 +192,9 @@ namespace OrderTrack
             }
         }
 
+        /// <summary>
+        /// InitializeNotifyIcon() вызывается при инициализации иконки в трее
+        /// </summary>
         private void InitializeNotifyIcon()
         {
             notifyIcon = new NotifyIcon
@@ -175,6 +204,9 @@ namespace OrderTrack
             };
         }
 
+        /// <summary>
+        /// InitializeTimer() вызывается при инициализации таймера
+        /// </summary>
         private void InitializeTimer()
         {
             timer = new System.Windows.Forms.Timer
@@ -185,11 +217,19 @@ namespace OrderTrack
             timer.Start();
         }
 
+        /// <summary>
+        /// Timer_Tick() вызывается при завершении тайиера
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Timer_Tick(object sender, EventArgs e)
         {
             ShowBalloonTip();
         }
 
+        /// <summary>
+        /// ShowBalloonTip() вызывается при показе уведомления
+        /// </summary>
         private void ShowBalloonTip()
         {
             notifyIcon.BalloonTipTitle = "СитиСервисПлюс";
@@ -197,6 +237,11 @@ namespace OrderTrack
             notifyIcon.ShowBalloonTip(3000);
         }
 
+        /// <summary>
+        /// Form1_Load() вызывается при загрузке сцены
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
             try
@@ -214,276 +259,562 @@ namespace OrderTrack
             }
         }
 
-        //private void DataGridView_CellClick(DataGridView dataGridView, int selectedRow)
-        //{
-        //    try
-        //    {
-        //        DataGridViewRow dataGridViewRow = dataGridView.Rows[selectedRow];
-        //        switch (dataGridView.Name)
-        //        {
-        //            case "dataGridViewBooks":
-        //                textBoxBookID.Text = dataGridViewRow.Cells[0].Value.ToString();
-        //                textBoxTitleBooks.Text = dataGridViewRow.Cells[1].Value.ToString();
-        //                textBoxAuthorBooks.Text = dataGridViewRow.Cells[2].Value.ToString();
-        //                textBoxGenreBooks.Text = dataGridViewRow.Cells[3].Value.ToString();
-        //                textBoxPublishedYearBooks.Text = dataGridViewRow.Cells[4].Value.ToString();
-        //                textBoxISBNBooks.Text = dataGridViewRow.Cells[5].Value.ToString();
-        //                textBoxCopiesAvailableBooks.Text = dataGridViewRow.Cells[6].Value.ToString();
-        //                break;
+        /// <summary>
+        /// DataGridView_CellClick() вызывается при нажатии на ячейку
+        /// </summary>
+        /// <param name="dataGridView"></param>
+        /// <param name="selectedRow"></param>
+        private void DataGridView_CellClick(DataGridView dataGridView, int selectedRow)
+        {
+            try
+            {
+                DataGridViewRow dataGridViewRow = dataGridView.Rows[selectedRow];
+                switch (dataGridView.Name)
+                {
+                    case "dataGridViewClients":
+                        textBoxClientID.Text = dataGridViewRow.Cells[0].Value.ToString();
+                        textBoxFullNameClients.Text = dataGridViewRow.Cells[1].Value.ToString();
+                        var clientTypeID = dataGridViewRow.Cells[2].Value.ToString();
+                        string query = $"SELECT ClientType FROM ClientTypes WHERE ClientTypeID = {clientTypeID}";
+                        SqlCommand command = new(query, dataBase.GetConnection());
+                        dataBase.OpenConnection();
+                        object result = command.ExecuteScalar();
+                        comboBoxClientTypeID.Text = result.ToString();
+                        textBoxEmailClients.Text = dataGridViewRow.Cells[3].Value.ToString();
+                        maskedTextBoxPhoneClients.Text = dataGridViewRow.Cells[4].Value.ToString();
+                        textBoxAddress.Text = dataGridViewRow.Cells[5].Value.ToString();
+                        textBoxINN.Text = dataGridViewRow.Cells[6].Value.ToString();
+                        dateTimePickerRegistrationDate.Text = dataGridViewRow.Cells[7].Value?.ToString();
+                        break;
 
-        //            case "dataGridViewLoans":
-        //                textBoxLoanID.Text = dataGridViewRow.Cells[0].Value.ToString();
-        //                var registrationID = dataGridViewRow.Cells[1].Value.ToString();
-        //                string query = $"SELECT UserLogin FROM Registration WHERE RegistrationID = {registrationID}";
-        //                SqlCommand command = new(query, dataBase.GetConnection());
-        //                dataBase.OpenConnection();
-        //                object result = command.ExecuteScalar();
-        //                textBoxRegistrationIDLoans.Text = result.ToString();
-        //                textBoxBookIDLoans.Text = dataGridViewRow.Cells[2].Value.ToString();
-        //                dateTimePickerLoanDateLoans.Text = dataGridViewRow.Cells[3].Value.ToString();
-        //                dateTimePickerReturnDateLoans.Text = dataGridViewRow.Cells[4].Value?.ToString();
-        //                if (dataGridViewRow.Cells[4].Value?.ToString() == "")
-        //                {
-        //                    checkBoxReturnDateLoans.Checked = true;
-        //                }
-        //                else
-        //                {
-        //                    checkBoxReturnDateLoans.Checked = false;
-        //                }
-        //                textBoxIsReturnedLoans.Text = dataGridViewRow.Cells[5].Value.ToString();
-        //                break;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
+                    case "dataGridViewEmployees":
+                        textBoxEmployeeID.Text = dataGridViewRow.Cells[0].Value.ToString();
+                        textBoxFullNameEmployees.Text = dataGridViewRow.Cells[1].Value.ToString();
+                        maskedTextBoxPhoneEmployees.Text = dataGridViewRow.Cells[2].Value.ToString();
+                        textBoxEmailEmployees.Text = dataGridViewRow.Cells[3].Value.ToString();
+                        var genderID = dataGridViewRow.Cells[4].Value.ToString();
+                        string queryGender = $"SELECT Gender FROM Genders WHERE GenderID = {genderID}";
+                        SqlCommand commandGender = new(queryGender, dataBase.GetConnection());
+                        dataBase.OpenConnection();
+                        object resultGender = commandGender.ExecuteScalar();
+                        comboBoxGenderID.Text = resultGender.ToString();
+                        var postID = dataGridViewRow.Cells[5].Value.ToString();
+                        string queryPost = $"SELECT Post FROM Posts WHERE PostID = {postID}";
+                        SqlCommand commandPost = new(queryPost, dataBase.GetConnection());
+                        dataBase.OpenConnection();
+                        object resultPost = commandPost.ExecuteScalar();
+                        comboBoxPostID.Text = resultPost.ToString();
+                        break;
 
-        //private void Search(DataGridView dataGridView)
-        //{
-        //    try
-        //    {
-        //        dataGridView.Rows.Clear();
-        //        switch (dataGridView.Name)
-        //        {
-        //            case "dataGridViewBooks":
-        //                string searchStringEquipment = $"select * from Books where concat (BookID, Title, Author, Genre, PublishedYear, ISBN, CopiesAvailable) like '%" + textBoxSearchBooks.Text + "%'";
-        //                SqlCommand sqlCommandEquipment = new(searchStringEquipment, dataBase.GetConnection());
-        //                dataBase.OpenConnection();
-        //                SqlDataReader sqlDataReaderEquipment = sqlCommandEquipment.ExecuteReader();
-        //                while (sqlDataReaderEquipment.Read())
-        //                {
-        //                    ReadSingleRow(dataGridView, sqlDataReaderEquipment);
-        //                }
-        //                sqlDataReaderEquipment.Close();
-        //                break;
+                    case "dataGridViewOrders":
+                        textBoxOrderID.Text = dataGridViewRow.Cells[0].Value.ToString();
+                        var clientID = dataGridViewRow.Cells[1].Value.ToString();
+                        string queryClient = $"SELECT FullName FROM Clients WHERE ClientID = {clientID}";
+                        SqlCommand commandClient = new(queryClient, dataBase.GetConnection());
+                        dataBase.OpenConnection();
+                        object resultClient = commandClient.ExecuteScalar();
+                        textBoxClientIDOrders.Text = resultClient.ToString();
+                        var employeeID = dataGridViewRow.Cells[2].Value.ToString();
+                        string queryEmployee = $"SELECT FullName FROM Employees WHERE EmployeeID = {employeeID}";
+                        SqlCommand commandEmployee = new(queryEmployee, dataBase.GetConnection());
+                        dataBase.OpenConnection();
+                        object resultEmployee = commandEmployee.ExecuteScalar();
+                        textBoxEmployeeIDOrders.Text = resultEmployee.ToString();
+                        dateTimePickerOrderDate.Text = dataGridViewRow.Cells[3].Value?.ToString();
+                        textBoxTotalAmount.Text = dataGridViewRow.Cells[4].Value.ToString();
+                        var statusID = dataGridViewRow.Cells[5].Value.ToString();
+                        string queryStatus = $"SELECT Status FROM Statuses WHERE StatusID = {statusID}";
+                        SqlCommand commandStatus = new(queryStatus, dataBase.GetConnection());
+                        dataBase.OpenConnection();
+                        object resultStatus = commandStatus.ExecuteScalar();
+                        comboBoxStatusID.Text = resultStatus.ToString();
+                        break;
 
-        //            case "dataGridViewLoans":
-        //                string searchStringSupplier = $"select * from Loans where concat (LoanID, RegistrationID, BookID, LoanDate, ReturnDate, IsReturned) like '%" + textBoxSearchClients.Text + "%'";
-        //                SqlCommand sqlCommandSupplier = new(searchStringSupplier, dataBase.GetConnection());
-        //                dataBase.OpenConnection();
-        //                SqlDataReader sqlDataReaderSupplier = sqlCommandSupplier.ExecuteReader();
-        //                while (sqlDataReaderSupplier.Read())
-        //                {
-        //                    ReadSingleRow(dataGridView, sqlDataReaderSupplier);
-        //                }
-        //                sqlDataReaderSupplier.Close();
-        //                break;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
+                    case "dataGridViewProducts":
+                        textBoxProductID.Text = dataGridViewRow.Cells[0].Value.ToString();
+                        textBoxName.Text = dataGridViewRow.Cells[1].Value.ToString();
+                        textBoxDescription.Text = dataGridViewRow.Cells[2].Value.ToString();
+                        textBoxPrice.Text = dataGridViewRow.Cells[3].Value.ToString();
+                        break;
 
-        //private static void DeleteRow(DataGridView dataGridView)
-        //{
-        //    try
-        //    {
-        //        int index = dataGridView.CurrentCell.RowIndex;
-        //        dataGridView.Rows[index].Visible = false;
-        //        switch (dataGridView.Name)
-        //        {
-        //            case "dataGridViewBooks":
-        //                if (dataGridView.Rows[index].Cells[0].Value.ToString() == string.Empty)
-        //                {
-        //                    dataGridView.Rows[index].Cells[7].Value = RowState.Deleted;
-        //                    return;
-        //                }
-        //                dataGridView.Rows[index].Cells[7].Value = RowState.Deleted;
-        //                break;
+                    case "dataGridViewOrderDetails":
+                        textBoxOrderDetailID.Text = dataGridViewRow.Cells[0].Value.ToString();
+                        textBoxProductIDOrderDetails.Text = dataGridViewRow.Cells[1].Value.ToString();
+                        var productID = dataGridViewRow.Cells[2].Value.ToString();
+                        string queryProduct = $"SELECT Name FROM Products WHERE ProductID = {productID}";
+                        SqlCommand commandProduct = new(queryProduct, dataBase.GetConnection());
+                        dataBase.OpenConnection();
+                        object resultProduct = commandProduct.ExecuteScalar();
+                        textBoxOrderIDOrderDetails.Text = resultProduct.ToString();
+                        textBoxPriceOrderDetails.Text = dataGridViewRow.Cells[3].Value.ToString();
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
-        //            case "dataGridViewLoans":
-        //                if (dataGridView.Rows[index].Cells[0].Value.ToString() == string.Empty)
-        //                {
-        //                    dataGridView.Rows[index].Cells[6].Value = RowState.Deleted;
-        //                    return;
-        //                }
-        //                dataGridView.Rows[index].Cells[6].Value = RowState.Deleted;
-        //                break;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
+        /// <summary>
+        /// Search() вызывается при вводе текста в строку
+        /// </summary>
+        /// <param name="dataGridView"></param>
+        private void Search(DataGridView dataGridView)
+        {
+            try
+            {
+                dataGridView.Rows.Clear();
+                switch (dataGridView.Name)
+                {
+                    case "dataGridViewClients":
+                        string searchStringClient = $"select * from Clients where concat (ClientID, FullName, ClientTypeID, Email, Phone, Address, INN, RegistrationDate) like '%" + textBoxSearchClients.Text + "%'";
+                        SqlCommand sqlCommandClient = new(searchStringClient, dataBase.GetConnection());
+                        dataBase.OpenConnection();
+                        SqlDataReader sqlDataReaderClient = sqlCommandClient.ExecuteReader();
+                        while (sqlDataReaderClient.Read())
+                        {
+                            ReadSingleRow(dataGridView, sqlDataReaderClient);
+                        }
+                        sqlDataReaderClient.Close();
+                        break;
 
-        //private void UpdateBase(DataGridView dataGridView)
-        //{
-        //    try
-        //    {
-        //        dataBase.OpenConnection();
-        //        for (int index = 0; index < dataGridView.Rows.Count; index++)
-        //        {
-        //            switch (dataGridView.Name)
-        //            {
-        //                case "dataGridViewBooks":
-        //                    var rowStateBooks = (RowState)dataGridView.Rows[index].Cells[7].Value;
-        //                    if (rowStateBooks == RowState.Existed)
-        //                    {
-        //                        continue;
-        //                    }
-        //                    if (rowStateBooks == RowState.Deleted)
-        //                    {
-        //                        var bookID = Convert.ToInt32(dataGridView.Rows[index].Cells[0].Value);
-        //                        var deleteQuery = $"delete from Books where BookID = '{bookID}'";
-        //                        var sqlCommand = new SqlCommand(deleteQuery, dataBase.GetConnection());
-        //                        sqlCommand.ExecuteNonQuery();
-        //                    }
-        //                    if (rowStateBooks == RowState.Modified)
-        //                    {
-        //                        var bookID = dataGridView.Rows[index].Cells[0].Value.ToString();
-        //                        var title = dataGridView.Rows[index].Cells[1].Value.ToString();
-        //                        var author = dataGridView.Rows[index].Cells[2].Value.ToString();
-        //                        var genre = dataGridView.Rows[index].Cells[3].Value.ToString();
-        //                        var publishedYear = dataGridView.Rows[index].Cells[4].Value.ToString();
-        //                        var iSBN = dataGridView.Rows[index].Cells[5].Value.ToString();
-        //                        var copiesAvailable = dataGridView.Rows[index].Cells[6].Value.ToString();
-        //                        var changeQuery = $"update Books set Title = '{title}', Author = '{author}', Genre = '{genre}', PublishedYear = '{publishedYear}', ISBN = '{iSBN}', CopiesAvailable = '{copiesAvailable}' where BookID = '{bookID}'";
-        //                        var sqlCommand = new SqlCommand(changeQuery, dataBase.GetConnection());
-        //                        sqlCommand.ExecuteNonQuery();
-        //                    }
-        //                    if (rowStateBooks == RowState.New)
-        //                    {
-        //                        var title = dataGridView.Rows[index].Cells[1].Value.ToString();
-        //                        var author = dataGridView.Rows[index].Cells[2].Value.ToString();
-        //                        var genre = dataGridView.Rows[index].Cells[3].Value.ToString();
-        //                        var publishedYear = dataGridView.Rows[index].Cells[4].Value.ToString();
-        //                        var iSBN = dataGridView.Rows[index].Cells[5].Value.ToString();
-        //                        var copiesAvailable = dataGridView.Rows[index].Cells[6].Value.ToString();
-        //                        var newQuery = $"insert into Books (Title, Author, Genre, PublishedYear, ISBN, CopiesAvailable) values ('{title}', '{author}', '{genre}', '{publishedYear}', '{iSBN}', '{copiesAvailable}')";
-        //                        var sqlCommand = new SqlCommand(newQuery, dataBase.GetConnection());
-        //                        sqlCommand.ExecuteNonQuery();
-        //                    }
-        //                    break;
+                    case "dataGridViewEmployees":
+                        string searchStringEmployees = $"select * from Employees where concat (EmployeeID, FullName, Phone, Email, GenderID, PostID) like '%" + textBoxSearchEmployees.Text + "%'";
+                        SqlCommand sqlCommandEmployees = new(searchStringEmployees, dataBase.GetConnection());
+                        dataBase.OpenConnection();
+                        SqlDataReader sqlDataReaderEmployees = sqlCommandEmployees.ExecuteReader();
+                        while (sqlDataReaderEmployees.Read())
+                        {
+                            ReadSingleRow(dataGridView, sqlDataReaderEmployees);
+                        }
+                        sqlDataReaderEmployees.Close();
+                        break;
 
-        //                case "dataGridViewLoans":
-        //                    var rowStateLoans = (RowState)dataGridView.Rows[index].Cells[6].Value;
-        //                    if (rowStateLoans == RowState.Existed)
-        //                    {
-        //                        continue;
-        //                    }
-        //                    if (rowStateLoans == RowState.Deleted)
-        //                    {
-        //                        var loanID = Convert.ToInt32(dataGridView.Rows[index].Cells[0].Value);
-        //                        var bookID = dataGridView.Rows[index].Cells[2].Value.ToString();
-        //                        var isReturned = dataGridView.Rows[index].Cells[5].Value.ToString();
-        //                        if (isReturned == "False")
-        //                        {
-        //                            string updateCopiesQuery = $"UPDATE Books SET CopiesAvailable = CopiesAvailable + 1 WHERE BookID = '{bookID}'";
-        //                            SqlCommand updateCopiesCommand = new(updateCopiesQuery, dataBase.GetConnection());
-        //                            updateCopiesCommand.ExecuteNonQuery();
-        //                        }
-        //                        var deleteQuery = $"delete from Loans where LoanID = '{loanID}'";
-        //                        var sqlCommand = new SqlCommand(deleteQuery, dataBase.GetConnection());
-        //                        sqlCommand.ExecuteNonQuery();
-        //                    }
-        //                    if (rowStateLoans == RowState.Modified)
-        //                    {
-        //                        var loanID = dataGridView.Rows[index].Cells[0].Value.ToString();
-        //                        var registrationID = dataGridView.Rows[index].Cells[1].Value.ToString();
-        //                        var bookID = dataGridView.Rows[index].Cells[2].Value.ToString();
-        //                        var loanDate = dataGridView.Rows[index].Cells[3].Value.ToString();
-        //                        var returnDate = dataGridView.Rows[index].Cells[4].Value?.ToString();
-        //                        var isReturned = dataGridView.Rows[index].Cells[5].Value.ToString();
-        //                        var changeQuery = $"update Loans set RegistrationID = '{registrationID}', BookID = '{bookID}', LoanDate = '{loanDate}', ReturnDate = {(string.IsNullOrEmpty(returnDate) ? "NULL" : $"'{returnDate}'")}, IsReturned = '{isReturned}' where LoanID = '{loanID}'";
-        //                        var sqlCommand = new SqlCommand(changeQuery, dataBase.GetConnection());
-        //                        sqlCommand.ExecuteNonQuery();
-        //                    }
-        //                    if (rowStateLoans == RowState.New)
-        //                    {
-        //                        var registrationID = dataGridView.Rows[index].Cells[1].Value.ToString();
-        //                        var bookID = dataGridView.Rows[index].Cells[2].Value.ToString();
-        //                        var loanDate = dataGridView.Rows[index].Cells[3].Value.ToString();
-        //                        var returnDate = dataGridView.Rows[index].Cells[4].Value.ToString();
-        //                        var isReturned = dataGridView.Rows[index].Cells[5].Value.ToString();
-        //                        var newQuery = $"insert into Loans (RegistrationID, BookID, LoanDate, ReturnDate, ReturnDate, IsReturned) values ('{registrationID}', '{bookID}', '{loanDate}', '{returnDate}', '{isReturned}')";
-        //                        var sqlCommand = new SqlCommand(newQuery, dataBase.GetConnection());
-        //                        sqlCommand.ExecuteNonQuery();
-        //                    }
-        //                    break;
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //    finally
-        //    {
-        //        dataBase.CloseConnection();
-        //    }
-        //}
+                    case "dataGridViewOrders":
+                        string searchStringOrders = $"select * from Orders where concat (OrderID, ClientID, EmployeeID, OrderDate, TotalAmount, StatusID) like '%" + textBoxSearchOrders.Text + "%'";
+                        SqlCommand sqlCommandOrders = new(searchStringOrders, dataBase.GetConnection());
+                        dataBase.OpenConnection();
+                        SqlDataReader sqlDataReaderOrders = sqlCommandOrders.ExecuteReader();
+                        while (sqlDataReaderOrders.Read())
+                        {
+                            ReadSingleRow(dataGridView, sqlDataReaderOrders);
+                        }
+                        sqlDataReaderOrders.Close();
+                        break;
 
-        //private void Change(DataGridView dataGridView)
-        //{
-        //    try
-        //    {
-        //        var selectedRowIndex = dataGridView.CurrentCell.RowIndex;
-        //        switch (dataGridView.Name)
-        //        {
-        //            case "dataGridViewBooks":
-        //                var bookID = textBoxBookID.Text;
-        //                var titleBooks = textBoxTitleBooks.Text;
-        //                var authorBooks = textBoxAuthorBooks.Text;
-        //                var genreBooks = textBoxGenreBooks.Text;
-        //                var publishedYearBooks = textBoxPublishedYearBooks.Text;
-        //                var iSBNBooks = textBoxISBNBooks.Text;
-        //                var copiesAvailableBooks = textBoxCopiesAvailableBooks.Text;
-        //                dataGridView.Rows[selectedRowIndex].SetValues(bookID, titleBooks, authorBooks, genreBooks, publishedYearBooks, iSBNBooks, copiesAvailableBooks);
-        //                dataGridView.Rows[selectedRowIndex].Cells[7].Value = RowState.Modified;
-        //                break;
+                    case "dataGridViewProducts":
+                        string searchStringProducts = $"select * from Products where concat (ProductID, Name, Description, Price) like '%" + textBoxSearchProducts.Text + "%'";
+                        SqlCommand sqlCommandProducts = new(searchStringProducts, dataBase.GetConnection());
+                        dataBase.OpenConnection();
+                        SqlDataReader sqlDataReaderProducts = sqlCommandProducts.ExecuteReader();
+                        while (sqlDataReaderProducts.Read())
+                        {
+                            ReadSingleRow(dataGridView, sqlDataReaderProducts);
+                        }
+                        sqlDataReaderProducts.Close();
+                        break;
 
-        //            case "dataGridViewLoans":
-        //                var loanID = textBoxLoanID.Text;
-        //                var userLogin = textBoxRegistrationIDLoans.Text;
-        //                string query = $"SELECT RegistrationID FROM Registration WHERE UserLogin = '{userLogin}'";
-        //                SqlCommand command = new(query, dataBase.GetConnection());
-        //                dataBase.OpenConnection();
-        //                object result = command.ExecuteScalar();
-        //                var registrationIDLoans = result.ToString();
-        //                var bookIDLoans = textBoxBookIDLoans.Text;
-        //                var loanDateLoans = dateTimePickerLoanDateLoans.Value;
-        //                DateTime? returnDateLoans = dateTimePickerReturnDateLoans.Value;
-        //                if (checkBoxReturnDateLoans.Checked)
-        //                {
-        //                    returnDateLoans = null;
-        //                }
-        //                var isReturnedLoans = textBoxIsReturnedLoans.Text;
-        //                dataGridView.Rows[selectedRowIndex].SetValues(loanID, registrationIDLoans, bookIDLoans, loanDateLoans, returnDateLoans, isReturnedLoans);
-        //                dataGridView.Rows[selectedRowIndex].Cells[6].Value = RowState.Modified;
-        //                break;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
+                    case "dataGridViewOrderDetails":
+                        string searchStringOrderDetails = $"select * from OrderDetails where concat (OrderDetailID, OrderID, ProductID, Price) like '%" + textBoxSearchOrderDetails.Text + "%'";
+                        SqlCommand sqlCommandOrderDetails = new(searchStringOrderDetails, dataBase.GetConnection());
+                        dataBase.OpenConnection();
+                        SqlDataReader sqlDataReaderOrderDetails = sqlCommandOrderDetails.ExecuteReader();
+                        while (sqlDataReaderOrderDetails.Read())
+                        {
+                            ReadSingleRow(dataGridView, sqlDataReaderOrderDetails);
+                        }
+                        sqlDataReaderOrderDetails.Close();
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
+        /// <summary>
+        /// DeleteRow() вызывается при удалении строки
+        /// </summary>
+        /// <param name="dataGridView"></param>
+        private static void DeleteRow(DataGridView dataGridView)
+        {
+            try
+            {
+                int index = dataGridView.CurrentCell.RowIndex;
+                dataGridView.Rows[index].Visible = false;
+                switch (dataGridView.Name)
+                {
+                    case "dataGridViewClients":
+                        if (dataGridView.Rows[index].Cells[0].Value.ToString() == string.Empty)
+                        {
+                            dataGridView.Rows[index].Cells[8].Value = RowState.Deleted;
+                            return;
+                        }
+                        dataGridView.Rows[index].Cells[8].Value = RowState.Deleted;
+                        break;
+
+                    case "dataGridViewEmployees":
+                        if (dataGridView.Rows[index].Cells[0].Value.ToString() == string.Empty)
+                        {
+                            dataGridView.Rows[index].Cells[6].Value = RowState.Deleted;
+                            return;
+                        }
+                        dataGridView.Rows[index].Cells[6].Value = RowState.Deleted;
+                        break;
+
+                    case "dataGridViewOrders":
+                        if (dataGridView.Rows[index].Cells[0].Value.ToString() == string.Empty)
+                        {
+                            dataGridView.Rows[index].Cells[6].Value = RowState.Deleted;
+                            return;
+                        }
+                        dataGridView.Rows[index].Cells[6].Value = RowState.Deleted;
+                        break;
+
+                    case "dataGridViewProducts":
+                        if (dataGridView.Rows[index].Cells[0].Value.ToString() == string.Empty)
+                        {
+                            dataGridView.Rows[index].Cells[4].Value = RowState.Deleted;
+                            return;
+                        }
+                        dataGridView.Rows[index].Cells[4].Value = RowState.Deleted;
+                        break;
+
+                    case "dataGridViewOrderDetails":
+                        if (dataGridView.Rows[index].Cells[0].Value.ToString() == string.Empty)
+                        {
+                            dataGridView.Rows[index].Cells[4].Value = RowState.Deleted;
+                            return;
+                        }
+                        dataGridView.Rows[index].Cells[4].Value = RowState.Deleted;
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// UpdateBase() вызывается при обновлении базы данных
+        /// </summary>
+        /// <param name="dataGridView"></param>
+        private void UpdateBase(DataGridView dataGridView)
+        {
+            try
+            {
+                dataBase.OpenConnection();
+                for (int index = 0; index < dataGridView.Rows.Count; index++)
+                {
+                    switch (dataGridView.Name)
+                    {
+                        case "dataGridViewClients":
+                            var rowStateClients = (RowState)dataGridView.Rows[index].Cells[8].Value;
+                            if (rowStateClients == RowState.Existed)
+                            {
+                                continue;
+                            }
+                            if (rowStateClients == RowState.Deleted)
+                            {
+                                var clientID = Convert.ToInt32(dataGridView.Rows[index].Cells[0].Value);
+                                var deleteQuery = $"delete from Clients where ClientID = '{clientID}'";
+                                var sqlCommand = new SqlCommand(deleteQuery, dataBase.GetConnection());
+                                sqlCommand.ExecuteNonQuery();
+                            }
+                            if (rowStateClients == RowState.Modified)
+                            {
+                                var clientID = dataGridView.Rows[index].Cells[0].Value.ToString();
+                                var fullName = dataGridView.Rows[index].Cells[1].Value.ToString();
+                                var clientTypeID = dataGridView.Rows[index].Cells[2].Value.ToString();
+                                var email = dataGridView.Rows[index].Cells[3].Value.ToString();
+                                var phone = dataGridView.Rows[index].Cells[4].Value.ToString();
+                                var address = dataGridView.Rows[index].Cells[5].Value.ToString();
+                                var iNN = dataGridView.Rows[index].Cells[6].Value.ToString();
+                                var registrationDate = dataGridView.Rows[index].Cells[7].Value.ToString();
+                                var changeQuery = $"update Clients set FullName = '{fullName}', ClientTypeID = '{clientTypeID}', Email = '{email}', Phone = '{phone}', Address = '{address}', INN = '{iNN}', RegistrationDate = '{registrationDate}' where ClientID = '{clientID}'";
+                                var sqlCommand = new SqlCommand(changeQuery, dataBase.GetConnection());
+                                sqlCommand.ExecuteNonQuery();
+                            }
+                            if (rowStateClients == RowState.New)
+                            {
+                                var fullName = dataGridView.Rows[index].Cells[1].Value.ToString();
+                                var clientTypeID = dataGridView.Rows[index].Cells[2].Value.ToString();
+                                var email = dataGridView.Rows[index].Cells[3].Value.ToString();
+                                var phone = dataGridView.Rows[index].Cells[4].Value.ToString();
+                                var address = dataGridView.Rows[index].Cells[5].Value.ToString();
+                                var iNN = dataGridView.Rows[index].Cells[6].Value.ToString();
+                                var newQuery = $"insert into Clients (FullName, ClientTypeID, Email, Phone, Address, INN) values ('{fullName}', '{clientTypeID}', '{email}', '{phone}', '{address}', '{iNN}')";
+                                var sqlCommand = new SqlCommand(newQuery, dataBase.GetConnection());
+                                sqlCommand.ExecuteNonQuery();
+                            }
+                            break;
+
+                        case "dataGridViewEmployees":
+                            var rowStateEmployees = (RowState)dataGridView.Rows[index].Cells[6].Value;
+                            if (rowStateEmployees == RowState.Existed)
+                            {
+                                continue;
+                            }
+                            if (rowStateEmployees == RowState.Deleted)
+                            {
+                                var employeeID = Convert.ToInt32(dataGridView.Rows[index].Cells[0].Value);
+                                var deleteQuery = $"delete from Employees where EmployeeID = '{employeeID}'";
+                                var sqlCommand = new SqlCommand(deleteQuery, dataBase.GetConnection());
+                                sqlCommand.ExecuteNonQuery();
+                            }
+                            if (rowStateEmployees == RowState.Modified)
+                            {
+                                var employeeID = dataGridView.Rows[index].Cells[0].Value.ToString();
+                                var fullName = dataGridView.Rows[index].Cells[1].Value.ToString();
+                                var phone = dataGridView.Rows[index].Cells[2].Value.ToString();
+                                var email = dataGridView.Rows[index].Cells[3].Value.ToString();
+                                var genderID = dataGridView.Rows[index].Cells[4].Value.ToString();
+                                var postID = dataGridView.Rows[index].Cells[5].Value.ToString();
+                                var changeQuery = $"update Employees set FullName = '{fullName}', Phone = '{phone}', Email = '{email}', GenderID = '{genderID}', PostID = '{postID}' where EmployeeID = '{employeeID}'";
+                                var sqlCommand = new SqlCommand(changeQuery, dataBase.GetConnection());
+                                sqlCommand.ExecuteNonQuery();
+                            }
+                            if (rowStateEmployees == RowState.New)
+                            {
+                                var fullName = dataGridView.Rows[index].Cells[1].Value.ToString();
+                                var phone = dataGridView.Rows[index].Cells[2].Value.ToString();
+                                var email = dataGridView.Rows[index].Cells[3].Value.ToString();
+                                var genderID = dataGridView.Rows[index].Cells[4].Value.ToString();
+                                var postID = dataGridView.Rows[index].Cells[5].Value.ToString();
+                                var newQuery = $"insert into Employees (FullName, Phone, Email, GenderID, PostID) values ('{fullName}', '{phone}', '{email}', '{genderID}', '{postID}')";
+                                var sqlCommand = new SqlCommand(newQuery, dataBase.GetConnection());
+                                sqlCommand.ExecuteNonQuery();
+                            }
+                            break;
+
+                        case "dataGridViewOrders":
+                            var rowStateOrders = (RowState)dataGridView.Rows[index].Cells[6].Value;
+                            if (rowStateOrders == RowState.Existed)
+                            {
+                                continue;
+                            }
+                            if (rowStateOrders == RowState.Deleted)
+                            {
+                                var orderID = Convert.ToInt32(dataGridView.Rows[index].Cells[0].Value);
+                                var deleteQuery = $"delete from Orders where OrderID = '{orderID}'";
+                                var sqlCommand = new SqlCommand(deleteQuery, dataBase.GetConnection());
+                                sqlCommand.ExecuteNonQuery();
+                            }
+                            if (rowStateOrders == RowState.Modified)
+                            {
+                                var orderID = dataGridView.Rows[index].Cells[0].Value.ToString();
+                                var clientID = dataGridView.Rows[index].Cells[1].Value.ToString();
+                                var employeeID = dataGridView.Rows[index].Cells[2].Value.ToString();
+                                var orderDate = dataGridView.Rows[index].Cells[3].Value.ToString();
+                                var totalAmount = dataGridView.Rows[index].Cells[4].Value.ToString();
+                                var statusID = dataGridView.Rows[index].Cells[5].Value.ToString();
+                                var changeQuery = $"update Orders set ClientID = '{clientID}', EmployeeID = '{employeeID}', OrderDate = '{orderDate}', TotalAmount = '{totalAmount}', StatusID = '{statusID}' where OrderID = '{orderID}'";
+                                var sqlCommand = new SqlCommand(changeQuery, dataBase.GetConnection());
+                                sqlCommand.ExecuteNonQuery();
+                            }
+                            if (rowStateOrders == RowState.New)
+                            {
+                                var clientID = dataGridView.Rows[index].Cells[1].Value.ToString();
+                                var employeeID = dataGridView.Rows[index].Cells[2].Value.ToString();
+                                var statusID = dataGridView.Rows[index].Cells[5].Value.ToString();
+                                var newQuery = $"insert into Orders (ClientID, EmployeeID, StatusID) values ('{clientID}', '{employeeID}', '{statusID}')";
+                                var sqlCommand = new SqlCommand(newQuery, dataBase.GetConnection());
+                                sqlCommand.ExecuteNonQuery();
+                            }
+                            break;
+
+                        case "dataGridViewProducts":
+                            var rowStateProducts = (RowState)dataGridView.Rows[index].Cells[4].Value;
+                            if (rowStateProducts == RowState.Existed)
+                            {
+                                continue;
+                            }
+                            if (rowStateProducts == RowState.Deleted)
+                            {
+                                var productID = Convert.ToInt32(dataGridView.Rows[index].Cells[0].Value);
+                                var deleteQuery = $"delete from Products where ProductID = '{productID}'";
+                                var sqlCommand = new SqlCommand(deleteQuery, dataBase.GetConnection());
+                                sqlCommand.ExecuteNonQuery();
+                            }
+                            if (rowStateProducts == RowState.Modified)
+                            {
+                                var productID = dataGridView.Rows[index].Cells[0].Value.ToString();
+                                var name = dataGridView.Rows[index].Cells[1].Value.ToString();
+                                var description = dataGridView.Rows[index].Cells[2].Value.ToString();
+                                var price = dataGridView.Rows[index].Cells[3].Value.ToString();
+                                var changeQuery = $"update Products set Name = '{name}', Description = '{description}', Price = '{price}' where ProductID = '{productID}'";
+                                var sqlCommand = new SqlCommand(changeQuery, dataBase.GetConnection());
+                                sqlCommand.ExecuteNonQuery();
+                            }
+                            if (rowStateProducts == RowState.New)
+                            {
+                                var name = dataGridView.Rows[index].Cells[1].Value.ToString();
+                                var description = dataGridView.Rows[index].Cells[2].Value.ToString();
+                                var price = dataGridView.Rows[index].Cells[3].Value.ToString();
+                                var newQuery = $"insert into Products (Name, Description, Price) values ('{name}', '{description}', '{price}')";
+                                var sqlCommand = new SqlCommand(newQuery, dataBase.GetConnection());
+                                sqlCommand.ExecuteNonQuery();
+                            }
+                            break;
+
+                        case "dataGridViewOrderDetails":
+                            var rowStateOrderDetails = (RowState)dataGridView.Rows[index].Cells[4].Value;
+                            if (rowStateOrderDetails == RowState.Existed)
+                            {
+                                continue;
+                            }
+                            if (rowStateOrderDetails == RowState.Deleted)
+                            {
+                                var orderDetailID = Convert.ToInt32(dataGridView.Rows[index].Cells[0].Value);
+                                var deleteQuery = $"delete from OrderDetails where OrderDetailID = '{orderDetailID}'";
+                                var sqlCommand = new SqlCommand(deleteQuery, dataBase.GetConnection());
+                                sqlCommand.ExecuteNonQuery();
+                            }
+                            if (rowStateOrderDetails == RowState.Modified)
+                            {
+                                var orderDetailID = dataGridView.Rows[index].Cells[0].Value.ToString();
+                                var orderID = dataGridView.Rows[index].Cells[1].Value.ToString();
+                                var productID = dataGridView.Rows[index].Cells[2].Value.ToString();
+                                var price = dataGridView.Rows[index].Cells[3].Value.ToString();
+                                var changeQuery = $"update OrderDetails set OrderID = '{orderID}', ProductID = '{productID}', Price = '{price}' where OrderDetailID = '{orderDetailID}'";
+                                var sqlCommand = new SqlCommand(changeQuery, dataBase.GetConnection());
+                                sqlCommand.ExecuteNonQuery();
+                            }
+                            if (rowStateOrderDetails == RowState.New)
+                            {
+                                var orderID = dataGridView.Rows[index].Cells[1].Value.ToString();
+                                var productID = dataGridView.Rows[index].Cells[2].Value.ToString();
+                                var newQuery = $"insert into OrderDetails (OrderID, ProductID) values ('{orderID}', '{productID}')";
+                                var sqlCommand = new SqlCommand(newQuery, dataBase.GetConnection());
+                                sqlCommand.ExecuteNonQuery();
+                            }
+                            break;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dataBase.CloseConnection();
+            }
+        }
+
+        /// <summary>
+        /// Change() вызывается при изменении таблиц в базе данных
+        /// </summary>
+        /// <param name="dataGridView"></param>
+        private void Change(DataGridView dataGridView)
+        {
+            try
+            {
+                var selectedRowIndex = dataGridView.CurrentCell.RowIndex;
+                switch (dataGridView.Name)
+                {
+                    case "dataGridViewClients":
+                        var clientID = textBoxClientID.Text;
+                        var fullName = textBoxFullNameClients.Text;
+                        var clientType = comboBoxClientTypeID.Text;
+                        string query = $"SELECT ClientTypeID FROM ClientTypes WHERE ClientType = '{clientType}'";
+                        SqlCommand command = new(query, dataBase.GetConnection());
+                        dataBase.OpenConnection();
+                        object result = command.ExecuteScalar();
+                        var clientTypeID = result.ToString();
+                        var email = textBoxEmailClients.Text;
+                        var phone = maskedTextBoxPhoneClients.Text;
+                        var address = textBoxAddress.Text;
+                        var iNN = textBoxINN.Text;
+                        var registrationDate = dateTimePickerRegistrationDate.Value;
+                        dataGridView.Rows[selectedRowIndex].SetValues(clientID, fullName, clientTypeID, email, phone, address, iNN, registrationDate);
+                        dataGridView.Rows[selectedRowIndex].Cells[8].Value = RowState.Modified;
+                        break;
+
+                    case "dataGridViewEmployees":
+                        var employeeID = textBoxEmployeeID.Text;
+                        var fullNameEmployees = textBoxFullNameEmployees.Text;
+                        var phoneEmployees = maskedTextBoxPhoneEmployees.Text;
+                        var emailEmployees = textBoxEmailEmployees.Text;
+                        var gender = comboBoxGenderID.Text;
+                        string queryGender = $"SELECT GenderID FROM Genders WHERE Gender = '{gender}'";
+                        SqlCommand commandGender = new(queryGender, dataBase.GetConnection());
+                        dataBase.OpenConnection();
+                        object resultGender = commandGender.ExecuteScalar();
+                        var genderID = resultGender.ToString();
+                        var post = comboBoxPostID.Text;
+                        string queryPost = $"SELECT PostID FROM Posts WHERE Post = '{post}'";
+                        SqlCommand commandPost = new(queryPost, dataBase.GetConnection());
+                        dataBase.OpenConnection();
+                        object resultPost = commandPost.ExecuteScalar();
+                        var postID = resultPost.ToString();
+                        dataGridView.Rows[selectedRowIndex].SetValues(employeeID, fullNameEmployees, phoneEmployees, emailEmployees, genderID, postID);
+                        dataGridView.Rows[selectedRowIndex].Cells[6].Value = RowState.Modified;
+                        break;
+
+                    case "dataGridViewOrders":
+                        var orderID = textBoxOrderID.Text;
+                        var client = textBoxClientIDOrders.Text;
+                        string queryClient = $"SELECT ClientID FROM Clients WHERE FullName = '{client}'";
+                        SqlCommand commandClient = new(queryClient, dataBase.GetConnection());
+                        dataBase.OpenConnection();
+                        object resultClient = commandClient.ExecuteScalar();
+                        var clientIDOrders = resultClient.ToString();
+                        var employee = textBoxEmployeeIDOrders.Text;
+                        string queryEmployee = $"SELECT EmployeeID FROM Employees WHERE FullName = '{employee}'";
+                        SqlCommand commandEmployee = new(queryEmployee, dataBase.GetConnection());
+                        dataBase.OpenConnection();
+                        object resultEmployee = commandEmployee.ExecuteScalar();
+                        var employeeIDOrders = resultEmployee.ToString();
+                        var orderDate = dateTimePickerOrderDate.Value;
+                        var totalAmount = textBoxTotalAmount.Text;
+                        var status = comboBoxStatusID.Text;
+                        string queryStatus = $"SELECT StatusID FROM Statuses WHERE Status = '{status}'";
+                        SqlCommand commandStatus = new(queryStatus, dataBase.GetConnection());
+                        dataBase.OpenConnection();
+                        object resultStatus = commandStatus.ExecuteScalar();
+                        var statusID = resultStatus.ToString();
+                        dataGridView.Rows[selectedRowIndex].SetValues(orderID, clientIDOrders, employeeIDOrders, orderDate, totalAmount, status);
+                        dataGridView.Rows[selectedRowIndex].Cells[6].Value = RowState.Modified;
+                        break;
+
+                    case "dataGridViewProducts":
+                        var productID = textBoxProductID.Text;
+                        var name = textBoxName.Text;
+                        var description = textBoxDescription.Text;
+                        var price = textBoxPrice.Text;
+                        dataGridView.Rows[selectedRowIndex].SetValues(productID, name, description, price);
+                        dataGridView.Rows[selectedRowIndex].Cells[4].Value = RowState.Modified;
+                        break;
+
+                    case "dataGridViewOrderDetails":
+                        var orderDetailID = textBoxOrderDetailID.Text;
+                        var orderIDOrderDetails = textBoxProductIDOrderDetails.Text;
+                        var product = textBoxOrderIDOrderDetails.Text;
+                        string queryProduct = $"SELECT ProductID FROM Products WHERE Name = '{product}'";
+                        SqlCommand commandProduct = new(queryProduct, dataBase.GetConnection());
+                        dataBase.OpenConnection();
+                        object resultProduct = commandProduct.ExecuteScalar();
+                        var productIDOrderDetails = resultProduct.ToString();
+                        var priceOrderDetails = textBoxPriceOrderDetails.Text;
+                        dataGridView.Rows[selectedRowIndex].SetValues(orderDetailID, orderIDOrderDetails, productIDOrderDetails, priceOrderDetails);
+                        dataGridView.Rows[selectedRowIndex].Cells[4].Value = RowState.Modified;
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// ExportToWord() вызывается при экспорте в Word
+        /// </summary>
+        /// <param name="dataGridView"></param>
         private void ExportToWord(DataGridView dataGridView)
         {
             try
@@ -494,28 +825,7 @@ namespace OrderTrack
                 };
                 Document doc = wordApp.Documents.Add();
                 Paragraph title = doc.Paragraphs.Add();
-                switch (dataGridView.Name)
-                {
-                    case "dataGridViewClients":
-                        title.Range.Text = "Данные клиентов";
-                        break;
-
-                    case "dataGridViewEmployees":
-                        title.Range.Text = "Данные сотрудников";
-                        break;
-
-                    case "dataGridViewOrders":
-                        title.Range.Text = "Данные заказов";
-                        break;
-
-                    case "dataGridViewProducts":
-                        title.Range.Text = "Данные продуктов";
-                        break;
-
-                    case "dataGridViewOrderDetails":
-                        title.Range.Text = "Данные деталей заказов";
-                        break;
-                }
+                title.Range.Text = "Отчет по заказам клиентов";
                 title.Range.Font.Bold = 1;
                 title.Range.Font.Size = 14;
                 title.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
@@ -539,6 +849,10 @@ namespace OrderTrack
             }
         }
 
+        /// <summary>
+        /// ExportToExcel() вызывается при экспорте в Excel
+        /// </summary>
+        /// <param name="dataGridView"></param>
         private void ExportToExcel(DataGridView dataGridView)
         {
             try
@@ -601,6 +915,10 @@ namespace OrderTrack
             }
         }
 
+        /// <summary>
+        /// ExportToTXT() вызывается при экспорте в .txt
+        /// </summary>
+        /// <param name="dataGridView"></param>
         private static void ExportToTXT(DataGridView dataGridView)
         {
             string text = "";
@@ -644,142 +962,525 @@ namespace OrderTrack
             Process.Start(new ProcessStartInfo(filePath) { UseShellExecute = true });
         }
 
-        //private void ButtonRefresh_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        RefreshDataGrid(dataGridViewBooks, "Books");
-        //        RefreshDataGrid(dataGridViewClients, "Loans");
-        //        ClearFields();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
+        private void Reports(string report)
+        {
+            dataBase.OpenConnection();
+            var wordApp = new Application { Visible = true };
+            Document doc = wordApp.Documents.Add();
+            Paragraph title = doc.Paragraphs.Add();
+            string query = "";
+            switch (report)
+            {
+                case "ReportOrders":
+                    title.Range.Text = "Отчет по заказам клиентов";
+                    query = @"SELECT
+                                o.OrderID AS 'Номер заказа',
+                                c.FullName AS 'Клиент',
+                                e.FullName AS 'Менеджер',
+                                s.Status AS 'Статус',
+                                o.OrderDate AS 'Дата заказа',
+                                o.TotalAmount AS 'Сумма заказа'
+                            FROM Orders o
+                            JOIN Clients c ON o.ClientID = c.ClientID
+                            JOIN Employees e ON o.EmployeeID = e.EmployeeID
+                            JOIN Statuses s ON o.StatusID = s.StatusID
+                            ORDER BY o.OrderDate DESC;"
+                    ;
+                    break;
 
-        //private void ButtonClear_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        ClearFields();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
+                case "MonthlyReportOrders":
+                    title.Range.Text = "Отчет по продажам за месяц";
+                    query = @"SELECT
+                                YEAR(OrderDate) AS 'Год',
+                                MONTH(OrderDate) AS 'Месяц',
+                                COUNT(OrderID) AS 'Количество заказов',
+                                SUM(TotalAmount) AS 'Общая сумма продаж'
+                            FROM Orders
+                            GROUP BY YEAR(OrderDate), MONTH(OrderDate)
+                            ORDER BY YEAR(OrderDate) DESC, MONTH(OrderDate) DESC;"
+                    ;
+                    break;
 
-        //private void ButtonNewBook_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        AddFormBooks addForm = new();
-        //        addForm.Show();
-        //        ClearFields();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
+                case "ReportProducts":
+                    title.Range.Text = "Отчет по популярным товарам";
+                    query = @"SELECT
+                                p.Name AS 'Товар',
+                                COUNT(od.OrderDetailID) AS 'Количество продаж',
+                                SUM(od.Price) AS 'Общая сумма'
+                            FROM OrderDetails od
+                            JOIN Products p ON od.ProductID = p.ProductID
+                            GROUP BY p.Name
+                            ORDER BY COUNT(od.OrderDetailID) DESC, SUM(od.Price) DESC;"
+                    ;
+                    break;
+            }
+            SqlCommand command = new(query, dataBase.GetConnection());
+            SqlDataAdapter adapter = new(command);
+            System.Data.DataTable dataTable = new();
+            adapter.Fill(dataTable);
+            dataBase.CloseConnection();
+            title.Range.Font.Bold = 1;
+            title.Range.Font.Size = 14;
+            title.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
+            title.Range.InsertParagraphAfter();
+            Table table = doc.Tables.Add(title.Range, dataTable.Rows.Count + 1, dataTable.Columns.Count);
+            table.Borders.Enable = 1;
+            for (int col = 0; col < dataTable.Columns.Count; col++)
+            {
+                table.Cell(1, col + 1).Range.Text = dataTable.Columns[col].ColumnName;
+            }
+            for (int row = 0; row < dataTable.Rows.Count; row++)
+            {
+                for (int col = 0; col < dataTable.Columns.Count; col++)
+                {
+                    table.Cell(row + 2, col + 1).Range.Text = dataTable.Rows[row][col].ToString();
+                }
+            }
+        }
 
-        //private void ButtonNewLoan_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        AddFormLoans addForm = new();
-        //        addForm.Show();
-        //        ClearFields();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
+        /// <summary>
+        /// ButtonReportOrders_Click() вызывается при нажатии на кнопку отчета на вкладке "Заказы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonReportOrders_Click(object sender, EventArgs e)
+        {
+            Reports("ReportOrders");
+        }
 
-        //private void ButtonDeleteBook_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        DeleteRow(dataGridViewBooks);
-        //        ClearFields();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
+        /// <summary>
+        /// ButtonMonthlyReportOrders_Click() вызывается при нажатии на кнопку месячного отчета на вкладке "Заказы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonMonthlyReportOrders_Click(object sender, EventArgs e)
+        {
+            Reports("MonthlyReportOrders");
+        }
 
-        //private void ButtonDeleteLoan_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        DeleteRow(dataGridViewClients);
-        //        ClearFields();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
+        /// <summary>
+        /// ButtonReportProducts_Click() вызывается при нажатии на кнопку отчета на вкладке "Продукты"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonReportProducts_Click(object sender, EventArgs e)
+        {
+            Reports("ReportProducts");
+        }
 
-        //private void ButtonChangeBook_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        Change(dataGridViewBooks);
-        //        ClearFields();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
+        /// <summary>
+        /// ButtonRefresh_Click() вызывается при нажатии на кнопку обновления
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonRefresh_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                RefreshDataGrid(dataGridViewClients, "Clients");
+                RefreshDataGrid(dataGridViewEmployees, "Employees");
+                RefreshDataGrid(dataGridViewOrders, "Orders");
+                RefreshDataGrid(dataGridViewProducts, "Products");
+                RefreshDataGrid(dataGridViewOrderDetails, "OrderDetails");
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
-        //private void ButtonChangeLoan_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        Change(dataGridViewClients);
-        //        ClearFields();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
+        /// <summary>
+        /// ButtonClear_Click() вызывается при нажатии на кнопку очистки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonClear_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
-        //private void ButtonSaveBook_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        if (admin)
-        //        {
-        //            UpdateBase(dataGridViewBooks);
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("У вас недостаточно прав!");
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
+        /// <summary>
+        /// ButtonNewClient_Click() вызывается при нажатии на кнопку "Создать запись" на вкладке "Клиенты"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonNewClient_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AddFormClients addForm = new();
+                addForm.Show();
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
-        //private void ButtonSaveLoan_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        UpdateBase(dataGridViewClients);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
+        /// <summary>
+        /// ButtonNewEmployee_Click() вызывается при нажатии на кнопку "Создать запись" на вкладке "Сотрудники"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonNewEmployee_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AddFormEmployees addForm = new();
+                addForm.Show();
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// ButtonNewOrder_Click() вызывается при нажатии на кнопку "Создать запись" на вкладке "Заказы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonNewOrder_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AddFormOrders addForm = new();
+                addForm.Show();
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// ButtonNewProduct_Click() вызывается при нажатии на кнопку "Создать запись" на вкладке "Продукты"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonNewProduct_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AddFormProducts addForm = new();
+                addForm.Show();
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// ButtonNewOrderDetails_Click() вызывается при нажатии на кнопку "Создать запись" на вкладке "Детали заказов"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonNewOrderDetails_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AddFormOrderDetails addForm = new();
+                addForm.Show();
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// ButtonDeleteClient_Click() вызывается при нажатии на кнопку "Удалить" на вкладке "Клиенты"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonDeleteClient_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DeleteRow(dataGridViewClients);
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// ButtonDeleteEmployee_Click() вызывается при нажатии на кнопку "Удалить" на вкладке "Сотрудники"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonDeleteEmployee_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DeleteRow(dataGridViewEmployees);
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// ButtonDeleteOrder_Click() вызывается при нажатии на кнопку "Удалить" на вкладке "Заказы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonDeleteOrder_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DeleteRow(dataGridViewOrders);
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// ButtonDeleteProduct_Click() вызывается при нажатии на кнопку "Удалить" на вкладке "Продукты"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonDeleteProduct_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DeleteRow(dataGridViewProducts);
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// ButtonDeleteOrderDetails_Click() вызывается при нажатии на кнопку "Удалить" на вкладке "Детали заказов"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonDeleteOrderDetails_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DeleteRow(dataGridViewOrderDetails);
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// ButtonChangeClient_Click() вызывается при нажатии на кнопку "Изменить" на вкладке "Клиенты"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonChangeClient_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Change(dataGridViewClients);
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// ButtonChangeEmployee_Click() вызывается при нажатии на кнопку "Изменить" на вкладке "Сотрудники"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonChangeEmployee_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Change(dataGridViewEmployees);
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// ButtonChangeOrder_Click() вызывается при нажатии на кнопку "Изменить" на вкладке "Заказы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonChangeOrder_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Change(dataGridViewOrders);
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// ButtonChangeProduct_Click() вызывается при нажатии на кнопку "Изменить" на вкладке "Продукты"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonChangeProduct_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Change(dataGridViewProducts);
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// ButtonChangeOrderDetails_Click() вызывается при нажатии на кнопку "Изменить" на вкладке "Детали заказов"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonChangeOrderDetails_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Change(dataGridViewOrderDetails);
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// ButtonSaveClient_Click() вызывается при нажатии на кнопку "Сохранить" на вкладке "Клиенты"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonSaveClient_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                UpdateBase(dataGridViewClients);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// ButtonSaveEmployee_Click() вызывается при нажатии на кнопку "Сохранить" на вкладке "Сотрудники"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonSaveEmployee_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (admin)
+                {
+                    UpdateBase(dataGridViewEmployees);
+                }
+                else
+                {
+                    MessageBox.Show("У вас недостаточно прав!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// ButtonSaveOrder_Click() вызывается при нажатии на кнопку "Сохранить" на вкладке "Заказы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonSaveOrder_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                UpdateBase(dataGridViewOrders);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// ButtonSaveProduct_Click() вызывается при нажатии на кнопку "Сохранить" на вкладке "Продукты"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonSaveProduct_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (admin)
+                {
+                    UpdateBase(dataGridViewProducts);
+                }
+                else
+                {
+                    MessageBox.Show("У вас недостаточно прав!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// ButtonSaveOrderDetails_Click() вызывается при нажатии на кнопку "Сохранить" на вкладке "Детали заказов"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonSaveOrderDetails_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                UpdateBase(dataGridViewOrderDetails);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         /// <summary>
         /// ButtonWordClient_Click() вызывается при нажатии на кнопку "Вывод в Word" на вкладке "Клиенты"
         /// </summary>
@@ -806,7 +1507,7 @@ namespace OrderTrack
         {
             try
             {
-                ExportToWord(dataGridViewClients);
+                ExportToWord(dataGridViewEmployees);
             }
             catch (Exception ex)
             {
@@ -823,7 +1524,7 @@ namespace OrderTrack
         {
             try
             {
-                ExportToWord(dataGridViewClients);
+                ExportToWord(dataGridViewOrders);
             }
             catch (Exception ex)
             {
@@ -840,7 +1541,7 @@ namespace OrderTrack
         {
             try
             {
-                ExportToWord(dataGridViewClients);
+                ExportToWord(dataGridViewProducts);
             }
             catch (Exception ex)
             {
@@ -857,7 +1558,7 @@ namespace OrderTrack
         {
             try
             {
-                ExportToWord(dataGridViewClients);
+                ExportToWord(dataGridViewOrderDetails);
             }
             catch (Exception ex)
             {
@@ -891,7 +1592,7 @@ namespace OrderTrack
         {
             try
             {
-                ExportToExcel(dataGridViewClients);
+                ExportToExcel(dataGridViewEmployees);
             }
             catch (Exception ex)
             {
@@ -908,7 +1609,7 @@ namespace OrderTrack
         {
             try
             {
-                ExportToExcel(dataGridViewClients);
+                ExportToExcel(dataGridViewOrders);
             }
             catch (Exception ex)
             {
@@ -925,7 +1626,7 @@ namespace OrderTrack
         {
             try
             {
-                ExportToExcel(dataGridViewClients);
+                ExportToExcel(dataGridViewProducts);
             }
             catch (Exception ex)
             {
@@ -942,7 +1643,7 @@ namespace OrderTrack
         {
             try
             {
-                ExportToExcel(dataGridViewClients);
+                ExportToExcel(dataGridViewOrderDetails);
             }
             catch (Exception ex)
             {
@@ -976,7 +1677,7 @@ namespace OrderTrack
         {
             try
             {
-                ExportToTXT(dataGridViewClients);
+                ExportToTXT(dataGridViewEmployees);
             }
             catch (Exception ex)
             {
@@ -993,7 +1694,7 @@ namespace OrderTrack
         {
             try
             {
-                ExportToTXT(dataGridViewClients);
+                ExportToTXT(dataGridViewOrders);
             }
             catch (Exception ex)
             {
@@ -1010,7 +1711,7 @@ namespace OrderTrack
         {
             try
             {
-                ExportToTXT(dataGridViewClients);
+                ExportToTXT(dataGridViewProducts);
             }
             catch (Exception ex)
             {
@@ -1027,7 +1728,7 @@ namespace OrderTrack
         {
             try
             {
-                ExportToTXT(dataGridViewClients);
+                ExportToTXT(dataGridViewOrderDetails);
             }
             catch (Exception ex)
             {
@@ -1035,60 +1736,194 @@ namespace OrderTrack
             }
         }
 
-        //private void DataGridViewBooks_CellClick(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    try
-        //    {
-        //        selectedRow = e.RowIndex;
-        //        if (e.RowIndex >= 0)
-        //        {
-        //            DataGridView_CellClick(dataGridViewBooks, selectedRow);
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
+        /// <summary>
+        /// DataGridViewClients_CellClick() вызывается при нажатии на ячейку на вкладке "Клиенты"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DataGridViewClients_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                selectedRow = e.RowIndex;
+                if (e.RowIndex >= 0)
+                {
+                    DataGridView_CellClick(dataGridViewClients, selectedRow);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
-        //private void DataGridViewLoans_CellClick(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    try
-        //    {
-        //        selectedRow = e.RowIndex;
-        //        if (e.RowIndex >= 0)
-        //        {
-        //            DataGridView_CellClick(dataGridViewClients, selectedRow);
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
+        /// <summary>
+        /// DataGridViewEmployees_CellClick() вызывается при нажатии на ячейку на вкладке "Сотрудники"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DataGridViewEmployees_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                selectedRow = e.RowIndex;
+                if (e.RowIndex >= 0)
+                {
+                    DataGridView_CellClick(dataGridViewEmployees, selectedRow);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
-        //private void TextBoxSearchBooks_TextChanged(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        Search(dataGridViewBooks);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
+        /// <summary>
+        /// DataGridViewOrders_CellClick() вызывается при нажатии на ячейку на вкладке "Заказы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DataGridViewOrders_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                selectedRow = e.RowIndex;
+                if (e.RowIndex >= 0)
+                {
+                    DataGridView_CellClick(dataGridViewOrders, selectedRow);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
-        //private void TextBoxSearchLoans_TextChanged(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        Search(dataGridViewClients);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
+        /// <summary>
+        /// DataGridViewProducts_CellClick() вызывается при нажатии на ячейку на вкладке "Продукты"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DataGridViewProducts_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                selectedRow = e.RowIndex;
+                if (e.RowIndex >= 0)
+                {
+                    DataGridView_CellClick(dataGridViewProducts, selectedRow);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// DataGridViewOrderDetails_CellClick() вызывается при нажатии на ячейку на вкладке "Детали заказов"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DataGridViewOrderDetails_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                selectedRow = e.RowIndex;
+                if (e.RowIndex >= 0)
+                {
+                    DataGridView_CellClick(dataGridViewOrderDetails, selectedRow);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// TextBoxSearchClients_TextChanged() вызывается при изменении текста на вкладке "Клиенты"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TextBoxSearchClients_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Search(dataGridViewClients);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// TextBoxSearchEmployees_TextChanged() вызывается при изменении текста на вкладке "Сотрудники"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TextBoxSearchEmployees_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Search(dataGridViewEmployees);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// TextBoxSearchOrders_TextChanged() вызывается при изменении текста на вкладке "Заказы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TextBoxSearchOrders_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Search(dataGridViewOrders);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// TextBoxSearchProducts_TextChanged() вызывается при изменении текста на вкладке "Продукты"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TextBoxSearchProducts_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Search(dataGridViewProducts);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// TextBoxSearchOrderDetails_TextChanged() вызывается при изменении текста на вкладке "Детали заказов"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TextBoxSearchOrderDetails_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Search(dataGridViewOrderDetails);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

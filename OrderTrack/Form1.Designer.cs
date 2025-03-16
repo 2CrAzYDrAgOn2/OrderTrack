@@ -43,9 +43,11 @@
             labelFullNameClients = new Label();
             textBoxFullNameClients = new TextBox();
             labelClientTypeID = new Label();
+            comboBoxClientTypeID = new ComboBox();
             labelEmailClients = new Label();
             textBoxEmailClients = new TextBox();
             labelPhoneClients = new Label();
+            maskedTextBoxPhoneClients = new MaskedTextBox();
             labelAddress = new Label();
             textBoxAddress = new TextBox();
             labelINN = new Label();
@@ -76,10 +78,13 @@
             labelFullNameEmployees = new Label();
             textBoxFullNameEmployees = new TextBox();
             labelPhoneEmployees = new Label();
+            maskedTextBoxPhoneEmployees = new MaskedTextBox();
             labelEmailEmployees = new Label();
             textBoxEmailEmployees = new TextBox();
-            labelGender = new Label();
-            labelPost = new Label();
+            labelGenderID = new Label();
+            comboBoxGenderID = new ComboBox();
+            labelPostID = new Label();
+            comboBoxPostID = new ComboBox();
             labelControlEmployees = new Label();
             panelControlEmployees = new Panel();
             buttonNewEmployee = new Button();
@@ -92,6 +97,8 @@
             tabPageOrders = new TabPage();
             panelTitleOrders = new Panel();
             labelTitleOrders = new Label();
+            buttonMonthlyReportOrders = new Button();
+            buttonReportOrders = new Button();
             buttonClearOrders = new Button();
             buttonRefreshOrders = new Button();
             textBoxSearchOrders = new TextBox();
@@ -100,15 +107,16 @@
             labelRecordOrders = new Label();
             labelOrderID = new Label();
             textBoxOrderID = new TextBox();
-            labelClientFullNameOrders = new Label();
-            textBoxClientFullNameOrders = new TextBox();
-            labelEmployeeFullNameOrders = new Label();
-            textBoxEmployeeFullNameOrders = new TextBox();
+            labelClientIDOrders = new Label();
+            textBoxClientIDOrders = new TextBox();
+            labelEmployeeIDOrders = new Label();
+            textBoxEmployeeIDOrders = new TextBox();
             labelOrderDate = new Label();
             dateTimePickerOrderDate = new DateTimePicker();
             labelTotalAmount = new Label();
             textBoxTotalAmount = new TextBox();
-            labelStatus = new Label();
+            labelStatusID = new Label();
+            comboBoxStatusID = new ComboBox();
             labelControlOrders = new Label();
             panelControlOrders = new Panel();
             buttonNewOrder = new Button();
@@ -121,6 +129,7 @@
             tabPageProducts = new TabPage();
             panelTitleProducts = new Panel();
             labelTitleProducts = new Label();
+            buttonReportProducts = new Button();
             buttonClearProducts = new Button();
             buttonRefreshProducts = new Button();
             textBoxSearchProducts = new TextBox();
@@ -157,8 +166,8 @@
             textBoxOrderDetailID = new TextBox();
             labelOrderIDOrderDetails = new Label();
             textBoxOrderIDOrderDetails = new TextBox();
-            labelNameOrderDetails = new Label();
-            textBoxNameIDOrderDetails = new TextBox();
+            labelProductIDOrderDetails = new Label();
+            textBoxProductIDOrderDetails = new TextBox();
             labelPriceOrderDetails = new Label();
             textBoxPriceOrderDetails = new TextBox();
             labelControlOrderDetails = new Label();
@@ -170,12 +179,6 @@
             buttonWordOrderDetails = new Button();
             buttonExcelOrderDetails = new Button();
             buttonTXTOrderDetails = new Button();
-            maskedTextBoxPhoneClients = new MaskedTextBox();
-            comboBoxClientTypeID = new ComboBox();
-            comboBoxGender = new ComboBox();
-            comboBoxPost = new ComboBox();
-            comboBoxStatus = new ComboBox();
-            maskedTextBox1 = new MaskedTextBox();
             tabPageClients.SuspendLayout();
             panelTitleClients.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewClients).BeginInit();
@@ -257,6 +260,7 @@
             buttonClearClients.Size = new Size(78, 77);
             buttonClearClients.TabIndex = 0;
             buttonClearClients.UseVisualStyleBackColor = true;
+            buttonClearClients.Click += ButtonClear_Click;
             // 
             // buttonRefreshClients
             // 
@@ -270,6 +274,7 @@
             buttonRefreshClients.Size = new Size(78, 77);
             buttonRefreshClients.TabIndex = 1;
             buttonRefreshClients.UseVisualStyleBackColor = true;
+            buttonRefreshClients.Click += ButtonRefresh_Click;
             // 
             // textBoxSearchClients
             // 
@@ -279,6 +284,7 @@
             textBoxSearchClients.Name = "textBoxSearchClients";
             textBoxSearchClients.Size = new Size(173, 33);
             textBoxSearchClients.TabIndex = 2;
+            textBoxSearchClients.TextChanged += TextBoxSearchClients_TextChanged;
             // 
             // dataGridViewClients
             // 
@@ -292,6 +298,7 @@
             dataGridViewClients.RowHeadersWidth = 62;
             dataGridViewClients.Size = new Size(867, 352);
             dataGridViewClients.TabIndex = 0;
+            dataGridViewClients.CellClick += DataGridViewClients_CellClick;
             // 
             // panelRecordClients
             // 
@@ -381,6 +388,17 @@
             labelClientTypeID.TabIndex = 11;
             labelClientTypeID.Text = "Тип клиента:";
             // 
+            // comboBoxClientTypeID
+            // 
+            comboBoxClientTypeID.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxClientTypeID.Font = new Font("Segoe UI", 14.25F);
+            comboBoxClientTypeID.FormattingEnabled = true;
+            comboBoxClientTypeID.Items.AddRange(new object[] { "Физическое лицо", "Юридическое лицо" });
+            comboBoxClientTypeID.Location = new Point(152, 158);
+            comboBoxClientTypeID.Name = "comboBoxClientTypeID";
+            comboBoxClientTypeID.Size = new Size(455, 33);
+            comboBoxClientTypeID.TabIndex = 2;
+            // 
             // labelEmailClients
             // 
             labelEmailClients.AutoSize = true;
@@ -412,6 +430,15 @@
             labelPhoneClients.TabIndex = 13;
             labelPhoneClients.Text = "Телефон:";
             // 
+            // maskedTextBoxPhoneClients
+            // 
+            maskedTextBoxPhoneClients.Font = new Font("Segoe UI", 14.25F);
+            maskedTextBoxPhoneClients.Location = new Point(152, 248);
+            maskedTextBoxPhoneClients.Mask = "+7 (999) 999-99-99";
+            maskedTextBoxPhoneClients.Name = "maskedTextBoxPhoneClients";
+            maskedTextBoxPhoneClients.Size = new Size(455, 33);
+            maskedTextBoxPhoneClients.TabIndex = 4;
+            // 
             // labelAddress
             // 
             labelAddress.AutoSize = true;
@@ -429,7 +456,6 @@
             textBoxAddress.Location = new Point(152, 293);
             textBoxAddress.Margin = new Padding(4, 3, 4, 3);
             textBoxAddress.Name = "textBoxAddress";
-            textBoxAddress.ReadOnly = true;
             textBoxAddress.Size = new Size(455, 33);
             textBoxAddress.TabIndex = 5;
             // 
@@ -511,6 +537,7 @@
             buttonNewClient.TabIndex = 0;
             buttonNewClient.Text = "Новая запись";
             buttonNewClient.UseVisualStyleBackColor = true;
+            buttonNewClient.Click += ButtonNewClient_Click;
             // 
             // buttonDeleteClient
             // 
@@ -523,6 +550,7 @@
             buttonDeleteClient.TabIndex = 1;
             buttonDeleteClient.Text = "Удалить";
             buttonDeleteClient.UseVisualStyleBackColor = true;
+            buttonDeleteClient.Click += ButtonDeleteClient_Click;
             // 
             // buttonChangeClient
             // 
@@ -535,6 +563,7 @@
             buttonChangeClient.TabIndex = 2;
             buttonChangeClient.Text = "Изменить";
             buttonChangeClient.UseVisualStyleBackColor = true;
+            buttonChangeClient.Click += ButtonChangeClient_Click;
             // 
             // buttonSaveClient
             // 
@@ -547,6 +576,7 @@
             buttonSaveClient.TabIndex = 3;
             buttonSaveClient.Text = "Сохранить";
             buttonSaveClient.UseVisualStyleBackColor = true;
+            buttonSaveClient.Click += ButtonSaveClient_Click;
             // 
             // buttonWordClient
             // 
@@ -654,6 +684,7 @@
             buttonClearEmployees.Size = new Size(78, 77);
             buttonClearEmployees.TabIndex = 0;
             buttonClearEmployees.UseVisualStyleBackColor = true;
+            buttonClearEmployees.Click += ButtonClear_Click;
             // 
             // buttonRefreshEmployees
             // 
@@ -667,6 +698,7 @@
             buttonRefreshEmployees.Size = new Size(78, 77);
             buttonRefreshEmployees.TabIndex = 1;
             buttonRefreshEmployees.UseVisualStyleBackColor = true;
+            buttonRefreshEmployees.Click += ButtonRefresh_Click;
             // 
             // textBoxSearchEmployees
             // 
@@ -676,6 +708,7 @@
             textBoxSearchEmployees.Name = "textBoxSearchEmployees";
             textBoxSearchEmployees.Size = new Size(173, 33);
             textBoxSearchEmployees.TabIndex = 2;
+            textBoxSearchEmployees.TextChanged += TextBoxSearchEmployees_TextChanged;
             // 
             // dataGridViewEmployees
             // 
@@ -689,6 +722,7 @@
             dataGridViewEmployees.RowHeadersWidth = 62;
             dataGridViewEmployees.Size = new Size(867, 352);
             dataGridViewEmployees.TabIndex = 0;
+            dataGridViewEmployees.CellClick += DataGridViewEmployees_CellClick;
             // 
             // panelRecordEmployees
             // 
@@ -698,13 +732,13 @@
             panelRecordEmployees.Controls.Add(labelFullNameEmployees);
             panelRecordEmployees.Controls.Add(textBoxFullNameEmployees);
             panelRecordEmployees.Controls.Add(labelPhoneEmployees);
-            panelRecordEmployees.Controls.Add(maskedTextBox1);
+            panelRecordEmployees.Controls.Add(maskedTextBoxPhoneEmployees);
             panelRecordEmployees.Controls.Add(labelEmailEmployees);
             panelRecordEmployees.Controls.Add(textBoxEmailEmployees);
-            panelRecordEmployees.Controls.Add(labelGender);
-            panelRecordEmployees.Controls.Add(comboBoxGender);
-            panelRecordEmployees.Controls.Add(labelPost);
-            panelRecordEmployees.Controls.Add(comboBoxPost);
+            panelRecordEmployees.Controls.Add(labelGenderID);
+            panelRecordEmployees.Controls.Add(comboBoxGenderID);
+            panelRecordEmployees.Controls.Add(labelPostID);
+            panelRecordEmployees.Controls.Add(comboBoxPostID);
             panelRecordEmployees.Location = new Point(9, 450);
             panelRecordEmployees.Margin = new Padding(4, 3, 4, 3);
             panelRecordEmployees.Name = "panelRecordEmployees";
@@ -774,6 +808,15 @@
             labelPhoneEmployees.TabIndex = 9;
             labelPhoneEmployees.Text = "Телефон:";
             // 
+            // maskedTextBoxPhoneEmployees
+            // 
+            maskedTextBoxPhoneEmployees.Font = new Font("Segoe UI", 14.25F);
+            maskedTextBoxPhoneEmployees.Location = new Point(152, 158);
+            maskedTextBoxPhoneEmployees.Mask = "+7 (999) 999-99-99";
+            maskedTextBoxPhoneEmployees.Name = "maskedTextBoxPhoneEmployees";
+            maskedTextBoxPhoneEmployees.Size = new Size(455, 33);
+            maskedTextBoxPhoneEmployees.TabIndex = 2;
+            // 
             // labelEmailEmployees
             // 
             labelEmailEmployees.AutoSize = true;
@@ -791,31 +834,52 @@
             textBoxEmailEmployees.Location = new Point(152, 206);
             textBoxEmailEmployees.Margin = new Padding(4, 3, 4, 3);
             textBoxEmailEmployees.Name = "textBoxEmailEmployees";
-            textBoxEmailEmployees.ReadOnly = true;
             textBoxEmailEmployees.Size = new Size(455, 33);
             textBoxEmailEmployees.TabIndex = 3;
             // 
-            // labelGender
+            // labelGenderID
             // 
-            labelGender.AutoSize = true;
-            labelGender.ForeColor = Color.WhiteSmoke;
-            labelGender.Location = new Point(108, 262);
-            labelGender.Margin = new Padding(4, 0, 4, 0);
-            labelGender.Name = "labelGender";
-            labelGender.Size = new Size(33, 15);
-            labelGender.TabIndex = 11;
-            labelGender.Text = "Пол:";
+            labelGenderID.AutoSize = true;
+            labelGenderID.ForeColor = Color.WhiteSmoke;
+            labelGenderID.Location = new Point(108, 262);
+            labelGenderID.Margin = new Padding(4, 0, 4, 0);
+            labelGenderID.Name = "labelGenderID";
+            labelGenderID.Size = new Size(33, 15);
+            labelGenderID.TabIndex = 11;
+            labelGenderID.Text = "Пол:";
             // 
-            // labelPost
+            // comboBoxGenderID
             // 
-            labelPost.AutoSize = true;
-            labelPost.ForeColor = Color.WhiteSmoke;
-            labelPost.Location = new Point(69, 304);
-            labelPost.Margin = new Padding(4, 0, 4, 0);
-            labelPost.Name = "labelPost";
-            labelPost.Size = new Size(72, 15);
-            labelPost.TabIndex = 12;
-            labelPost.Text = "Должность:";
+            comboBoxGenderID.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxGenderID.Font = new Font("Segoe UI", 14.25F);
+            comboBoxGenderID.FormattingEnabled = true;
+            comboBoxGenderID.Items.AddRange(new object[] { "Мужской", "Женский" });
+            comboBoxGenderID.Location = new Point(152, 251);
+            comboBoxGenderID.Name = "comboBoxGenderID";
+            comboBoxGenderID.Size = new Size(455, 33);
+            comboBoxGenderID.TabIndex = 4;
+            // 
+            // labelPostID
+            // 
+            labelPostID.AutoSize = true;
+            labelPostID.ForeColor = Color.WhiteSmoke;
+            labelPostID.Location = new Point(69, 304);
+            labelPostID.Margin = new Padding(4, 0, 4, 0);
+            labelPostID.Name = "labelPostID";
+            labelPostID.Size = new Size(72, 15);
+            labelPostID.TabIndex = 12;
+            labelPostID.Text = "Должность:";
+            // 
+            // comboBoxPostID
+            // 
+            comboBoxPostID.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxPostID.Font = new Font("Segoe UI", 14.25F);
+            comboBoxPostID.FormattingEnabled = true;
+            comboBoxPostID.Items.AddRange(new object[] { "Менеджер по продажам", "Администратор" });
+            comboBoxPostID.Location = new Point(152, 293);
+            comboBoxPostID.Name = "comboBoxPostID";
+            comboBoxPostID.Size = new Size(455, 33);
+            comboBoxPostID.TabIndex = 5;
             // 
             // labelControlEmployees
             // 
@@ -856,6 +920,7 @@
             buttonNewEmployee.TabIndex = 0;
             buttonNewEmployee.Text = "Новая запись";
             buttonNewEmployee.UseVisualStyleBackColor = true;
+            buttonNewEmployee.Click += ButtonNewEmployee_Click;
             // 
             // buttonDeleteEmployee
             // 
@@ -868,6 +933,7 @@
             buttonDeleteEmployee.TabIndex = 1;
             buttonDeleteEmployee.Text = "Удалить";
             buttonDeleteEmployee.UseVisualStyleBackColor = true;
+            buttonDeleteEmployee.Click += ButtonDeleteEmployee_Click;
             // 
             // buttonChangeEmployee
             // 
@@ -880,6 +946,7 @@
             buttonChangeEmployee.TabIndex = 2;
             buttonChangeEmployee.Text = "Изменить";
             buttonChangeEmployee.UseVisualStyleBackColor = true;
+            buttonChangeEmployee.Click += ButtonChangeEmployee_Click;
             // 
             // buttonSaveEmployee
             // 
@@ -892,6 +959,7 @@
             buttonSaveEmployee.TabIndex = 3;
             buttonSaveEmployee.Text = "Сохранить";
             buttonSaveEmployee.UseVisualStyleBackColor = true;
+            buttonSaveEmployee.Click += ButtonSaveEmployee_Click;
             // 
             // buttonWordEmployee
             // 
@@ -952,6 +1020,8 @@
             // panelTitleOrders
             // 
             panelTitleOrders.Controls.Add(labelTitleOrders);
+            panelTitleOrders.Controls.Add(buttonMonthlyReportOrders);
+            panelTitleOrders.Controls.Add(buttonReportOrders);
             panelTitleOrders.Controls.Add(buttonClearOrders);
             panelTitleOrders.Controls.Add(buttonRefreshOrders);
             panelTitleOrders.Controls.Add(textBoxSearchOrders);
@@ -970,8 +1040,36 @@
             labelTitleOrders.Margin = new Padding(4, 0, 4, 0);
             labelTitleOrders.Name = "labelTitleOrders";
             labelTitleOrders.Size = new Size(181, 65);
-            labelTitleOrders.TabIndex = 4;
+            labelTitleOrders.TabIndex = 5;
             labelTitleOrders.Text = "Заказы";
+            // 
+            // buttonMonthlyReportOrders
+            // 
+            buttonMonthlyReportOrders.BackgroundImage = (Image)resources.GetObject("buttonMonthlyReportOrders.BackgroundImage");
+            buttonMonthlyReportOrders.BackgroundImageLayout = ImageLayout.Stretch;
+            buttonMonthlyReportOrders.FlatStyle = FlatStyle.Flat;
+            buttonMonthlyReportOrders.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            buttonMonthlyReportOrders.Location = new Point(356, 4);
+            buttonMonthlyReportOrders.Margin = new Padding(4, 3, 4, 3);
+            buttonMonthlyReportOrders.Name = "buttonMonthlyReportOrders";
+            buttonMonthlyReportOrders.Size = new Size(78, 77);
+            buttonMonthlyReportOrders.TabIndex = 0;
+            buttonMonthlyReportOrders.UseVisualStyleBackColor = true;
+            buttonMonthlyReportOrders.Click += ButtonMonthlyReportOrders_Click;
+            // 
+            // buttonReportOrders
+            // 
+            buttonReportOrders.BackgroundImage = (Image)resources.GetObject("buttonReportOrders.BackgroundImage");
+            buttonReportOrders.BackgroundImageLayout = ImageLayout.Stretch;
+            buttonReportOrders.FlatStyle = FlatStyle.Flat;
+            buttonReportOrders.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            buttonReportOrders.Location = new Point(442, 3);
+            buttonReportOrders.Margin = new Padding(4, 3, 4, 3);
+            buttonReportOrders.Name = "buttonReportOrders";
+            buttonReportOrders.Size = new Size(78, 77);
+            buttonReportOrders.TabIndex = 1;
+            buttonReportOrders.UseVisualStyleBackColor = true;
+            buttonReportOrders.Click += ButtonReportOrders_Click;
             // 
             // buttonClearOrders
             // 
@@ -983,8 +1081,9 @@
             buttonClearOrders.Margin = new Padding(4, 3, 4, 3);
             buttonClearOrders.Name = "buttonClearOrders";
             buttonClearOrders.Size = new Size(78, 77);
-            buttonClearOrders.TabIndex = 0;
+            buttonClearOrders.TabIndex = 2;
             buttonClearOrders.UseVisualStyleBackColor = true;
+            buttonClearOrders.Click += ButtonClear_Click;
             // 
             // buttonRefreshOrders
             // 
@@ -996,8 +1095,9 @@
             buttonRefreshOrders.Margin = new Padding(4, 3, 4, 3);
             buttonRefreshOrders.Name = "buttonRefreshOrders";
             buttonRefreshOrders.Size = new Size(78, 77);
-            buttonRefreshOrders.TabIndex = 1;
+            buttonRefreshOrders.TabIndex = 3;
             buttonRefreshOrders.UseVisualStyleBackColor = true;
+            buttonRefreshOrders.Click += ButtonRefresh_Click;
             // 
             // textBoxSearchOrders
             // 
@@ -1006,7 +1106,8 @@
             textBoxSearchOrders.Margin = new Padding(4, 3, 4, 3);
             textBoxSearchOrders.Name = "textBoxSearchOrders";
             textBoxSearchOrders.Size = new Size(173, 33);
-            textBoxSearchOrders.TabIndex = 2;
+            textBoxSearchOrders.TabIndex = 4;
+            textBoxSearchOrders.TextChanged += TextBoxSearchOrders_TextChanged;
             // 
             // dataGridViewOrders
             // 
@@ -1020,22 +1121,23 @@
             dataGridViewOrders.RowHeadersWidth = 62;
             dataGridViewOrders.Size = new Size(867, 352);
             dataGridViewOrders.TabIndex = 0;
+            dataGridViewOrders.CellClick += DataGridViewOrders_CellClick;
             // 
             // panelRecordOrders
             // 
             panelRecordOrders.Controls.Add(labelRecordOrders);
             panelRecordOrders.Controls.Add(labelOrderID);
             panelRecordOrders.Controls.Add(textBoxOrderID);
-            panelRecordOrders.Controls.Add(labelClientFullNameOrders);
-            panelRecordOrders.Controls.Add(textBoxClientFullNameOrders);
-            panelRecordOrders.Controls.Add(labelEmployeeFullNameOrders);
-            panelRecordOrders.Controls.Add(textBoxEmployeeFullNameOrders);
+            panelRecordOrders.Controls.Add(labelClientIDOrders);
+            panelRecordOrders.Controls.Add(textBoxClientIDOrders);
+            panelRecordOrders.Controls.Add(labelEmployeeIDOrders);
+            panelRecordOrders.Controls.Add(textBoxEmployeeIDOrders);
             panelRecordOrders.Controls.Add(labelOrderDate);
             panelRecordOrders.Controls.Add(dateTimePickerOrderDate);
             panelRecordOrders.Controls.Add(labelTotalAmount);
             panelRecordOrders.Controls.Add(textBoxTotalAmount);
-            panelRecordOrders.Controls.Add(labelStatus);
-            panelRecordOrders.Controls.Add(comboBoxStatus);
+            panelRecordOrders.Controls.Add(labelStatusID);
+            panelRecordOrders.Controls.Add(comboBoxStatusID);
             panelRecordOrders.Location = new Point(9, 450);
             panelRecordOrders.Margin = new Padding(4, 3, 4, 3);
             panelRecordOrders.Name = "panelRecordOrders";
@@ -1074,45 +1176,45 @@
             textBoxOrderID.Size = new Size(455, 33);
             textBoxOrderID.TabIndex = 0;
             // 
-            // labelClientFullNameOrders
+            // labelClientIDOrders
             // 
-            labelClientFullNameOrders.AutoSize = true;
-            labelClientFullNameOrders.ForeColor = Color.WhiteSmoke;
-            labelClientFullNameOrders.Location = new Point(6, 124);
-            labelClientFullNameOrders.Margin = new Padding(4, 0, 4, 0);
-            labelClientFullNameOrders.Name = "labelClientFullNameOrders";
-            labelClientFullNameOrders.Size = new Size(140, 15);
-            labelClientFullNameOrders.TabIndex = 8;
-            labelClientFullNameOrders.Text = "Наименование клиента:";
+            labelClientIDOrders.AutoSize = true;
+            labelClientIDOrders.ForeColor = Color.WhiteSmoke;
+            labelClientIDOrders.Location = new Point(6, 124);
+            labelClientIDOrders.Margin = new Padding(4, 0, 4, 0);
+            labelClientIDOrders.Name = "labelClientIDOrders";
+            labelClientIDOrders.Size = new Size(140, 15);
+            labelClientIDOrders.TabIndex = 8;
+            labelClientIDOrders.Text = "Наименование клиента:";
             // 
-            // textBoxClientFullNameOrders
+            // textBoxClientIDOrders
             // 
-            textBoxClientFullNameOrders.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxClientFullNameOrders.Location = new Point(152, 113);
-            textBoxClientFullNameOrders.Margin = new Padding(4, 3, 4, 3);
-            textBoxClientFullNameOrders.Name = "textBoxClientFullNameOrders";
-            textBoxClientFullNameOrders.Size = new Size(455, 33);
-            textBoxClientFullNameOrders.TabIndex = 1;
+            textBoxClientIDOrders.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxClientIDOrders.Location = new Point(152, 113);
+            textBoxClientIDOrders.Margin = new Padding(4, 3, 4, 3);
+            textBoxClientIDOrders.Name = "textBoxClientIDOrders";
+            textBoxClientIDOrders.Size = new Size(455, 33);
+            textBoxClientIDOrders.TabIndex = 1;
             // 
-            // labelEmployeeFullNameOrders
+            // labelEmployeeIDOrders
             // 
-            labelEmployeeFullNameOrders.AutoSize = true;
-            labelEmployeeFullNameOrders.ForeColor = Color.WhiteSmoke;
-            labelEmployeeFullNameOrders.Location = new Point(36, 169);
-            labelEmployeeFullNameOrders.Margin = new Padding(4, 0, 4, 0);
-            labelEmployeeFullNameOrders.Name = "labelEmployeeFullNameOrders";
-            labelEmployeeFullNameOrders.Size = new Size(105, 15);
-            labelEmployeeFullNameOrders.TabIndex = 9;
-            labelEmployeeFullNameOrders.Text = "ФИО Сотрудника:";
+            labelEmployeeIDOrders.AutoSize = true;
+            labelEmployeeIDOrders.ForeColor = Color.WhiteSmoke;
+            labelEmployeeIDOrders.Location = new Point(36, 169);
+            labelEmployeeIDOrders.Margin = new Padding(4, 0, 4, 0);
+            labelEmployeeIDOrders.Name = "labelEmployeeIDOrders";
+            labelEmployeeIDOrders.Size = new Size(105, 15);
+            labelEmployeeIDOrders.TabIndex = 9;
+            labelEmployeeIDOrders.Text = "ФИО Сотрудника:";
             // 
-            // textBoxEmployeeFullNameOrders
+            // textBoxEmployeeIDOrders
             // 
-            textBoxEmployeeFullNameOrders.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxEmployeeFullNameOrders.Location = new Point(152, 158);
-            textBoxEmployeeFullNameOrders.Margin = new Padding(4, 3, 4, 3);
-            textBoxEmployeeFullNameOrders.Name = "textBoxEmployeeFullNameOrders";
-            textBoxEmployeeFullNameOrders.Size = new Size(455, 33);
-            textBoxEmployeeFullNameOrders.TabIndex = 2;
+            textBoxEmployeeIDOrders.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxEmployeeIDOrders.Location = new Point(152, 158);
+            textBoxEmployeeIDOrders.Margin = new Padding(4, 3, 4, 3);
+            textBoxEmployeeIDOrders.Name = "textBoxEmployeeIDOrders";
+            textBoxEmployeeIDOrders.Size = new Size(455, 33);
+            textBoxEmployeeIDOrders.TabIndex = 2;
             // 
             // labelOrderDate
             // 
@@ -1154,16 +1256,27 @@
             textBoxTotalAmount.Size = new Size(455, 33);
             textBoxTotalAmount.TabIndex = 4;
             // 
-            // labelStatus
+            // labelStatusID
             // 
-            labelStatus.AutoSize = true;
-            labelStatus.ForeColor = Color.WhiteSmoke;
-            labelStatus.Location = new Point(95, 304);
-            labelStatus.Margin = new Padding(4, 0, 4, 0);
-            labelStatus.Name = "labelStatus";
-            labelStatus.Size = new Size(46, 15);
-            labelStatus.TabIndex = 12;
-            labelStatus.Text = "Статус:";
+            labelStatusID.AutoSize = true;
+            labelStatusID.ForeColor = Color.WhiteSmoke;
+            labelStatusID.Location = new Point(95, 304);
+            labelStatusID.Margin = new Padding(4, 0, 4, 0);
+            labelStatusID.Name = "labelStatusID";
+            labelStatusID.Size = new Size(46, 15);
+            labelStatusID.TabIndex = 12;
+            labelStatusID.Text = "Статус:";
+            // 
+            // comboBoxStatusID
+            // 
+            comboBoxStatusID.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxStatusID.Font = new Font("Segoe UI", 14.25F);
+            comboBoxStatusID.FormattingEnabled = true;
+            comboBoxStatusID.Items.AddRange(new object[] { "В обработке", "Подтвержден", "Отменен", "Выполнен" });
+            comboBoxStatusID.Location = new Point(152, 293);
+            comboBoxStatusID.Name = "comboBoxStatusID";
+            comboBoxStatusID.Size = new Size(455, 33);
+            comboBoxStatusID.TabIndex = 5;
             // 
             // labelControlOrders
             // 
@@ -1204,6 +1317,7 @@
             buttonNewOrder.TabIndex = 0;
             buttonNewOrder.Text = "Новая запись";
             buttonNewOrder.UseVisualStyleBackColor = true;
+            buttonNewOrder.Click += ButtonNewOrder_Click;
             // 
             // buttonDeleteOrder
             // 
@@ -1216,6 +1330,7 @@
             buttonDeleteOrder.TabIndex = 1;
             buttonDeleteOrder.Text = "Удалить";
             buttonDeleteOrder.UseVisualStyleBackColor = true;
+            buttonDeleteOrder.Click += ButtonDeleteOrder_Click;
             // 
             // buttonChangeOrder
             // 
@@ -1228,6 +1343,7 @@
             buttonChangeOrder.TabIndex = 2;
             buttonChangeOrder.Text = "Изменить";
             buttonChangeOrder.UseVisualStyleBackColor = true;
+            buttonChangeOrder.Click += ButtonChangeOrder_Click;
             // 
             // buttonSaveOrder
             // 
@@ -1240,6 +1356,7 @@
             buttonSaveOrder.TabIndex = 3;
             buttonSaveOrder.Text = "Сохранить";
             buttonSaveOrder.UseVisualStyleBackColor = true;
+            buttonSaveOrder.Click += ButtonSaveOrder_Click;
             // 
             // buttonWordOrder
             // 
@@ -1300,6 +1417,7 @@
             // panelTitleProducts
             // 
             panelTitleProducts.Controls.Add(labelTitleProducts);
+            panelTitleProducts.Controls.Add(buttonReportProducts);
             panelTitleProducts.Controls.Add(buttonClearProducts);
             panelTitleProducts.Controls.Add(buttonRefreshProducts);
             panelTitleProducts.Controls.Add(textBoxSearchProducts);
@@ -1321,6 +1439,20 @@
             labelTitleProducts.TabIndex = 4;
             labelTitleProducts.Text = "Продукты";
             // 
+            // buttonReportProducts
+            // 
+            buttonReportProducts.BackgroundImage = (Image)resources.GetObject("buttonReportProducts.BackgroundImage");
+            buttonReportProducts.BackgroundImageLayout = ImageLayout.Stretch;
+            buttonReportProducts.FlatStyle = FlatStyle.Flat;
+            buttonReportProducts.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            buttonReportProducts.Location = new Point(442, 3);
+            buttonReportProducts.Margin = new Padding(4, 3, 4, 3);
+            buttonReportProducts.Name = "buttonReportProducts";
+            buttonReportProducts.Size = new Size(78, 77);
+            buttonReportProducts.TabIndex = 0;
+            buttonReportProducts.UseVisualStyleBackColor = true;
+            buttonReportProducts.Click += ButtonReportProducts_Click;
+            // 
             // buttonClearProducts
             // 
             buttonClearProducts.BackgroundImage = (Image)resources.GetObject("buttonClearProducts.BackgroundImage");
@@ -1331,8 +1463,9 @@
             buttonClearProducts.Margin = new Padding(4, 3, 4, 3);
             buttonClearProducts.Name = "buttonClearProducts";
             buttonClearProducts.Size = new Size(78, 77);
-            buttonClearProducts.TabIndex = 0;
+            buttonClearProducts.TabIndex = 1;
             buttonClearProducts.UseVisualStyleBackColor = true;
+            buttonClearProducts.Click += ButtonClear_Click;
             // 
             // buttonRefreshProducts
             // 
@@ -1344,8 +1477,9 @@
             buttonRefreshProducts.Margin = new Padding(4, 3, 4, 3);
             buttonRefreshProducts.Name = "buttonRefreshProducts";
             buttonRefreshProducts.Size = new Size(78, 77);
-            buttonRefreshProducts.TabIndex = 1;
+            buttonRefreshProducts.TabIndex = 2;
             buttonRefreshProducts.UseVisualStyleBackColor = true;
+            buttonRefreshProducts.Click += ButtonRefresh_Click;
             // 
             // textBoxSearchProducts
             // 
@@ -1354,7 +1488,8 @@
             textBoxSearchProducts.Margin = new Padding(4, 3, 4, 3);
             textBoxSearchProducts.Name = "textBoxSearchProducts";
             textBoxSearchProducts.Size = new Size(173, 33);
-            textBoxSearchProducts.TabIndex = 2;
+            textBoxSearchProducts.TabIndex = 3;
+            textBoxSearchProducts.TextChanged += TextBoxSearchProducts_TextChanged;
             // 
             // dataGridViewProducts
             // 
@@ -1368,6 +1503,7 @@
             dataGridViewProducts.RowHeadersWidth = 62;
             dataGridViewProducts.Size = new Size(867, 352);
             dataGridViewProducts.TabIndex = 0;
+            dataGridViewProducts.CellClick += DataGridViewProducts_CellClick;
             // 
             // panelRecordProducts
             // 
@@ -1475,7 +1611,6 @@
             textBoxPrice.Location = new Point(152, 206);
             textBoxPrice.Margin = new Padding(4, 3, 4, 3);
             textBoxPrice.Name = "textBoxPrice";
-            textBoxPrice.ReadOnly = true;
             textBoxPrice.Size = new Size(455, 33);
             textBoxPrice.TabIndex = 18;
             // 
@@ -1518,6 +1653,7 @@
             buttonNewProduct.TabIndex = 0;
             buttonNewProduct.Text = "Новая запись";
             buttonNewProduct.UseVisualStyleBackColor = true;
+            buttonNewProduct.Click += ButtonNewProduct_Click;
             // 
             // buttonDeleteProduct
             // 
@@ -1530,6 +1666,7 @@
             buttonDeleteProduct.TabIndex = 1;
             buttonDeleteProduct.Text = "Удалить";
             buttonDeleteProduct.UseVisualStyleBackColor = true;
+            buttonDeleteProduct.Click += ButtonDeleteProduct_Click;
             // 
             // buttonChangeProduct
             // 
@@ -1542,6 +1679,7 @@
             buttonChangeProduct.TabIndex = 2;
             buttonChangeProduct.Text = "Изменить";
             buttonChangeProduct.UseVisualStyleBackColor = true;
+            buttonChangeProduct.Click += ButtonChangeProduct_Click;
             // 
             // buttonSaveProduct
             // 
@@ -1554,6 +1692,7 @@
             buttonSaveProduct.TabIndex = 3;
             buttonSaveProduct.Text = "Сохранить";
             buttonSaveProduct.UseVisualStyleBackColor = true;
+            buttonSaveProduct.Click += ButtonSaveProduct_Click;
             // 
             // buttonWordProduct
             // 
@@ -1647,6 +1786,7 @@
             buttonClearOrderDetails.Size = new Size(78, 77);
             buttonClearOrderDetails.TabIndex = 0;
             buttonClearOrderDetails.UseVisualStyleBackColor = true;
+            buttonClearOrderDetails.Click += ButtonClear_Click;
             // 
             // buttonRefreshOrderDetails
             // 
@@ -1660,6 +1800,7 @@
             buttonRefreshOrderDetails.Size = new Size(78, 77);
             buttonRefreshOrderDetails.TabIndex = 1;
             buttonRefreshOrderDetails.UseVisualStyleBackColor = true;
+            buttonRefreshOrderDetails.Click += ButtonRefresh_Click;
             // 
             // textBoxSearchOrderDetails
             // 
@@ -1669,6 +1810,7 @@
             textBoxSearchOrderDetails.Name = "textBoxSearchOrderDetails";
             textBoxSearchOrderDetails.Size = new Size(173, 33);
             textBoxSearchOrderDetails.TabIndex = 2;
+            textBoxSearchOrderDetails.TextChanged += TextBoxSearchOrderDetails_TextChanged;
             // 
             // dataGridViewOrderDetails
             // 
@@ -1682,6 +1824,7 @@
             dataGridViewOrderDetails.RowHeadersWidth = 62;
             dataGridViewOrderDetails.Size = new Size(867, 352);
             dataGridViewOrderDetails.TabIndex = 0;
+            dataGridViewOrderDetails.CellClick += DataGridViewOrderDetails_CellClick;
             // 
             // panelRecordOrderDetails
             // 
@@ -1690,8 +1833,8 @@
             panelRecordOrderDetails.Controls.Add(textBoxOrderDetailID);
             panelRecordOrderDetails.Controls.Add(labelOrderIDOrderDetails);
             panelRecordOrderDetails.Controls.Add(textBoxOrderIDOrderDetails);
-            panelRecordOrderDetails.Controls.Add(labelNameOrderDetails);
-            panelRecordOrderDetails.Controls.Add(textBoxNameIDOrderDetails);
+            panelRecordOrderDetails.Controls.Add(labelProductIDOrderDetails);
+            panelRecordOrderDetails.Controls.Add(textBoxProductIDOrderDetails);
             panelRecordOrderDetails.Controls.Add(labelPriceOrderDetails);
             panelRecordOrderDetails.Controls.Add(textBoxPriceOrderDetails);
             panelRecordOrderDetails.Location = new Point(9, 450);
@@ -1752,25 +1895,25 @@
             textBoxOrderIDOrderDetails.Size = new Size(455, 33);
             textBoxOrderIDOrderDetails.TabIndex = 1;
             // 
-            // labelNameOrderDetails
+            // labelProductIDOrderDetails
             // 
-            labelNameOrderDetails.AutoSize = true;
-            labelNameOrderDetails.ForeColor = Color.WhiteSmoke;
-            labelNameOrderDetails.Location = new Point(0, 169);
-            labelNameOrderDetails.Margin = new Padding(4, 0, 4, 0);
-            labelNameOrderDetails.Name = "labelNameOrderDetails";
-            labelNameOrderDetails.Size = new Size(146, 15);
-            labelNameOrderDetails.TabIndex = 7;
-            labelNameOrderDetails.Text = "Наименование продукта:";
+            labelProductIDOrderDetails.AutoSize = true;
+            labelProductIDOrderDetails.ForeColor = Color.WhiteSmoke;
+            labelProductIDOrderDetails.Location = new Point(0, 169);
+            labelProductIDOrderDetails.Margin = new Padding(4, 0, 4, 0);
+            labelProductIDOrderDetails.Name = "labelProductIDOrderDetails";
+            labelProductIDOrderDetails.Size = new Size(146, 15);
+            labelProductIDOrderDetails.TabIndex = 7;
+            labelProductIDOrderDetails.Text = "Наименование продукта:";
             // 
-            // textBoxNameIDOrderDetails
+            // textBoxProductIDOrderDetails
             // 
-            textBoxNameIDOrderDetails.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxNameIDOrderDetails.Location = new Point(152, 158);
-            textBoxNameIDOrderDetails.Margin = new Padding(4, 3, 4, 3);
-            textBoxNameIDOrderDetails.Name = "textBoxNameIDOrderDetails";
-            textBoxNameIDOrderDetails.Size = new Size(455, 33);
-            textBoxNameIDOrderDetails.TabIndex = 2;
+            textBoxProductIDOrderDetails.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxProductIDOrderDetails.Location = new Point(152, 158);
+            textBoxProductIDOrderDetails.Margin = new Padding(4, 3, 4, 3);
+            textBoxProductIDOrderDetails.Name = "textBoxProductIDOrderDetails";
+            textBoxProductIDOrderDetails.Size = new Size(455, 33);
+            textBoxProductIDOrderDetails.TabIndex = 2;
             // 
             // labelPriceOrderDetails
             // 
@@ -1789,6 +1932,7 @@
             textBoxPriceOrderDetails.Location = new Point(152, 206);
             textBoxPriceOrderDetails.Margin = new Padding(4, 3, 4, 3);
             textBoxPriceOrderDetails.Name = "textBoxPriceOrderDetails";
+            textBoxPriceOrderDetails.ReadOnly = true;
             textBoxPriceOrderDetails.Size = new Size(455, 33);
             textBoxPriceOrderDetails.TabIndex = 3;
             // 
@@ -1831,6 +1975,7 @@
             buttonNewOrderDetails.TabIndex = 0;
             buttonNewOrderDetails.Text = "Новая запись";
             buttonNewOrderDetails.UseVisualStyleBackColor = true;
+            buttonNewOrderDetails.Click += ButtonNewOrderDetails_Click;
             // 
             // buttonDeleteOrderDetails
             // 
@@ -1843,6 +1988,7 @@
             buttonDeleteOrderDetails.TabIndex = 1;
             buttonDeleteOrderDetails.Text = "Удалить";
             buttonDeleteOrderDetails.UseVisualStyleBackColor = true;
+            buttonDeleteOrderDetails.Click += ButtonDeleteOrderDetails_Click;
             // 
             // buttonChangeOrderDetails
             // 
@@ -1855,6 +2001,7 @@
             buttonChangeOrderDetails.TabIndex = 2;
             buttonChangeOrderDetails.Text = "Изменить";
             buttonChangeOrderDetails.UseVisualStyleBackColor = true;
+            buttonChangeOrderDetails.Click += ButtonChangeOrderDetails_Click;
             // 
             // buttonSaveOrderDetails
             // 
@@ -1867,6 +2014,7 @@
             buttonSaveOrderDetails.TabIndex = 3;
             buttonSaveOrderDetails.Text = "Сохранить";
             buttonSaveOrderDetails.UseVisualStyleBackColor = true;
+            buttonSaveOrderDetails.Click += ButtonSaveOrderDetails_Click;
             // 
             // buttonWordOrderDetails
             // 
@@ -1906,64 +2054,6 @@
             buttonTXTOrderDetails.Text = "Вывод в TXT";
             buttonTXTOrderDetails.UseVisualStyleBackColor = true;
             buttonTXTOrderDetails.Click += ButtonTXTOrderDetails_Click;
-            // 
-            // maskedTextBoxPhoneClients
-            // 
-            maskedTextBoxPhoneClients.Font = new Font("Segoe UI", 14.25F);
-            maskedTextBoxPhoneClients.Location = new Point(152, 248);
-            maskedTextBoxPhoneClients.Mask = "+7 (999) 999-99-99";
-            maskedTextBoxPhoneClients.Name = "maskedTextBoxPhoneClients";
-            maskedTextBoxPhoneClients.Size = new Size(455, 33);
-            maskedTextBoxPhoneClients.TabIndex = 4;
-            // 
-            // comboBoxClientTypeID
-            // 
-            comboBoxClientTypeID.Font = new Font("Segoe UI", 14.25F);
-            comboBoxClientTypeID.FormattingEnabled = true;
-            comboBoxClientTypeID.Items.AddRange(new object[] { "Физическое лицо", "Юридическое лицо" });
-            comboBoxClientTypeID.Location = new Point(152, 158);
-            comboBoxClientTypeID.Name = "comboBoxClientTypeID";
-            comboBoxClientTypeID.Size = new Size(455, 33);
-            comboBoxClientTypeID.TabIndex = 2;
-            // 
-            // comboBoxGender
-            // 
-            comboBoxGender.Font = new Font("Segoe UI", 14.25F);
-            comboBoxGender.FormattingEnabled = true;
-            comboBoxGender.Items.AddRange(new object[] { "Мужской", "Женский" });
-            comboBoxGender.Location = new Point(152, 251);
-            comboBoxGender.Name = "comboBoxGender";
-            comboBoxGender.Size = new Size(455, 33);
-            comboBoxGender.TabIndex = 4;
-            // 
-            // comboBoxPost
-            // 
-            comboBoxPost.Font = new Font("Segoe UI", 14.25F);
-            comboBoxPost.FormattingEnabled = true;
-            comboBoxPost.Items.AddRange(new object[] { "Менеджер по продажам", "Администратор" });
-            comboBoxPost.Location = new Point(152, 293);
-            comboBoxPost.Name = "comboBoxPost";
-            comboBoxPost.Size = new Size(455, 33);
-            comboBoxPost.TabIndex = 5;
-            // 
-            // comboBoxStatus
-            // 
-            comboBoxStatus.Font = new Font("Segoe UI", 14.25F);
-            comboBoxStatus.FormattingEnabled = true;
-            comboBoxStatus.Items.AddRange(new object[] { "В обработке", "Подтвержден", "Отменен", "Выполнен" });
-            comboBoxStatus.Location = new Point(152, 293);
-            comboBoxStatus.Name = "comboBoxStatus";
-            comboBoxStatus.Size = new Size(455, 33);
-            comboBoxStatus.TabIndex = 5;
-            // 
-            // maskedTextBox1
-            // 
-            maskedTextBox1.Font = new Font("Segoe UI", 14.25F);
-            maskedTextBox1.Location = new Point(152, 158);
-            maskedTextBox1.Mask = "+7 (999) 999-99-99";
-            maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(455, 33);
-            maskedTextBox1.TabIndex = 2;
             // 
             // Form1
             // 
@@ -2074,8 +2164,8 @@
         private Label labelPhoneEmployees;
         private TextBox textBoxPhoneEmployees;
         private Label labelEmailEmployees;
-        private Label labelGender;
-        private Label labelPost;
+        private Label labelGenderID;
+        private Label labelPostID;
         private TextBox textBoxPost;
         private Label labelControlEmployees;
         private Panel panelControlEmployees;
@@ -2097,14 +2187,14 @@
         private Label labelRecordOrders;
         private Label labelOrderID;
         private TextBox textBoxOrderID;
-        private Label labelClientFullNameOrders;
-        private TextBox textBoxClientFullNameOrders;
-        private Label labelEmployeeFullNameOrders;
-        private TextBox textBoxEmployeeFullNameOrders;
+        private Label labelClientIDOrders;
+        private TextBox textBoxClientIDOrders;
+        private Label labelEmployeeIDOrders;
+        private TextBox textBoxEmployeeIDOrders;
         private Label labelOrderDate;
         private DateTimePicker dateTimePickerOrderDate;
         private Label labelTotalAmount;
-        private Label labelStatus;
+        private Label labelStatusID;
         private TextBox textBoxStatus;
         private Label labelControlOrders;
         private Panel panelControlOrders;
@@ -2153,8 +2243,8 @@
         private TextBox textBoxOrderDetailID;
         private Label labelOrderIDOrderDetails;
         private TextBox textBoxOrderIDOrderDetails;
-        private Label labelNameOrderDetails;
-        private TextBox textBoxNameIDOrderDetails;
+        private Label labelProductIDOrderDetails;
+        private TextBox textBoxProductIDOrderDetails;
         private Label labelPriceOrderDetails;
         private Label labelControlOrderDetails;
         private Panel panelControlOrderDetails;
@@ -2174,9 +2264,12 @@
         private TextBox textBoxPriceOrderDetails;
         private ComboBox comboBoxClientTypeID;
         private MaskedTextBox maskedTextBoxPhoneClients;
-        private ComboBox comboBoxGender;
-        private ComboBox comboBoxPost;
-        private ComboBox comboBoxStatus;
-        private MaskedTextBox maskedTextBox1;
+        private ComboBox comboBoxGenderID;
+        private ComboBox comboBoxPostID;
+        private ComboBox comboBoxStatusID;
+        private MaskedTextBox maskedTextBoxPhoneEmployees;
+        private Button buttonMonthlyReportOrders;
+        private Button buttonReportOrders;
+        private Button buttonReportProducts;
     }
 }

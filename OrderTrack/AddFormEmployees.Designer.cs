@@ -35,13 +35,13 @@
             labelFullNameEmployees = new Label();
             textBoxFullNameEmployees = new TextBox();
             labelPhoneEmployees = new Label();
-            maskedTextBox1 = new MaskedTextBox();
+            maskedTextBoxPhoneEmployees = new MaskedTextBox();
             labelEmailEmployees = new Label();
             textBoxEmailEmployees = new TextBox();
-            labelGender = new Label();
-            comboBoxGender = new ComboBox();
-            labelPost = new Label();
-            comboBoxPost = new ComboBox();
+            labelGenderID = new Label();
+            comboBoxGenderID = new ComboBox();
+            labelPostID = new Label();
+            comboBoxPostID = new ComboBox();
             SuspendLayout();
             // 
             // labelTitle
@@ -82,6 +82,7 @@
             buttonSave.TabIndex = 5;
             buttonSave.Text = "Сохранить";
             buttonSave.UseVisualStyleBackColor = false;
+            buttonSave.Click += ButtonSave_Click;
             // 
             // labelFullNameEmployees
             // 
@@ -116,14 +117,14 @@
             labelPhoneEmployees.TabIndex = 9;
             labelPhoneEmployees.Text = "Телефон:";
             // 
-            // maskedTextBox1
+            // maskedTextBoxPhoneEmployees
             // 
-            maskedTextBox1.Font = new Font("Segoe UI", 14.25F);
-            maskedTextBox1.Location = new Point(292, 534);
-            maskedTextBox1.Mask = "+7 (999) 999-99-99";
-            maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(455, 33);
-            maskedTextBox1.TabIndex = 1;
+            maskedTextBoxPhoneEmployees.Font = new Font("Segoe UI", 14.25F);
+            maskedTextBoxPhoneEmployees.Location = new Point(292, 534);
+            maskedTextBoxPhoneEmployees.Mask = "+7 (999) 999-99-99";
+            maskedTextBoxPhoneEmployees.Name = "maskedTextBoxPhoneEmployees";
+            maskedTextBoxPhoneEmployees.Size = new Size(455, 33);
+            maskedTextBoxPhoneEmployees.TabIndex = 1;
             // 
             // labelEmailEmployees
             // 
@@ -143,53 +144,54 @@
             textBoxEmailEmployees.Location = new Point(292, 582);
             textBoxEmailEmployees.Margin = new Padding(4, 3, 4, 3);
             textBoxEmailEmployees.Name = "textBoxEmailEmployees";
-            textBoxEmailEmployees.ReadOnly = true;
             textBoxEmailEmployees.Size = new Size(455, 33);
             textBoxEmailEmployees.TabIndex = 2;
             // 
-            // labelGender
+            // labelGenderID
             // 
-            labelGender.AutoSize = true;
-            labelGender.BackColor = Color.Transparent;
-            labelGender.ForeColor = Color.WhiteSmoke;
-            labelGender.Location = new Point(248, 638);
-            labelGender.Margin = new Padding(4, 0, 4, 0);
-            labelGender.Name = "labelGender";
-            labelGender.Size = new Size(33, 15);
-            labelGender.TabIndex = 11;
-            labelGender.Text = "Пол:";
+            labelGenderID.AutoSize = true;
+            labelGenderID.BackColor = Color.Transparent;
+            labelGenderID.ForeColor = Color.WhiteSmoke;
+            labelGenderID.Location = new Point(248, 638);
+            labelGenderID.Margin = new Padding(4, 0, 4, 0);
+            labelGenderID.Name = "labelGenderID";
+            labelGenderID.Size = new Size(33, 15);
+            labelGenderID.TabIndex = 11;
+            labelGenderID.Text = "Пол:";
             // 
-            // comboBoxGender
+            // comboBoxGenderID
             // 
-            comboBoxGender.Font = new Font("Segoe UI", 14.25F);
-            comboBoxGender.FormattingEnabled = true;
-            comboBoxGender.Items.AddRange(new object[] { "Мужской", "Женский" });
-            comboBoxGender.Location = new Point(292, 627);
-            comboBoxGender.Name = "comboBoxGender";
-            comboBoxGender.Size = new Size(455, 33);
-            comboBoxGender.TabIndex = 3;
+            comboBoxGenderID.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxGenderID.Font = new Font("Segoe UI", 14.25F);
+            comboBoxGenderID.FormattingEnabled = true;
+            comboBoxGenderID.Items.AddRange(new object[] { "Мужской", "Женский" });
+            comboBoxGenderID.Location = new Point(292, 627);
+            comboBoxGenderID.Name = "comboBoxGenderID";
+            comboBoxGenderID.Size = new Size(455, 33);
+            comboBoxGenderID.TabIndex = 3;
             // 
-            // labelPost
+            // labelPostID
             // 
-            labelPost.AutoSize = true;
-            labelPost.BackColor = Color.Transparent;
-            labelPost.ForeColor = Color.WhiteSmoke;
-            labelPost.Location = new Point(209, 680);
-            labelPost.Margin = new Padding(4, 0, 4, 0);
-            labelPost.Name = "labelPost";
-            labelPost.Size = new Size(72, 15);
-            labelPost.TabIndex = 12;
-            labelPost.Text = "Должность:";
+            labelPostID.AutoSize = true;
+            labelPostID.BackColor = Color.Transparent;
+            labelPostID.ForeColor = Color.WhiteSmoke;
+            labelPostID.Location = new Point(209, 680);
+            labelPostID.Margin = new Padding(4, 0, 4, 0);
+            labelPostID.Name = "labelPostID";
+            labelPostID.Size = new Size(72, 15);
+            labelPostID.TabIndex = 12;
+            labelPostID.Text = "Должность:";
             // 
-            // comboBoxPost
+            // comboBoxPostID
             // 
-            comboBoxPost.Font = new Font("Segoe UI", 14.25F);
-            comboBoxPost.FormattingEnabled = true;
-            comboBoxPost.Items.AddRange(new object[] { "Менеджер по продажам", "Администратор" });
-            comboBoxPost.Location = new Point(292, 669);
-            comboBoxPost.Name = "comboBoxPost";
-            comboBoxPost.Size = new Size(455, 33);
-            comboBoxPost.TabIndex = 4;
+            comboBoxPostID.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxPostID.Font = new Font("Segoe UI", 14.25F);
+            comboBoxPostID.FormattingEnabled = true;
+            comboBoxPostID.Items.AddRange(new object[] { "Менеджер по продажам", "Администратор" });
+            comboBoxPostID.Location = new Point(292, 669);
+            comboBoxPostID.Name = "comboBoxPostID";
+            comboBoxPostID.Size = new Size(455, 33);
+            comboBoxPostID.TabIndex = 4;
             // 
             // AddFormEmployees
             // 
@@ -198,18 +200,18 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(896, 841);
+            Controls.Add(labelTitle);
+            Controls.Add(label1);
             Controls.Add(labelFullNameEmployees);
             Controls.Add(textBoxFullNameEmployees);
             Controls.Add(labelPhoneEmployees);
-            Controls.Add(maskedTextBox1);
+            Controls.Add(maskedTextBoxPhoneEmployees);
             Controls.Add(labelEmailEmployees);
             Controls.Add(textBoxEmailEmployees);
-            Controls.Add(labelGender);
-            Controls.Add(comboBoxGender);
-            Controls.Add(labelPost);
-            Controls.Add(comboBoxPost);
-            Controls.Add(labelTitle);
-            Controls.Add(label1);
+            Controls.Add(labelGenderID);
+            Controls.Add(comboBoxGenderID);
+            Controls.Add(labelPostID);
+            Controls.Add(comboBoxPostID);
             Controls.Add(buttonSave);
             DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -226,12 +228,12 @@
         private Label labelFullNameEmployees;
         private TextBox textBoxFullNameEmployees;
         private Label labelPhoneEmployees;
-        private MaskedTextBox maskedTextBox1;
+        private MaskedTextBox maskedTextBoxPhoneEmployees;
         private Label labelEmailEmployees;
         private TextBox textBoxEmailEmployees;
-        private Label labelGender;
-        private ComboBox comboBoxGender;
-        private Label labelPost;
-        private ComboBox comboBoxPost;
+        private Label labelGenderID;
+        private ComboBox comboBoxGenderID;
+        private Label labelPostID;
+        private ComboBox comboBoxPostID;
     }
 }

@@ -121,6 +121,7 @@
             // 
             // comboBoxClientTypeID
             // 
+            comboBoxClientTypeID.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxClientTypeID.Font = new Font("Segoe UI", 14.25F);
             comboBoxClientTypeID.FormattingEnabled = true;
             comboBoxClientTypeID.Items.AddRange(new object[] { "Физическое лицо", "Юридическое лицо" });
@@ -154,7 +155,7 @@
             // 
             labelPhoneClients.AutoSize = true;
             labelPhoneClients.BackColor = Color.Transparent;
-            labelPhoneClients.ForeColor = Color.Black;
+            labelPhoneClients.ForeColor = Color.WhiteSmoke;
             labelPhoneClients.Location = new Point(228, 591);
             labelPhoneClients.Margin = new Padding(4, 0, 4, 0);
             labelPhoneClients.Name = "labelPhoneClients";
@@ -189,7 +190,6 @@
             textBoxAddress.Location = new Point(292, 625);
             textBoxAddress.Margin = new Padding(4, 3, 4, 3);
             textBoxAddress.Name = "textBoxAddress";
-            textBoxAddress.ReadOnly = true;
             textBoxAddress.Size = new Size(455, 33);
             textBoxAddress.TabIndex = 4;
             // 
@@ -197,7 +197,7 @@
             // 
             labelINN.AutoSize = true;
             labelINN.BackColor = Color.Transparent;
-            labelINN.ForeColor = Color.Black;
+            labelINN.ForeColor = Color.WhiteSmoke;
             labelINN.Location = new Point(249, 681);
             labelINN.Margin = new Padding(4, 0, 4, 0);
             labelINN.Name = "labelINN";

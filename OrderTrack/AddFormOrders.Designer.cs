@@ -32,14 +32,12 @@
             labelTitle = new Label();
             label1 = new Label();
             buttonSave = new Button();
-            labelClientFullNameOrders = new Label();
-            textBoxClientFullNameOrders = new TextBox();
-            labelEmployeeFullNameOrders = new Label();
-            textBoxEmployeeFullNameOrders = new TextBox();
-            labelOrderDate = new Label();
-            dateTimePickerOrderDate = new DateTimePicker();
-            labelStatus = new Label();
-            comboBoxStatus = new ComboBox();
+            labelClientIDOrders = new Label();
+            textBoxClientIDOrders = new TextBox();
+            labelEmployeeIDOrders = new Label();
+            textBoxEmployeeIDOrders = new TextBox();
+            labelStatusID = new Label();
+            comboBoxStatusID = new ComboBox();
             SuspendLayout();
             // 
             // labelTitle
@@ -80,90 +78,71 @@
             buttonSave.TabIndex = 4;
             buttonSave.Text = "Сохранить";
             buttonSave.UseVisualStyleBackColor = false;
+            buttonSave.Click += ButtonSave_Click;
             // 
-            // labelClientFullNameOrders
+            // labelClientIDOrders
             // 
-            labelClientFullNameOrders.AutoSize = true;
-            labelClientFullNameOrders.BackColor = Color.Transparent;
-            labelClientFullNameOrders.ForeColor = Color.WhiteSmoke;
-            labelClientFullNameOrders.Location = new Point(146, 500);
-            labelClientFullNameOrders.Margin = new Padding(4, 0, 4, 0);
-            labelClientFullNameOrders.Name = "labelClientFullNameOrders";
-            labelClientFullNameOrders.Size = new Size(140, 15);
-            labelClientFullNameOrders.TabIndex = 7;
-            labelClientFullNameOrders.Text = "Наименование клиента:";
+            labelClientIDOrders.AutoSize = true;
+            labelClientIDOrders.BackColor = Color.Transparent;
+            labelClientIDOrders.ForeColor = Color.WhiteSmoke;
+            labelClientIDOrders.Location = new Point(146, 500);
+            labelClientIDOrders.Margin = new Padding(4, 0, 4, 0);
+            labelClientIDOrders.Name = "labelClientIDOrders";
+            labelClientIDOrders.Size = new Size(140, 15);
+            labelClientIDOrders.TabIndex = 7;
+            labelClientIDOrders.Text = "Наименование клиента:";
             // 
-            // textBoxClientFullNameOrders
+            // textBoxClientIDOrders
             // 
-            textBoxClientFullNameOrders.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxClientFullNameOrders.Location = new Point(292, 489);
-            textBoxClientFullNameOrders.Margin = new Padding(4, 3, 4, 3);
-            textBoxClientFullNameOrders.Name = "textBoxClientFullNameOrders";
-            textBoxClientFullNameOrders.Size = new Size(455, 33);
-            textBoxClientFullNameOrders.TabIndex = 0;
+            textBoxClientIDOrders.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxClientIDOrders.Location = new Point(292, 489);
+            textBoxClientIDOrders.Margin = new Padding(4, 3, 4, 3);
+            textBoxClientIDOrders.Name = "textBoxClientIDOrders";
+            textBoxClientIDOrders.Size = new Size(455, 33);
+            textBoxClientIDOrders.TabIndex = 0;
             // 
-            // labelEmployeeFullNameOrders
+            // labelEmployeeIDOrders
             // 
-            labelEmployeeFullNameOrders.AutoSize = true;
-            labelEmployeeFullNameOrders.BackColor = Color.Transparent;
-            labelEmployeeFullNameOrders.ForeColor = Color.WhiteSmoke;
-            labelEmployeeFullNameOrders.Location = new Point(176, 545);
-            labelEmployeeFullNameOrders.Margin = new Padding(4, 0, 4, 0);
-            labelEmployeeFullNameOrders.Name = "labelEmployeeFullNameOrders";
-            labelEmployeeFullNameOrders.Size = new Size(105, 15);
-            labelEmployeeFullNameOrders.TabIndex = 8;
-            labelEmployeeFullNameOrders.Text = "ФИО Сотрудника:";
+            labelEmployeeIDOrders.AutoSize = true;
+            labelEmployeeIDOrders.BackColor = Color.Transparent;
+            labelEmployeeIDOrders.ForeColor = Color.WhiteSmoke;
+            labelEmployeeIDOrders.Location = new Point(176, 545);
+            labelEmployeeIDOrders.Margin = new Padding(4, 0, 4, 0);
+            labelEmployeeIDOrders.Name = "labelEmployeeIDOrders";
+            labelEmployeeIDOrders.Size = new Size(105, 15);
+            labelEmployeeIDOrders.TabIndex = 8;
+            labelEmployeeIDOrders.Text = "ФИО Сотрудника:";
             // 
-            // textBoxEmployeeFullNameOrders
+            // textBoxEmployeeIDOrders
             // 
-            textBoxEmployeeFullNameOrders.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxEmployeeFullNameOrders.Location = new Point(292, 534);
-            textBoxEmployeeFullNameOrders.Margin = new Padding(4, 3, 4, 3);
-            textBoxEmployeeFullNameOrders.Name = "textBoxEmployeeFullNameOrders";
-            textBoxEmployeeFullNameOrders.Size = new Size(455, 33);
-            textBoxEmployeeFullNameOrders.TabIndex = 1;
+            textBoxEmployeeIDOrders.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxEmployeeIDOrders.Location = new Point(292, 534);
+            textBoxEmployeeIDOrders.Margin = new Padding(4, 3, 4, 3);
+            textBoxEmployeeIDOrders.Name = "textBoxEmployeeIDOrders";
+            textBoxEmployeeIDOrders.Size = new Size(455, 33);
+            textBoxEmployeeIDOrders.TabIndex = 1;
             // 
-            // labelOrderDate
+            // labelStatusID
             // 
-            labelOrderDate.AutoSize = true;
-            labelOrderDate.BackColor = Color.Transparent;
-            labelOrderDate.ForeColor = Color.WhiteSmoke;
-            labelOrderDate.Location = new Point(209, 593);
-            labelOrderDate.Margin = new Padding(4, 0, 4, 0);
-            labelOrderDate.Name = "labelOrderDate";
-            labelOrderDate.Size = new Size(72, 15);
-            labelOrderDate.TabIndex = 9;
-            labelOrderDate.Text = "Дата заказа:";
+            labelStatusID.AutoSize = true;
+            labelStatusID.BackColor = Color.Transparent;
+            labelStatusID.ForeColor = Color.WhiteSmoke;
+            labelStatusID.Location = new Point(235, 590);
+            labelStatusID.Margin = new Padding(4, 0, 4, 0);
+            labelStatusID.Name = "labelStatusID";
+            labelStatusID.Size = new Size(46, 15);
+            labelStatusID.TabIndex = 10;
+            labelStatusID.Text = "Статус:";
             // 
-            // dateTimePickerOrderDate
+            // comboBoxStatusID
             // 
-            dateTimePickerOrderDate.Font = new Font("Segoe UI", 14.25F);
-            dateTimePickerOrderDate.Location = new Point(292, 579);
-            dateTimePickerOrderDate.Name = "dateTimePickerOrderDate";
-            dateTimePickerOrderDate.Size = new Size(455, 33);
-            dateTimePickerOrderDate.TabIndex = 2;
-            // 
-            // labelStatus
-            // 
-            labelStatus.AutoSize = true;
-            labelStatus.BackColor = Color.Transparent;
-            labelStatus.ForeColor = Color.WhiteSmoke;
-            labelStatus.Location = new Point(235, 644);
-            labelStatus.Margin = new Padding(4, 0, 4, 0);
-            labelStatus.Name = "labelStatus";
-            labelStatus.Size = new Size(46, 15);
-            labelStatus.TabIndex = 10;
-            labelStatus.Text = "Статус:";
-            // 
-            // comboBoxStatus
-            // 
-            comboBoxStatus.Font = new Font("Segoe UI", 14.25F);
-            comboBoxStatus.FormattingEnabled = true;
-            comboBoxStatus.Items.AddRange(new object[] { "В обработке", "Подтвержден", "Отменен", "Выполнен" });
-            comboBoxStatus.Location = new Point(292, 633);
-            comboBoxStatus.Name = "comboBoxStatus";
-            comboBoxStatus.Size = new Size(455, 33);
-            comboBoxStatus.TabIndex = 3;
+            comboBoxStatusID.Font = new Font("Segoe UI", 14.25F);
+            comboBoxStatusID.FormattingEnabled = true;
+            comboBoxStatusID.Items.AddRange(new object[] { "В обработке", "Подтвержден", "Отменен", "Выполнен" });
+            comboBoxStatusID.Location = new Point(292, 579);
+            comboBoxStatusID.Name = "comboBoxStatusID";
+            comboBoxStatusID.Size = new Size(455, 33);
+            comboBoxStatusID.TabIndex = 3;
             // 
             // AddFormOrders
             // 
@@ -172,16 +151,14 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(896, 841);
-            Controls.Add(labelClientFullNameOrders);
-            Controls.Add(textBoxClientFullNameOrders);
-            Controls.Add(labelEmployeeFullNameOrders);
-            Controls.Add(textBoxEmployeeFullNameOrders);
-            Controls.Add(labelOrderDate);
-            Controls.Add(dateTimePickerOrderDate);
-            Controls.Add(labelStatus);
-            Controls.Add(comboBoxStatus);
             Controls.Add(labelTitle);
             Controls.Add(label1);
+            Controls.Add(labelClientIDOrders);
+            Controls.Add(textBoxClientIDOrders);
+            Controls.Add(labelEmployeeIDOrders);
+            Controls.Add(textBoxEmployeeIDOrders);
+            Controls.Add(labelStatusID);
+            Controls.Add(comboBoxStatusID);
             Controls.Add(buttonSave);
             DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -195,13 +172,11 @@
         private Label labelTitle;
         private Label label1;
         private Button buttonSave;
-        private Label labelClientFullNameOrders;
-        private TextBox textBoxClientFullNameOrders;
-        private Label labelEmployeeFullNameOrders;
-        private TextBox textBoxEmployeeFullNameOrders;
-        private Label labelOrderDate;
-        private DateTimePicker dateTimePickerOrderDate;
-        private Label labelStatus;
-        private ComboBox comboBoxStatus;
+        private Label labelClientIDOrders;
+        private TextBox textBoxClientIDOrders;
+        private Label labelEmployeeIDOrders;
+        private TextBox textBoxEmployeeIDOrders;
+        private Label labelStatusID;
+        private ComboBox comboBoxStatusID;
     }
 }

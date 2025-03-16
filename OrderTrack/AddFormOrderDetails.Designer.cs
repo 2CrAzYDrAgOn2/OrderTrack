@@ -34,8 +34,8 @@
             buttonSave = new Button();
             labelOrderIDOrderDetails = new Label();
             textBoxOrderIDOrderDetails = new TextBox();
-            labelNameOrderDetails = new Label();
-            textBoxNameIDOrderDetails = new TextBox();
+            labelProductIDOrderDetails = new Label();
+            textBoxProductIDOrderDetails = new TextBox();
             SuspendLayout();
             // 
             // labelTitle
@@ -76,6 +76,7 @@
             buttonSave.TabIndex = 2;
             buttonSave.Text = "Сохранить";
             buttonSave.UseVisualStyleBackColor = false;
+            buttonSave.Click += ButtonSave_Click;
             // 
             // labelOrderIDOrderDetails
             // 
@@ -98,26 +99,26 @@
             textBoxOrderIDOrderDetails.Size = new Size(455, 33);
             textBoxOrderIDOrderDetails.TabIndex = 0;
             // 
-            // labelNameOrderDetails
+            // labelProductIDOrderDetails
             // 
-            labelNameOrderDetails.AutoSize = true;
-            labelNameOrderDetails.BackColor = Color.Transparent;
-            labelNameOrderDetails.ForeColor = Color.WhiteSmoke;
-            labelNameOrderDetails.Location = new Point(139, 545);
-            labelNameOrderDetails.Margin = new Padding(4, 0, 4, 0);
-            labelNameOrderDetails.Name = "labelNameOrderDetails";
-            labelNameOrderDetails.Size = new Size(146, 15);
-            labelNameOrderDetails.TabIndex = 6;
-            labelNameOrderDetails.Text = "Наименование продукта:";
+            labelProductIDOrderDetails.AutoSize = true;
+            labelProductIDOrderDetails.BackColor = Color.Transparent;
+            labelProductIDOrderDetails.ForeColor = Color.WhiteSmoke;
+            labelProductIDOrderDetails.Location = new Point(139, 545);
+            labelProductIDOrderDetails.Margin = new Padding(4, 0, 4, 0);
+            labelProductIDOrderDetails.Name = "labelProductIDOrderDetails";
+            labelProductIDOrderDetails.Size = new Size(146, 15);
+            labelProductIDOrderDetails.TabIndex = 6;
+            labelProductIDOrderDetails.Text = "Наименование продукта:";
             // 
-            // textBoxNameIDOrderDetails
+            // textBoxProductIDOrderDetails
             // 
-            textBoxNameIDOrderDetails.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxNameIDOrderDetails.Location = new Point(291, 534);
-            textBoxNameIDOrderDetails.Margin = new Padding(4, 3, 4, 3);
-            textBoxNameIDOrderDetails.Name = "textBoxNameIDOrderDetails";
-            textBoxNameIDOrderDetails.Size = new Size(455, 33);
-            textBoxNameIDOrderDetails.TabIndex = 1;
+            textBoxProductIDOrderDetails.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxProductIDOrderDetails.Location = new Point(291, 534);
+            textBoxProductIDOrderDetails.Margin = new Padding(4, 3, 4, 3);
+            textBoxProductIDOrderDetails.Name = "textBoxProductIDOrderDetails";
+            textBoxProductIDOrderDetails.Size = new Size(455, 33);
+            textBoxProductIDOrderDetails.TabIndex = 1;
             // 
             // AddFormOrderDetails
             // 
@@ -126,12 +127,12 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(896, 841);
-            Controls.Add(labelOrderIDOrderDetails);
-            Controls.Add(textBoxOrderIDOrderDetails);
-            Controls.Add(labelNameOrderDetails);
-            Controls.Add(textBoxNameIDOrderDetails);
             Controls.Add(labelTitle);
             Controls.Add(label1);
+            Controls.Add(labelOrderIDOrderDetails);
+            Controls.Add(textBoxOrderIDOrderDetails);
+            Controls.Add(labelProductIDOrderDetails);
+            Controls.Add(textBoxProductIDOrderDetails);
             Controls.Add(buttonSave);
             DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -147,7 +148,7 @@
         private Button buttonSave;
         private Label labelOrderIDOrderDetails;
         private TextBox textBoxOrderIDOrderDetails;
-        private Label labelNameOrderDetails;
-        private TextBox textBoxNameIDOrderDetails;
+        private Label labelProductIDOrderDetails;
+        private TextBox textBoxProductIDOrderDetails;
     }
 }
