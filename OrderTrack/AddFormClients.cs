@@ -42,5 +42,10 @@ namespace OrderTrack
                 dataBase.CloseConnection();
             }
         }
+
+        private void maskedTextBoxPhoneClients_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
     }
 }

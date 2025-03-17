@@ -42,18 +42,22 @@
             comboBoxGenderID = new ComboBox();
             labelPostID = new Label();
             comboBoxPostID = new ComboBox();
+            pictureBox1 = new PictureBox();
+            panel1 = new Panel();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // labelTitle
             // 
             labelTitle.AutoSize = true;
             labelTitle.BackColor = Color.Transparent;
-            labelTitle.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 204);
+            labelTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 204);
             labelTitle.ForeColor = Color.Black;
-            labelTitle.Location = new Point(243, 9);
+            labelTitle.Location = new Point(260, 20);
             labelTitle.Margin = new Padding(4, 0, 4, 0);
             labelTitle.Name = "labelTitle";
-            labelTitle.Size = new Size(175, 25);
+            labelTitle.Size = new Size(223, 32);
             labelTitle.TabIndex = 6;
             labelTitle.Text = "Создание записи:";
             // 
@@ -61,24 +65,25 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 204);
+            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 204);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(244, 38);
+            label1.Location = new Point(316, 63);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(94, 21);
+            label1.Size = new Size(113, 25);
             label1.TabIndex = 7;
             label1.Text = "Сотрудник";
             // 
             // buttonSave
             // 
-            buttonSave.BackColor = Color.Transparent;
+            buttonSave.BackColor = Color.FromArgb(241, 156, 55);
             buttonSave.FlatStyle = FlatStyle.Flat;
-            buttonSave.ForeColor = Color.WhiteSmoke;
-            buttonSave.Location = new Point(330, 762);
+            buttonSave.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            buttonSave.ForeColor = Color.Black;
+            buttonSave.Location = new Point(261, 499);
             buttonSave.Margin = new Padding(4, 3, 4, 3);
             buttonSave.Name = "buttonSave";
-            buttonSave.Size = new Size(236, 65);
+            buttonSave.Size = new Size(236, 44);
             buttonSave.TabIndex = 5;
             buttonSave.Text = "Сохранить";
             buttonSave.UseVisualStyleBackColor = false;
@@ -88,18 +93,19 @@
             // 
             labelFullNameEmployees.AutoSize = true;
             labelFullNameEmployees.BackColor = Color.Transparent;
-            labelFullNameEmployees.ForeColor = Color.WhiteSmoke;
-            labelFullNameEmployees.Location = new Point(244, 500);
+            labelFullNameEmployees.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            labelFullNameEmployees.ForeColor = Color.FromArgb(97, 97, 97);
+            labelFullNameEmployees.Location = new Point(344, 121);
             labelFullNameEmployees.Margin = new Padding(4, 0, 4, 0);
             labelFullNameEmployees.Name = "labelFullNameEmployees";
-            labelFullNameEmployees.Size = new Size(37, 15);
+            labelFullNameEmployees.Size = new Size(62, 25);
             labelFullNameEmployees.TabIndex = 8;
             labelFullNameEmployees.Text = "ФИО:";
             // 
             // textBoxFullNameEmployees
             // 
             textBoxFullNameEmployees.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxFullNameEmployees.Location = new Point(292, 489);
+            textBoxFullNameEmployees.Location = new Point(139, 149);
             textBoxFullNameEmployees.Margin = new Padding(4, 3, 4, 3);
             textBoxFullNameEmployees.Name = "textBoxFullNameEmployees";
             textBoxFullNameEmployees.Size = new Size(455, 33);
@@ -109,39 +115,41 @@
             // 
             labelPhoneEmployees.AutoSize = true;
             labelPhoneEmployees.BackColor = Color.Transparent;
-            labelPhoneEmployees.ForeColor = Color.WhiteSmoke;
-            labelPhoneEmployees.Location = new Point(223, 545);
+            labelPhoneEmployees.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
+            labelPhoneEmployees.ForeColor = Color.FromArgb(97, 97, 97);
+            labelPhoneEmployees.Location = new Point(328, 193);
             labelPhoneEmployees.Margin = new Padding(4, 0, 4, 0);
             labelPhoneEmployees.Name = "labelPhoneEmployees";
-            labelPhoneEmployees.Size = new Size(58, 15);
+            labelPhoneEmployees.Size = new Size(96, 25);
             labelPhoneEmployees.TabIndex = 9;
             labelPhoneEmployees.Text = "Телефон:";
             // 
             // maskedTextBoxPhoneEmployees
             // 
             maskedTextBoxPhoneEmployees.Font = new Font("Segoe UI", 14.25F);
-            maskedTextBoxPhoneEmployees.Location = new Point(292, 534);
+            maskedTextBoxPhoneEmployees.Location = new Point(209, 221);
             maskedTextBoxPhoneEmployees.Mask = "+7 (999) 999-99-99";
             maskedTextBoxPhoneEmployees.Name = "maskedTextBoxPhoneEmployees";
-            maskedTextBoxPhoneEmployees.Size = new Size(455, 33);
+            maskedTextBoxPhoneEmployees.Size = new Size(325, 33);
             maskedTextBoxPhoneEmployees.TabIndex = 1;
             // 
             // labelEmailEmployees
             // 
             labelEmailEmployees.AutoSize = true;
             labelEmailEmployees.BackColor = Color.Transparent;
-            labelEmailEmployees.ForeColor = Color.WhiteSmoke;
-            labelEmailEmployees.Location = new Point(237, 593);
+            labelEmailEmployees.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
+            labelEmailEmployees.ForeColor = Color.FromArgb(97, 97, 97);
+            labelEmailEmployees.Location = new Point(277, 266);
             labelEmailEmployees.Margin = new Padding(4, 0, 4, 0);
             labelEmailEmployees.Name = "labelEmailEmployees";
-            labelEmailEmployees.Size = new Size(44, 15);
+            labelEmailEmployees.Size = new Size(198, 25);
             labelEmailEmployees.TabIndex = 10;
-            labelEmailEmployees.Text = "Почта:";
+            labelEmailEmployees.Text = "Электронная почта:";
             // 
             // textBoxEmailEmployees
             // 
             textBoxEmailEmployees.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxEmailEmployees.Location = new Point(292, 582);
+            textBoxEmailEmployees.Location = new Point(139, 294);
             textBoxEmailEmployees.Margin = new Padding(4, 3, 4, 3);
             textBoxEmailEmployees.Name = "textBoxEmailEmployees";
             textBoxEmailEmployees.Size = new Size(455, 33);
@@ -151,11 +159,12 @@
             // 
             labelGenderID.AutoSize = true;
             labelGenderID.BackColor = Color.Transparent;
-            labelGenderID.ForeColor = Color.WhiteSmoke;
-            labelGenderID.Location = new Point(248, 638);
+            labelGenderID.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
+            labelGenderID.ForeColor = Color.FromArgb(97, 97, 97);
+            labelGenderID.Location = new Point(351, 336);
             labelGenderID.Margin = new Padding(4, 0, 4, 0);
             labelGenderID.Name = "labelGenderID";
-            labelGenderID.Size = new Size(33, 15);
+            labelGenderID.Size = new Size(55, 25);
             labelGenderID.TabIndex = 11;
             labelGenderID.Text = "Пол:";
             // 
@@ -165,20 +174,21 @@
             comboBoxGenderID.Font = new Font("Segoe UI", 14.25F);
             comboBoxGenderID.FormattingEnabled = true;
             comboBoxGenderID.Items.AddRange(new object[] { "Мужской", "Женский" });
-            comboBoxGenderID.Location = new Point(292, 627);
+            comboBoxGenderID.Location = new Point(209, 364);
             comboBoxGenderID.Name = "comboBoxGenderID";
-            comboBoxGenderID.Size = new Size(455, 33);
+            comboBoxGenderID.Size = new Size(325, 33);
             comboBoxGenderID.TabIndex = 3;
             // 
             // labelPostID
             // 
             labelPostID.AutoSize = true;
             labelPostID.BackColor = Color.Transparent;
-            labelPostID.ForeColor = Color.WhiteSmoke;
-            labelPostID.Location = new Point(209, 680);
+            labelPostID.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
+            labelPostID.ForeColor = Color.FromArgb(97, 97, 97);
+            labelPostID.Location = new Point(317, 411);
             labelPostID.Margin = new Padding(4, 0, 4, 0);
             labelPostID.Name = "labelPostID";
-            labelPostID.Size = new Size(72, 15);
+            labelPostID.Size = new Size(124, 25);
             labelPostID.TabIndex = 12;
             labelPostID.Text = "Должность:";
             // 
@@ -188,20 +198,40 @@
             comboBoxPostID.Font = new Font("Segoe UI", 14.25F);
             comboBoxPostID.FormattingEnabled = true;
             comboBoxPostID.Items.AddRange(new object[] { "Менеджер по продажам", "Администратор" });
-            comboBoxPostID.Location = new Point(292, 669);
+            comboBoxPostID.Location = new Point(139, 439);
             comboBoxPostID.Name = "comboBoxPostID";
             comboBoxPostID.Size = new Size(455, 33);
             comboBoxPostID.TabIndex = 4;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.FromArgb(61, 43, 255);
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(11, 13);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(100, 75);
+            pictureBox1.TabIndex = 16;
+            pictureBox1.TabStop = false;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(61, 43, 255);
+            panel1.Controls.Add(labelTitle);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(label1);
+            panel1.Location = new Point(-2, -1);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(749, 100);
+            panel1.TabIndex = 17;
             // 
             // AddFormEmployees
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackColor = Color.FromArgb(201, 201, 209);
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(896, 841);
-            Controls.Add(labelTitle);
-            Controls.Add(label1);
+            ClientSize = new Size(747, 562);
+            Controls.Add(panel1);
             Controls.Add(labelFullNameEmployees);
             Controls.Add(textBoxFullNameEmployees);
             Controls.Add(labelPhoneEmployees);
@@ -217,6 +247,9 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "AddFormEmployees";
             Text = "Добавить сотрудника";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -235,5 +268,7 @@
         private ComboBox comboBoxGenderID;
         private Label labelPostID;
         private ComboBox comboBoxPostID;
+        private PictureBox pictureBox1;
+        private Panel panel1;
     }
 }

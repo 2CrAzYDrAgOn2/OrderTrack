@@ -38,18 +38,22 @@
             textBoxDescription = new TextBox();
             labelPrice = new Label();
             textBoxPrice = new TextBox();
+            panel1 = new Panel();
+            pictureBox1 = new PictureBox();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // labelTitle
             // 
             labelTitle.AutoSize = true;
             labelTitle.BackColor = Color.Transparent;
-            labelTitle.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 204);
-            labelTitle.ForeColor = Color.WhiteSmoke;
-            labelTitle.Location = new Point(244, 9);
+            labelTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 204);
+            labelTitle.ForeColor = Color.Black;
+            labelTitle.Location = new Point(243, 20);
             labelTitle.Margin = new Padding(4, 0, 4, 0);
             labelTitle.Name = "labelTitle";
-            labelTitle.Size = new Size(175, 25);
+            labelTitle.Size = new Size(223, 32);
             labelTitle.TabIndex = 4;
             labelTitle.Text = "Создание записи:";
             // 
@@ -57,24 +61,25 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 204);
-            label1.ForeColor = Color.WhiteSmoke;
-            label1.Location = new Point(245, 38);
+            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 204);
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(314, 63);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(77, 21);
+            label1.Size = new Size(93, 25);
             label1.TabIndex = 5;
             label1.Text = "Продукт";
             // 
             // buttonSave
             // 
-            buttonSave.BackColor = Color.Transparent;
+            buttonSave.BackColor = Color.FromArgb(241, 156, 55);
             buttonSave.FlatStyle = FlatStyle.Flat;
-            buttonSave.ForeColor = Color.WhiteSmoke;
-            buttonSave.Location = new Point(331, 762);
+            buttonSave.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            buttonSave.ForeColor = Color.Black;
+            buttonSave.Location = new Point(243, 338);
             buttonSave.Margin = new Padding(4, 3, 4, 3);
             buttonSave.Name = "buttonSave";
-            buttonSave.Size = new Size(236, 65);
+            buttonSave.Size = new Size(236, 44);
             buttonSave.TabIndex = 3;
             buttonSave.Text = "Сохранить";
             buttonSave.UseVisualStyleBackColor = false;
@@ -84,39 +89,42 @@
             // 
             labelName.AutoSize = true;
             labelName.BackColor = Color.Transparent;
-            labelName.ForeColor = Color.WhiteSmoke;
-            labelName.Location = new Point(189, 500);
+            labelName.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
+            labelName.ForeColor = Color.FromArgb(97, 97, 97);
+            labelName.Location = new Point(310, 113);
             labelName.Margin = new Padding(4, 0, 4, 0);
             labelName.Name = "labelName";
-            labelName.Size = new Size(93, 15);
+            labelName.Size = new Size(98, 25);
             labelName.TabIndex = 6;
-            labelName.Text = "Наименование:";
+            labelName.Text = "Продукт:";
             // 
             // textBoxName
             // 
             textBoxName.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxName.Location = new Point(293, 489);
+            textBoxName.Location = new Point(134, 141);
             textBoxName.Margin = new Padding(4, 3, 4, 3);
             textBoxName.Name = "textBoxName";
             textBoxName.Size = new Size(455, 33);
             textBoxName.TabIndex = 0;
+            textBoxName.TextChanged += textBoxName_TextChanged;
             // 
             // labelDescription
             // 
             labelDescription.AutoSize = true;
             labelDescription.BackColor = Color.Transparent;
-            labelDescription.ForeColor = Color.WhiteSmoke;
-            labelDescription.Location = new Point(217, 545);
+            labelDescription.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
+            labelDescription.ForeColor = Color.FromArgb(97, 97, 97);
+            labelDescription.Location = new Point(310, 184);
             labelDescription.Margin = new Padding(4, 0, 4, 0);
             labelDescription.Name = "labelDescription";
-            labelDescription.Size = new Size(65, 15);
+            labelDescription.Size = new Size(108, 25);
             labelDescription.TabIndex = 7;
             labelDescription.Text = "Описание:";
             // 
             // textBoxDescription
             // 
             textBoxDescription.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxDescription.Location = new Point(293, 534);
+            textBoxDescription.Location = new Point(134, 212);
             textBoxDescription.Margin = new Padding(4, 3, 4, 3);
             textBoxDescription.Name = "textBoxDescription";
             textBoxDescription.Size = new Size(455, 33);
@@ -126,32 +134,53 @@
             // 
             labelPrice.AutoSize = true;
             labelPrice.BackColor = Color.Transparent;
-            labelPrice.ForeColor = Color.WhiteSmoke;
-            labelPrice.Location = new Point(244, 593);
+            labelPrice.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
+            labelPrice.ForeColor = Color.FromArgb(97, 97, 97);
+            labelPrice.Location = new Point(331, 252);
             labelPrice.Margin = new Padding(4, 0, 4, 0);
             labelPrice.Name = "labelPrice";
-            labelPrice.Size = new Size(38, 15);
+            labelPrice.Size = new Size(65, 25);
             labelPrice.TabIndex = 8;
             labelPrice.Text = "Цена:";
             // 
             // textBoxPrice
             // 
             textBoxPrice.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxPrice.Location = new Point(293, 582);
+            textBoxPrice.Location = new Point(134, 280);
             textBoxPrice.Margin = new Padding(4, 3, 4, 3);
             textBoxPrice.Name = "textBoxPrice";
             textBoxPrice.Size = new Size(455, 33);
             textBoxPrice.TabIndex = 2;
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(61, 43, 255);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(labelTitle);
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(723, 100);
+            panel1.TabIndex = 20;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.FromArgb(61, 43, 255);
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(11, 13);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(100, 75);
+            pictureBox1.TabIndex = 16;
+            pictureBox1.TabStop = false;
+            // 
             // AddFormProducts
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackColor = Color.FromArgb(201, 201, 209);
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(896, 841);
-            Controls.Add(labelTitle);
-            Controls.Add(label1);
+            ClientSize = new Size(722, 408);
+            Controls.Add(panel1);
             Controls.Add(labelName);
             Controls.Add(textBoxName);
             Controls.Add(labelDescription);
@@ -163,6 +192,9 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "AddFormProducts";
             Text = "Добавить продукт";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -177,5 +209,7 @@
         private TextBox textBoxDescription;
         private Label labelPrice;
         private TextBox textBoxPrice;
+        private Panel panel1;
+        private PictureBox pictureBox1;
     }
 }

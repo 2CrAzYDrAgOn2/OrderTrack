@@ -41,5 +41,10 @@ namespace OrderTrack
                 dataBase.CloseConnection();
             }
         }
+
+        private void textBoxName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

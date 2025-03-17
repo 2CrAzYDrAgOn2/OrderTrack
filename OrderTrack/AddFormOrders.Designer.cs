@@ -38,18 +38,22 @@
             textBoxEmployeeIDOrders = new TextBox();
             labelStatusID = new Label();
             comboBoxStatusID = new ComboBox();
+            panel1 = new Panel();
+            pictureBox1 = new PictureBox();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // labelTitle
             // 
             labelTitle.AutoSize = true;
             labelTitle.BackColor = Color.Transparent;
-            labelTitle.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 204);
+            labelTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 204);
             labelTitle.ForeColor = Color.Black;
-            labelTitle.Location = new Point(243, 9);
+            labelTitle.Location = new Point(243, 20);
             labelTitle.Margin = new Padding(4, 0, 4, 0);
             labelTitle.Name = "labelTitle";
-            labelTitle.Size = new Size(175, 25);
+            labelTitle.Size = new Size(223, 32);
             labelTitle.TabIndex = 5;
             labelTitle.Text = "Создание записи:";
             // 
@@ -57,24 +61,25 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 204);
+            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 204);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(244, 38);
+            label1.Location = new Point(332, 63);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(54, 21);
+            label1.Size = new Size(63, 25);
             label1.TabIndex = 6;
             label1.Text = "Заказ";
             // 
             // buttonSave
             // 
-            buttonSave.BackColor = Color.Transparent;
+            buttonSave.BackColor = Color.FromArgb(241, 156, 55);
             buttonSave.FlatStyle = FlatStyle.Flat;
-            buttonSave.ForeColor = Color.WhiteSmoke;
-            buttonSave.Location = new Point(330, 762);
+            buttonSave.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            buttonSave.ForeColor = Color.Black;
+            buttonSave.Location = new Point(246, 347);
             buttonSave.Margin = new Padding(4, 3, 4, 3);
             buttonSave.Name = "buttonSave";
-            buttonSave.Size = new Size(236, 65);
+            buttonSave.Size = new Size(236, 44);
             buttonSave.TabIndex = 4;
             buttonSave.Text = "Сохранить";
             buttonSave.UseVisualStyleBackColor = false;
@@ -84,18 +89,19 @@
             // 
             labelClientIDOrders.AutoSize = true;
             labelClientIDOrders.BackColor = Color.Transparent;
-            labelClientIDOrders.ForeColor = Color.WhiteSmoke;
-            labelClientIDOrders.Location = new Point(146, 500);
+            labelClientIDOrders.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
+            labelClientIDOrders.ForeColor = Color.FromArgb(97, 97, 97);
+            labelClientIDOrders.Location = new Point(244, 121);
             labelClientIDOrders.Margin = new Padding(4, 0, 4, 0);
             labelClientIDOrders.Name = "labelClientIDOrders";
-            labelClientIDOrders.Size = new Size(140, 15);
+            labelClientIDOrders.Size = new Size(238, 25);
             labelClientIDOrders.TabIndex = 7;
             labelClientIDOrders.Text = "Наименование клиента:";
             // 
             // textBoxClientIDOrders
             // 
             textBoxClientIDOrders.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxClientIDOrders.Location = new Point(292, 489);
+            textBoxClientIDOrders.Location = new Point(141, 149);
             textBoxClientIDOrders.Margin = new Padding(4, 3, 4, 3);
             textBoxClientIDOrders.Name = "textBoxClientIDOrders";
             textBoxClientIDOrders.Size = new Size(455, 33);
@@ -105,18 +111,19 @@
             // 
             labelEmployeeIDOrders.AutoSize = true;
             labelEmployeeIDOrders.BackColor = Color.Transparent;
-            labelEmployeeIDOrders.ForeColor = Color.WhiteSmoke;
-            labelEmployeeIDOrders.Location = new Point(176, 545);
+            labelEmployeeIDOrders.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
+            labelEmployeeIDOrders.ForeColor = Color.FromArgb(97, 97, 97);
+            labelEmployeeIDOrders.Location = new Point(284, 190);
             labelEmployeeIDOrders.Margin = new Padding(4, 0, 4, 0);
             labelEmployeeIDOrders.Name = "labelEmployeeIDOrders";
-            labelEmployeeIDOrders.Size = new Size(105, 15);
+            labelEmployeeIDOrders.Size = new Size(178, 25);
             labelEmployeeIDOrders.TabIndex = 8;
             labelEmployeeIDOrders.Text = "ФИО Сотрудника:";
             // 
             // textBoxEmployeeIDOrders
             // 
             textBoxEmployeeIDOrders.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxEmployeeIDOrders.Location = new Point(292, 534);
+            textBoxEmployeeIDOrders.Location = new Point(141, 218);
             textBoxEmployeeIDOrders.Margin = new Padding(4, 3, 4, 3);
             textBoxEmployeeIDOrders.Name = "textBoxEmployeeIDOrders";
             textBoxEmployeeIDOrders.Size = new Size(455, 33);
@@ -126,11 +133,12 @@
             // 
             labelStatusID.AutoSize = true;
             labelStatusID.BackColor = Color.Transparent;
-            labelStatusID.ForeColor = Color.WhiteSmoke;
-            labelStatusID.Location = new Point(235, 590);
+            labelStatusID.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
+            labelStatusID.ForeColor = Color.FromArgb(97, 97, 97);
+            labelStatusID.Location = new Point(332, 259);
             labelStatusID.Margin = new Padding(4, 0, 4, 0);
             labelStatusID.Name = "labelStatusID";
-            labelStatusID.Size = new Size(46, 15);
+            labelStatusID.Size = new Size(76, 25);
             labelStatusID.TabIndex = 10;
             labelStatusID.Text = "Статус:";
             // 
@@ -139,20 +147,40 @@
             comboBoxStatusID.Font = new Font("Segoe UI", 14.25F);
             comboBoxStatusID.FormattingEnabled = true;
             comboBoxStatusID.Items.AddRange(new object[] { "В обработке", "Подтвержден", "Отменен", "Выполнен" });
-            comboBoxStatusID.Location = new Point(292, 579);
+            comboBoxStatusID.Location = new Point(141, 287);
             comboBoxStatusID.Name = "comboBoxStatusID";
             comboBoxStatusID.Size = new Size(455, 33);
             comboBoxStatusID.TabIndex = 3;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(61, 43, 255);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(labelTitle);
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(730, 100);
+            panel1.TabIndex = 19;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.FromArgb(61, 43, 255);
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(11, 13);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(100, 75);
+            pictureBox1.TabIndex = 16;
+            pictureBox1.TabStop = false;
             // 
             // AddFormOrders
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackColor = Color.FromArgb(201, 201, 209);
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(896, 841);
-            Controls.Add(labelTitle);
-            Controls.Add(label1);
+            ClientSize = new Size(729, 416);
+            Controls.Add(panel1);
             Controls.Add(labelClientIDOrders);
             Controls.Add(textBoxClientIDOrders);
             Controls.Add(labelEmployeeIDOrders);
@@ -164,6 +192,9 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "AddFormOrders";
             Text = "Добавить заказ";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -178,5 +209,7 @@
         private TextBox textBoxEmployeeIDOrders;
         private Label labelStatusID;
         private ComboBox comboBoxStatusID;
+        private Panel panel1;
+        private PictureBox pictureBox1;
     }
 }

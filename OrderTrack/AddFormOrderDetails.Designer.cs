@@ -36,18 +36,22 @@
             textBoxOrderIDOrderDetails = new TextBox();
             labelProductIDOrderDetails = new Label();
             textBoxProductIDOrderDetails = new TextBox();
+            panel1 = new Panel();
+            pictureBox1 = new PictureBox();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // labelTitle
             // 
             labelTitle.AutoSize = true;
             labelTitle.BackColor = Color.Transparent;
-            labelTitle.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 204);
+            labelTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 204);
             labelTitle.ForeColor = Color.Black;
-            labelTitle.Location = new Point(242, 9);
+            labelTitle.Location = new Point(260, 20);
             labelTitle.Margin = new Padding(4, 0, 4, 0);
             labelTitle.Name = "labelTitle";
-            labelTitle.Size = new Size(175, 25);
+            labelTitle.Size = new Size(223, 32);
             labelTitle.TabIndex = 3;
             labelTitle.Text = "Создание записи:";
             // 
@@ -55,24 +59,25 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 204);
+            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 204);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(243, 38);
+            label1.Location = new Point(292, 63);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(135, 21);
+            label1.Size = new Size(159, 25);
             label1.TabIndex = 4;
             label1.Text = "Позиция заказа";
             // 
             // buttonSave
             // 
-            buttonSave.BackColor = Color.Transparent;
+            buttonSave.BackColor = Color.FromArgb(241, 156, 55);
             buttonSave.FlatStyle = FlatStyle.Flat;
-            buttonSave.ForeColor = Color.WhiteSmoke;
-            buttonSave.Location = new Point(329, 762);
+            buttonSave.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            buttonSave.ForeColor = Color.Black;
+            buttonSave.Location = new Point(246, 276);
             buttonSave.Margin = new Padding(4, 3, 4, 3);
             buttonSave.Name = "buttonSave";
-            buttonSave.Size = new Size(236, 65);
+            buttonSave.Size = new Size(236, 44);
             buttonSave.TabIndex = 2;
             buttonSave.Text = "Сохранить";
             buttonSave.UseVisualStyleBackColor = false;
@@ -82,53 +87,75 @@
             // 
             labelOrderIDOrderDetails.AutoSize = true;
             labelOrderIDOrderDetails.BackColor = Color.Transparent;
-            labelOrderIDOrderDetails.ForeColor = Color.WhiteSmoke;
-            labelOrderIDOrderDetails.Location = new Point(195, 500);
+            labelOrderIDOrderDetails.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
+            labelOrderIDOrderDetails.ForeColor = Color.FromArgb(97, 97, 97);
+            labelOrderIDOrderDetails.Location = new Point(296, 115);
             labelOrderIDOrderDetails.Margin = new Padding(4, 0, 4, 0);
             labelOrderIDOrderDetails.Name = "labelOrderIDOrderDetails";
-            labelOrderIDOrderDetails.Size = new Size(85, 15);
+            labelOrderIDOrderDetails.Size = new Size(145, 25);
             labelOrderIDOrderDetails.TabIndex = 5;
             labelOrderIDOrderDetails.Text = "Номер заказа:";
             // 
             // textBoxOrderIDOrderDetails
             // 
             textBoxOrderIDOrderDetails.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxOrderIDOrderDetails.Location = new Point(291, 489);
+            textBoxOrderIDOrderDetails.Location = new Point(178, 143);
             textBoxOrderIDOrderDetails.Margin = new Padding(4, 3, 4, 3);
             textBoxOrderIDOrderDetails.Name = "textBoxOrderIDOrderDetails";
-            textBoxOrderIDOrderDetails.Size = new Size(455, 33);
+            textBoxOrderIDOrderDetails.Size = new Size(369, 33);
             textBoxOrderIDOrderDetails.TabIndex = 0;
             // 
             // labelProductIDOrderDetails
             // 
             labelProductIDOrderDetails.AutoSize = true;
             labelProductIDOrderDetails.BackColor = Color.Transparent;
-            labelProductIDOrderDetails.ForeColor = Color.WhiteSmoke;
-            labelProductIDOrderDetails.Location = new Point(139, 545);
+            labelProductIDOrderDetails.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
+            labelProductIDOrderDetails.ForeColor = Color.FromArgb(97, 97, 97);
+            labelProductIDOrderDetails.Location = new Point(314, 186);
             labelProductIDOrderDetails.Margin = new Padding(4, 0, 4, 0);
             labelProductIDOrderDetails.Name = "labelProductIDOrderDetails";
-            labelProductIDOrderDetails.Size = new Size(146, 15);
+            labelProductIDOrderDetails.Size = new Size(103, 25);
             labelProductIDOrderDetails.TabIndex = 6;
-            labelProductIDOrderDetails.Text = "Наименование продукта:";
+            labelProductIDOrderDetails.Text = " Продукт:";
             // 
             // textBoxProductIDOrderDetails
             // 
             textBoxProductIDOrderDetails.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxProductIDOrderDetails.Location = new Point(291, 534);
+            textBoxProductIDOrderDetails.Location = new Point(140, 214);
             textBoxProductIDOrderDetails.Margin = new Padding(4, 3, 4, 3);
             textBoxProductIDOrderDetails.Name = "textBoxProductIDOrderDetails";
-            textBoxProductIDOrderDetails.Size = new Size(455, 33);
+            textBoxProductIDOrderDetails.Size = new Size(446, 33);
             textBoxProductIDOrderDetails.TabIndex = 1;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(61, 43, 255);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(labelTitle);
+            panel1.Location = new Point(-1, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(736, 100);
+            panel1.TabIndex = 18;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.FromArgb(61, 43, 255);
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(11, 13);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(100, 75);
+            pictureBox1.TabIndex = 16;
+            pictureBox1.TabStop = false;
             // 
             // AddFormOrderDetails
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackColor = Color.FromArgb(201, 201, 209);
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(896, 841);
-            Controls.Add(labelTitle);
-            Controls.Add(label1);
+            ClientSize = new Size(735, 347);
+            Controls.Add(panel1);
             Controls.Add(labelOrderIDOrderDetails);
             Controls.Add(textBoxOrderIDOrderDetails);
             Controls.Add(labelProductIDOrderDetails);
@@ -138,6 +165,9 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "AddFormOrderDetails";
             Text = "Добавить позицию заказа";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -150,5 +180,7 @@
         private TextBox textBoxOrderIDOrderDetails;
         private Label labelProductIDOrderDetails;
         private TextBox textBoxProductIDOrderDetails;
+        private Panel panel1;
+        private PictureBox pictureBox1;
     }
 }
