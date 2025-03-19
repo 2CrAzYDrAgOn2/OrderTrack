@@ -1925,5 +1925,25 @@ namespace OrderTrack
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void labelClientTypeID_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelRecordClients_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPageClients_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelGenderID_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

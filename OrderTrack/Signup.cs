@@ -11,6 +11,7 @@ namespace OrderTrack
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
+            buttonShow.BackgroundImage = Properties.Resources.ShowPassword0;
         }
 
         private void ButtonEnter_Click(object sender, EventArgs e)

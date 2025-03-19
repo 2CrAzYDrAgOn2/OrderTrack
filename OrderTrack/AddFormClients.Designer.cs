@@ -70,7 +70,7 @@
             // labelTitle
             // 
             labelTitle.AutoSize = true;
-            labelTitle.BackColor = Color.FromArgb(61, 43, 255);
+            labelTitle.BackColor = Color.FromArgb(10, 115, 166);
             labelTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 204);
             labelTitle.ForeColor = Color.Black;
             labelTitle.Location = new Point(273, 12);
@@ -83,7 +83,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.BackColor = Color.FromArgb(61, 43, 255);
+            label1.BackColor = Color.FromArgb(10, 115, 166);
             label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 204);
             label1.ForeColor = Color.Black;
             label1.Location = new Point(344, 53);
@@ -230,7 +230,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.BackColor = Color.FromArgb(61, 43, 255);
+            pictureBox1.BackColor = Color.FromArgb(10, 115, 166);
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(12, 12);
             pictureBox1.Name = "pictureBox1";
@@ -240,7 +240,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(61, 43, 255);
+            panel1.BackColor = Color.FromArgb(10, 115, 166);
             panel1.Controls.Add(labelTitle);
             panel1.Controls.Add(label1);
             panel1.Location = new Point(-2, 0);

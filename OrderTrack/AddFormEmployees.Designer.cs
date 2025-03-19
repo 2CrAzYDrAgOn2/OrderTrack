@@ -205,7 +205,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.BackColor = Color.FromArgb(61, 43, 255);
+            pictureBox1.BackColor = Color.FromArgb(10, 115, 166);
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(11, 13);
             pictureBox1.Name = "pictureBox1";
@@ -215,7 +215,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(61, 43, 255);
+            panel1.BackColor = Color.FromArgb(10, 115, 166);
             panel1.Controls.Add(labelTitle);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label1);
