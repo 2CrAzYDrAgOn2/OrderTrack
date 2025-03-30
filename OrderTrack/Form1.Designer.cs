@@ -40,6 +40,7 @@
             buttonDeleteClient = new Button();
             buttonNewClient = new Button();
             panelTitleClients = new Panel();
+            panel6 = new Panel();
             panel1 = new Panel();
             labelTitleClients = new Label();
             buttonClearClients = new Button();
@@ -65,12 +66,20 @@
             labelRegistrationDate = new Label();
             dateTimePickerRegistrationDate = new DateTimePicker();
             tabPageEmployees = new TabPage();
+            buttonTXTEmployee = new Button();
+            buttonExcelEmployee = new Button();
+            buttonNewEmployee = new Button();
+            buttonDeleteEmployee = new Button();
             panelTitleEmployees = new Panel();
+            panel7 = new Panel();
+            panel2 = new Panel();
             labelTitleEmployees = new Label();
             buttonClearEmployees = new Button();
             buttonRefreshEmployees = new Button();
             textBoxSearchEmployees = new TextBox();
+            buttonChangeEmployee = new Button();
             dataGridViewEmployees = new DataGridView();
+            buttonSaveEmployee = new Button();
             panelRecordEmployees = new Panel();
             labelRecordEmployees = new Label();
             labelEmployeeID = new Label();
@@ -85,23 +94,25 @@
             comboBoxGenderID = new ComboBox();
             labelPostID = new Label();
             comboBoxPostID = new ComboBox();
-            labelControlEmployees = new Label();
-            buttonNewEmployee = new Button();
-            buttonDeleteEmployee = new Button();
-            buttonChangeEmployee = new Button();
-            buttonSaveEmployee = new Button();
             buttonWordEmployee = new Button();
-            buttonExcelEmployee = new Button();
-            buttonTXTEmployee = new Button();
+            labelControlEmployees = new Label();
             tabPageOrders = new TabPage();
+            buttonTXTOrder = new Button();
+            buttonExcelOrder = new Button();
+            buttonNewOrder = new Button();
+            buttonDeleteOrder = new Button();
             panelTitleOrders = new Panel();
+            panel8 = new Panel();
+            panel3 = new Panel();
             labelTitleOrders = new Label();
             buttonMonthlyReportOrders = new Button();
             buttonReportOrders = new Button();
             buttonClearOrders = new Button();
             buttonRefreshOrders = new Button();
             textBoxSearchOrders = new TextBox();
+            buttonChangeOrder = new Button();
             dataGridViewOrders = new DataGridView();
+            buttonSaveOrder = new Button();
             panelRecordOrders = new Panel();
             labelRecordOrders = new Label();
             labelOrderID = new Label();
@@ -116,22 +127,24 @@
             textBoxTotalAmount = new TextBox();
             labelStatusID = new Label();
             comboBoxStatusID = new ComboBox();
-            labelControlOrders = new Label();
-            buttonNewOrder = new Button();
-            buttonDeleteOrder = new Button();
-            buttonChangeOrder = new Button();
-            buttonSaveOrder = new Button();
             buttonWordOrder = new Button();
-            buttonExcelOrder = new Button();
-            buttonTXTOrder = new Button();
+            labelControlOrders = new Label();
             tabPageProducts = new TabPage();
+            buttonTXTProduct = new Button();
+            buttonExcelProduct = new Button();
+            buttonNewProduct = new Button();
+            buttonDeleteProduct = new Button();
             panelTitleProducts = new Panel();
+            panel9 = new Panel();
+            panel4 = new Panel();
             labelTitleProducts = new Label();
             buttonReportProducts = new Button();
             buttonClearProducts = new Button();
             buttonRefreshProducts = new Button();
             textBoxSearchProducts = new TextBox();
+            buttonChangeProduct = new Button();
             dataGridViewProducts = new DataGridView();
+            buttonSaveProduct = new Button();
             panelRecordProducts = new Panel();
             labelRecordProducts = new Label();
             labelProductID = new Label();
@@ -142,21 +155,23 @@
             textBoxDescription = new TextBox();
             labelPrice = new Label();
             textBoxPrice = new TextBox();
-            labelControlProducts = new Label();
-            buttonNewProduct = new Button();
-            buttonDeleteProduct = new Button();
-            buttonChangeProduct = new Button();
-            buttonSaveProduct = new Button();
             buttonWordProduct = new Button();
-            buttonExcelProduct = new Button();
-            buttonTXTProduct = new Button();
+            labelControlProducts = new Label();
             tabPageOrderDetails = new TabPage();
+            buttonTXTOrderDetails = new Button();
+            buttonExcelOrderDetails = new Button();
+            buttonNewOrderDetails = new Button();
+            buttonDeleteOrderDetails = new Button();
             panelTitleOrderDetails = new Panel();
+            panel10 = new Panel();
+            panel5 = new Panel();
             labelTitleOrderDetails = new Label();
             buttonClearOrderDetails = new Button();
             buttonRefreshOrderDetails = new Button();
             textBoxSearchOrderDetails = new TextBox();
+            buttonChangeOrderDetails = new Button();
             dataGridViewOrderDetails = new DataGridView();
+            buttonSaveOrderDetails = new Button();
             panelRecordOrderDetails = new Panel();
             labelRecordOrderDetails = new Label();
             labelOrderDetailID = new Label();
@@ -167,17 +182,8 @@
             textBoxProductIDOrderDetails = new TextBox();
             labelPriceOrderDetails = new Label();
             textBoxPriceOrderDetails = new TextBox();
-            labelControlOrderDetails = new Label();
-            panelControlOrderDetails = new Panel();
-            buttonNewOrderDetails = new Button();
-            buttonDeleteOrderDetails = new Button();
-            buttonChangeOrderDetails = new Button();
-            buttonSaveOrderDetails = new Button();
             buttonWordOrderDetails = new Button();
-            buttonExcelOrderDetails = new Button();
-            buttonTXTOrderDetails = new Button();
-            panel2 = new Panel();
-            panel3 = new Panel();
+            labelControlOrderDetails = new Label();
             tabControl1.SuspendLayout();
             tabPageClients.SuspendLayout();
             panelTitleClients.SuspendLayout();
@@ -199,7 +205,6 @@
             panelTitleOrderDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewOrderDetails).BeginInit();
             panelRecordOrderDetails.SuspendLayout();
-            panelControlOrderDetails.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
@@ -256,8 +261,9 @@
             // buttonTXTClient
             // 
             buttonTXTClient.BackColor = Color.FromArgb(241, 156, 55);
+            buttonTXTClient.FlatAppearance.BorderSize = 2;
             buttonTXTClient.FlatStyle = FlatStyle.Flat;
-            buttonTXTClient.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
+            buttonTXTClient.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             buttonTXTClient.ForeColor = Color.Black;
             buttonTXTClient.Location = new Point(633, 400);
             buttonTXTClient.Margin = new Padding(4, 3, 4, 3);
@@ -271,8 +277,9 @@
             // buttonExcelClient
             // 
             buttonExcelClient.BackColor = Color.FromArgb(241, 156, 55);
+            buttonExcelClient.FlatAppearance.BorderSize = 2;
             buttonExcelClient.FlatStyle = FlatStyle.Flat;
-            buttonExcelClient.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
+            buttonExcelClient.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             buttonExcelClient.ForeColor = Color.Black;
             buttonExcelClient.Location = new Point(633, 354);
             buttonExcelClient.Margin = new Padding(4, 3, 4, 3);
@@ -286,8 +293,9 @@
             // buttonWordClient
             // 
             buttonWordClient.BackColor = Color.FromArgb(241, 156, 55);
+            buttonWordClient.FlatAppearance.BorderSize = 2;
             buttonWordClient.FlatStyle = FlatStyle.Flat;
-            buttonWordClient.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
+            buttonWordClient.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             buttonWordClient.ForeColor = Color.Black;
             buttonWordClient.Location = new Point(633, 308);
             buttonWordClient.Margin = new Padding(4, 3, 4, 3);
@@ -301,8 +309,9 @@
             // buttonSaveClient
             // 
             buttonSaveClient.BackColor = Color.FromArgb(241, 156, 55);
+            buttonSaveClient.FlatAppearance.BorderSize = 2;
             buttonSaveClient.FlatStyle = FlatStyle.Flat;
-            buttonSaveClient.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
+            buttonSaveClient.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             buttonSaveClient.ForeColor = Color.Black;
             buttonSaveClient.Location = new Point(633, 262);
             buttonSaveClient.Margin = new Padding(4, 3, 4, 3);
@@ -316,8 +325,9 @@
             // buttonChangeClient
             // 
             buttonChangeClient.BackColor = Color.FromArgb(241, 156, 55);
+            buttonChangeClient.FlatAppearance.BorderSize = 2;
             buttonChangeClient.FlatStyle = FlatStyle.Flat;
-            buttonChangeClient.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
+            buttonChangeClient.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             buttonChangeClient.ForeColor = Color.Black;
             buttonChangeClient.Location = new Point(633, 216);
             buttonChangeClient.Margin = new Padding(4, 3, 4, 3);
@@ -331,8 +341,9 @@
             // buttonDeleteClient
             // 
             buttonDeleteClient.BackColor = Color.FromArgb(241, 156, 55);
+            buttonDeleteClient.FlatAppearance.BorderSize = 2;
             buttonDeleteClient.FlatStyle = FlatStyle.Flat;
-            buttonDeleteClient.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
+            buttonDeleteClient.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             buttonDeleteClient.ForeColor = Color.Black;
             buttonDeleteClient.Location = new Point(633, 170);
             buttonDeleteClient.Margin = new Padding(4, 3, 4, 3);
@@ -346,8 +357,9 @@
             // buttonNewClient
             // 
             buttonNewClient.BackColor = Color.FromArgb(241, 156, 55);
+            buttonNewClient.FlatAppearance.BorderSize = 2;
             buttonNewClient.FlatStyle = FlatStyle.Flat;
-            buttonNewClient.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
+            buttonNewClient.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             buttonNewClient.ForeColor = Color.Black;
             buttonNewClient.Location = new Point(633, 124);
             buttonNewClient.Margin = new Padding(4, 3, 4, 3);
@@ -361,6 +373,7 @@
             // panelTitleClients
             // 
             panelTitleClients.BackColor = Color.FromArgb(0, 83, 133);
+            panelTitleClients.Controls.Add(panel6);
             panelTitleClients.Controls.Add(panel1);
             panelTitleClients.Controls.Add(labelTitleClients);
             panelTitleClients.Controls.Add(buttonClearClients);
@@ -371,6 +384,17 @@
             panelTitleClients.Name = "panelTitleClients";
             panelTitleClients.Size = new Size(889, 83);
             panelTitleClients.TabIndex = 3;
+            // 
+            // panel6
+            // 
+            panel6.BackColor = Color.FromArgb(201, 201, 209);
+            panel6.BackgroundImage = (Image)resources.GetObject("panel6.BackgroundImage");
+            panel6.BackgroundImageLayout = ImageLayout.Stretch;
+            panel6.BorderStyle = BorderStyle.FixedSingle;
+            panel6.Location = new Point(847, 27);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(33, 33);
+            panel6.TabIndex = 6;
             // 
             // panel1
             // 
@@ -386,7 +410,7 @@
             labelTitleClients.AutoSize = true;
             labelTitleClients.Font = new Font("Segoe UI", 36F, FontStyle.Underline, GraphicsUnit.Point, 0);
             labelTitleClients.ForeColor = Color.WhiteSmoke;
-            labelTitleClients.Location = new Point(126, 7);
+            labelTitleClients.Location = new Point(184, 12);
             labelTitleClients.Margin = new Padding(4, 0, 4, 0);
             labelTitleClients.Name = "labelTitleClients";
             labelTitleClients.Size = new Size(216, 65);
@@ -399,7 +423,7 @@
             buttonClearClients.BackgroundImageLayout = ImageLayout.Stretch;
             buttonClearClients.FlatStyle = FlatStyle.Flat;
             buttonClearClients.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            buttonClearClients.Location = new Point(475, 12);
+            buttonClearClients.Location = new Point(474, 12);
             buttonClearClients.Margin = new Padding(4, 3, 4, 3);
             buttonClearClients.Name = "buttonClearClients";
             buttonClearClients.Size = new Size(60, 60);
@@ -413,7 +437,7 @@
             buttonRefreshClients.BackgroundImageLayout = ImageLayout.Stretch;
             buttonRefreshClients.FlatStyle = FlatStyle.Flat;
             buttonRefreshClients.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            buttonRefreshClients.Location = new Point(543, 12);
+            buttonRefreshClients.Location = new Point(542, 12);
             buttonRefreshClients.Margin = new Padding(4, 3, 4, 3);
             buttonRefreshClients.Name = "buttonRefreshClients";
             buttonRefreshClients.Size = new Size(60, 60);
@@ -425,10 +449,10 @@
             // 
             textBoxSearchClients.BackColor = Color.FromArgb(201, 201, 209);
             textBoxSearchClients.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxSearchClients.Location = new Point(611, 27);
+            textBoxSearchClients.Location = new Point(610, 27);
             textBoxSearchClients.Margin = new Padding(4, 3, 4, 3);
             textBoxSearchClients.Name = "textBoxSearchClients";
-            textBoxSearchClients.Size = new Size(270, 33);
+            textBoxSearchClients.Size = new Size(237, 33);
             textBoxSearchClients.TabIndex = 2;
             textBoxSearchClients.TextChanged += TextBoxSearchClients_TextChanged;
             // 
@@ -479,7 +503,7 @@
             labelRecordClients.AutoSize = true;
             labelRecordClients.Font = new Font("Segoe UI Semibold", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
             labelRecordClients.ForeColor = Color.Black;
-            labelRecordClients.Location = new Point(356, 11);
+            labelRecordClients.Location = new Point(356, 17);
             labelRecordClients.Margin = new Padding(4, 0, 4, 0);
             labelRecordClients.Name = "labelRecordClients";
             labelRecordClients.Size = new Size(142, 47);
@@ -679,9 +703,74 @@
             tabPageEmployees.TabIndex = 2;
             tabPageEmployees.Text = "Сотрудники";
             // 
+            // buttonTXTEmployee
+            // 
+            buttonTXTEmployee.BackColor = Color.FromArgb(241, 156, 55);
+            buttonTXTEmployee.FlatAppearance.BorderSize = 2;
+            buttonTXTEmployee.FlatStyle = FlatStyle.Flat;
+            buttonTXTEmployee.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonTXTEmployee.ForeColor = Color.Black;
+            buttonTXTEmployee.Location = new Point(633, 400);
+            buttonTXTEmployee.Margin = new Padding(4, 3, 4, 3);
+            buttonTXTEmployee.Name = "buttonTXTEmployee";
+            buttonTXTEmployee.Size = new Size(236, 40);
+            buttonTXTEmployee.TabIndex = 6;
+            buttonTXTEmployee.Text = "Вывод в TXT";
+            buttonTXTEmployee.UseVisualStyleBackColor = false;
+            buttonTXTEmployee.Click += ButtonTXTEmployee_Click;
+            // 
+            // buttonExcelEmployee
+            // 
+            buttonExcelEmployee.BackColor = Color.FromArgb(241, 156, 55);
+            buttonExcelEmployee.FlatAppearance.BorderSize = 2;
+            buttonExcelEmployee.FlatStyle = FlatStyle.Flat;
+            buttonExcelEmployee.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonExcelEmployee.ForeColor = Color.Black;
+            buttonExcelEmployee.Location = new Point(633, 354);
+            buttonExcelEmployee.Margin = new Padding(4, 3, 4, 3);
+            buttonExcelEmployee.Name = "buttonExcelEmployee";
+            buttonExcelEmployee.Size = new Size(236, 40);
+            buttonExcelEmployee.TabIndex = 5;
+            buttonExcelEmployee.Text = "Вывод в Excel";
+            buttonExcelEmployee.UseVisualStyleBackColor = false;
+            buttonExcelEmployee.Click += ButtonExcelEmployee_Click;
+            // 
+            // buttonNewEmployee
+            // 
+            buttonNewEmployee.BackColor = Color.FromArgb(241, 156, 55);
+            buttonNewEmployee.FlatAppearance.BorderSize = 2;
+            buttonNewEmployee.FlatStyle = FlatStyle.Flat;
+            buttonNewEmployee.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonNewEmployee.ForeColor = Color.Black;
+            buttonNewEmployee.Location = new Point(633, 124);
+            buttonNewEmployee.Margin = new Padding(4, 3, 4, 3);
+            buttonNewEmployee.Name = "buttonNewEmployee";
+            buttonNewEmployee.Size = new Size(236, 40);
+            buttonNewEmployee.TabIndex = 0;
+            buttonNewEmployee.Text = "Новая запись";
+            buttonNewEmployee.UseVisualStyleBackColor = false;
+            buttonNewEmployee.Click += ButtonNewEmployee_Click;
+            // 
+            // buttonDeleteEmployee
+            // 
+            buttonDeleteEmployee.BackColor = Color.FromArgb(241, 156, 55);
+            buttonDeleteEmployee.FlatAppearance.BorderSize = 2;
+            buttonDeleteEmployee.FlatStyle = FlatStyle.Flat;
+            buttonDeleteEmployee.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonDeleteEmployee.ForeColor = Color.Black;
+            buttonDeleteEmployee.Location = new Point(633, 170);
+            buttonDeleteEmployee.Margin = new Padding(4, 3, 4, 3);
+            buttonDeleteEmployee.Name = "buttonDeleteEmployee";
+            buttonDeleteEmployee.Size = new Size(236, 40);
+            buttonDeleteEmployee.TabIndex = 1;
+            buttonDeleteEmployee.Text = "Удалить";
+            buttonDeleteEmployee.UseVisualStyleBackColor = false;
+            buttonDeleteEmployee.Click += ButtonDeleteEmployee_Click;
+            // 
             // panelTitleEmployees
             // 
             panelTitleEmployees.BackColor = Color.FromArgb(0, 83, 133);
+            panelTitleEmployees.Controls.Add(panel7);
             panelTitleEmployees.Controls.Add(panel2);
             panelTitleEmployees.Controls.Add(labelTitleEmployees);
             panelTitleEmployees.Controls.Add(buttonClearEmployees);
@@ -692,6 +781,26 @@
             panelTitleEmployees.Name = "panelTitleEmployees";
             panelTitleEmployees.Size = new Size(889, 84);
             panelTitleEmployees.TabIndex = 3;
+            // 
+            // panel7
+            // 
+            panel7.BackColor = Color.FromArgb(201, 201, 209);
+            panel7.BackgroundImage = (Image)resources.GetObject("panel7.BackgroundImage");
+            panel7.BackgroundImageLayout = ImageLayout.Stretch;
+            panel7.BorderStyle = BorderStyle.FixedSingle;
+            panel7.Location = new Point(847, 27);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(33, 33);
+            panel7.TabIndex = 7;
+            // 
+            // panel2
+            // 
+            panel2.BackgroundImage = (Image)resources.GetObject("panel2.BackgroundImage");
+            panel2.BackgroundImageLayout = ImageLayout.Stretch;
+            panel2.Location = new Point(3, 4);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(100, 75);
+            panel2.TabIndex = 6;
             // 
             // labelTitleEmployees
             // 
@@ -737,12 +846,28 @@
             // 
             textBoxSearchEmployees.BackColor = Color.FromArgb(201, 201, 209);
             textBoxSearchEmployees.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxSearchEmployees.Location = new Point(611, 27);
+            textBoxSearchEmployees.Location = new Point(610, 27);
             textBoxSearchEmployees.Margin = new Padding(4, 3, 4, 3);
             textBoxSearchEmployees.Name = "textBoxSearchEmployees";
-            textBoxSearchEmployees.Size = new Size(270, 33);
+            textBoxSearchEmployees.Size = new Size(237, 33);
             textBoxSearchEmployees.TabIndex = 2;
             textBoxSearchEmployees.TextChanged += TextBoxSearchEmployees_TextChanged;
+            // 
+            // buttonChangeEmployee
+            // 
+            buttonChangeEmployee.BackColor = Color.FromArgb(241, 156, 55);
+            buttonChangeEmployee.FlatAppearance.BorderSize = 2;
+            buttonChangeEmployee.FlatStyle = FlatStyle.Flat;
+            buttonChangeEmployee.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonChangeEmployee.ForeColor = Color.Black;
+            buttonChangeEmployee.Location = new Point(633, 216);
+            buttonChangeEmployee.Margin = new Padding(4, 3, 4, 3);
+            buttonChangeEmployee.Name = "buttonChangeEmployee";
+            buttonChangeEmployee.Size = new Size(236, 40);
+            buttonChangeEmployee.TabIndex = 2;
+            buttonChangeEmployee.Text = "Изменить";
+            buttonChangeEmployee.UseVisualStyleBackColor = false;
+            buttonChangeEmployee.Click += ButtonChangeEmployee_Click;
             // 
             // dataGridViewEmployees
             // 
@@ -758,9 +883,26 @@
             dataGridViewEmployees.TabIndex = 0;
             dataGridViewEmployees.CellClick += DataGridViewEmployees_CellClick;
             // 
+            // buttonSaveEmployee
+            // 
+            buttonSaveEmployee.BackColor = Color.FromArgb(241, 156, 55);
+            buttonSaveEmployee.FlatAppearance.BorderSize = 2;
+            buttonSaveEmployee.FlatStyle = FlatStyle.Flat;
+            buttonSaveEmployee.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonSaveEmployee.ForeColor = Color.Black;
+            buttonSaveEmployee.Location = new Point(633, 262);
+            buttonSaveEmployee.Margin = new Padding(4, 3, 4, 3);
+            buttonSaveEmployee.Name = "buttonSaveEmployee";
+            buttonSaveEmployee.Size = new Size(236, 40);
+            buttonSaveEmployee.TabIndex = 3;
+            buttonSaveEmployee.Text = "Сохранить";
+            buttonSaveEmployee.UseVisualStyleBackColor = false;
+            buttonSaveEmployee.Click += ButtonSaveEmployee_Click;
+            // 
             // panelRecordEmployees
             // 
             panelRecordEmployees.BackColor = Color.FromArgb(49, 128, 168);
+            panelRecordEmployees.BorderStyle = BorderStyle.FixedSingle;
             panelRecordEmployees.Controls.Add(labelRecordEmployees);
             panelRecordEmployees.Controls.Add(labelEmployeeID);
             panelRecordEmployees.Controls.Add(textBoxEmployeeID);
@@ -786,7 +928,7 @@
             labelRecordEmployees.AutoSize = true;
             labelRecordEmployees.Font = new Font("Segoe UI Semibold", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
             labelRecordEmployees.ForeColor = Color.Black;
-            labelRecordEmployees.Location = new Point(358, 48);
+            labelRecordEmployees.Location = new Point(356, 17);
             labelRecordEmployees.Margin = new Padding(4, 0, 4, 0);
             labelRecordEmployees.Name = "labelRecordEmployees";
             labelRecordEmployees.Size = new Size(142, 47);
@@ -798,7 +940,7 @@
             labelEmployeeID.AutoSize = true;
             labelEmployeeID.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             labelEmployeeID.ForeColor = Color.Black;
-            labelEmployeeID.Location = new Point(107, 121);
+            labelEmployeeID.Location = new Point(104, 87);
             labelEmployeeID.Margin = new Padding(4, 0, 4, 0);
             labelEmployeeID.Name = "labelEmployeeID";
             labelEmployeeID.Size = new Size(67, 21);
@@ -808,7 +950,7 @@
             // textBoxEmployeeID
             // 
             textBoxEmployeeID.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxEmployeeID.Location = new Point(182, 115);
+            textBoxEmployeeID.Location = new Point(179, 81);
             textBoxEmployeeID.Margin = new Padding(4, 3, 4, 3);
             textBoxEmployeeID.Name = "textBoxEmployeeID";
             textBoxEmployeeID.Size = new Size(79, 33);
@@ -819,7 +961,7 @@
             labelFullNameEmployees.AutoSize = true;
             labelFullNameEmployees.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             labelFullNameEmployees.ForeColor = Color.Black;
-            labelFullNameEmployees.Location = new Point(273, 121);
+            labelFullNameEmployees.Location = new Point(270, 87);
             labelFullNameEmployees.Margin = new Padding(4, 0, 4, 0);
             labelFullNameEmployees.Name = "labelFullNameEmployees";
             labelFullNameEmployees.Size = new Size(52, 21);
@@ -829,7 +971,7 @@
             // textBoxFullNameEmployees
             // 
             textBoxFullNameEmployees.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxFullNameEmployees.Location = new Point(333, 118);
+            textBoxFullNameEmployees.Location = new Point(330, 84);
             textBoxFullNameEmployees.Margin = new Padding(4, 3, 4, 3);
             textBoxFullNameEmployees.Name = "textBoxFullNameEmployees";
             textBoxFullNameEmployees.Size = new Size(415, 33);
@@ -840,7 +982,7 @@
             labelPhoneEmployees.AutoSize = true;
             labelPhoneEmployees.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             labelPhoneEmployees.ForeColor = Color.Black;
-            labelPhoneEmployees.Location = new Point(107, 168);
+            labelPhoneEmployees.Location = new Point(104, 134);
             labelPhoneEmployees.Margin = new Padding(4, 0, 4, 0);
             labelPhoneEmployees.Name = "labelPhoneEmployees";
             labelPhoneEmployees.Size = new Size(83, 21);
@@ -850,7 +992,7 @@
             // maskedTextBoxPhoneEmployees
             // 
             maskedTextBoxPhoneEmployees.Font = new Font("Segoe UI", 14.25F);
-            maskedTextBoxPhoneEmployees.Location = new Point(197, 162);
+            maskedTextBoxPhoneEmployees.Location = new Point(194, 128);
             maskedTextBoxPhoneEmployees.Mask = "+7 (999) 999-99-99";
             maskedTextBoxPhoneEmployees.Name = "maskedTextBoxPhoneEmployees";
             maskedTextBoxPhoneEmployees.Size = new Size(193, 33);
@@ -861,7 +1003,7 @@
             labelEmailEmployees.AutoSize = true;
             labelEmailEmployees.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             labelEmailEmployees.ForeColor = Color.Black;
-            labelEmailEmployees.Location = new Point(107, 212);
+            labelEmailEmployees.Location = new Point(104, 178);
             labelEmailEmployees.Margin = new Padding(4, 0, 4, 0);
             labelEmailEmployees.Name = "labelEmailEmployees";
             labelEmailEmployees.Size = new Size(62, 21);
@@ -871,7 +1013,7 @@
             // textBoxEmailEmployees
             // 
             textBoxEmailEmployees.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxEmailEmployees.Location = new Point(177, 206);
+            textBoxEmailEmployees.Location = new Point(174, 172);
             textBoxEmailEmployees.Margin = new Padding(4, 3, 4, 3);
             textBoxEmailEmployees.Name = "textBoxEmailEmployees";
             textBoxEmailEmployees.Size = new Size(571, 33);
@@ -882,7 +1024,7 @@
             labelGenderID.AutoSize = true;
             labelGenderID.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             labelGenderID.ForeColor = Color.Black;
-            labelGenderID.Location = new Point(397, 168);
+            labelGenderID.Location = new Point(394, 134);
             labelGenderID.Margin = new Padding(4, 0, 4, 0);
             labelGenderID.Name = "labelGenderID";
             labelGenderID.Size = new Size(46, 21);
@@ -896,7 +1038,7 @@
             comboBoxGenderID.Font = new Font("Segoe UI", 14.25F);
             comboBoxGenderID.FormattingEnabled = true;
             comboBoxGenderID.Items.AddRange(new object[] { "Мужской", "Женский" });
-            comboBoxGenderID.Location = new Point(449, 162);
+            comboBoxGenderID.Location = new Point(446, 128);
             comboBoxGenderID.Name = "comboBoxGenderID";
             comboBoxGenderID.Size = new Size(299, 33);
             comboBoxGenderID.TabIndex = 4;
@@ -906,7 +1048,7 @@
             labelPostID.AutoSize = true;
             labelPostID.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             labelPostID.ForeColor = Color.Black;
-            labelPostID.Location = new Point(107, 254);
+            labelPostID.Location = new Point(104, 220);
             labelPostID.Margin = new Padding(4, 0, 4, 0);
             labelPostID.Name = "labelPostID";
             labelPostID.Size = new Size(104, 21);
@@ -919,10 +1061,26 @@
             comboBoxPostID.Font = new Font("Segoe UI", 14.25F);
             comboBoxPostID.FormattingEnabled = true;
             comboBoxPostID.Items.AddRange(new object[] { "Менеджер по продажам", "Администратор" });
-            comboBoxPostID.Location = new Point(218, 248);
+            comboBoxPostID.Location = new Point(215, 214);
             comboBoxPostID.Name = "comboBoxPostID";
             comboBoxPostID.Size = new Size(530, 33);
             comboBoxPostID.TabIndex = 5;
+            // 
+            // buttonWordEmployee
+            // 
+            buttonWordEmployee.BackColor = Color.FromArgb(241, 156, 55);
+            buttonWordEmployee.FlatAppearance.BorderSize = 2;
+            buttonWordEmployee.FlatStyle = FlatStyle.Flat;
+            buttonWordEmployee.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonWordEmployee.ForeColor = Color.Black;
+            buttonWordEmployee.Location = new Point(633, 308);
+            buttonWordEmployee.Margin = new Padding(4, 3, 4, 3);
+            buttonWordEmployee.Name = "buttonWordEmployee";
+            buttonWordEmployee.Size = new Size(236, 40);
+            buttonWordEmployee.TabIndex = 4;
+            buttonWordEmployee.Text = "Вывод в Word";
+            buttonWordEmployee.UseVisualStyleBackColor = false;
+            buttonWordEmployee.Click += ButtonWordEmployee_Click;
             // 
             // labelControlEmployees
             // 
@@ -936,111 +1094,6 @@
             labelControlEmployees.Size = new Size(213, 25);
             labelControlEmployees.TabIndex = 4;
             labelControlEmployees.Text = "Управление записями:";
-            // 
-            // buttonNewEmployee
-            // 
-            buttonNewEmployee.BackColor = Color.FromArgb(241, 156, 55);
-            buttonNewEmployee.FlatStyle = FlatStyle.Flat;
-            buttonNewEmployee.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            buttonNewEmployee.ForeColor = Color.Black;
-            buttonNewEmployee.Location = new Point(633, 124);
-            buttonNewEmployee.Margin = new Padding(4, 3, 4, 3);
-            buttonNewEmployee.Name = "buttonNewEmployee";
-            buttonNewEmployee.Size = new Size(236, 40);
-            buttonNewEmployee.TabIndex = 0;
-            buttonNewEmployee.Text = "Новая запись";
-            buttonNewEmployee.UseVisualStyleBackColor = false;
-            buttonNewEmployee.Click += ButtonNewEmployee_Click;
-            // 
-            // buttonDeleteEmployee
-            // 
-            buttonDeleteEmployee.BackColor = Color.FromArgb(241, 156, 55);
-            buttonDeleteEmployee.FlatStyle = FlatStyle.Flat;
-            buttonDeleteEmployee.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            buttonDeleteEmployee.ForeColor = Color.Black;
-            buttonDeleteEmployee.Location = new Point(633, 170);
-            buttonDeleteEmployee.Margin = new Padding(4, 3, 4, 3);
-            buttonDeleteEmployee.Name = "buttonDeleteEmployee";
-            buttonDeleteEmployee.Size = new Size(236, 40);
-            buttonDeleteEmployee.TabIndex = 1;
-            buttonDeleteEmployee.Text = "Удалить";
-            buttonDeleteEmployee.UseVisualStyleBackColor = false;
-            buttonDeleteEmployee.Click += ButtonDeleteEmployee_Click;
-            // 
-            // buttonChangeEmployee
-            // 
-            buttonChangeEmployee.BackColor = Color.FromArgb(241, 156, 55);
-            buttonChangeEmployee.FlatStyle = FlatStyle.Flat;
-            buttonChangeEmployee.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            buttonChangeEmployee.ForeColor = Color.Black;
-            buttonChangeEmployee.Location = new Point(633, 216);
-            buttonChangeEmployee.Margin = new Padding(4, 3, 4, 3);
-            buttonChangeEmployee.Name = "buttonChangeEmployee";
-            buttonChangeEmployee.Size = new Size(236, 40);
-            buttonChangeEmployee.TabIndex = 2;
-            buttonChangeEmployee.Text = "Изменить";
-            buttonChangeEmployee.UseVisualStyleBackColor = false;
-            buttonChangeEmployee.Click += ButtonChangeEmployee_Click;
-            // 
-            // buttonSaveEmployee
-            // 
-            buttonSaveEmployee.BackColor = Color.FromArgb(241, 156, 55);
-            buttonSaveEmployee.FlatStyle = FlatStyle.Flat;
-            buttonSaveEmployee.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            buttonSaveEmployee.ForeColor = Color.Black;
-            buttonSaveEmployee.Location = new Point(633, 262);
-            buttonSaveEmployee.Margin = new Padding(4, 3, 4, 3);
-            buttonSaveEmployee.Name = "buttonSaveEmployee";
-            buttonSaveEmployee.Size = new Size(236, 40);
-            buttonSaveEmployee.TabIndex = 3;
-            buttonSaveEmployee.Text = "Сохранить";
-            buttonSaveEmployee.UseVisualStyleBackColor = false;
-            buttonSaveEmployee.Click += ButtonSaveEmployee_Click;
-            // 
-            // buttonWordEmployee
-            // 
-            buttonWordEmployee.BackColor = Color.FromArgb(241, 156, 55);
-            buttonWordEmployee.FlatStyle = FlatStyle.Flat;
-            buttonWordEmployee.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            buttonWordEmployee.ForeColor = Color.Black;
-            buttonWordEmployee.Location = new Point(633, 308);
-            buttonWordEmployee.Margin = new Padding(4, 3, 4, 3);
-            buttonWordEmployee.Name = "buttonWordEmployee";
-            buttonWordEmployee.Size = new Size(236, 40);
-            buttonWordEmployee.TabIndex = 4;
-            buttonWordEmployee.Text = "Вывод в Word";
-            buttonWordEmployee.UseVisualStyleBackColor = false;
-            buttonWordEmployee.Click += ButtonWordEmployee_Click;
-            // 
-            // buttonExcelEmployee
-            // 
-            buttonExcelEmployee.BackColor = Color.FromArgb(241, 156, 55);
-            buttonExcelEmployee.FlatStyle = FlatStyle.Flat;
-            buttonExcelEmployee.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            buttonExcelEmployee.ForeColor = Color.Black;
-            buttonExcelEmployee.Location = new Point(633, 354);
-            buttonExcelEmployee.Margin = new Padding(4, 3, 4, 3);
-            buttonExcelEmployee.Name = "buttonExcelEmployee";
-            buttonExcelEmployee.Size = new Size(236, 40);
-            buttonExcelEmployee.TabIndex = 5;
-            buttonExcelEmployee.Text = "Вывод в Excel";
-            buttonExcelEmployee.UseVisualStyleBackColor = false;
-            buttonExcelEmployee.Click += ButtonExcelEmployee_Click;
-            // 
-            // buttonTXTEmployee
-            // 
-            buttonTXTEmployee.BackColor = Color.FromArgb(241, 156, 55);
-            buttonTXTEmployee.FlatStyle = FlatStyle.Flat;
-            buttonTXTEmployee.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            buttonTXTEmployee.ForeColor = Color.Black;
-            buttonTXTEmployee.Location = new Point(633, 400);
-            buttonTXTEmployee.Margin = new Padding(4, 3, 4, 3);
-            buttonTXTEmployee.Name = "buttonTXTEmployee";
-            buttonTXTEmployee.Size = new Size(236, 40);
-            buttonTXTEmployee.TabIndex = 6;
-            buttonTXTEmployee.Text = "Вывод в TXT";
-            buttonTXTEmployee.UseVisualStyleBackColor = false;
-            buttonTXTEmployee.Click += ButtonTXTEmployee_Click;
             // 
             // tabPageOrders
             // 
@@ -1064,9 +1117,74 @@
             tabPageOrders.TabIndex = 3;
             tabPageOrders.Text = "Заказы";
             // 
+            // buttonTXTOrder
+            // 
+            buttonTXTOrder.BackColor = Color.FromArgb(241, 156, 55);
+            buttonTXTOrder.FlatAppearance.BorderSize = 2;
+            buttonTXTOrder.FlatStyle = FlatStyle.Flat;
+            buttonTXTOrder.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonTXTOrder.ForeColor = Color.Black;
+            buttonTXTOrder.Location = new Point(633, 400);
+            buttonTXTOrder.Margin = new Padding(4, 3, 4, 3);
+            buttonTXTOrder.Name = "buttonTXTOrder";
+            buttonTXTOrder.Size = new Size(236, 40);
+            buttonTXTOrder.TabIndex = 6;
+            buttonTXTOrder.Text = "Вывод в TXT";
+            buttonTXTOrder.UseVisualStyleBackColor = false;
+            buttonTXTOrder.Click += ButtonTXTOrder_Click;
+            // 
+            // buttonExcelOrder
+            // 
+            buttonExcelOrder.BackColor = Color.FromArgb(241, 156, 55);
+            buttonExcelOrder.FlatAppearance.BorderSize = 2;
+            buttonExcelOrder.FlatStyle = FlatStyle.Flat;
+            buttonExcelOrder.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonExcelOrder.ForeColor = Color.Black;
+            buttonExcelOrder.Location = new Point(633, 354);
+            buttonExcelOrder.Margin = new Padding(4, 3, 4, 3);
+            buttonExcelOrder.Name = "buttonExcelOrder";
+            buttonExcelOrder.Size = new Size(236, 40);
+            buttonExcelOrder.TabIndex = 5;
+            buttonExcelOrder.Text = "Вывод в Excel";
+            buttonExcelOrder.UseVisualStyleBackColor = false;
+            buttonExcelOrder.Click += ButtonExcelOrder_Click;
+            // 
+            // buttonNewOrder
+            // 
+            buttonNewOrder.BackColor = Color.FromArgb(241, 156, 55);
+            buttonNewOrder.FlatAppearance.BorderSize = 2;
+            buttonNewOrder.FlatStyle = FlatStyle.Flat;
+            buttonNewOrder.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonNewOrder.ForeColor = Color.Black;
+            buttonNewOrder.Location = new Point(633, 124);
+            buttonNewOrder.Margin = new Padding(4, 3, 4, 3);
+            buttonNewOrder.Name = "buttonNewOrder";
+            buttonNewOrder.Size = new Size(236, 40);
+            buttonNewOrder.TabIndex = 0;
+            buttonNewOrder.Text = "Новая запись";
+            buttonNewOrder.UseVisualStyleBackColor = false;
+            buttonNewOrder.Click += ButtonNewOrder_Click;
+            // 
+            // buttonDeleteOrder
+            // 
+            buttonDeleteOrder.BackColor = Color.FromArgb(241, 156, 55);
+            buttonDeleteOrder.FlatAppearance.BorderSize = 2;
+            buttonDeleteOrder.FlatStyle = FlatStyle.Flat;
+            buttonDeleteOrder.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonDeleteOrder.ForeColor = Color.Black;
+            buttonDeleteOrder.Location = new Point(633, 170);
+            buttonDeleteOrder.Margin = new Padding(4, 3, 4, 3);
+            buttonDeleteOrder.Name = "buttonDeleteOrder";
+            buttonDeleteOrder.Size = new Size(236, 40);
+            buttonDeleteOrder.TabIndex = 1;
+            buttonDeleteOrder.Text = "Удалить";
+            buttonDeleteOrder.UseVisualStyleBackColor = false;
+            buttonDeleteOrder.Click += ButtonDeleteOrder_Click;
+            // 
             // panelTitleOrders
             // 
             panelTitleOrders.BackColor = Color.FromArgb(0, 83, 133);
+            panelTitleOrders.Controls.Add(panel8);
             panelTitleOrders.Controls.Add(panel3);
             panelTitleOrders.Controls.Add(labelTitleOrders);
             panelTitleOrders.Controls.Add(buttonMonthlyReportOrders);
@@ -1079,6 +1197,26 @@
             panelTitleOrders.Name = "panelTitleOrders";
             panelTitleOrders.Size = new Size(889, 84);
             panelTitleOrders.TabIndex = 3;
+            // 
+            // panel8
+            // 
+            panel8.BackColor = Color.FromArgb(201, 201, 209);
+            panel8.BackgroundImage = (Image)resources.GetObject("panel8.BackgroundImage");
+            panel8.BackgroundImageLayout = ImageLayout.Stretch;
+            panel8.BorderStyle = BorderStyle.FixedSingle;
+            panel8.Location = new Point(847, 27);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(33, 33);
+            panel8.TabIndex = 8;
+            // 
+            // panel3
+            // 
+            panel3.BackgroundImage = (Image)resources.GetObject("panel3.BackgroundImage");
+            panel3.BackgroundImageLayout = ImageLayout.Stretch;
+            panel3.Location = new Point(3, 4);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(100, 75);
+            panel3.TabIndex = 7;
             // 
             // labelTitleOrders
             // 
@@ -1152,12 +1290,28 @@
             // 
             textBoxSearchOrders.BackColor = Color.FromArgb(201, 201, 209);
             textBoxSearchOrders.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxSearchOrders.Location = new Point(611, 27);
+            textBoxSearchOrders.Location = new Point(610, 27);
             textBoxSearchOrders.Margin = new Padding(4, 3, 4, 3);
             textBoxSearchOrders.Name = "textBoxSearchOrders";
-            textBoxSearchOrders.Size = new Size(267, 33);
+            textBoxSearchOrders.Size = new Size(237, 33);
             textBoxSearchOrders.TabIndex = 4;
             textBoxSearchOrders.TextChanged += TextBoxSearchOrders_TextChanged;
+            // 
+            // buttonChangeOrder
+            // 
+            buttonChangeOrder.BackColor = Color.FromArgb(241, 156, 55);
+            buttonChangeOrder.FlatAppearance.BorderSize = 2;
+            buttonChangeOrder.FlatStyle = FlatStyle.Flat;
+            buttonChangeOrder.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonChangeOrder.ForeColor = Color.Black;
+            buttonChangeOrder.Location = new Point(633, 216);
+            buttonChangeOrder.Margin = new Padding(4, 3, 4, 3);
+            buttonChangeOrder.Name = "buttonChangeOrder";
+            buttonChangeOrder.Size = new Size(236, 40);
+            buttonChangeOrder.TabIndex = 2;
+            buttonChangeOrder.Text = "Изменить";
+            buttonChangeOrder.UseVisualStyleBackColor = false;
+            buttonChangeOrder.Click += ButtonChangeOrder_Click;
             // 
             // dataGridViewOrders
             // 
@@ -1173,9 +1327,26 @@
             dataGridViewOrders.TabIndex = 0;
             dataGridViewOrders.CellClick += DataGridViewOrders_CellClick;
             // 
+            // buttonSaveOrder
+            // 
+            buttonSaveOrder.BackColor = Color.FromArgb(241, 156, 55);
+            buttonSaveOrder.FlatAppearance.BorderSize = 2;
+            buttonSaveOrder.FlatStyle = FlatStyle.Flat;
+            buttonSaveOrder.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonSaveOrder.ForeColor = Color.Black;
+            buttonSaveOrder.Location = new Point(633, 262);
+            buttonSaveOrder.Margin = new Padding(4, 3, 4, 3);
+            buttonSaveOrder.Name = "buttonSaveOrder";
+            buttonSaveOrder.Size = new Size(236, 40);
+            buttonSaveOrder.TabIndex = 3;
+            buttonSaveOrder.Text = "Сохранить";
+            buttonSaveOrder.UseVisualStyleBackColor = false;
+            buttonSaveOrder.Click += ButtonSaveOrder_Click;
+            // 
             // panelRecordOrders
             // 
             panelRecordOrders.BackColor = Color.FromArgb(49, 128, 168);
+            panelRecordOrders.BorderStyle = BorderStyle.FixedSingle;
             panelRecordOrders.Controls.Add(labelRecordOrders);
             panelRecordOrders.Controls.Add(labelOrderID);
             panelRecordOrders.Controls.Add(textBoxOrderID);
@@ -1200,7 +1371,7 @@
             labelRecordOrders.AutoSize = true;
             labelRecordOrders.Font = new Font("Segoe UI Semibold", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
             labelRecordOrders.ForeColor = Color.Black;
-            labelRecordOrders.Location = new Point(353, 44);
+            labelRecordOrders.Location = new Point(356, 17);
             labelRecordOrders.Margin = new Padding(4, 0, 4, 0);
             labelRecordOrders.Name = "labelRecordOrders";
             labelRecordOrders.Size = new Size(142, 47);
@@ -1212,7 +1383,7 @@
             labelOrderID.AutoSize = true;
             labelOrderID.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             labelOrderID.ForeColor = Color.Black;
-            labelOrderID.Location = new Point(135, 120);
+            labelOrderID.Location = new Point(126, 87);
             labelOrderID.Margin = new Padding(4, 0, 4, 0);
             labelOrderID.Name = "labelOrderID";
             labelOrderID.Size = new Size(67, 21);
@@ -1222,7 +1393,7 @@
             // textBoxOrderID
             // 
             textBoxOrderID.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxOrderID.Location = new Point(210, 114);
+            textBoxOrderID.Location = new Point(201, 81);
             textBoxOrderID.Margin = new Padding(4, 3, 4, 3);
             textBoxOrderID.Name = "textBoxOrderID";
             textBoxOrderID.Size = new Size(79, 33);
@@ -1233,7 +1404,7 @@
             labelClientIDOrders.AutoSize = true;
             labelClientIDOrders.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             labelClientIDOrders.ForeColor = Color.Black;
-            labelClientIDOrders.Location = new Point(135, 165);
+            labelClientIDOrders.Location = new Point(126, 132);
             labelClientIDOrders.Margin = new Padding(4, 0, 4, 0);
             labelClientIDOrders.Name = "labelClientIDOrders";
             labelClientIDOrders.Size = new Size(201, 21);
@@ -1243,7 +1414,7 @@
             // textBoxClientIDOrders
             // 
             textBoxClientIDOrders.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxClientIDOrders.Location = new Point(344, 159);
+            textBoxClientIDOrders.Location = new Point(335, 126);
             textBoxClientIDOrders.Margin = new Padding(4, 3, 4, 3);
             textBoxClientIDOrders.Name = "textBoxClientIDOrders";
             textBoxClientIDOrders.Size = new Size(393, 33);
@@ -1254,7 +1425,7 @@
             labelEmployeeIDOrders.AutoSize = true;
             labelEmployeeIDOrders.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             labelEmployeeIDOrders.ForeColor = Color.Black;
-            labelEmployeeIDOrders.Location = new Point(135, 210);
+            labelEmployeeIDOrders.Location = new Point(126, 177);
             labelEmployeeIDOrders.Margin = new Padding(4, 0, 4, 0);
             labelEmployeeIDOrders.Name = "labelEmployeeIDOrders";
             labelEmployeeIDOrders.Size = new Size(149, 21);
@@ -1264,7 +1435,7 @@
             // textBoxEmployeeIDOrders
             // 
             textBoxEmployeeIDOrders.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxEmployeeIDOrders.Location = new Point(297, 204);
+            textBoxEmployeeIDOrders.Location = new Point(288, 171);
             textBoxEmployeeIDOrders.Margin = new Padding(4, 3, 4, 3);
             textBoxEmployeeIDOrders.Name = "textBoxEmployeeIDOrders";
             textBoxEmployeeIDOrders.Size = new Size(440, 33);
@@ -1275,7 +1446,7 @@
             labelOrderDate.AutoSize = true;
             labelOrderDate.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             labelOrderDate.ForeColor = Color.Black;
-            labelOrderDate.Location = new Point(297, 120);
+            labelOrderDate.Location = new Point(288, 87);
             labelOrderDate.Margin = new Padding(4, 0, 4, 0);
             labelOrderDate.Name = "labelOrderDate";
             labelOrderDate.Size = new Size(107, 21);
@@ -1285,7 +1456,7 @@
             // dateTimePickerOrderDate
             // 
             dateTimePickerOrderDate.Font = new Font("Segoe UI", 14.25F);
-            dateTimePickerOrderDate.Location = new Point(411, 114);
+            dateTimePickerOrderDate.Location = new Point(402, 81);
             dateTimePickerOrderDate.Name = "dateTimePickerOrderDate";
             dateTimePickerOrderDate.Size = new Size(326, 33);
             dateTimePickerOrderDate.TabIndex = 3;
@@ -1295,7 +1466,7 @@
             labelTotalAmount.AutoSize = true;
             labelTotalAmount.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             labelTotalAmount.ForeColor = Color.Black;
-            labelTotalAmount.Location = new Point(135, 255);
+            labelTotalAmount.Location = new Point(126, 222);
             labelTotalAmount.Margin = new Padding(4, 0, 4, 0);
             labelTotalAmount.Name = "labelTotalAmount";
             labelTotalAmount.Size = new Size(61, 21);
@@ -1305,7 +1476,7 @@
             // textBoxTotalAmount
             // 
             textBoxTotalAmount.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxTotalAmount.Location = new Point(204, 249);
+            textBoxTotalAmount.Location = new Point(195, 216);
             textBoxTotalAmount.Margin = new Padding(4, 3, 4, 3);
             textBoxTotalAmount.Name = "textBoxTotalAmount";
             textBoxTotalAmount.ReadOnly = true;
@@ -1317,7 +1488,7 @@
             labelStatusID.AutoSize = true;
             labelStatusID.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             labelStatusID.ForeColor = Color.Black;
-            labelStatusID.Location = new Point(135, 302);
+            labelStatusID.Location = new Point(126, 269);
             labelStatusID.Margin = new Padding(4, 0, 4, 0);
             labelStatusID.Name = "labelStatusID";
             labelStatusID.Size = new Size(64, 21);
@@ -1330,10 +1501,26 @@
             comboBoxStatusID.Font = new Font("Segoe UI", 14.25F);
             comboBoxStatusID.FormattingEnabled = true;
             comboBoxStatusID.Items.AddRange(new object[] { "В обработке", "Подтвержден", "Отменен", "Выполнен" });
-            comboBoxStatusID.Location = new Point(204, 296);
+            comboBoxStatusID.Location = new Point(195, 263);
             comboBoxStatusID.Name = "comboBoxStatusID";
             comboBoxStatusID.Size = new Size(533, 33);
             comboBoxStatusID.TabIndex = 5;
+            // 
+            // buttonWordOrder
+            // 
+            buttonWordOrder.BackColor = Color.FromArgb(241, 156, 55);
+            buttonWordOrder.FlatAppearance.BorderSize = 2;
+            buttonWordOrder.FlatStyle = FlatStyle.Flat;
+            buttonWordOrder.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonWordOrder.ForeColor = Color.Black;
+            buttonWordOrder.Location = new Point(633, 308);
+            buttonWordOrder.Margin = new Padding(4, 3, 4, 3);
+            buttonWordOrder.Name = "buttonWordOrder";
+            buttonWordOrder.Size = new Size(236, 40);
+            buttonWordOrder.TabIndex = 4;
+            buttonWordOrder.Text = "Вывод в Word";
+            buttonWordOrder.UseVisualStyleBackColor = false;
+            buttonWordOrder.Click += ButtonWordOrder_Click;
             // 
             // labelControlOrders
             // 
@@ -1348,113 +1535,9 @@
             labelControlOrders.TabIndex = 4;
             labelControlOrders.Text = "Управление записями:";
             // 
-            // buttonNewOrder
-            // 
-            buttonNewOrder.BackColor = Color.FromArgb(241, 156, 55);
-            buttonNewOrder.FlatStyle = FlatStyle.Flat;
-            buttonNewOrder.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            buttonNewOrder.ForeColor = Color.Black;
-            buttonNewOrder.Location = new Point(633, 124);
-            buttonNewOrder.Margin = new Padding(4, 3, 4, 3);
-            buttonNewOrder.Name = "buttonNewOrder";
-            buttonNewOrder.Size = new Size(236, 40);
-            buttonNewOrder.TabIndex = 0;
-            buttonNewOrder.Text = "Новая запись";
-            buttonNewOrder.UseVisualStyleBackColor = false;
-            buttonNewOrder.Click += ButtonNewOrder_Click;
-            // 
-            // buttonDeleteOrder
-            // 
-            buttonDeleteOrder.BackColor = Color.FromArgb(241, 156, 55);
-            buttonDeleteOrder.FlatStyle = FlatStyle.Flat;
-            buttonDeleteOrder.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            buttonDeleteOrder.ForeColor = Color.Black;
-            buttonDeleteOrder.Location = new Point(633, 170);
-            buttonDeleteOrder.Margin = new Padding(4, 3, 4, 3);
-            buttonDeleteOrder.Name = "buttonDeleteOrder";
-            buttonDeleteOrder.Size = new Size(236, 40);
-            buttonDeleteOrder.TabIndex = 1;
-            buttonDeleteOrder.Text = "Удалить";
-            buttonDeleteOrder.UseVisualStyleBackColor = false;
-            buttonDeleteOrder.Click += ButtonDeleteOrder_Click;
-            // 
-            // buttonChangeOrder
-            // 
-            buttonChangeOrder.BackColor = Color.FromArgb(241, 156, 55);
-            buttonChangeOrder.FlatStyle = FlatStyle.Flat;
-            buttonChangeOrder.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            buttonChangeOrder.ForeColor = Color.Black;
-            buttonChangeOrder.Location = new Point(633, 216);
-            buttonChangeOrder.Margin = new Padding(4, 3, 4, 3);
-            buttonChangeOrder.Name = "buttonChangeOrder";
-            buttonChangeOrder.Size = new Size(236, 40);
-            buttonChangeOrder.TabIndex = 2;
-            buttonChangeOrder.Text = "Изменить";
-            buttonChangeOrder.UseVisualStyleBackColor = false;
-            buttonChangeOrder.Click += ButtonChangeOrder_Click;
-            // 
-            // buttonSaveOrder
-            // 
-            buttonSaveOrder.BackColor = Color.FromArgb(241, 156, 55);
-            buttonSaveOrder.FlatStyle = FlatStyle.Flat;
-            buttonSaveOrder.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            buttonSaveOrder.ForeColor = Color.Black;
-            buttonSaveOrder.Location = new Point(633, 262);
-            buttonSaveOrder.Margin = new Padding(4, 3, 4, 3);
-            buttonSaveOrder.Name = "buttonSaveOrder";
-            buttonSaveOrder.Size = new Size(236, 40);
-            buttonSaveOrder.TabIndex = 3;
-            buttonSaveOrder.Text = "Сохранить";
-            buttonSaveOrder.UseVisualStyleBackColor = false;
-            buttonSaveOrder.Click += ButtonSaveOrder_Click;
-            // 
-            // buttonWordOrder
-            // 
-            buttonWordOrder.BackColor = Color.FromArgb(241, 156, 55);
-            buttonWordOrder.FlatStyle = FlatStyle.Flat;
-            buttonWordOrder.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            buttonWordOrder.ForeColor = Color.Black;
-            buttonWordOrder.Location = new Point(633, 308);
-            buttonWordOrder.Margin = new Padding(4, 3, 4, 3);
-            buttonWordOrder.Name = "buttonWordOrder";
-            buttonWordOrder.Size = new Size(236, 40);
-            buttonWordOrder.TabIndex = 4;
-            buttonWordOrder.Text = "Вывод в Word";
-            buttonWordOrder.UseVisualStyleBackColor = false;
-            buttonWordOrder.Click += ButtonWordOrder_Click;
-            // 
-            // buttonExcelOrder
-            // 
-            buttonExcelOrder.BackColor = Color.FromArgb(241, 156, 55);
-            buttonExcelOrder.FlatStyle = FlatStyle.Flat;
-            buttonExcelOrder.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            buttonExcelOrder.ForeColor = Color.Black;
-            buttonExcelOrder.Location = new Point(633, 354);
-            buttonExcelOrder.Margin = new Padding(4, 3, 4, 3);
-            buttonExcelOrder.Name = "buttonExcelOrder";
-            buttonExcelOrder.Size = new Size(236, 40);
-            buttonExcelOrder.TabIndex = 5;
-            buttonExcelOrder.Text = "Вывод в Excel";
-            buttonExcelOrder.UseVisualStyleBackColor = false;
-            buttonExcelOrder.Click += ButtonExcelOrder_Click;
-            // 
-            // buttonTXTOrder
-            // 
-            buttonTXTOrder.BackColor = Color.FromArgb(241, 156, 55);
-            buttonTXTOrder.FlatStyle = FlatStyle.Flat;
-            buttonTXTOrder.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            buttonTXTOrder.ForeColor = Color.Black;
-            buttonTXTOrder.Location = new Point(633, 400);
-            buttonTXTOrder.Margin = new Padding(4, 3, 4, 3);
-            buttonTXTOrder.Name = "buttonTXTOrder";
-            buttonTXTOrder.Size = new Size(236, 40);
-            buttonTXTOrder.TabIndex = 6;
-            buttonTXTOrder.Text = "Вывод в TXT";
-            buttonTXTOrder.UseVisualStyleBackColor = false;
-            buttonTXTOrder.Click += ButtonTXTOrder_Click;
-            // 
             // tabPageProducts
             // 
+            tabPageProducts.BackColor = Color.FromArgb(201, 201, 209);
             tabPageProducts.Controls.Add(buttonTXTProduct);
             tabPageProducts.Controls.Add(buttonExcelProduct);
             tabPageProducts.Controls.Add(buttonNewProduct);
@@ -1473,10 +1556,76 @@
             tabPageProducts.Size = new Size(889, 1010);
             tabPageProducts.TabIndex = 4;
             tabPageProducts.Text = "Продукты";
-            tabPageProducts.UseVisualStyleBackColor = true;
+            // 
+            // buttonTXTProduct
+            // 
+            buttonTXTProduct.BackColor = Color.FromArgb(241, 156, 55);
+            buttonTXTProduct.FlatAppearance.BorderSize = 2;
+            buttonTXTProduct.FlatStyle = FlatStyle.Flat;
+            buttonTXTProduct.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonTXTProduct.ForeColor = Color.Black;
+            buttonTXTProduct.Location = new Point(633, 400);
+            buttonTXTProduct.Margin = new Padding(4, 3, 4, 3);
+            buttonTXTProduct.Name = "buttonTXTProduct";
+            buttonTXTProduct.Size = new Size(236, 40);
+            buttonTXTProduct.TabIndex = 6;
+            buttonTXTProduct.Text = "Вывод в TXT";
+            buttonTXTProduct.UseVisualStyleBackColor = false;
+            buttonTXTProduct.Click += ButtonTXTProduct_Click;
+            // 
+            // buttonExcelProduct
+            // 
+            buttonExcelProduct.BackColor = Color.FromArgb(241, 156, 55);
+            buttonExcelProduct.FlatAppearance.BorderSize = 2;
+            buttonExcelProduct.FlatStyle = FlatStyle.Flat;
+            buttonExcelProduct.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonExcelProduct.ForeColor = Color.Black;
+            buttonExcelProduct.Location = new Point(633, 354);
+            buttonExcelProduct.Margin = new Padding(4, 3, 4, 3);
+            buttonExcelProduct.Name = "buttonExcelProduct";
+            buttonExcelProduct.Size = new Size(236, 40);
+            buttonExcelProduct.TabIndex = 5;
+            buttonExcelProduct.Text = "Вывод в Excel";
+            buttonExcelProduct.UseVisualStyleBackColor = false;
+            buttonExcelProduct.Click += ButtonExcelProduct_Click;
+            // 
+            // buttonNewProduct
+            // 
+            buttonNewProduct.BackColor = Color.FromArgb(241, 156, 55);
+            buttonNewProduct.FlatAppearance.BorderSize = 2;
+            buttonNewProduct.FlatStyle = FlatStyle.Flat;
+            buttonNewProduct.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonNewProduct.ForeColor = Color.Black;
+            buttonNewProduct.Location = new Point(633, 124);
+            buttonNewProduct.Margin = new Padding(4, 3, 4, 3);
+            buttonNewProduct.Name = "buttonNewProduct";
+            buttonNewProduct.Size = new Size(236, 40);
+            buttonNewProduct.TabIndex = 0;
+            buttonNewProduct.Text = "Новая запись";
+            buttonNewProduct.UseVisualStyleBackColor = false;
+            buttonNewProduct.Click += ButtonNewProduct_Click;
+            // 
+            // buttonDeleteProduct
+            // 
+            buttonDeleteProduct.BackColor = Color.FromArgb(241, 156, 55);
+            buttonDeleteProduct.FlatAppearance.BorderSize = 2;
+            buttonDeleteProduct.FlatStyle = FlatStyle.Flat;
+            buttonDeleteProduct.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonDeleteProduct.ForeColor = Color.Black;
+            buttonDeleteProduct.Location = new Point(633, 170);
+            buttonDeleteProduct.Margin = new Padding(4, 3, 4, 3);
+            buttonDeleteProduct.Name = "buttonDeleteProduct";
+            buttonDeleteProduct.Size = new Size(236, 40);
+            buttonDeleteProduct.TabIndex = 1;
+            buttonDeleteProduct.Text = "Удалить";
+            buttonDeleteProduct.UseVisualStyleBackColor = false;
+            buttonDeleteProduct.Click += ButtonDeleteProduct_Click;
             // 
             // panelTitleProducts
             // 
+            panelTitleProducts.BackColor = Color.FromArgb(0, 83, 133);
+            panelTitleProducts.Controls.Add(panel9);
+            panelTitleProducts.Controls.Add(panel4);
             panelTitleProducts.Controls.Add(labelTitleProducts);
             panelTitleProducts.Controls.Add(buttonReportProducts);
             panelTitleProducts.Controls.Add(buttonClearProducts);
@@ -1485,15 +1634,35 @@
             panelTitleProducts.Location = new Point(0, 0);
             panelTitleProducts.Margin = new Padding(4, 3, 4, 3);
             panelTitleProducts.Name = "panelTitleProducts";
-            panelTitleProducts.Size = new Size(876, 84);
+            panelTitleProducts.Size = new Size(889, 84);
             panelTitleProducts.TabIndex = 3;
+            // 
+            // panel9
+            // 
+            panel9.BackColor = Color.FromArgb(201, 201, 209);
+            panel9.BackgroundImage = (Image)resources.GetObject("panel9.BackgroundImage");
+            panel9.BackgroundImageLayout = ImageLayout.Stretch;
+            panel9.BorderStyle = BorderStyle.FixedSingle;
+            panel9.Location = new Point(847, 27);
+            panel9.Name = "panel9";
+            panel9.Size = new Size(33, 33);
+            panel9.TabIndex = 9;
+            // 
+            // panel4
+            // 
+            panel4.BackgroundImage = (Image)resources.GetObject("panel4.BackgroundImage");
+            panel4.BackgroundImageLayout = ImageLayout.Stretch;
+            panel4.Location = new Point(3, 4);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(100, 75);
+            panel4.TabIndex = 8;
             // 
             // labelTitleProducts
             // 
             labelTitleProducts.AutoSize = true;
             labelTitleProducts.Font = new Font("Segoe UI", 36F, FontStyle.Underline, GraphicsUnit.Point, 0);
             labelTitleProducts.ForeColor = Color.WhiteSmoke;
-            labelTitleProducts.Location = new Point(175, 15);
+            labelTitleProducts.Location = new Point(138, 12);
             labelTitleProducts.Margin = new Padding(4, 0, 4, 0);
             labelTitleProducts.Name = "labelTitleProducts";
             labelTitleProducts.Size = new Size(245, 65);
@@ -1506,7 +1675,7 @@
             buttonReportProducts.BackgroundImageLayout = ImageLayout.Stretch;
             buttonReportProducts.FlatStyle = FlatStyle.Flat;
             buttonReportProducts.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            buttonReportProducts.Location = new Point(442, 3);
+            buttonReportProducts.Location = new Point(407, 12);
             buttonReportProducts.Margin = new Padding(4, 3, 4, 3);
             buttonReportProducts.Name = "buttonReportProducts";
             buttonReportProducts.Size = new Size(60, 60);
@@ -1520,7 +1689,7 @@
             buttonClearProducts.BackgroundImageLayout = ImageLayout.Stretch;
             buttonClearProducts.FlatStyle = FlatStyle.Flat;
             buttonClearProducts.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            buttonClearProducts.Location = new Point(528, 3);
+            buttonClearProducts.Location = new Point(475, 12);
             buttonClearProducts.Margin = new Padding(4, 3, 4, 3);
             buttonClearProducts.Name = "buttonClearProducts";
             buttonClearProducts.Size = new Size(60, 60);
@@ -1534,7 +1703,7 @@
             buttonRefreshProducts.BackgroundImageLayout = ImageLayout.Stretch;
             buttonRefreshProducts.FlatStyle = FlatStyle.Flat;
             buttonRefreshProducts.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            buttonRefreshProducts.Location = new Point(614, 3);
+            buttonRefreshProducts.Location = new Point(543, 12);
             buttonRefreshProducts.Margin = new Padding(4, 3, 4, 3);
             buttonRefreshProducts.Name = "buttonRefreshProducts";
             buttonRefreshProducts.Size = new Size(60, 60);
@@ -1544,13 +1713,30 @@
             // 
             // textBoxSearchProducts
             // 
+            textBoxSearchProducts.BackColor = Color.FromArgb(201, 201, 209);
             textBoxSearchProducts.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxSearchProducts.Location = new Point(699, 37);
+            textBoxSearchProducts.Location = new Point(610, 27);
             textBoxSearchProducts.Margin = new Padding(4, 3, 4, 3);
             textBoxSearchProducts.Name = "textBoxSearchProducts";
-            textBoxSearchProducts.Size = new Size(173, 33);
+            textBoxSearchProducts.Size = new Size(237, 33);
             textBoxSearchProducts.TabIndex = 3;
             textBoxSearchProducts.TextChanged += TextBoxSearchProducts_TextChanged;
+            // 
+            // buttonChangeProduct
+            // 
+            buttonChangeProduct.BackColor = Color.FromArgb(241, 156, 55);
+            buttonChangeProduct.FlatAppearance.BorderSize = 2;
+            buttonChangeProduct.FlatStyle = FlatStyle.Flat;
+            buttonChangeProduct.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonChangeProduct.ForeColor = Color.Black;
+            buttonChangeProduct.Location = new Point(633, 216);
+            buttonChangeProduct.Margin = new Padding(4, 3, 4, 3);
+            buttonChangeProduct.Name = "buttonChangeProduct";
+            buttonChangeProduct.Size = new Size(236, 40);
+            buttonChangeProduct.TabIndex = 2;
+            buttonChangeProduct.Text = "Изменить";
+            buttonChangeProduct.UseVisualStyleBackColor = false;
+            buttonChangeProduct.Click += ButtonChangeProduct_Click;
             // 
             // dataGridViewProducts
             // 
@@ -1566,8 +1752,26 @@
             dataGridViewProducts.TabIndex = 0;
             dataGridViewProducts.CellClick += DataGridViewProducts_CellClick;
             // 
+            // buttonSaveProduct
+            // 
+            buttonSaveProduct.BackColor = Color.FromArgb(241, 156, 55);
+            buttonSaveProduct.FlatAppearance.BorderSize = 2;
+            buttonSaveProduct.FlatStyle = FlatStyle.Flat;
+            buttonSaveProduct.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonSaveProduct.ForeColor = Color.Black;
+            buttonSaveProduct.Location = new Point(633, 262);
+            buttonSaveProduct.Margin = new Padding(4, 3, 4, 3);
+            buttonSaveProduct.Name = "buttonSaveProduct";
+            buttonSaveProduct.Size = new Size(236, 40);
+            buttonSaveProduct.TabIndex = 3;
+            buttonSaveProduct.Text = "Сохранить";
+            buttonSaveProduct.UseVisualStyleBackColor = false;
+            buttonSaveProduct.Click += ButtonSaveProduct_Click;
+            // 
             // panelRecordProducts
             // 
+            panelRecordProducts.BackColor = Color.FromArgb(49, 128, 168);
+            panelRecordProducts.BorderStyle = BorderStyle.FixedSingle;
             panelRecordProducts.Controls.Add(labelRecordProducts);
             panelRecordProducts.Controls.Add(labelProductID);
             panelRecordProducts.Controls.Add(textBoxProductID);
@@ -1588,7 +1792,7 @@
             labelRecordProducts.AutoSize = true;
             labelRecordProducts.Font = new Font("Segoe UI Semibold", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
             labelRecordProducts.ForeColor = Color.Black;
-            labelRecordProducts.Location = new Point(360, 82);
+            labelRecordProducts.Location = new Point(356, 17);
             labelRecordProducts.Margin = new Padding(4, 0, 4, 0);
             labelRecordProducts.Name = "labelRecordProducts";
             labelRecordProducts.Size = new Size(142, 47);
@@ -1600,7 +1804,7 @@
             labelProductID.AutoSize = true;
             labelProductID.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             labelProductID.ForeColor = Color.Black;
-            labelProductID.Location = new Point(93, 162);
+            labelProductID.Location = new Point(85, 92);
             labelProductID.Margin = new Padding(4, 0, 4, 0);
             labelProductID.Name = "labelProductID";
             labelProductID.Size = new Size(67, 21);
@@ -1610,7 +1814,7 @@
             // textBoxProductID
             // 
             textBoxProductID.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxProductID.Location = new Point(168, 156);
+            textBoxProductID.Location = new Point(160, 86);
             textBoxProductID.Margin = new Padding(4, 3, 4, 3);
             textBoxProductID.Name = "textBoxProductID";
             textBoxProductID.Size = new Size(79, 33);
@@ -1621,7 +1825,7 @@
             labelName.AutoSize = true;
             labelName.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             labelName.ForeColor = Color.Black;
-            labelName.Location = new Point(265, 162);
+            labelName.Location = new Point(257, 92);
             labelName.Margin = new Padding(4, 0, 4, 0);
             labelName.Name = "labelName";
             labelName.Size = new Size(133, 21);
@@ -1631,7 +1835,7 @@
             // textBoxName
             // 
             textBoxName.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxName.Location = new Point(406, 156);
+            textBoxName.Location = new Point(398, 86);
             textBoxName.Margin = new Padding(4, 3, 4, 3);
             textBoxName.Name = "textBoxName";
             textBoxName.Size = new Size(363, 33);
@@ -1642,7 +1846,7 @@
             labelDescription.AutoSize = true;
             labelDescription.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             labelDescription.ForeColor = Color.Black;
-            labelDescription.Location = new Point(93, 209);
+            labelDescription.Location = new Point(85, 139);
             labelDescription.Margin = new Padding(4, 0, 4, 0);
             labelDescription.Name = "labelDescription";
             labelDescription.Size = new Size(92, 21);
@@ -1652,7 +1856,7 @@
             // textBoxDescription
             // 
             textBoxDescription.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxDescription.Location = new Point(193, 203);
+            textBoxDescription.Location = new Point(185, 133);
             textBoxDescription.Margin = new Padding(4, 3, 4, 3);
             textBoxDescription.Name = "textBoxDescription";
             textBoxDescription.Size = new Size(576, 33);
@@ -1663,7 +1867,7 @@
             labelPrice.AutoSize = true;
             labelPrice.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             labelPrice.ForeColor = Color.Black;
-            labelPrice.Location = new Point(93, 256);
+            labelPrice.Location = new Point(85, 186);
             labelPrice.Margin = new Padding(4, 0, 4, 0);
             labelPrice.Name = "labelPrice";
             labelPrice.Size = new Size(55, 21);
@@ -1673,11 +1877,27 @@
             // textBoxPrice
             // 
             textBoxPrice.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxPrice.Location = new Point(156, 250);
+            textBoxPrice.Location = new Point(148, 180);
             textBoxPrice.Margin = new Padding(4, 3, 4, 3);
             textBoxPrice.Name = "textBoxPrice";
             textBoxPrice.Size = new Size(613, 33);
             textBoxPrice.TabIndex = 18;
+            // 
+            // buttonWordProduct
+            // 
+            buttonWordProduct.BackColor = Color.FromArgb(241, 156, 55);
+            buttonWordProduct.FlatAppearance.BorderSize = 2;
+            buttonWordProduct.FlatStyle = FlatStyle.Flat;
+            buttonWordProduct.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonWordProduct.ForeColor = Color.Black;
+            buttonWordProduct.Location = new Point(633, 308);
+            buttonWordProduct.Margin = new Padding(4, 3, 4, 3);
+            buttonWordProduct.Name = "buttonWordProduct";
+            buttonWordProduct.Size = new Size(236, 40);
+            buttonWordProduct.TabIndex = 4;
+            buttonWordProduct.Text = "Вывод в Word";
+            buttonWordProduct.UseVisualStyleBackColor = false;
+            buttonWordProduct.Click += ButtonWordProduct_Click;
             // 
             // labelControlProducts
             // 
@@ -1692,105 +1912,20 @@
             labelControlProducts.TabIndex = 4;
             labelControlProducts.Text = "Управление записями:";
             // 
-            // buttonNewProduct
-            // 
-            buttonNewProduct.FlatStyle = FlatStyle.Flat;
-            buttonNewProduct.ForeColor = Color.Black;
-            buttonNewProduct.Location = new Point(633, 124);
-            buttonNewProduct.Margin = new Padding(4, 3, 4, 3);
-            buttonNewProduct.Name = "buttonNewProduct";
-            buttonNewProduct.Size = new Size(236, 40);
-            buttonNewProduct.TabIndex = 0;
-            buttonNewProduct.Text = "Новая запись";
-            buttonNewProduct.UseVisualStyleBackColor = true;
-            buttonNewProduct.Click += ButtonNewProduct_Click;
-            // 
-            // buttonDeleteProduct
-            // 
-            buttonDeleteProduct.FlatStyle = FlatStyle.Flat;
-            buttonDeleteProduct.ForeColor = Color.Black;
-            buttonDeleteProduct.Location = new Point(633, 170);
-            buttonDeleteProduct.Margin = new Padding(4, 3, 4, 3);
-            buttonDeleteProduct.Name = "buttonDeleteProduct";
-            buttonDeleteProduct.Size = new Size(236, 40);
-            buttonDeleteProduct.TabIndex = 1;
-            buttonDeleteProduct.Text = "Удалить";
-            buttonDeleteProduct.UseVisualStyleBackColor = true;
-            buttonDeleteProduct.Click += ButtonDeleteProduct_Click;
-            // 
-            // buttonChangeProduct
-            // 
-            buttonChangeProduct.FlatStyle = FlatStyle.Flat;
-            buttonChangeProduct.ForeColor = Color.Black;
-            buttonChangeProduct.Location = new Point(633, 216);
-            buttonChangeProduct.Margin = new Padding(4, 3, 4, 3);
-            buttonChangeProduct.Name = "buttonChangeProduct";
-            buttonChangeProduct.Size = new Size(236, 40);
-            buttonChangeProduct.TabIndex = 2;
-            buttonChangeProduct.Text = "Изменить";
-            buttonChangeProduct.UseVisualStyleBackColor = true;
-            buttonChangeProduct.Click += ButtonChangeProduct_Click;
-            // 
-            // buttonSaveProduct
-            // 
-            buttonSaveProduct.FlatStyle = FlatStyle.Flat;
-            buttonSaveProduct.ForeColor = Color.Black;
-            buttonSaveProduct.Location = new Point(633, 262);
-            buttonSaveProduct.Margin = new Padding(4, 3, 4, 3);
-            buttonSaveProduct.Name = "buttonSaveProduct";
-            buttonSaveProduct.Size = new Size(236, 40);
-            buttonSaveProduct.TabIndex = 3;
-            buttonSaveProduct.Text = "Сохранить";
-            buttonSaveProduct.UseVisualStyleBackColor = true;
-            buttonSaveProduct.Click += ButtonSaveProduct_Click;
-            // 
-            // buttonWordProduct
-            // 
-            buttonWordProduct.FlatStyle = FlatStyle.Flat;
-            buttonWordProduct.ForeColor = Color.Black;
-            buttonWordProduct.Location = new Point(633, 308);
-            buttonWordProduct.Margin = new Padding(4, 3, 4, 3);
-            buttonWordProduct.Name = "buttonWordProduct";
-            buttonWordProduct.Size = new Size(236, 40);
-            buttonWordProduct.TabIndex = 4;
-            buttonWordProduct.Text = "Вывод в Word";
-            buttonWordProduct.UseVisualStyleBackColor = true;
-            buttonWordProduct.Click += ButtonWordProduct_Click;
-            // 
-            // buttonExcelProduct
-            // 
-            buttonExcelProduct.FlatStyle = FlatStyle.Flat;
-            buttonExcelProduct.ForeColor = Color.Black;
-            buttonExcelProduct.Location = new Point(633, 354);
-            buttonExcelProduct.Margin = new Padding(4, 3, 4, 3);
-            buttonExcelProduct.Name = "buttonExcelProduct";
-            buttonExcelProduct.Size = new Size(236, 40);
-            buttonExcelProduct.TabIndex = 5;
-            buttonExcelProduct.Text = "Вывод в Excel";
-            buttonExcelProduct.UseVisualStyleBackColor = true;
-            buttonExcelProduct.Click += ButtonExcelProduct_Click;
-            // 
-            // buttonTXTProduct
-            // 
-            buttonTXTProduct.FlatStyle = FlatStyle.Flat;
-            buttonTXTProduct.ForeColor = Color.Black;
-            buttonTXTProduct.Location = new Point(633, 400);
-            buttonTXTProduct.Margin = new Padding(4, 3, 4, 3);
-            buttonTXTProduct.Name = "buttonTXTProduct";
-            buttonTXTProduct.Size = new Size(236, 40);
-            buttonTXTProduct.TabIndex = 6;
-            buttonTXTProduct.Text = "Вывод в TXT";
-            buttonTXTProduct.UseVisualStyleBackColor = true;
-            buttonTXTProduct.Click += ButtonTXTProduct_Click;
-            // 
             // tabPageOrderDetails
             // 
-            tabPageOrderDetails.BackgroundImage = (Image)resources.GetObject("tabPageOrderDetails.BackgroundImage");
+            tabPageOrderDetails.BackColor = Color.FromArgb(201, 201, 209);
+            tabPageOrderDetails.Controls.Add(buttonTXTOrderDetails);
+            tabPageOrderDetails.Controls.Add(buttonExcelOrderDetails);
+            tabPageOrderDetails.Controls.Add(buttonNewOrderDetails);
+            tabPageOrderDetails.Controls.Add(buttonDeleteOrderDetails);
             tabPageOrderDetails.Controls.Add(panelTitleOrderDetails);
+            tabPageOrderDetails.Controls.Add(buttonChangeOrderDetails);
             tabPageOrderDetails.Controls.Add(dataGridViewOrderDetails);
+            tabPageOrderDetails.Controls.Add(buttonSaveOrderDetails);
             tabPageOrderDetails.Controls.Add(panelRecordOrderDetails);
+            tabPageOrderDetails.Controls.Add(buttonWordOrderDetails);
             tabPageOrderDetails.Controls.Add(labelControlOrderDetails);
-            tabPageOrderDetails.Controls.Add(panelControlOrderDetails);
             tabPageOrderDetails.Location = new Point(4, 24);
             tabPageOrderDetails.Margin = new Padding(4, 3, 4, 3);
             tabPageOrderDetails.Name = "tabPageOrderDetails";
@@ -1798,10 +1933,76 @@
             tabPageOrderDetails.Size = new Size(889, 1010);
             tabPageOrderDetails.TabIndex = 5;
             tabPageOrderDetails.Text = "Позиции заказов";
-            tabPageOrderDetails.UseVisualStyleBackColor = true;
+            // 
+            // buttonTXTOrderDetails
+            // 
+            buttonTXTOrderDetails.BackColor = Color.FromArgb(241, 156, 55);
+            buttonTXTOrderDetails.FlatAppearance.BorderSize = 2;
+            buttonTXTOrderDetails.FlatStyle = FlatStyle.Flat;
+            buttonTXTOrderDetails.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonTXTOrderDetails.ForeColor = Color.Black;
+            buttonTXTOrderDetails.Location = new Point(633, 400);
+            buttonTXTOrderDetails.Margin = new Padding(4, 3, 4, 3);
+            buttonTXTOrderDetails.Name = "buttonTXTOrderDetails";
+            buttonTXTOrderDetails.Size = new Size(236, 40);
+            buttonTXTOrderDetails.TabIndex = 6;
+            buttonTXTOrderDetails.Text = "Вывод в TXT";
+            buttonTXTOrderDetails.UseVisualStyleBackColor = false;
+            buttonTXTOrderDetails.Click += ButtonTXTOrderDetails_Click;
+            // 
+            // buttonExcelOrderDetails
+            // 
+            buttonExcelOrderDetails.BackColor = Color.FromArgb(241, 156, 55);
+            buttonExcelOrderDetails.FlatAppearance.BorderSize = 2;
+            buttonExcelOrderDetails.FlatStyle = FlatStyle.Flat;
+            buttonExcelOrderDetails.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonExcelOrderDetails.ForeColor = Color.Black;
+            buttonExcelOrderDetails.Location = new Point(633, 354);
+            buttonExcelOrderDetails.Margin = new Padding(4, 3, 4, 3);
+            buttonExcelOrderDetails.Name = "buttonExcelOrderDetails";
+            buttonExcelOrderDetails.Size = new Size(236, 40);
+            buttonExcelOrderDetails.TabIndex = 5;
+            buttonExcelOrderDetails.Text = "Вывод в Excel";
+            buttonExcelOrderDetails.UseVisualStyleBackColor = false;
+            buttonExcelOrderDetails.Click += ButtonExcelOrderDetails_Click;
+            // 
+            // buttonNewOrderDetails
+            // 
+            buttonNewOrderDetails.BackColor = Color.FromArgb(241, 156, 55);
+            buttonNewOrderDetails.FlatAppearance.BorderSize = 2;
+            buttonNewOrderDetails.FlatStyle = FlatStyle.Flat;
+            buttonNewOrderDetails.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonNewOrderDetails.ForeColor = Color.Black;
+            buttonNewOrderDetails.Location = new Point(633, 124);
+            buttonNewOrderDetails.Margin = new Padding(4, 3, 4, 3);
+            buttonNewOrderDetails.Name = "buttonNewOrderDetails";
+            buttonNewOrderDetails.Size = new Size(236, 40);
+            buttonNewOrderDetails.TabIndex = 0;
+            buttonNewOrderDetails.Text = "Новая запись";
+            buttonNewOrderDetails.UseVisualStyleBackColor = false;
+            buttonNewOrderDetails.Click += ButtonNewOrderDetails_Click;
+            // 
+            // buttonDeleteOrderDetails
+            // 
+            buttonDeleteOrderDetails.BackColor = Color.FromArgb(241, 156, 55);
+            buttonDeleteOrderDetails.FlatAppearance.BorderSize = 2;
+            buttonDeleteOrderDetails.FlatStyle = FlatStyle.Flat;
+            buttonDeleteOrderDetails.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonDeleteOrderDetails.ForeColor = Color.Black;
+            buttonDeleteOrderDetails.Location = new Point(633, 170);
+            buttonDeleteOrderDetails.Margin = new Padding(4, 3, 4, 3);
+            buttonDeleteOrderDetails.Name = "buttonDeleteOrderDetails";
+            buttonDeleteOrderDetails.Size = new Size(236, 40);
+            buttonDeleteOrderDetails.TabIndex = 1;
+            buttonDeleteOrderDetails.Text = "Удалить";
+            buttonDeleteOrderDetails.UseVisualStyleBackColor = false;
+            buttonDeleteOrderDetails.Click += ButtonDeleteOrderDetails_Click;
             // 
             // panelTitleOrderDetails
             // 
+            panelTitleOrderDetails.BackColor = Color.FromArgb(0, 83, 133);
+            panelTitleOrderDetails.Controls.Add(panel10);
+            panelTitleOrderDetails.Controls.Add(panel5);
             panelTitleOrderDetails.Controls.Add(labelTitleOrderDetails);
             panelTitleOrderDetails.Controls.Add(buttonClearOrderDetails);
             panelTitleOrderDetails.Controls.Add(buttonRefreshOrderDetails);
@@ -1809,15 +2010,35 @@
             panelTitleOrderDetails.Location = new Point(0, 0);
             panelTitleOrderDetails.Margin = new Padding(4, 3, 4, 3);
             panelTitleOrderDetails.Name = "panelTitleOrderDetails";
-            panelTitleOrderDetails.Size = new Size(876, 84);
+            panelTitleOrderDetails.Size = new Size(893, 84);
             panelTitleOrderDetails.TabIndex = 3;
+            // 
+            // panel10
+            // 
+            panel10.BackColor = Color.FromArgb(201, 201, 209);
+            panel10.BackgroundImage = (Image)resources.GetObject("panel10.BackgroundImage");
+            panel10.BackgroundImageLayout = ImageLayout.Stretch;
+            panel10.BorderStyle = BorderStyle.FixedSingle;
+            panel10.Location = new Point(848, 25);
+            panel10.Name = "panel10";
+            panel10.Size = new Size(33, 33);
+            panel10.TabIndex = 10;
+            // 
+            // panel5
+            // 
+            panel5.BackgroundImage = (Image)resources.GetObject("panel5.BackgroundImage");
+            panel5.BackgroundImageLayout = ImageLayout.Stretch;
+            panel5.Location = new Point(3, 4);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(100, 75);
+            panel5.TabIndex = 9;
             // 
             // labelTitleOrderDetails
             // 
             labelTitleOrderDetails.AutoSize = true;
             labelTitleOrderDetails.Font = new Font("Segoe UI", 36F, FontStyle.Underline, GraphicsUnit.Point, 0);
             labelTitleOrderDetails.ForeColor = Color.WhiteSmoke;
-            labelTitleOrderDetails.Location = new Point(4, 3);
+            labelTitleOrderDetails.Location = new Point(110, 10);
             labelTitleOrderDetails.Margin = new Padding(4, 0, 4, 0);
             labelTitleOrderDetails.Name = "labelTitleOrderDetails";
             labelTitleOrderDetails.Size = new Size(404, 65);
@@ -1830,10 +2051,10 @@
             buttonClearOrderDetails.BackgroundImageLayout = ImageLayout.Stretch;
             buttonClearOrderDetails.FlatStyle = FlatStyle.Flat;
             buttonClearOrderDetails.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            buttonClearOrderDetails.Location = new Point(528, 3);
+            buttonClearOrderDetails.Location = new Point(514, 10);
             buttonClearOrderDetails.Margin = new Padding(4, 3, 4, 3);
             buttonClearOrderDetails.Name = "buttonClearOrderDetails";
-            buttonClearOrderDetails.Size = new Size(78, 77);
+            buttonClearOrderDetails.Size = new Size(60, 60);
             buttonClearOrderDetails.TabIndex = 0;
             buttonClearOrderDetails.UseVisualStyleBackColor = true;
             buttonClearOrderDetails.Click += ButtonClear_Click;
@@ -1844,40 +2065,75 @@
             buttonRefreshOrderDetails.BackgroundImageLayout = ImageLayout.Stretch;
             buttonRefreshOrderDetails.FlatStyle = FlatStyle.Flat;
             buttonRefreshOrderDetails.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            buttonRefreshOrderDetails.Location = new Point(614, 3);
+            buttonRefreshOrderDetails.Location = new Point(582, 10);
             buttonRefreshOrderDetails.Margin = new Padding(4, 3, 4, 3);
             buttonRefreshOrderDetails.Name = "buttonRefreshOrderDetails";
-            buttonRefreshOrderDetails.Size = new Size(78, 77);
+            buttonRefreshOrderDetails.Size = new Size(60, 60);
             buttonRefreshOrderDetails.TabIndex = 1;
             buttonRefreshOrderDetails.UseVisualStyleBackColor = true;
             buttonRefreshOrderDetails.Click += ButtonRefresh_Click;
             // 
             // textBoxSearchOrderDetails
             // 
+            textBoxSearchOrderDetails.BackColor = Color.FromArgb(201, 201, 209);
             textBoxSearchOrderDetails.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxSearchOrderDetails.Location = new Point(699, 37);
+            textBoxSearchOrderDetails.Location = new Point(650, 25);
             textBoxSearchOrderDetails.Margin = new Padding(4, 3, 4, 3);
             textBoxSearchOrderDetails.Name = "textBoxSearchOrderDetails";
-            textBoxSearchOrderDetails.Size = new Size(173, 33);
+            textBoxSearchOrderDetails.Size = new Size(198, 33);
             textBoxSearchOrderDetails.TabIndex = 2;
             textBoxSearchOrderDetails.TextChanged += TextBoxSearchOrderDetails_TextChanged;
+            // 
+            // buttonChangeOrderDetails
+            // 
+            buttonChangeOrderDetails.BackColor = Color.FromArgb(241, 156, 55);
+            buttonChangeOrderDetails.FlatAppearance.BorderSize = 2;
+            buttonChangeOrderDetails.FlatStyle = FlatStyle.Flat;
+            buttonChangeOrderDetails.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonChangeOrderDetails.ForeColor = Color.Black;
+            buttonChangeOrderDetails.Location = new Point(633, 216);
+            buttonChangeOrderDetails.Margin = new Padding(4, 3, 4, 3);
+            buttonChangeOrderDetails.Name = "buttonChangeOrderDetails";
+            buttonChangeOrderDetails.Size = new Size(236, 40);
+            buttonChangeOrderDetails.TabIndex = 2;
+            buttonChangeOrderDetails.Text = "Изменить";
+            buttonChangeOrderDetails.UseVisualStyleBackColor = false;
+            buttonChangeOrderDetails.Click += ButtonChangeOrderDetails_Click;
             // 
             // dataGridViewOrderDetails
             // 
             dataGridViewOrderDetails.AllowUserToAddRows = false;
             dataGridViewOrderDetails.AllowUserToDeleteRows = false;
             dataGridViewOrderDetails.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewOrderDetails.Location = new Point(9, 91);
+            dataGridViewOrderDetails.Location = new Point(19, 91);
             dataGridViewOrderDetails.Margin = new Padding(4, 3, 4, 3);
             dataGridViewOrderDetails.Name = "dataGridViewOrderDetails";
             dataGridViewOrderDetails.ReadOnly = true;
             dataGridViewOrderDetails.RowHeadersWidth = 62;
-            dataGridViewOrderDetails.Size = new Size(867, 352);
+            dataGridViewOrderDetails.Size = new Size(596, 349);
             dataGridViewOrderDetails.TabIndex = 0;
             dataGridViewOrderDetails.CellClick += DataGridViewOrderDetails_CellClick;
             // 
+            // buttonSaveOrderDetails
+            // 
+            buttonSaveOrderDetails.BackColor = Color.FromArgb(241, 156, 55);
+            buttonSaveOrderDetails.FlatAppearance.BorderSize = 2;
+            buttonSaveOrderDetails.FlatStyle = FlatStyle.Flat;
+            buttonSaveOrderDetails.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonSaveOrderDetails.ForeColor = Color.Black;
+            buttonSaveOrderDetails.Location = new Point(633, 262);
+            buttonSaveOrderDetails.Margin = new Padding(4, 3, 4, 3);
+            buttonSaveOrderDetails.Name = "buttonSaveOrderDetails";
+            buttonSaveOrderDetails.Size = new Size(236, 40);
+            buttonSaveOrderDetails.TabIndex = 3;
+            buttonSaveOrderDetails.Text = "Сохранить";
+            buttonSaveOrderDetails.UseVisualStyleBackColor = false;
+            buttonSaveOrderDetails.Click += ButtonSaveOrderDetails_Click;
+            // 
             // panelRecordOrderDetails
             // 
+            panelRecordOrderDetails.BackColor = Color.FromArgb(49, 128, 168);
+            panelRecordOrderDetails.BorderStyle = BorderStyle.FixedSingle;
             panelRecordOrderDetails.Controls.Add(labelRecordOrderDetails);
             panelRecordOrderDetails.Controls.Add(labelOrderDetailID);
             panelRecordOrderDetails.Controls.Add(textBoxOrderDetailID);
@@ -1887,18 +2143,18 @@
             panelRecordOrderDetails.Controls.Add(textBoxProductIDOrderDetails);
             panelRecordOrderDetails.Controls.Add(labelPriceOrderDetails);
             panelRecordOrderDetails.Controls.Add(textBoxPriceOrderDetails);
-            panelRecordOrderDetails.Location = new Point(9, 450);
+            panelRecordOrderDetails.Location = new Point(19, 450);
             panelRecordOrderDetails.Margin = new Padding(4, 3, 4, 3);
             panelRecordOrderDetails.Name = "panelRecordOrderDetails";
-            panelRecordOrderDetails.Size = new Size(611, 552);
+            panelRecordOrderDetails.Size = new Size(850, 376);
             panelRecordOrderDetails.TabIndex = 1;
             // 
             // labelRecordOrderDetails
             // 
             labelRecordOrderDetails.AutoSize = true;
             labelRecordOrderDetails.Font = new Font("Segoe UI Semibold", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            labelRecordOrderDetails.ForeColor = Color.WhiteSmoke;
-            labelRecordOrderDetails.Location = new Point(4, 10);
+            labelRecordOrderDetails.ForeColor = Color.Black;
+            labelRecordOrderDetails.Location = new Point(356, 17);
             labelRecordOrderDetails.Margin = new Padding(4, 0, 4, 0);
             labelRecordOrderDetails.Name = "labelRecordOrderDetails";
             labelRecordOrderDetails.Size = new Size(142, 47);
@@ -1908,83 +2164,103 @@
             // labelOrderDetailID
             // 
             labelOrderDetailID.AutoSize = true;
-            labelOrderDetailID.ForeColor = Color.WhiteSmoke;
-            labelOrderDetailID.Location = new Point(93, 82);
+            labelOrderDetailID.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            labelOrderDetailID.ForeColor = Color.Black;
+            labelOrderDetailID.Location = new Point(112, 92);
             labelOrderDetailID.Margin = new Padding(4, 0, 4, 0);
             labelOrderDetailID.Name = "labelOrderDetailID";
-            labelOrderDetailID.Size = new Size(48, 15);
+            labelOrderDetailID.Size = new Size(67, 21);
             labelOrderDetailID.TabIndex = 5;
             labelOrderDetailID.Text = "Номер:";
             // 
             // textBoxOrderDetailID
             // 
             textBoxOrderDetailID.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxOrderDetailID.Location = new Point(152, 68);
+            textBoxOrderDetailID.Location = new Point(187, 86);
             textBoxOrderDetailID.Margin = new Padding(4, 3, 4, 3);
             textBoxOrderDetailID.Name = "textBoxOrderDetailID";
-            textBoxOrderDetailID.Size = new Size(455, 33);
+            textBoxOrderDetailID.Size = new Size(202, 33);
             textBoxOrderDetailID.TabIndex = 0;
             // 
             // labelOrderIDOrderDetails
             // 
             labelOrderIDOrderDetails.AutoSize = true;
-            labelOrderIDOrderDetails.ForeColor = Color.WhiteSmoke;
-            labelOrderIDOrderDetails.Location = new Point(56, 124);
+            labelOrderIDOrderDetails.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            labelOrderIDOrderDetails.ForeColor = Color.Black;
+            labelOrderIDOrderDetails.Location = new Point(397, 92);
             labelOrderIDOrderDetails.Margin = new Padding(4, 0, 4, 0);
             labelOrderIDOrderDetails.Name = "labelOrderIDOrderDetails";
-            labelOrderIDOrderDetails.Size = new Size(85, 15);
+            labelOrderIDOrderDetails.Size = new Size(123, 21);
             labelOrderIDOrderDetails.TabIndex = 6;
             labelOrderIDOrderDetails.Text = "Номер заказа:";
             // 
             // textBoxOrderIDOrderDetails
             // 
             textBoxOrderIDOrderDetails.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxOrderIDOrderDetails.Location = new Point(152, 113);
+            textBoxOrderIDOrderDetails.Location = new Point(528, 86);
             textBoxOrderIDOrderDetails.Margin = new Padding(4, 3, 4, 3);
             textBoxOrderIDOrderDetails.Name = "textBoxOrderIDOrderDetails";
-            textBoxOrderIDOrderDetails.Size = new Size(455, 33);
+            textBoxOrderIDOrderDetails.Size = new Size(202, 33);
             textBoxOrderIDOrderDetails.TabIndex = 1;
             // 
             // labelProductIDOrderDetails
             // 
             labelProductIDOrderDetails.AutoSize = true;
-            labelProductIDOrderDetails.ForeColor = Color.WhiteSmoke;
-            labelProductIDOrderDetails.Location = new Point(0, 169);
+            labelProductIDOrderDetails.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            labelProductIDOrderDetails.ForeColor = Color.Black;
+            labelProductIDOrderDetails.Location = new Point(112, 131);
             labelProductIDOrderDetails.Margin = new Padding(4, 0, 4, 0);
             labelProductIDOrderDetails.Name = "labelProductIDOrderDetails";
-            labelProductIDOrderDetails.Size = new Size(146, 15);
+            labelProductIDOrderDetails.Size = new Size(211, 21);
             labelProductIDOrderDetails.TabIndex = 7;
             labelProductIDOrderDetails.Text = "Наименование продукта:";
             // 
             // textBoxProductIDOrderDetails
             // 
             textBoxProductIDOrderDetails.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxProductIDOrderDetails.Location = new Point(152, 158);
+            textBoxProductIDOrderDetails.Location = new Point(331, 125);
             textBoxProductIDOrderDetails.Margin = new Padding(4, 3, 4, 3);
             textBoxProductIDOrderDetails.Name = "textBoxProductIDOrderDetails";
-            textBoxProductIDOrderDetails.Size = new Size(455, 33);
+            textBoxProductIDOrderDetails.Size = new Size(399, 33);
             textBoxProductIDOrderDetails.TabIndex = 2;
             // 
             // labelPriceOrderDetails
             // 
             labelPriceOrderDetails.AutoSize = true;
-            labelPriceOrderDetails.ForeColor = Color.WhiteSmoke;
-            labelPriceOrderDetails.Location = new Point(103, 217);
+            labelPriceOrderDetails.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            labelPriceOrderDetails.ForeColor = Color.Black;
+            labelPriceOrderDetails.Location = new Point(114, 170);
             labelPriceOrderDetails.Margin = new Padding(4, 0, 4, 0);
             labelPriceOrderDetails.Name = "labelPriceOrderDetails";
-            labelPriceOrderDetails.Size = new Size(38, 15);
+            labelPriceOrderDetails.Size = new Size(55, 21);
             labelPriceOrderDetails.TabIndex = 8;
             labelPriceOrderDetails.Text = "Цена:";
             // 
             // textBoxPriceOrderDetails
             // 
             textBoxPriceOrderDetails.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxPriceOrderDetails.Location = new Point(152, 206);
+            textBoxPriceOrderDetails.Location = new Point(177, 164);
             textBoxPriceOrderDetails.Margin = new Padding(4, 3, 4, 3);
             textBoxPriceOrderDetails.Name = "textBoxPriceOrderDetails";
             textBoxPriceOrderDetails.ReadOnly = true;
-            textBoxPriceOrderDetails.Size = new Size(455, 33);
+            textBoxPriceOrderDetails.Size = new Size(553, 33);
             textBoxPriceOrderDetails.TabIndex = 3;
+            // 
+            // buttonWordOrderDetails
+            // 
+            buttonWordOrderDetails.BackColor = Color.FromArgb(241, 156, 55);
+            buttonWordOrderDetails.FlatAppearance.BorderSize = 2;
+            buttonWordOrderDetails.FlatStyle = FlatStyle.Flat;
+            buttonWordOrderDetails.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonWordOrderDetails.ForeColor = Color.Black;
+            buttonWordOrderDetails.Location = new Point(633, 308);
+            buttonWordOrderDetails.Margin = new Padding(4, 3, 4, 3);
+            buttonWordOrderDetails.Name = "buttonWordOrderDetails";
+            buttonWordOrderDetails.Size = new Size(236, 40);
+            buttonWordOrderDetails.TabIndex = 4;
+            buttonWordOrderDetails.Text = "Вывод в Word";
+            buttonWordOrderDetails.UseVisualStyleBackColor = false;
+            buttonWordOrderDetails.Click += ButtonWordOrderDetails_Click;
             // 
             // labelControlOrderDetails
             // 
@@ -1992,136 +2268,12 @@
             labelControlOrderDetails.BackColor = Color.Transparent;
             labelControlOrderDetails.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
             labelControlOrderDetails.ForeColor = Color.Black;
-            labelControlOrderDetails.Location = new Point(636, 456);
+            labelControlOrderDetails.Location = new Point(643, 91);
             labelControlOrderDetails.Margin = new Padding(4, 0, 4, 0);
             labelControlOrderDetails.Name = "labelControlOrderDetails";
             labelControlOrderDetails.Size = new Size(213, 25);
             labelControlOrderDetails.TabIndex = 4;
             labelControlOrderDetails.Text = "Управление записями:";
-            // 
-            // panelControlOrderDetails
-            // 
-            panelControlOrderDetails.Controls.Add(buttonNewOrderDetails);
-            panelControlOrderDetails.Controls.Add(buttonDeleteOrderDetails);
-            panelControlOrderDetails.Controls.Add(buttonChangeOrderDetails);
-            panelControlOrderDetails.Controls.Add(buttonSaveOrderDetails);
-            panelControlOrderDetails.Controls.Add(buttonWordOrderDetails);
-            panelControlOrderDetails.Controls.Add(buttonExcelOrderDetails);
-            panelControlOrderDetails.Controls.Add(buttonTXTOrderDetails);
-            panelControlOrderDetails.Location = new Point(634, 482);
-            panelControlOrderDetails.Margin = new Padding(4, 3, 4, 3);
-            panelControlOrderDetails.Name = "panelControlOrderDetails";
-            panelControlOrderDetails.Size = new Size(243, 520);
-            panelControlOrderDetails.TabIndex = 2;
-            // 
-            // buttonNewOrderDetails
-            // 
-            buttonNewOrderDetails.FlatStyle = FlatStyle.Flat;
-            buttonNewOrderDetails.ForeColor = Color.Black;
-            buttonNewOrderDetails.Location = new Point(4, 3);
-            buttonNewOrderDetails.Margin = new Padding(4, 3, 4, 3);
-            buttonNewOrderDetails.Name = "buttonNewOrderDetails";
-            buttonNewOrderDetails.Size = new Size(236, 67);
-            buttonNewOrderDetails.TabIndex = 0;
-            buttonNewOrderDetails.Text = "Новая запись";
-            buttonNewOrderDetails.UseVisualStyleBackColor = true;
-            buttonNewOrderDetails.Click += ButtonNewOrderDetails_Click;
-            // 
-            // buttonDeleteOrderDetails
-            // 
-            buttonDeleteOrderDetails.FlatStyle = FlatStyle.Flat;
-            buttonDeleteOrderDetails.ForeColor = Color.Black;
-            buttonDeleteOrderDetails.Location = new Point(4, 78);
-            buttonDeleteOrderDetails.Margin = new Padding(4, 3, 4, 3);
-            buttonDeleteOrderDetails.Name = "buttonDeleteOrderDetails";
-            buttonDeleteOrderDetails.Size = new Size(236, 67);
-            buttonDeleteOrderDetails.TabIndex = 1;
-            buttonDeleteOrderDetails.Text = "Удалить";
-            buttonDeleteOrderDetails.UseVisualStyleBackColor = true;
-            buttonDeleteOrderDetails.Click += ButtonDeleteOrderDetails_Click;
-            // 
-            // buttonChangeOrderDetails
-            // 
-            buttonChangeOrderDetails.FlatStyle = FlatStyle.Flat;
-            buttonChangeOrderDetails.ForeColor = Color.Black;
-            buttonChangeOrderDetails.Location = new Point(4, 152);
-            buttonChangeOrderDetails.Margin = new Padding(4, 3, 4, 3);
-            buttonChangeOrderDetails.Name = "buttonChangeOrderDetails";
-            buttonChangeOrderDetails.Size = new Size(236, 67);
-            buttonChangeOrderDetails.TabIndex = 2;
-            buttonChangeOrderDetails.Text = "Изменить";
-            buttonChangeOrderDetails.UseVisualStyleBackColor = true;
-            buttonChangeOrderDetails.Click += ButtonChangeOrderDetails_Click;
-            // 
-            // buttonSaveOrderDetails
-            // 
-            buttonSaveOrderDetails.FlatStyle = FlatStyle.Flat;
-            buttonSaveOrderDetails.ForeColor = Color.Black;
-            buttonSaveOrderDetails.Location = new Point(4, 226);
-            buttonSaveOrderDetails.Margin = new Padding(4, 3, 4, 3);
-            buttonSaveOrderDetails.Name = "buttonSaveOrderDetails";
-            buttonSaveOrderDetails.Size = new Size(236, 67);
-            buttonSaveOrderDetails.TabIndex = 3;
-            buttonSaveOrderDetails.Text = "Сохранить";
-            buttonSaveOrderDetails.UseVisualStyleBackColor = true;
-            buttonSaveOrderDetails.Click += ButtonSaveOrderDetails_Click;
-            // 
-            // buttonWordOrderDetails
-            // 
-            buttonWordOrderDetails.FlatStyle = FlatStyle.Flat;
-            buttonWordOrderDetails.ForeColor = Color.Black;
-            buttonWordOrderDetails.Location = new Point(4, 301);
-            buttonWordOrderDetails.Margin = new Padding(4, 3, 4, 3);
-            buttonWordOrderDetails.Name = "buttonWordOrderDetails";
-            buttonWordOrderDetails.Size = new Size(236, 67);
-            buttonWordOrderDetails.TabIndex = 4;
-            buttonWordOrderDetails.Text = "Вывод в Word";
-            buttonWordOrderDetails.UseVisualStyleBackColor = true;
-            buttonWordOrderDetails.Click += ButtonWordOrderDetails_Click;
-            // 
-            // buttonExcelOrderDetails
-            // 
-            buttonExcelOrderDetails.FlatStyle = FlatStyle.Flat;
-            buttonExcelOrderDetails.ForeColor = Color.Black;
-            buttonExcelOrderDetails.Location = new Point(4, 375);
-            buttonExcelOrderDetails.Margin = new Padding(4, 3, 4, 3);
-            buttonExcelOrderDetails.Name = "buttonExcelOrderDetails";
-            buttonExcelOrderDetails.Size = new Size(236, 67);
-            buttonExcelOrderDetails.TabIndex = 5;
-            buttonExcelOrderDetails.Text = "Вывод в Excel";
-            buttonExcelOrderDetails.UseVisualStyleBackColor = true;
-            buttonExcelOrderDetails.Click += ButtonExcelOrderDetails_Click;
-            // 
-            // buttonTXTOrderDetails
-            // 
-            buttonTXTOrderDetails.FlatStyle = FlatStyle.Flat;
-            buttonTXTOrderDetails.ForeColor = Color.Black;
-            buttonTXTOrderDetails.Location = new Point(4, 449);
-            buttonTXTOrderDetails.Margin = new Padding(4, 3, 4, 3);
-            buttonTXTOrderDetails.Name = "buttonTXTOrderDetails";
-            buttonTXTOrderDetails.Size = new Size(236, 67);
-            buttonTXTOrderDetails.TabIndex = 6;
-            buttonTXTOrderDetails.Text = "Вывод в TXT";
-            buttonTXTOrderDetails.UseVisualStyleBackColor = true;
-            buttonTXTOrderDetails.Click += ButtonTXTOrderDetails_Click;
-            // 
-            // panel2
-            // 
-            panel2.BackgroundImage = (Image)resources.GetObject("panel2.BackgroundImage");
-            panel2.BackgroundImageLayout = ImageLayout.Stretch;
-            panel2.Location = new Point(3, 4);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(100, 75);
-            panel2.TabIndex = 6;
-            // 
-            // panel3
-            // 
-            panel3.BackgroundImage = (Image)resources.GetObject("panel3.BackgroundImage");
-            panel3.BackgroundImageLayout = ImageLayout.Stretch;
-            panel3.Location = new Point(3, 4);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(100, 75);
-            panel3.TabIndex = 7;
             // 
             // Form1
             // 
@@ -2172,7 +2324,6 @@
             ((System.ComponentModel.ISupportInitialize)dataGridViewOrderDetails).EndInit();
             panelRecordOrderDetails.ResumeLayout(false);
             panelRecordOrderDetails.PerformLayout();
-            panelControlOrderDetails.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -2275,7 +2426,6 @@
         private TextBox textBoxProductIDOrderDetails;
         private Label labelPriceOrderDetails;
         private Label labelControlOrderDetails;
-        private Panel panelControlOrderDetails;
         private Button buttonNewOrderDetails;
         private Button buttonDeleteOrderDetails;
         private Button buttonChangeOrderDetails;
@@ -2312,7 +2462,6 @@
         private TextBox textBoxSearchClients;
         private DataGridView dataGridViewClients;
         private Panel panelRecordClients;
-        private Label labelRecordClients;
         private Label labelClientID;
         private TextBox textBoxClientID;
         private Label labelFullNameClients;
@@ -2332,5 +2481,13 @@
         private Panel panel1;
         private Panel panel2;
         private Panel panel3;
+        private Panel panel4;
+        private Panel panel5;
+        private Panel panel6;
+        private Panel panel7;
+        private Panel panel8;
+        private Panel panel9;
+        private Panel panel10;
+        private Label labelRecordClients;
     }
 }
