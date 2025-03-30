@@ -12,6 +12,11 @@ namespace OrderTrack
             StartPosition = FormStartPosition.CenterScreen;
         }
 
+        /// <summary>
+        /// ButtonSave_Click() вызывается при нажатии на кнопку "Сохранить"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonSave_Click(object sender, EventArgs e)
         {
             try

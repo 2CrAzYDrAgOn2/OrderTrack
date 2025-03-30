@@ -962,6 +962,10 @@ namespace OrderTrack
             Process.Start(new ProcessStartInfo(filePath) { UseShellExecute = true });
         }
 
+        /// <summary>
+        /// Reports() вызывается при формировании отчетов
+        /// </summary>
+        /// <param name="report"></param>
         private void Reports(string report)
         {
             dataBase.OpenConnection();
@@ -1928,22 +1932,18 @@ namespace OrderTrack
 
         private void labelClientTypeID_Click(object sender, EventArgs e)
         {
-
         }
 
         private void labelRecordClients_Click(object sender, EventArgs e)
         {
-
         }
 
         private void tabPageClients_Click(object sender, EventArgs e)
         {
-
         }
 
         private void labelGenderID_Click(object sender, EventArgs e)
         {
-
         }
     }
 }
