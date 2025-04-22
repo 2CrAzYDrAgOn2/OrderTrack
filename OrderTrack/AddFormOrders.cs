@@ -11,6 +11,34 @@ namespace OrderTrack
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
+            dataBase.OpenConnection();
+            comboBoxClientIDOrders.Items.Clear();
+            var clientsQuery = "SELECT FullName FROM Clients ORDER BY FullName";
+            var clientsCommand = new SqlCommand(clientsQuery, dataBase.GetConnection());
+            var clientsReader = clientsCommand.ExecuteReader();
+            while (clientsReader.Read())
+            {
+                comboBoxClientIDOrders.Items.Add(clientsReader.GetString(0));
+            }
+            clientsReader.Close();
+            comboBoxEmployeeIDOrders.Items.Clear();
+            var employeesQuery = "SELECT FullName FROM Employees ORDER BY FullName";
+            var employeesCommand = new SqlCommand(employeesQuery, dataBase.GetConnection());
+            var employeesReader = employeesCommand.ExecuteReader();
+            while (employeesReader.Read())
+            {
+                comboBoxEmployeeIDOrders.Items.Add(employeesReader.GetString(0));
+            }
+            employeesReader.Close();
+            comboBoxStatusID.Items.Clear();
+            var statusesQuery = "SELECT Status FROM Statuses ORDER BY Status";
+            var statusesCommand = new SqlCommand(statusesQuery, dataBase.GetConnection());
+            var statusesReader = statusesCommand.ExecuteReader();
+            while (statusesReader.Read())
+            {
+                comboBoxStatusID.Items.Add(statusesReader.GetString(0));
+            }
+            statusesReader.Close();
         }
 
         /// <summary>
@@ -23,13 +51,13 @@ namespace OrderTrack
             try
             {
                 dataBase.OpenConnection();
-                var client = textBoxClientIDOrders.Text;
+                var client = comboBoxClientIDOrders.Text;
                 string queryClient = $"SELECT ClientID FROM Clients WHERE FullName = '{client}'";
                 SqlCommand commandClient = new(queryClient, dataBase.GetConnection());
                 dataBase.OpenConnection();
                 object resultClient = commandClient.ExecuteScalar();
                 var clientIDOrders = resultClient.ToString();
-                var employee = textBoxEmployeeIDOrders.Text;
+                var employee = comboBoxEmployeeIDOrders.Text;
                 string queryEmployee = $"SELECT EmployeeID FROM Employees WHERE FullName = '{employee}'";
                 SqlCommand commandEmployee = new(queryEmployee, dataBase.GetConnection());
                 dataBase.OpenConnection();

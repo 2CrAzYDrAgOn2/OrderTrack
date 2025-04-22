@@ -48,44 +48,54 @@ namespace OrderTrack
         {
             try
             {
-                dataGridViewClients.Columns.Add("ClientID", "Номер");
-                dataGridViewClients.Columns.Add("FullName", "Наименование");
-                dataGridViewClients.Columns.Add("ClientTypeID", "Тип клиента");
-                dataGridViewClients.Columns.Add("Email", "Электронная почта");
-                dataGridViewClients.Columns.Add("Phone", "Телефон");
-                dataGridViewClients.Columns.Add("Address", "Адрес");
-                dataGridViewClients.Columns.Add("INN", "ИНН");
-                dataGridViewClients.Columns.Add("RegistrationDate", "Дата регистрации");
+                dataGridViewClients.Columns.Add("Номер", "Номер");
+                dataGridViewClients.Columns.Add("Наименование", "Наименование");
+                dataGridViewClients.Columns.Add("Тип клиента", "Тип клиента");
+                dataGridViewClients.Columns.Add("Электронная почта", "Электронная почта");
+                dataGridViewClients.Columns.Add("Телефон", "Телефон");
+                dataGridViewClients.Columns.Add("Адрес", "Адрес");
+                dataGridViewClients.Columns.Add("ИНН", "ИНН");
+                dataGridViewClients.Columns.Add("Дата регистрации", "Дата регистрации");
                 dataGridViewClients.Columns.Add("IsNew", String.Empty);
-                dataGridViewEmployees.Columns.Add("EmployeeID", "Номер");
-                dataGridViewEmployees.Columns.Add("FullName", "ФИО");
-                dataGridViewEmployees.Columns.Add("Phone", "Телефон");
-                dataGridViewEmployees.Columns.Add("Email", "Почта");
-                dataGridViewEmployees.Columns.Add("GenderID", "Пол");
-                dataGridViewEmployees.Columns.Add("PostID", "Должность");
+                dataGridViewEmployees.Columns.Add("Номер", "Номер");
+                dataGridViewEmployees.Columns.Add("ФИО", "ФИО");
+                dataGridViewEmployees.Columns.Add("Телефон", "Телефон");
+                dataGridViewEmployees.Columns.Add("Почта", "Почта");
+                dataGridViewEmployees.Columns.Add("Пол", "Пол");
+                dataGridViewEmployees.Columns.Add("Должность", "Должность");
                 dataGridViewEmployees.Columns.Add("IsNew", String.Empty);
-                dataGridViewOrders.Columns.Add("OrderID", "Номер");
-                dataGridViewOrders.Columns.Add("ClientID", "Наименование клиента");
-                dataGridViewOrders.Columns.Add("EmployeeID", "ФИО сотрудника");
-                dataGridViewOrders.Columns.Add("OrderDate", "Дата заказа");
-                dataGridViewOrders.Columns.Add("TotalAmount", "Итого");
-                dataGridViewOrders.Columns.Add("StatusID", "Статус");
+                dataGridViewOrders.Columns.Add("Номер", "Номер");
+                dataGridViewOrders.Columns.Add("Наименование клиента", "Наименование клиента");
+                dataGridViewOrders.Columns.Add("ФИО сотрудника", "ФИО сотрудника");
+                dataGridViewOrders.Columns.Add("Дата заказа", "Дата заказа");
+                dataGridViewOrders.Columns.Add("Итого", "Итого");
+                dataGridViewOrders.Columns.Add("Статус", "Статус");
                 dataGridViewOrders.Columns.Add("IsNew", String.Empty);
-                dataGridViewProducts.Columns.Add("ProductID", "Номер");
-                dataGridViewProducts.Columns.Add("Name", "Наименование");
-                dataGridViewProducts.Columns.Add("Description", "Описание");
-                dataGridViewProducts.Columns.Add("Price", "Цена");
+                dataGridViewProducts.Columns.Add("Номер", "Номер");
+                dataGridViewProducts.Columns.Add("Наименование", "Наименование");
+                dataGridViewProducts.Columns.Add("Описание", "Описание");
+                dataGridViewProducts.Columns.Add("Цена", "Цена");
                 dataGridViewProducts.Columns.Add("IsNew", String.Empty);
-                dataGridViewOrderDetails.Columns.Add("OrderDetailID", "Номер");
-                dataGridViewOrderDetails.Columns.Add("OrderID", "Номер заказа");
-                dataGridViewOrderDetails.Columns.Add("ProductID", "Наименование продукта");
-                dataGridViewOrderDetails.Columns.Add("Price", "Цена");
+                dataGridViewOrderDetails.Columns.Add("Номер", "Номер");
+                dataGridViewOrderDetails.Columns.Add("Номер заказа", "Номер заказа");
+                dataGridViewOrderDetails.Columns.Add("Наименование продукта", "Наименование продукта");
+                dataGridViewOrderDetails.Columns.Add("Цена", "Цена");
                 dataGridViewOrderDetails.Columns.Add("IsNew", String.Empty);
+                HideLastColumns();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void HideLastColumns()
+        {
+            dataGridViewClients.Columns["IsNew"].Visible = false;
+            dataGridViewEmployees.Columns["IsNew"].Visible = false;
+            dataGridViewOrders.Columns["IsNew"].Visible = false;
+            dataGridViewProducts.Columns["IsNew"].Visible = false;
+            dataGridViewOrderDetails.Columns["IsNew"].Visible = false;
         }
 
         /// <summary>
@@ -97,7 +107,6 @@ namespace OrderTrack
             {
                 textBoxClientID.Text = "";
                 textBoxFullNameClients.Text = "";
-                comboBoxClientTypeID.Text = "Физическое лицо";
                 textBoxEmailClients.Text = "";
                 maskedTextBoxPhoneClients.Text = "";
                 textBoxAddress.Text = "";
@@ -106,20 +115,13 @@ namespace OrderTrack
                 textBoxFullNameEmployees.Text = "";
                 maskedTextBoxPhoneEmployees.Text = "";
                 textBoxEmailEmployees.Text = "";
-                comboBoxGenderID.Text = "Мужской";
-                comboBoxPostID.Text = "Менеджер по продажам";
                 textBoxOrderID.Text = "";
-                textBoxClientIDOrders.Text = "";
-                textBoxEmployeeIDOrders.Text = "";
                 textBoxTotalAmount.Text = "";
-                comboBoxStatusID.Text = "В обработке";
                 textBoxProductID.Text = "";
                 textBoxName.Text = "";
                 textBoxDescription.Text = "";
                 textBoxPrice.Text = "";
                 textBoxOrderDetailID.Text = "";
-                textBoxOrderIDOrderDetails.Text = "";
-                textBoxProductIDOrderDetails.Text = "";
                 textBoxPriceOrderDetails.Text = "";
             }
             catch (Exception ex)
@@ -140,15 +142,15 @@ namespace OrderTrack
                 switch (dataGridView.Name)
                 {
                     case "dataGridViewClients":
-                        dataGridView.Rows.Add(iDataRecord.GetInt32(0), iDataRecord.GetString(1), iDataRecord.GetInt32(2), iDataRecord.GetString(3), iDataRecord.GetString(4), iDataRecord.GetString(5), iDataRecord.GetString(6), iDataRecord.GetDateTime(7).ToString("yyyy-MM-dd"), RowState.Modified);
+                        dataGridView.Rows.Add(iDataRecord.GetInt32(0), iDataRecord.GetString(1), iDataRecord.GetString(2), iDataRecord.GetString(3), iDataRecord.GetString(4), iDataRecord.GetString(5), iDataRecord.GetString(6), iDataRecord.GetDateTime(7).ToString("yyyy-MM-dd"), RowState.Modified);
                         break;
 
                     case "dataGridViewEmployees":
-                        dataGridView.Rows.Add(iDataRecord.GetInt32(0), iDataRecord.GetString(1), iDataRecord.GetString(2), iDataRecord.GetString(3), iDataRecord.GetInt32(4), iDataRecord.GetInt32(5), RowState.Modified);
+                        dataGridView.Rows.Add(iDataRecord.GetInt32(0), iDataRecord.GetString(1), iDataRecord.GetString(2), iDataRecord.GetString(3), iDataRecord.GetString(4), iDataRecord.GetString(5), RowState.Modified);
                         break;
 
                     case "dataGridViewOrders":
-                        dataGridView.Rows.Add(iDataRecord.GetInt32(0), iDataRecord.GetInt32(1), iDataRecord.GetInt32(2), iDataRecord.GetDateTime(3).ToString("yyyy-MM-dd"), iDataRecord.GetDouble(4), iDataRecord.GetInt32(5), RowState.Modified);
+                        dataGridView.Rows.Add(iDataRecord.GetInt32(0), iDataRecord.GetString(1), iDataRecord.GetString(2), iDataRecord.GetDateTime(3).ToString("yyyy-MM-dd"), iDataRecord.GetDouble(4), iDataRecord.GetString(5), RowState.Modified);
                         break;
 
                     case "dataGridViewProducts":
@@ -156,7 +158,7 @@ namespace OrderTrack
                         break;
 
                     case "dataGridViewOrderDetails":
-                        dataGridView.Rows.Add(iDataRecord.GetInt32(0), iDataRecord.GetInt32(1), iDataRecord.GetInt32(2), iDataRecord.GetDouble(3), RowState.Modified);
+                        dataGridView.Rows.Add(iDataRecord.GetInt32(0), iDataRecord.GetInt32(1), iDataRecord.GetString(2), iDataRecord.GetDouble(3), RowState.Modified);
                         break;
                 }
             }
@@ -176,7 +178,44 @@ namespace OrderTrack
             try
             {
                 dataGridView.Rows.Clear();
-                string queryString = $"select * from {tableName}";
+                string queryString = "";
+
+                switch (tableName)
+                {
+                    case "Clients":
+                        queryString = @"SELECT c.ClientID, c.FullName, ct.ClientType, c.Email, c.Phone,
+                                c.Address, c.INN, c.RegistrationDate
+                                FROM Clients c
+                                LEFT JOIN ClientTypes ct ON c.ClientTypeID = ct.ClientTypeID";
+                        break;
+
+                    case "Employees":
+                        queryString = @"SELECT e.EmployeeID, e.FullName, e.Phone, e.Email,
+                                g.Gender, p.Post
+                                FROM Employees e
+                                LEFT JOIN Genders g ON e.GenderID = g.GenderID
+                                LEFT JOIN Posts p ON e.PostID = p.PostID";
+                        break;
+
+                    case "Orders":
+                        queryString = @"SELECT o.OrderID, cl.FullName AS ClientName, emp.FullName AS EmployeeName,
+                                o.OrderDate, o.TotalAmount, s.Status
+                                FROM Orders o
+                                LEFT JOIN Clients cl ON o.ClientID = cl.ClientID
+                                LEFT JOIN Employees emp ON o.EmployeeID = emp.EmployeeID
+                                LEFT JOIN Statuses s ON o.StatusID = s.StatusID";
+                        break;
+
+                    case "Products":
+                        queryString = "SELECT ProductID, Name, Description, Price FROM Products";
+                        break;
+
+                    case "OrderDetails":
+                        queryString = @"SELECT od.OrderDetailID, od.OrderID, p.Name AS ProductName, od.Price
+                                FROM OrderDetails od
+                                LEFT JOIN Products p ON od.ProductID = p.ProductID";
+                        break;
+                }
                 SqlCommand sqlCommand = new(queryString, dataBase.GetConnection());
                 dataBase.OpenConnection();
                 SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
@@ -185,6 +224,7 @@ namespace OrderTrack
                     ReadSingleRow(dataGridView, sqlDataReader);
                 }
                 sqlDataReader.Close();
+                FillAllComboBoxes();
             }
             catch (Exception ex)
             {
@@ -274,12 +314,7 @@ namespace OrderTrack
                     case "dataGridViewClients":
                         textBoxClientID.Text = dataGridViewRow.Cells[0].Value.ToString();
                         textBoxFullNameClients.Text = dataGridViewRow.Cells[1].Value.ToString();
-                        var clientTypeID = dataGridViewRow.Cells[2].Value.ToString();
-                        string query = $"SELECT ClientType FROM ClientTypes WHERE ClientTypeID = {clientTypeID}";
-                        SqlCommand command = new(query, dataBase.GetConnection());
-                        dataBase.OpenConnection();
-                        object result = command.ExecuteScalar();
-                        comboBoxClientTypeID.Text = result.ToString();
+                        comboBoxClientTypeID.Text = dataGridViewRow.Cells[2].Value?.ToString();
                         textBoxEmailClients.Text = dataGridViewRow.Cells[3].Value.ToString();
                         maskedTextBoxPhoneClients.Text = dataGridViewRow.Cells[4].Value.ToString();
                         textBoxAddress.Text = dataGridViewRow.Cells[5].Value.ToString();
@@ -292,42 +327,17 @@ namespace OrderTrack
                         textBoxFullNameEmployees.Text = dataGridViewRow.Cells[1].Value.ToString();
                         maskedTextBoxPhoneEmployees.Text = dataGridViewRow.Cells[2].Value.ToString();
                         textBoxEmailEmployees.Text = dataGridViewRow.Cells[3].Value.ToString();
-                        var genderID = dataGridViewRow.Cells[4].Value.ToString();
-                        string queryGender = $"SELECT Gender FROM Genders WHERE GenderID = {genderID}";
-                        SqlCommand commandGender = new(queryGender, dataBase.GetConnection());
-                        dataBase.OpenConnection();
-                        object resultGender = commandGender.ExecuteScalar();
-                        comboBoxGenderID.Text = resultGender.ToString();
-                        var postID = dataGridViewRow.Cells[5].Value.ToString();
-                        string queryPost = $"SELECT Post FROM Posts WHERE PostID = {postID}";
-                        SqlCommand commandPost = new(queryPost, dataBase.GetConnection());
-                        dataBase.OpenConnection();
-                        object resultPost = commandPost.ExecuteScalar();
-                        comboBoxPostID.Text = resultPost.ToString();
+                        comboBoxGenderID.Text = dataGridViewRow.Cells[4].Value.ToString();
+                        comboBoxPostID.Text = dataGridViewRow.Cells[5].Value.ToString();
                         break;
 
                     case "dataGridViewOrders":
                         textBoxOrderID.Text = dataGridViewRow.Cells[0].Value.ToString();
-                        var clientID = dataGridViewRow.Cells[1].Value.ToString();
-                        string queryClient = $"SELECT FullName FROM Clients WHERE ClientID = {clientID}";
-                        SqlCommand commandClient = new(queryClient, dataBase.GetConnection());
-                        dataBase.OpenConnection();
-                        object resultClient = commandClient.ExecuteScalar();
-                        textBoxClientIDOrders.Text = resultClient.ToString();
-                        var employeeID = dataGridViewRow.Cells[2].Value.ToString();
-                        string queryEmployee = $"SELECT FullName FROM Employees WHERE EmployeeID = {employeeID}";
-                        SqlCommand commandEmployee = new(queryEmployee, dataBase.GetConnection());
-                        dataBase.OpenConnection();
-                        object resultEmployee = commandEmployee.ExecuteScalar();
-                        textBoxEmployeeIDOrders.Text = resultEmployee.ToString();
+                        comboBoxClientIDOrders.Text = dataGridViewRow.Cells[1].Value.ToString();
+                        comboBoxEmployeeIDOrders.Text = dataGridViewRow.Cells[2].Value.ToString();
                         dateTimePickerOrderDate.Text = dataGridViewRow.Cells[3].Value?.ToString();
                         textBoxTotalAmount.Text = dataGridViewRow.Cells[4].Value.ToString();
-                        var statusID = dataGridViewRow.Cells[5].Value.ToString();
-                        string queryStatus = $"SELECT Status FROM Statuses WHERE StatusID = {statusID}";
-                        SqlCommand commandStatus = new(queryStatus, dataBase.GetConnection());
-                        dataBase.OpenConnection();
-                        object resultStatus = commandStatus.ExecuteScalar();
-                        comboBoxStatusID.Text = resultStatus.ToString();
+                        comboBoxStatusID.Text = dataGridViewRow.Cells[5].Value.ToString();
                         break;
 
                     case "dataGridViewProducts":
@@ -339,13 +349,8 @@ namespace OrderTrack
 
                     case "dataGridViewOrderDetails":
                         textBoxOrderDetailID.Text = dataGridViewRow.Cells[0].Value.ToString();
-                        textBoxProductIDOrderDetails.Text = dataGridViewRow.Cells[1].Value.ToString();
-                        var productID = dataGridViewRow.Cells[2].Value.ToString();
-                        string queryProduct = $"SELECT Name FROM Products WHERE ProductID = {productID}";
-                        SqlCommand commandProduct = new(queryProduct, dataBase.GetConnection());
-                        dataBase.OpenConnection();
-                        object resultProduct = commandProduct.ExecuteScalar();
-                        textBoxOrderIDOrderDetails.Text = resultProduct.ToString();
+                        comboBoxOrderIDOrderDetails.Text = dataGridViewRow.Cells[1].Value?.ToString();
+                        comboBoxProductIDOrderDetails.Text = dataGridViewRow.Cells[2].Value?.ToString();
                         textBoxPriceOrderDetails.Text = dataGridViewRow.Cells[3].Value.ToString();
                         break;
                 }
@@ -528,25 +533,47 @@ namespace OrderTrack
                             {
                                 var clientID = dataGridView.Rows[index].Cells[0].Value.ToString();
                                 var fullName = dataGridView.Rows[index].Cells[1].Value.ToString();
-                                var clientTypeID = dataGridView.Rows[index].Cells[2].Value.ToString();
+                                var clientTypeName = dataGridView.Rows[index].Cells[2].Value.ToString();
+                                string clientTypeIdValue = "NULL";
+                                if (!string.IsNullOrEmpty(clientTypeName))
+                                {
+                                    var getClientTypeIdQuery = $"SELECT ClientTypeID FROM ClientTypes WHERE ClientType = '{clientTypeName}'";
+                                    var clientTypeIdCommand = new SqlCommand(getClientTypeIdQuery, dataBase.GetConnection());
+                                    var result = clientTypeIdCommand.ExecuteScalar();
+                                    if (result != null)
+                                    {
+                                        clientTypeIdValue = result.ToString();
+                                    }
+                                }
                                 var email = dataGridView.Rows[index].Cells[3].Value.ToString();
                                 var phone = dataGridView.Rows[index].Cells[4].Value.ToString();
                                 var address = dataGridView.Rows[index].Cells[5].Value.ToString();
                                 var iNN = dataGridView.Rows[index].Cells[6].Value.ToString();
                                 var registrationDate = dataGridView.Rows[index].Cells[7].Value.ToString();
-                                var changeQuery = $"update Clients set FullName = '{fullName}', ClientTypeID = '{clientTypeID}', Email = '{email}', Phone = '{phone}', Address = '{address}', INN = '{iNN}', RegistrationDate = '{registrationDate}' where ClientID = '{clientID}'";
+                                var changeQuery = $"update Clients set FullName = '{fullName}', ClientTypeID = '{clientTypeIdValue}', Email = '{email}', Phone = '{phone}', Address = '{address}', INN = '{iNN}', RegistrationDate = '{registrationDate}' where ClientID = '{clientID}'";
                                 var sqlCommand = new SqlCommand(changeQuery, dataBase.GetConnection());
                                 sqlCommand.ExecuteNonQuery();
                             }
                             if (rowStateClients == RowState.New)
                             {
                                 var fullName = dataGridView.Rows[index].Cells[1].Value.ToString();
-                                var clientTypeID = dataGridView.Rows[index].Cells[2].Value.ToString();
+                                var clientTypeName = dataGridView.Rows[index].Cells[2].Value.ToString();
+                                string clientTypeIdValue = "NULL";
+                                if (!string.IsNullOrEmpty(clientTypeName))
+                                {
+                                    var getClientTypeIdQuery = $"SELECT ClientTypeID FROM ClientTypes WHERE ClientType = '{clientTypeName}'";
+                                    var clientTypeIdCommand = new SqlCommand(getClientTypeIdQuery, dataBase.GetConnection());
+                                    var result = clientTypeIdCommand.ExecuteScalar();
+                                    if (result != null)
+                                    {
+                                        clientTypeIdValue = result.ToString();
+                                    }
+                                }
                                 var email = dataGridView.Rows[index].Cells[3].Value.ToString();
                                 var phone = dataGridView.Rows[index].Cells[4].Value.ToString();
                                 var address = dataGridView.Rows[index].Cells[5].Value.ToString();
                                 var iNN = dataGridView.Rows[index].Cells[6].Value.ToString();
-                                var newQuery = $"insert into Clients (FullName, ClientTypeID, Email, Phone, Address, INN) values ('{fullName}', '{clientTypeID}', '{email}', '{phone}', '{address}', '{iNN}')";
+                                var newQuery = $"insert into Clients (FullName, ClientTypeID, Email, Phone, Address, INN) values ('{fullName}', '{clientTypeIdValue}', '{email}', '{phone}', '{address}', '{iNN}')";
                                 var sqlCommand = new SqlCommand(newQuery, dataBase.GetConnection());
                                 sqlCommand.ExecuteNonQuery();
                             }
@@ -571,9 +598,31 @@ namespace OrderTrack
                                 var fullName = dataGridView.Rows[index].Cells[1].Value.ToString();
                                 var phone = dataGridView.Rows[index].Cells[2].Value.ToString();
                                 var email = dataGridView.Rows[index].Cells[3].Value.ToString();
-                                var genderID = dataGridView.Rows[index].Cells[4].Value.ToString();
-                                var postID = dataGridView.Rows[index].Cells[5].Value.ToString();
-                                var changeQuery = $"update Employees set FullName = '{fullName}', Phone = '{phone}', Email = '{email}', GenderID = '{genderID}', PostID = '{postID}' where EmployeeID = '{employeeID}'";
+                                var genderName = dataGridView.Rows[index].Cells[4].Value.ToString();
+                                string genderIdValue = "NULL";
+                                if (!string.IsNullOrEmpty(genderName))
+                                {
+                                    var getGenderIdQuery = $"SELECT GenderID FROM Genders WHERE Gender = '{genderName}'";
+                                    var genderIdCommand = new SqlCommand(getGenderIdQuery, dataBase.GetConnection());
+                                    var result = genderIdCommand.ExecuteScalar();
+                                    if (result != null)
+                                    {
+                                        genderIdValue = result.ToString();
+                                    }
+                                }
+                                var postName = dataGridView.Rows[index].Cells[5].Value.ToString();
+                                string postIdValue = "NULL";
+                                if (!string.IsNullOrEmpty(postName))
+                                {
+                                    var getPostIdQuery = $"SELECT PostID FROM Posts WHERE Post = '{postName}'";
+                                    var postIdCommand = new SqlCommand(getPostIdQuery, dataBase.GetConnection());
+                                    var result = postIdCommand.ExecuteScalar();
+                                    if (result != null)
+                                    {
+                                        postIdValue = result.ToString();
+                                    }
+                                }
+                                var changeQuery = $"update Employees set FullName = '{fullName}', Phone = '{phone}', Email = '{email}', GenderID = '{genderIdValue}', PostID = '{postIdValue}' where EmployeeID = '{employeeID}'";
                                 var sqlCommand = new SqlCommand(changeQuery, dataBase.GetConnection());
                                 sqlCommand.ExecuteNonQuery();
                             }
@@ -582,9 +631,31 @@ namespace OrderTrack
                                 var fullName = dataGridView.Rows[index].Cells[1].Value.ToString();
                                 var phone = dataGridView.Rows[index].Cells[2].Value.ToString();
                                 var email = dataGridView.Rows[index].Cells[3].Value.ToString();
-                                var genderID = dataGridView.Rows[index].Cells[4].Value.ToString();
-                                var postID = dataGridView.Rows[index].Cells[5].Value.ToString();
-                                var newQuery = $"insert into Employees (FullName, Phone, Email, GenderID, PostID) values ('{fullName}', '{phone}', '{email}', '{genderID}', '{postID}')";
+                                var genderName = dataGridView.Rows[index].Cells[4].Value.ToString();
+                                string genderIdValue = "NULL";
+                                if (!string.IsNullOrEmpty(genderName))
+                                {
+                                    var getGenderIdQuery = $"SELECT GenderID FROM Genders WHERE Gender = '{genderName}'";
+                                    var genderIdCommand = new SqlCommand(getGenderIdQuery, dataBase.GetConnection());
+                                    var result = genderIdCommand.ExecuteScalar();
+                                    if (result != null)
+                                    {
+                                        genderIdValue = result.ToString();
+                                    }
+                                }
+                                var postName = dataGridView.Rows[index].Cells[5].Value.ToString();
+                                string postIdValue = "NULL";
+                                if (!string.IsNullOrEmpty(postName))
+                                {
+                                    var getPostIdQuery = $"SELECT PostID FROM Posts WHERE Post = '{postName}'";
+                                    var postIdCommand = new SqlCommand(getPostIdQuery, dataBase.GetConnection());
+                                    var result = postIdCommand.ExecuteScalar();
+                                    if (result != null)
+                                    {
+                                        postIdValue = result.ToString();
+                                    }
+                                }
+                                var newQuery = $"insert into Employees (FullName, Phone, Email, GenderID, PostID) values ('{fullName}', '{phone}', '{email}', '{genderIdValue}', '{postIdValue}')";
                                 var sqlCommand = new SqlCommand(newQuery, dataBase.GetConnection());
                                 sqlCommand.ExecuteNonQuery();
                             }
@@ -606,21 +677,91 @@ namespace OrderTrack
                             if (rowStateOrders == RowState.Modified)
                             {
                                 var orderID = dataGridView.Rows[index].Cells[0].Value.ToString();
-                                var clientID = dataGridView.Rows[index].Cells[1].Value.ToString();
-                                var employeeID = dataGridView.Rows[index].Cells[2].Value.ToString();
+                                var clientName = dataGridView.Rows[index].Cells[1].Value?.ToString();
+                                string clientIdValue = "NULL";
+                                if (!string.IsNullOrEmpty(clientName))
+                                {
+                                    var getClientIdQuery = $"SELECT ClientID FROM Clients WHERE FullName = '{clientName}'";
+                                    var clientIdCommand = new SqlCommand(getClientIdQuery, dataBase.GetConnection());
+                                    var result = clientIdCommand.ExecuteScalar();
+                                    if (result != null)
+                                    {
+                                        clientIdValue = result.ToString();
+                                    }
+                                }
+                                var employeeName = dataGridView.Rows[index].Cells[2].Value?.ToString();
+                                string employeeIdValue = "NULL";
+                                if (!string.IsNullOrEmpty(employeeName))
+                                {
+                                    var getEmployeeIdQuery = $"SELECT EmployeeID FROM Employees WHERE FullName = '{employeeName}'";
+                                    var employeeIdCommand = new SqlCommand(getEmployeeIdQuery, dataBase.GetConnection());
+                                    var result = employeeIdCommand.ExecuteScalar();
+                                    if (result != null)
+                                    {
+                                        employeeIdValue = result.ToString();
+                                    }
+                                }
+
                                 var orderDate = dataGridView.Rows[index].Cells[3].Value.ToString();
                                 var totalAmount = dataGridView.Rows[index].Cells[4].Value.ToString();
-                                var statusID = dataGridView.Rows[index].Cells[5].Value.ToString();
-                                var changeQuery = $"update Orders set ClientID = '{clientID}', EmployeeID = '{employeeID}', OrderDate = '{orderDate}', TotalAmount = '{totalAmount}', StatusID = '{statusID}' where OrderID = '{orderID}'";
+                                var statusName = dataGridView.Rows[index].Cells[5].Value?.ToString();
+                                string statusIdValue = "NULL";
+                                if (!string.IsNullOrEmpty(statusName))
+                                {
+                                    var getStatusIdQuery = $"SELECT StatusID FROM Statuses WHERE Status = '{statusName}'";
+                                    var statusIdCommand = new SqlCommand(getStatusIdQuery, dataBase.GetConnection());
+                                    var result = statusIdCommand.ExecuteScalar();
+                                    if (result != null)
+                                    {
+                                        statusIdValue = result.ToString();
+                                    }
+                                }
+                                var changeQuery = $"update Orders set ClientID = '{clientIdValue}', EmployeeID = '{employeeIdValue}', OrderDate = '{orderDate}', TotalAmount = '{totalAmount}', StatusID = '{statusIdValue}' where OrderID = '{orderID}'";
                                 var sqlCommand = new SqlCommand(changeQuery, dataBase.GetConnection());
                                 sqlCommand.ExecuteNonQuery();
                             }
                             if (rowStateOrders == RowState.New)
                             {
-                                var clientID = dataGridView.Rows[index].Cells[1].Value.ToString();
-                                var employeeID = dataGridView.Rows[index].Cells[2].Value.ToString();
-                                var statusID = dataGridView.Rows[index].Cells[5].Value.ToString();
-                                var newQuery = $"insert into Orders (ClientID, EmployeeID, StatusID) values ('{clientID}', '{employeeID}', '{statusID}')";
+                                var clientName = dataGridView.Rows[index].Cells[1].Value?.ToString();
+                                string clientIdValue = "NULL";
+                                if (!string.IsNullOrEmpty(clientName))
+                                {
+                                    var getClientIdQuery = $"SELECT ClientID FROM Clients WHERE FullName = '{clientName}'";
+                                    var clientIdCommand = new SqlCommand(getClientIdQuery, dataBase.GetConnection());
+                                    var result = clientIdCommand.ExecuteScalar();
+                                    if (result != null)
+                                    {
+                                        clientIdValue = result.ToString();
+                                    }
+                                }
+                                var employeeName = dataGridView.Rows[index].Cells[2].Value?.ToString();
+                                string employeeIdValue = "NULL";
+                                if (!string.IsNullOrEmpty(employeeName))
+                                {
+                                    var getEmployeeIdQuery = $"SELECT EmployeeID FROM Employees WHERE FullName = '{employeeName}'";
+                                    var employeeIdCommand = new SqlCommand(getEmployeeIdQuery, dataBase.GetConnection());
+                                    var result = employeeIdCommand.ExecuteScalar();
+                                    if (result != null)
+                                    {
+                                        employeeIdValue = result.ToString();
+                                    }
+                                }
+
+                                var orderDate = dataGridView.Rows[index].Cells[3].Value.ToString();
+                                var totalAmount = dataGridView.Rows[index].Cells[4].Value.ToString();
+                                var statusName = dataGridView.Rows[index].Cells[5].Value?.ToString();
+                                string statusIdValue = "NULL";
+                                if (!string.IsNullOrEmpty(statusName))
+                                {
+                                    var getStatusIdQuery = $"SELECT StatusID FROM Statuses WHERE Status = '{statusName}'";
+                                    var statusIdCommand = new SqlCommand(getStatusIdQuery, dataBase.GetConnection());
+                                    var result = statusIdCommand.ExecuteScalar();
+                                    if (result != null)
+                                    {
+                                        statusIdValue = result.ToString();
+                                    }
+                                }
+                                var newQuery = $"insert into Orders (ClientID, EmployeeID, StatusID) values ('{clientIdValue}', '{employeeIdValue}', '{statusIdValue}')";
                                 var sqlCommand = new SqlCommand(newQuery, dataBase.GetConnection());
                                 sqlCommand.ExecuteNonQuery();
                             }
@@ -677,17 +818,39 @@ namespace OrderTrack
                             {
                                 var orderDetailID = dataGridView.Rows[index].Cells[0].Value.ToString();
                                 var orderID = dataGridView.Rows[index].Cells[1].Value.ToString();
-                                var productID = dataGridView.Rows[index].Cells[2].Value.ToString();
+                                var productName = dataGridView.Rows[index].Cells[2].Value.ToString();
+                                string productIdValue = "NULL";
+                                if (!string.IsNullOrEmpty(productName))
+                                {
+                                    var getProductIdQuery = $"SELECT ProductID FROM Products WHERE Name = '{productName}'";
+                                    var productIdCommand = new SqlCommand(getProductIdQuery, dataBase.GetConnection());
+                                    var result = productIdCommand.ExecuteScalar();
+                                    if (result != null)
+                                    {
+                                        productIdValue = result.ToString();
+                                    }
+                                }
                                 var price = dataGridView.Rows[index].Cells[3].Value.ToString();
-                                var changeQuery = $"update OrderDetails set OrderID = '{orderID}', ProductID = '{productID}', Price = '{price}' where OrderDetailID = '{orderDetailID}'";
+                                var changeQuery = $"update OrderDetails set OrderID = '{orderID}', ProductID = '{productIdValue}', Price = '{price}' where OrderDetailID = '{orderDetailID}'";
                                 var sqlCommand = new SqlCommand(changeQuery, dataBase.GetConnection());
                                 sqlCommand.ExecuteNonQuery();
                             }
                             if (rowStateOrderDetails == RowState.New)
                             {
                                 var orderID = dataGridView.Rows[index].Cells[1].Value.ToString();
-                                var productID = dataGridView.Rows[index].Cells[2].Value.ToString();
-                                var newQuery = $"insert into OrderDetails (OrderID, ProductID) values ('{orderID}', '{productID}')";
+                                var productName = dataGridView.Rows[index].Cells[2].Value.ToString();
+                                string productIdValue = "NULL";
+                                if (!string.IsNullOrEmpty(productName))
+                                {
+                                    var getProductIdQuery = $"SELECT ProductID FROM Products WHERE Name = '{productName}'";
+                                    var productIdCommand = new SqlCommand(getProductIdQuery, dataBase.GetConnection());
+                                    var result = productIdCommand.ExecuteScalar();
+                                    if (result != null)
+                                    {
+                                        productIdValue = result.ToString();
+                                    }
+                                }
+                                var newQuery = $"insert into OrderDetails (OrderID, ProductID) values ('{orderID}', '{productIdValue}')";
                                 var sqlCommand = new SqlCommand(newQuery, dataBase.GetConnection());
                                 sqlCommand.ExecuteNonQuery();
                             }
@@ -719,12 +882,7 @@ namespace OrderTrack
                     case "dataGridViewClients":
                         var clientID = textBoxClientID.Text;
                         var fullName = textBoxFullNameClients.Text;
-                        var clientType = comboBoxClientTypeID.Text;
-                        string query = $"SELECT ClientTypeID FROM ClientTypes WHERE ClientType = '{clientType}'";
-                        SqlCommand command = new(query, dataBase.GetConnection());
-                        dataBase.OpenConnection();
-                        object result = command.ExecuteScalar();
-                        var clientTypeID = result.ToString();
+                        var clientTypeID = comboBoxClientTypeID.Text;
                         var email = textBoxEmailClients.Text;
                         var phone = maskedTextBoxPhoneClients.Text;
                         var address = textBoxAddress.Text;
@@ -739,45 +897,20 @@ namespace OrderTrack
                         var fullNameEmployees = textBoxFullNameEmployees.Text;
                         var phoneEmployees = maskedTextBoxPhoneEmployees.Text;
                         var emailEmployees = textBoxEmailEmployees.Text;
-                        var gender = comboBoxGenderID.Text;
-                        string queryGender = $"SELECT GenderID FROM Genders WHERE Gender = '{gender}'";
-                        SqlCommand commandGender = new(queryGender, dataBase.GetConnection());
-                        dataBase.OpenConnection();
-                        object resultGender = commandGender.ExecuteScalar();
-                        var genderID = resultGender.ToString();
-                        var post = comboBoxPostID.Text;
-                        string queryPost = $"SELECT PostID FROM Posts WHERE Post = '{post}'";
-                        SqlCommand commandPost = new(queryPost, dataBase.GetConnection());
-                        dataBase.OpenConnection();
-                        object resultPost = commandPost.ExecuteScalar();
-                        var postID = resultPost.ToString();
+                        var genderID = comboBoxGenderID.Text;
+                        var postID = comboBoxPostID.Text;
                         dataGridView.Rows[selectedRowIndex].SetValues(employeeID, fullNameEmployees, phoneEmployees, emailEmployees, genderID, postID);
                         dataGridView.Rows[selectedRowIndex].Cells[6].Value = RowState.Modified;
                         break;
 
                     case "dataGridViewOrders":
                         var orderID = textBoxOrderID.Text;
-                        var client = textBoxClientIDOrders.Text;
-                        string queryClient = $"SELECT ClientID FROM Clients WHERE FullName = '{client}'";
-                        SqlCommand commandClient = new(queryClient, dataBase.GetConnection());
-                        dataBase.OpenConnection();
-                        object resultClient = commandClient.ExecuteScalar();
-                        var clientIDOrders = resultClient.ToString();
-                        var employee = textBoxEmployeeIDOrders.Text;
-                        string queryEmployee = $"SELECT EmployeeID FROM Employees WHERE FullName = '{employee}'";
-                        SqlCommand commandEmployee = new(queryEmployee, dataBase.GetConnection());
-                        dataBase.OpenConnection();
-                        object resultEmployee = commandEmployee.ExecuteScalar();
-                        var employeeIDOrders = resultEmployee.ToString();
+                        var clientIDOrders = comboBoxClientIDOrders.Text;
+                        var employeeIDOrders = comboBoxEmployeeIDOrders.Text;
                         var orderDate = dateTimePickerOrderDate.Value;
                         var totalAmount = textBoxTotalAmount.Text;
-                        var status = comboBoxStatusID.Text;
-                        string queryStatus = $"SELECT StatusID FROM Statuses WHERE Status = '{status}'";
-                        SqlCommand commandStatus = new(queryStatus, dataBase.GetConnection());
-                        dataBase.OpenConnection();
-                        object resultStatus = commandStatus.ExecuteScalar();
-                        var statusID = resultStatus.ToString();
-                        dataGridView.Rows[selectedRowIndex].SetValues(orderID, clientIDOrders, employeeIDOrders, orderDate, totalAmount, status);
+                        var statusID = comboBoxStatusID.Text;
+                        dataGridView.Rows[selectedRowIndex].SetValues(orderID, clientIDOrders, employeeIDOrders, orderDate, totalAmount, statusID);
                         dataGridView.Rows[selectedRowIndex].Cells[6].Value = RowState.Modified;
                         break;
 
@@ -792,13 +925,8 @@ namespace OrderTrack
 
                     case "dataGridViewOrderDetails":
                         var orderDetailID = textBoxOrderDetailID.Text;
-                        var orderIDOrderDetails = textBoxProductIDOrderDetails.Text;
-                        var product = textBoxOrderIDOrderDetails.Text;
-                        string queryProduct = $"SELECT ProductID FROM Products WHERE Name = '{product}'";
-                        SqlCommand commandProduct = new(queryProduct, dataBase.GetConnection());
-                        dataBase.OpenConnection();
-                        object resultProduct = commandProduct.ExecuteScalar();
-                        var productIDOrderDetails = resultProduct.ToString();
+                        var orderIDOrderDetails = comboBoxProductIDOrderDetails.Text;
+                        var productIDOrderDetails = comboBoxOrderIDOrderDetails.Text;
                         var priceOrderDetails = textBoxPriceOrderDetails.Text;
                         dataGridView.Rows[selectedRowIndex].SetValues(orderDetailID, orderIDOrderDetails, productIDOrderDetails, priceOrderDetails);
                         dataGridView.Rows[selectedRowIndex].Cells[4].Value = RowState.Modified;
@@ -916,53 +1044,6 @@ namespace OrderTrack
         }
 
         /// <summary>
-        /// ExportToTXT() вызывается при экспорте в .txt
-        /// </summary>
-        /// <param name="dataGridView"></param>
-        private static void ExportToTXT(DataGridView dataGridView)
-        {
-            string text = "";
-            switch (dataGridView.Name)
-            {
-                case "dataGridViewClients":
-                    text += "Данные клиентов\n\n";
-                    break;
-
-                case "dataGridViewEmployees":
-                    text += "Данные сотрудников\n\n";
-                    break;
-
-                case "dataGridViewOrders":
-                    text += "Данные заказов\n\n";
-                    break;
-
-                case "dataGridViewProducts":
-                    text += "Данные продуктов\n\n";
-                    break;
-
-                case "dataGridViewOrderDetails":
-                    text += "Данные деталей заказов\n\n";
-                    break;
-            }
-            for (int col = 0; col < dataGridView.ColumnCount; col++)
-            {
-                text += dataGridView.Columns[col].HeaderText + "\t";
-            }
-            text += "\n";
-            for (int row = 0; row < dataGridView.RowCount; row++)
-            {
-                for (int col = 0; col < dataGridView.ColumnCount - 1; col++)
-                {
-                    text += dataGridView[col, row].Value?.ToString() + "\t";
-                }
-                text += "\n";
-            }
-            string filePath = "данные.txt";
-            File.WriteAllText(filePath, text);
-            Process.Start(new ProcessStartInfo(filePath) { UseShellExecute = true });
-        }
-
-        /// <summary>
         /// Reports() вызывается при формировании отчетов
         /// </summary>
         /// <param name="report"></param>
@@ -1039,6 +1120,93 @@ namespace OrderTrack
                 {
                     table.Cell(row + 2, col + 1).Range.Text = dataTable.Rows[row][col].ToString();
                 }
+            }
+        }
+
+        /// <summary>
+        /// FillAllComboBoxes() Заполняет все внешние ключи
+        /// </summary>
+        private void FillAllComboBoxes()
+        {
+            try
+            {
+                dataBase.OpenConnection();
+                comboBoxClientTypeID.Items.Clear();
+                var clientTypesQuery = "SELECT ClientType FROM ClientTypes ORDER BY ClientType";
+                var clientTypesCommand = new SqlCommand(clientTypesQuery, dataBase.GetConnection());
+                var clientTypesReader = clientTypesCommand.ExecuteReader();
+                while (clientTypesReader.Read())
+                {
+                    comboBoxClientTypeID.Items.Add(clientTypesReader.GetString(0));
+                }
+                clientTypesReader.Close();
+                comboBoxGenderID.Items.Clear();
+                var gendersQuery = "SELECT Gender FROM Genders ORDER BY Gender";
+                var gendersCommand = new SqlCommand(gendersQuery, dataBase.GetConnection());
+                var gendersReader = gendersCommand.ExecuteReader();
+                while (gendersReader.Read())
+                {
+                    comboBoxGenderID.Items.Add(gendersReader.GetString(0));
+                }
+                gendersReader.Close();
+                comboBoxPostID.Items.Clear();
+                var postsQuery = "SELECT Post FROM Posts ORDER BY Post";
+                var postsCommand = new SqlCommand(postsQuery, dataBase.GetConnection());
+                var postsReader = postsCommand.ExecuteReader();
+                while (postsReader.Read())
+                {
+                    comboBoxPostID.Items.Add(postsReader.GetString(0));
+                }
+                postsReader.Close();
+                comboBoxClientIDOrders.Items.Clear();
+                var clientsQuery = "SELECT FullName FROM Clients ORDER BY FullName";
+                var clientsCommand = new SqlCommand(clientsQuery, dataBase.GetConnection());
+                var clientsReader = clientsCommand.ExecuteReader();
+                while (clientsReader.Read())
+                {
+                    comboBoxClientIDOrders.Items.Add(clientsReader.GetString(0));
+                }
+                clientsReader.Close();
+                comboBoxEmployeeIDOrders.Items.Clear();
+                var employeesQuery = "SELECT FullName FROM Employees ORDER BY FullName";
+                var employeesCommand = new SqlCommand(employeesQuery, dataBase.GetConnection());
+                var employeesReader = employeesCommand.ExecuteReader();
+                while (employeesReader.Read())
+                {
+                    comboBoxEmployeeIDOrders.Items.Add(employeesReader.GetString(0));
+                }
+                employeesReader.Close();
+                comboBoxStatusID.Items.Clear();
+                var statusesQuery = "SELECT Status FROM Statuses ORDER BY Status";
+                var statusesCommand = new SqlCommand(statusesQuery, dataBase.GetConnection());
+                var statusesReader = statusesCommand.ExecuteReader();
+                while (statusesReader.Read())
+                {
+                    comboBoxStatusID.Items.Add(statusesReader.GetString(0));
+                }
+                statusesReader.Close();
+                comboBoxOrderIDOrderDetails.Items.Clear();
+                var ordersQuery = "SELECT OrderID FROM Orders ORDER BY OrderID";
+                var ordersCommand = new SqlCommand(ordersQuery, dataBase.GetConnection());
+                var ordersReader = ordersCommand.ExecuteReader();
+                while (ordersReader.Read())
+                {
+                    comboBoxOrderIDOrderDetails.Items.Add(ordersReader.GetInt32(0));
+                }
+                ordersReader.Close();
+                comboBoxProductIDOrderDetails.Items.Clear();
+                var productsQuery = "SELECT Name FROM Products ORDER BY Name";
+                var productsCommand = new SqlCommand(productsQuery, dataBase.GetConnection());
+                var productsReader = productsCommand.ExecuteReader();
+                while (productsReader.Read())
+                {
+                    comboBoxProductIDOrderDetails.Items.Add(productsReader.GetString(0));
+                }
+                productsReader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при загрузке данных в комбобоксы: {ex.Message}");
             }
         }
 
@@ -1656,91 +1824,6 @@ namespace OrderTrack
         }
 
         /// <summary>
-        /// ButtonTXTClient_Click() вызывается при нажатии на кнопку "Вывод в TXT" на вкладке "Клиенты"
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ButtonTXTClient_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ExportToTXT(dataGridViewClients);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        /// <summary>
-        /// ButtonTXTEmployee_Click() вызывается при нажатии на кнопку "Вывод в TXT" на вкладке "Сотрудники"
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ButtonTXTEmployee_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ExportToTXT(dataGridViewEmployees);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        /// <summary>
-        /// ButtonTXTOrder_Click() вызывается при нажатии на кнопку "Вывод в TXT" на вкладке "Заказы"
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ButtonTXTOrder_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ExportToTXT(dataGridViewOrders);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        /// <summary>
-        /// ButtonTXTProduct_Click() вызывается при нажатии на кнопку "Вывод в TXT" на вкладке "Продукты"
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ButtonTXTProduct_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ExportToTXT(dataGridViewProducts);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        /// <summary>
-        /// ButtonTXTOrderDetails_Click() вызывается при нажатии на кнопку "Вывод в TXT" на вкладке "Детали заказов"
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ButtonTXTOrderDetails_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ExportToTXT(dataGridViewOrderDetails);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        /// <summary>
         /// DataGridViewClients_CellClick() вызывается при нажатии на ячейку на вкладке "Клиенты"
         /// </summary>
         /// <param name="sender"></param>
@@ -1928,22 +2011,6 @@ namespace OrderTrack
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        private void labelClientTypeID_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void labelRecordClients_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void tabPageClients_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void labelGenderID_Click(object sender, EventArgs e)
-        {
         }
     }
 }

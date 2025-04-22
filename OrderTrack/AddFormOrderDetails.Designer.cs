@@ -33,11 +33,11 @@
             label1 = new Label();
             buttonSave = new Button();
             labelOrderIDOrderDetails = new Label();
-            textBoxOrderIDOrderDetails = new TextBox();
             labelProductIDOrderDetails = new Label();
-            textBoxProductIDOrderDetails = new TextBox();
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
+            comboBoxOrderIDOrderDetails = new ComboBox();
+            comboBoxProductIDOrderDetails = new ComboBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -96,15 +96,6 @@
             labelOrderIDOrderDetails.TabIndex = 5;
             labelOrderIDOrderDetails.Text = "Номер заказа:";
             // 
-            // textBoxOrderIDOrderDetails
-            // 
-            textBoxOrderIDOrderDetails.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxOrderIDOrderDetails.Location = new Point(178, 143);
-            textBoxOrderIDOrderDetails.Margin = new Padding(4, 3, 4, 3);
-            textBoxOrderIDOrderDetails.Name = "textBoxOrderIDOrderDetails";
-            textBoxOrderIDOrderDetails.Size = new Size(369, 33);
-            textBoxOrderIDOrderDetails.TabIndex = 0;
-            // 
             // labelProductIDOrderDetails
             // 
             labelProductIDOrderDetails.AutoSize = true;
@@ -117,15 +108,6 @@
             labelProductIDOrderDetails.Size = new Size(103, 25);
             labelProductIDOrderDetails.TabIndex = 6;
             labelProductIDOrderDetails.Text = " Продукт:";
-            // 
-            // textBoxProductIDOrderDetails
-            // 
-            textBoxProductIDOrderDetails.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxProductIDOrderDetails.Location = new Point(140, 214);
-            textBoxProductIDOrderDetails.Margin = new Padding(4, 3, 4, 3);
-            textBoxProductIDOrderDetails.Name = "textBoxProductIDOrderDetails";
-            textBoxProductIDOrderDetails.Size = new Size(446, 33);
-            textBoxProductIDOrderDetails.TabIndex = 1;
             // 
             // panel1
             // 
@@ -148,6 +130,26 @@
             pictureBox1.TabIndex = 16;
             pictureBox1.TabStop = false;
             // 
+            // comboBoxOrderIDOrderDetails
+            // 
+            comboBoxOrderIDOrderDetails.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxOrderIDOrderDetails.Font = new Font("Segoe UI", 14.25F);
+            comboBoxOrderIDOrderDetails.FormattingEnabled = true;
+            comboBoxOrderIDOrderDetails.Location = new Point(143, 143);
+            comboBoxOrderIDOrderDetails.Name = "comboBoxOrderIDOrderDetails";
+            comboBoxOrderIDOrderDetails.Size = new Size(455, 33);
+            comboBoxOrderIDOrderDetails.TabIndex = 0;
+            // 
+            // comboBoxProductIDOrderDetails
+            // 
+            comboBoxProductIDOrderDetails.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxProductIDOrderDetails.Font = new Font("Segoe UI", 14.25F);
+            comboBoxProductIDOrderDetails.FormattingEnabled = true;
+            comboBoxProductIDOrderDetails.Location = new Point(143, 214);
+            comboBoxProductIDOrderDetails.Name = "comboBoxProductIDOrderDetails";
+            comboBoxProductIDOrderDetails.Size = new Size(455, 33);
+            comboBoxProductIDOrderDetails.TabIndex = 1;
+            // 
             // AddFormOrderDetails
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -157,9 +159,9 @@
             ClientSize = new Size(735, 347);
             Controls.Add(panel1);
             Controls.Add(labelOrderIDOrderDetails);
-            Controls.Add(textBoxOrderIDOrderDetails);
+            Controls.Add(comboBoxOrderIDOrderDetails);
             Controls.Add(labelProductIDOrderDetails);
-            Controls.Add(textBoxProductIDOrderDetails);
+            Controls.Add(comboBoxProductIDOrderDetails);
             Controls.Add(buttonSave);
             DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -177,10 +179,10 @@
         private Label label1;
         private Button buttonSave;
         private Label labelOrderIDOrderDetails;
-        private TextBox textBoxOrderIDOrderDetails;
         private Label labelProductIDOrderDetails;
-        private TextBox textBoxProductIDOrderDetails;
         private Panel panel1;
         private PictureBox pictureBox1;
+        private ComboBox comboBoxOrderIDOrderDetails;
+        private ComboBox comboBoxProductIDOrderDetails;
     }
 }

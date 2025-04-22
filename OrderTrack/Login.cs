@@ -45,12 +45,6 @@ namespace OrderTrack
             Show();
         }
 
-        private void ButtonClear_Click(object sender, EventArgs e)
-        {
-            textBoxLogin.Text = "";
-            textBoxPassword.Text = "";
-        }
-
         private void ButtonShow_Click(object sender, EventArgs e)
         {
             if (textBoxPassword.PasswordChar == '•')

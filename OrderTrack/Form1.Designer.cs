@@ -32,7 +32,6 @@
             tabControl1 = new TabControl();
             tabPageClients = new TabPage();
             labelControlClients = new Label();
-            buttonTXTClient = new Button();
             buttonExcelClient = new Button();
             buttonWordClient = new Button();
             buttonSaveClient = new Button();
@@ -43,7 +42,6 @@
             panel6 = new Panel();
             panel1 = new Panel();
             labelTitleClients = new Label();
-            buttonClearClients = new Button();
             buttonRefreshClients = new Button();
             textBoxSearchClients = new TextBox();
             dataGridViewClients = new DataGridView();
@@ -66,7 +64,6 @@
             labelRegistrationDate = new Label();
             dateTimePickerRegistrationDate = new DateTimePicker();
             tabPageEmployees = new TabPage();
-            buttonTXTEmployee = new Button();
             buttonExcelEmployee = new Button();
             buttonNewEmployee = new Button();
             buttonDeleteEmployee = new Button();
@@ -74,7 +71,6 @@
             panel7 = new Panel();
             panel2 = new Panel();
             labelTitleEmployees = new Label();
-            buttonClearEmployees = new Button();
             buttonRefreshEmployees = new Button();
             textBoxSearchEmployees = new TextBox();
             buttonChangeEmployee = new Button();
@@ -97,7 +93,6 @@
             buttonWordEmployee = new Button();
             labelControlEmployees = new Label();
             tabPageOrders = new TabPage();
-            buttonTXTOrder = new Button();
             buttonExcelOrder = new Button();
             buttonNewOrder = new Button();
             buttonDeleteOrder = new Button();
@@ -107,7 +102,6 @@
             labelTitleOrders = new Label();
             buttonMonthlyReportOrders = new Button();
             buttonReportOrders = new Button();
-            buttonClearOrders = new Button();
             buttonRefreshOrders = new Button();
             textBoxSearchOrders = new TextBox();
             buttonChangeOrder = new Button();
@@ -118,9 +112,9 @@
             labelOrderID = new Label();
             textBoxOrderID = new TextBox();
             labelClientIDOrders = new Label();
-            textBoxClientIDOrders = new TextBox();
+            comboBoxClientIDOrders = new ComboBox();
             labelEmployeeIDOrders = new Label();
-            textBoxEmployeeIDOrders = new TextBox();
+            comboBoxEmployeeIDOrders = new ComboBox();
             labelOrderDate = new Label();
             dateTimePickerOrderDate = new DateTimePicker();
             labelTotalAmount = new Label();
@@ -130,7 +124,6 @@
             buttonWordOrder = new Button();
             labelControlOrders = new Label();
             tabPageProducts = new TabPage();
-            buttonTXTProduct = new Button();
             buttonExcelProduct = new Button();
             buttonNewProduct = new Button();
             buttonDeleteProduct = new Button();
@@ -139,7 +132,6 @@
             panel4 = new Panel();
             labelTitleProducts = new Label();
             buttonReportProducts = new Button();
-            buttonClearProducts = new Button();
             buttonRefreshProducts = new Button();
             textBoxSearchProducts = new TextBox();
             buttonChangeProduct = new Button();
@@ -158,7 +150,6 @@
             buttonWordProduct = new Button();
             labelControlProducts = new Label();
             tabPageOrderDetails = new TabPage();
-            buttonTXTOrderDetails = new Button();
             buttonExcelOrderDetails = new Button();
             buttonNewOrderDetails = new Button();
             buttonDeleteOrderDetails = new Button();
@@ -177,9 +168,9 @@
             labelOrderDetailID = new Label();
             textBoxOrderDetailID = new TextBox();
             labelOrderIDOrderDetails = new Label();
-            textBoxOrderIDOrderDetails = new TextBox();
+            comboBoxOrderIDOrderDetails = new ComboBox();
             labelProductIDOrderDetails = new Label();
-            textBoxProductIDOrderDetails = new TextBox();
+            comboBoxProductIDOrderDetails = new ComboBox();
             labelPriceOrderDetails = new Label();
             textBoxPriceOrderDetails = new TextBox();
             buttonWordOrderDetails = new Button();
@@ -225,7 +216,6 @@
             // 
             tabPageClients.BackColor = Color.FromArgb(201, 201, 209);
             tabPageClients.Controls.Add(labelControlClients);
-            tabPageClients.Controls.Add(buttonTXTClient);
             tabPageClients.Controls.Add(buttonExcelClient);
             tabPageClients.Controls.Add(buttonWordClient);
             tabPageClients.Controls.Add(buttonSaveClient);
@@ -243,7 +233,6 @@
             tabPageClients.Size = new Size(889, 1010);
             tabPageClients.TabIndex = 1;
             tabPageClients.Text = "Клиенты";
-            tabPageClients.Click += tabPageClients_Click;
             // 
             // labelControlClients
             // 
@@ -257,22 +246,6 @@
             labelControlClients.Size = new Size(213, 25);
             labelControlClients.TabIndex = 4;
             labelControlClients.Text = "Управление записями:";
-            // 
-            // buttonTXTClient
-            // 
-            buttonTXTClient.BackColor = Color.FromArgb(241, 156, 55);
-            buttonTXTClient.FlatAppearance.BorderSize = 2;
-            buttonTXTClient.FlatStyle = FlatStyle.Flat;
-            buttonTXTClient.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            buttonTXTClient.ForeColor = Color.Black;
-            buttonTXTClient.Location = new Point(633, 400);
-            buttonTXTClient.Margin = new Padding(4, 3, 4, 3);
-            buttonTXTClient.Name = "buttonTXTClient";
-            buttonTXTClient.Size = new Size(236, 40);
-            buttonTXTClient.TabIndex = 6;
-            buttonTXTClient.Text = "Вывод в TXT";
-            buttonTXTClient.UseVisualStyleBackColor = false;
-            buttonTXTClient.Click += ButtonTXTClient_Click;
             // 
             // buttonExcelClient
             // 
@@ -376,7 +349,6 @@
             panelTitleClients.Controls.Add(panel6);
             panelTitleClients.Controls.Add(panel1);
             panelTitleClients.Controls.Add(labelTitleClients);
-            panelTitleClients.Controls.Add(buttonClearClients);
             panelTitleClients.Controls.Add(buttonRefreshClients);
             panelTitleClients.Controls.Add(textBoxSearchClients);
             panelTitleClients.Location = new Point(0, 0);
@@ -416,20 +388,6 @@
             labelTitleClients.Size = new Size(216, 65);
             labelTitleClients.TabIndex = 4;
             labelTitleClients.Text = "Клиенты";
-            // 
-            // buttonClearClients
-            // 
-            buttonClearClients.BackgroundImage = (Image)resources.GetObject("buttonClearClients.BackgroundImage");
-            buttonClearClients.BackgroundImageLayout = ImageLayout.Stretch;
-            buttonClearClients.FlatStyle = FlatStyle.Flat;
-            buttonClearClients.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            buttonClearClients.Location = new Point(474, 12);
-            buttonClearClients.Margin = new Padding(4, 3, 4, 3);
-            buttonClearClients.Name = "buttonClearClients";
-            buttonClearClients.Size = new Size(60, 60);
-            buttonClearClients.TabIndex = 0;
-            buttonClearClients.UseVisualStyleBackColor = true;
-            buttonClearClients.Click += ButtonClear_Click;
             // 
             // buttonRefreshClients
             // 
@@ -509,7 +467,6 @@
             labelRecordClients.Size = new Size(142, 47);
             labelRecordClients.TabIndex = 8;
             labelRecordClients.Text = "Запись:";
-            labelRecordClients.Click += labelRecordClients_Click;
             // 
             // labelClientID
             // 
@@ -564,14 +521,12 @@
             labelClientTypeID.Size = new Size(110, 21);
             labelClientTypeID.TabIndex = 11;
             labelClientTypeID.Text = "Тип клиента:";
-            labelClientTypeID.Click += labelClientTypeID_Click;
             // 
             // comboBoxClientTypeID
             // 
             comboBoxClientTypeID.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxClientTypeID.Font = new Font("Segoe UI", 14.25F);
             comboBoxClientTypeID.FormattingEnabled = true;
-            comboBoxClientTypeID.Items.AddRange(new object[] { "Физическое лицо", "Юридическое лицо" });
             comboBoxClientTypeID.Location = new Point(220, 129);
             comboBoxClientTypeID.Name = "comboBoxClientTypeID";
             comboBoxClientTypeID.Size = new Size(218, 33);
@@ -684,7 +639,6 @@
             // tabPageEmployees
             // 
             tabPageEmployees.BackColor = Color.FromArgb(201, 201, 209);
-            tabPageEmployees.Controls.Add(buttonTXTEmployee);
             tabPageEmployees.Controls.Add(buttonExcelEmployee);
             tabPageEmployees.Controls.Add(buttonNewEmployee);
             tabPageEmployees.Controls.Add(buttonDeleteEmployee);
@@ -702,22 +656,6 @@
             tabPageEmployees.Size = new Size(889, 1010);
             tabPageEmployees.TabIndex = 2;
             tabPageEmployees.Text = "Сотрудники";
-            // 
-            // buttonTXTEmployee
-            // 
-            buttonTXTEmployee.BackColor = Color.FromArgb(241, 156, 55);
-            buttonTXTEmployee.FlatAppearance.BorderSize = 2;
-            buttonTXTEmployee.FlatStyle = FlatStyle.Flat;
-            buttonTXTEmployee.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            buttonTXTEmployee.ForeColor = Color.Black;
-            buttonTXTEmployee.Location = new Point(633, 400);
-            buttonTXTEmployee.Margin = new Padding(4, 3, 4, 3);
-            buttonTXTEmployee.Name = "buttonTXTEmployee";
-            buttonTXTEmployee.Size = new Size(236, 40);
-            buttonTXTEmployee.TabIndex = 6;
-            buttonTXTEmployee.Text = "Вывод в TXT";
-            buttonTXTEmployee.UseVisualStyleBackColor = false;
-            buttonTXTEmployee.Click += ButtonTXTEmployee_Click;
             // 
             // buttonExcelEmployee
             // 
@@ -773,7 +711,6 @@
             panelTitleEmployees.Controls.Add(panel7);
             panelTitleEmployees.Controls.Add(panel2);
             panelTitleEmployees.Controls.Add(labelTitleEmployees);
-            panelTitleEmployees.Controls.Add(buttonClearEmployees);
             panelTitleEmployees.Controls.Add(buttonRefreshEmployees);
             panelTitleEmployees.Controls.Add(textBoxSearchEmployees);
             panelTitleEmployees.Location = new Point(0, 0);
@@ -813,20 +750,6 @@
             labelTitleEmployees.Size = new Size(291, 65);
             labelTitleEmployees.TabIndex = 4;
             labelTitleEmployees.Text = "Сотрудники";
-            // 
-            // buttonClearEmployees
-            // 
-            buttonClearEmployees.BackgroundImage = (Image)resources.GetObject("buttonClearEmployees.BackgroundImage");
-            buttonClearEmployees.BackgroundImageLayout = ImageLayout.Stretch;
-            buttonClearEmployees.FlatStyle = FlatStyle.Flat;
-            buttonClearEmployees.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            buttonClearEmployees.Location = new Point(475, 12);
-            buttonClearEmployees.Margin = new Padding(4, 3, 4, 3);
-            buttonClearEmployees.Name = "buttonClearEmployees";
-            buttonClearEmployees.Size = new Size(60, 60);
-            buttonClearEmployees.TabIndex = 0;
-            buttonClearEmployees.UseVisualStyleBackColor = true;
-            buttonClearEmployees.Click += ButtonClear_Click;
             // 
             // buttonRefreshEmployees
             // 
@@ -1030,14 +953,12 @@
             labelGenderID.Size = new Size(46, 21);
             labelGenderID.TabIndex = 11;
             labelGenderID.Text = "Пол:";
-            labelGenderID.Click += labelGenderID_Click;
             // 
             // comboBoxGenderID
             // 
             comboBoxGenderID.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxGenderID.Font = new Font("Segoe UI", 14.25F);
             comboBoxGenderID.FormattingEnabled = true;
-            comboBoxGenderID.Items.AddRange(new object[] { "Мужской", "Женский" });
             comboBoxGenderID.Location = new Point(446, 128);
             comboBoxGenderID.Name = "comboBoxGenderID";
             comboBoxGenderID.Size = new Size(299, 33);
@@ -1060,7 +981,6 @@
             comboBoxPostID.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxPostID.Font = new Font("Segoe UI", 14.25F);
             comboBoxPostID.FormattingEnabled = true;
-            comboBoxPostID.Items.AddRange(new object[] { "Менеджер по продажам", "Администратор" });
             comboBoxPostID.Location = new Point(215, 214);
             comboBoxPostID.Name = "comboBoxPostID";
             comboBoxPostID.Size = new Size(530, 33);
@@ -1098,7 +1018,6 @@
             // tabPageOrders
             // 
             tabPageOrders.BackColor = Color.FromArgb(201, 201, 209);
-            tabPageOrders.Controls.Add(buttonTXTOrder);
             tabPageOrders.Controls.Add(buttonExcelOrder);
             tabPageOrders.Controls.Add(buttonNewOrder);
             tabPageOrders.Controls.Add(buttonDeleteOrder);
@@ -1116,22 +1035,6 @@
             tabPageOrders.Size = new Size(889, 1010);
             tabPageOrders.TabIndex = 3;
             tabPageOrders.Text = "Заказы";
-            // 
-            // buttonTXTOrder
-            // 
-            buttonTXTOrder.BackColor = Color.FromArgb(241, 156, 55);
-            buttonTXTOrder.FlatAppearance.BorderSize = 2;
-            buttonTXTOrder.FlatStyle = FlatStyle.Flat;
-            buttonTXTOrder.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            buttonTXTOrder.ForeColor = Color.Black;
-            buttonTXTOrder.Location = new Point(633, 400);
-            buttonTXTOrder.Margin = new Padding(4, 3, 4, 3);
-            buttonTXTOrder.Name = "buttonTXTOrder";
-            buttonTXTOrder.Size = new Size(236, 40);
-            buttonTXTOrder.TabIndex = 6;
-            buttonTXTOrder.Text = "Вывод в TXT";
-            buttonTXTOrder.UseVisualStyleBackColor = false;
-            buttonTXTOrder.Click += ButtonTXTOrder_Click;
             // 
             // buttonExcelOrder
             // 
@@ -1189,7 +1092,6 @@
             panelTitleOrders.Controls.Add(labelTitleOrders);
             panelTitleOrders.Controls.Add(buttonMonthlyReportOrders);
             panelTitleOrders.Controls.Add(buttonReportOrders);
-            panelTitleOrders.Controls.Add(buttonClearOrders);
             panelTitleOrders.Controls.Add(buttonRefreshOrders);
             panelTitleOrders.Controls.Add(textBoxSearchOrders);
             panelTitleOrders.Location = new Point(0, 0);
@@ -1236,7 +1138,7 @@
             buttonMonthlyReportOrders.BackgroundImageLayout = ImageLayout.Stretch;
             buttonMonthlyReportOrders.FlatStyle = FlatStyle.Flat;
             buttonMonthlyReportOrders.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            buttonMonthlyReportOrders.Location = new Point(339, 13);
+            buttonMonthlyReportOrders.Location = new Point(407, 14);
             buttonMonthlyReportOrders.Margin = new Padding(4, 3, 4, 3);
             buttonMonthlyReportOrders.Name = "buttonMonthlyReportOrders";
             buttonMonthlyReportOrders.Size = new Size(60, 60);
@@ -1250,27 +1152,13 @@
             buttonReportOrders.BackgroundImageLayout = ImageLayout.Stretch;
             buttonReportOrders.FlatStyle = FlatStyle.Flat;
             buttonReportOrders.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            buttonReportOrders.Location = new Point(407, 12);
+            buttonReportOrders.Location = new Point(475, 13);
             buttonReportOrders.Margin = new Padding(4, 3, 4, 3);
             buttonReportOrders.Name = "buttonReportOrders";
             buttonReportOrders.Size = new Size(60, 60);
             buttonReportOrders.TabIndex = 1;
             buttonReportOrders.UseVisualStyleBackColor = true;
             buttonReportOrders.Click += ButtonReportOrders_Click;
-            // 
-            // buttonClearOrders
-            // 
-            buttonClearOrders.BackgroundImage = (Image)resources.GetObject("buttonClearOrders.BackgroundImage");
-            buttonClearOrders.BackgroundImageLayout = ImageLayout.Stretch;
-            buttonClearOrders.FlatStyle = FlatStyle.Flat;
-            buttonClearOrders.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            buttonClearOrders.Location = new Point(475, 12);
-            buttonClearOrders.Margin = new Padding(4, 3, 4, 3);
-            buttonClearOrders.Name = "buttonClearOrders";
-            buttonClearOrders.Size = new Size(60, 60);
-            buttonClearOrders.TabIndex = 2;
-            buttonClearOrders.UseVisualStyleBackColor = true;
-            buttonClearOrders.Click += ButtonClear_Click;
             // 
             // buttonRefreshOrders
             // 
@@ -1351,9 +1239,9 @@
             panelRecordOrders.Controls.Add(labelOrderID);
             panelRecordOrders.Controls.Add(textBoxOrderID);
             panelRecordOrders.Controls.Add(labelClientIDOrders);
-            panelRecordOrders.Controls.Add(textBoxClientIDOrders);
+            panelRecordOrders.Controls.Add(comboBoxClientIDOrders);
             panelRecordOrders.Controls.Add(labelEmployeeIDOrders);
-            panelRecordOrders.Controls.Add(textBoxEmployeeIDOrders);
+            panelRecordOrders.Controls.Add(comboBoxEmployeeIDOrders);
             panelRecordOrders.Controls.Add(labelOrderDate);
             panelRecordOrders.Controls.Add(dateTimePickerOrderDate);
             panelRecordOrders.Controls.Add(labelTotalAmount);
@@ -1411,14 +1299,15 @@
             labelClientIDOrders.TabIndex = 8;
             labelClientIDOrders.Text = "Наименование клиента:";
             // 
-            // textBoxClientIDOrders
+            // comboBoxClientIDOrders
             // 
-            textBoxClientIDOrders.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxClientIDOrders.Location = new Point(335, 126);
-            textBoxClientIDOrders.Margin = new Padding(4, 3, 4, 3);
-            textBoxClientIDOrders.Name = "textBoxClientIDOrders";
-            textBoxClientIDOrders.Size = new Size(393, 33);
-            textBoxClientIDOrders.TabIndex = 1;
+            comboBoxClientIDOrders.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxClientIDOrders.Font = new Font("Segoe UI", 14.25F);
+            comboBoxClientIDOrders.FormattingEnabled = true;
+            comboBoxClientIDOrders.Location = new Point(329, 126);
+            comboBoxClientIDOrders.Name = "comboBoxClientIDOrders";
+            comboBoxClientIDOrders.Size = new Size(399, 33);
+            comboBoxClientIDOrders.TabIndex = 1;
             // 
             // labelEmployeeIDOrders
             // 
@@ -1432,14 +1321,15 @@
             labelEmployeeIDOrders.TabIndex = 9;
             labelEmployeeIDOrders.Text = "ФИО Сотрудника:";
             // 
-            // textBoxEmployeeIDOrders
+            // comboBoxEmployeeIDOrders
             // 
-            textBoxEmployeeIDOrders.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxEmployeeIDOrders.Location = new Point(288, 171);
-            textBoxEmployeeIDOrders.Margin = new Padding(4, 3, 4, 3);
-            textBoxEmployeeIDOrders.Name = "textBoxEmployeeIDOrders";
-            textBoxEmployeeIDOrders.Size = new Size(440, 33);
-            textBoxEmployeeIDOrders.TabIndex = 2;
+            comboBoxEmployeeIDOrders.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxEmployeeIDOrders.Font = new Font("Segoe UI", 14.25F);
+            comboBoxEmployeeIDOrders.FormattingEnabled = true;
+            comboBoxEmployeeIDOrders.Location = new Point(282, 171);
+            comboBoxEmployeeIDOrders.Name = "comboBoxEmployeeIDOrders";
+            comboBoxEmployeeIDOrders.Size = new Size(446, 33);
+            comboBoxEmployeeIDOrders.TabIndex = 2;
             // 
             // labelOrderDate
             // 
@@ -1538,7 +1428,6 @@
             // tabPageProducts
             // 
             tabPageProducts.BackColor = Color.FromArgb(201, 201, 209);
-            tabPageProducts.Controls.Add(buttonTXTProduct);
             tabPageProducts.Controls.Add(buttonExcelProduct);
             tabPageProducts.Controls.Add(buttonNewProduct);
             tabPageProducts.Controls.Add(buttonDeleteProduct);
@@ -1556,22 +1445,6 @@
             tabPageProducts.Size = new Size(889, 1010);
             tabPageProducts.TabIndex = 4;
             tabPageProducts.Text = "Продукты";
-            // 
-            // buttonTXTProduct
-            // 
-            buttonTXTProduct.BackColor = Color.FromArgb(241, 156, 55);
-            buttonTXTProduct.FlatAppearance.BorderSize = 2;
-            buttonTXTProduct.FlatStyle = FlatStyle.Flat;
-            buttonTXTProduct.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            buttonTXTProduct.ForeColor = Color.Black;
-            buttonTXTProduct.Location = new Point(633, 400);
-            buttonTXTProduct.Margin = new Padding(4, 3, 4, 3);
-            buttonTXTProduct.Name = "buttonTXTProduct";
-            buttonTXTProduct.Size = new Size(236, 40);
-            buttonTXTProduct.TabIndex = 6;
-            buttonTXTProduct.Text = "Вывод в TXT";
-            buttonTXTProduct.UseVisualStyleBackColor = false;
-            buttonTXTProduct.Click += ButtonTXTProduct_Click;
             // 
             // buttonExcelProduct
             // 
@@ -1628,7 +1501,6 @@
             panelTitleProducts.Controls.Add(panel4);
             panelTitleProducts.Controls.Add(labelTitleProducts);
             panelTitleProducts.Controls.Add(buttonReportProducts);
-            panelTitleProducts.Controls.Add(buttonClearProducts);
             panelTitleProducts.Controls.Add(buttonRefreshProducts);
             panelTitleProducts.Controls.Add(textBoxSearchProducts);
             panelTitleProducts.Location = new Point(0, 0);
@@ -1675,27 +1547,13 @@
             buttonReportProducts.BackgroundImageLayout = ImageLayout.Stretch;
             buttonReportProducts.FlatStyle = FlatStyle.Flat;
             buttonReportProducts.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            buttonReportProducts.Location = new Point(407, 12);
+            buttonReportProducts.Location = new Point(475, 12);
             buttonReportProducts.Margin = new Padding(4, 3, 4, 3);
             buttonReportProducts.Name = "buttonReportProducts";
             buttonReportProducts.Size = new Size(60, 60);
             buttonReportProducts.TabIndex = 0;
             buttonReportProducts.UseVisualStyleBackColor = true;
             buttonReportProducts.Click += ButtonReportProducts_Click;
-            // 
-            // buttonClearProducts
-            // 
-            buttonClearProducts.BackgroundImage = (Image)resources.GetObject("buttonClearProducts.BackgroundImage");
-            buttonClearProducts.BackgroundImageLayout = ImageLayout.Stretch;
-            buttonClearProducts.FlatStyle = FlatStyle.Flat;
-            buttonClearProducts.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            buttonClearProducts.Location = new Point(475, 12);
-            buttonClearProducts.Margin = new Padding(4, 3, 4, 3);
-            buttonClearProducts.Name = "buttonClearProducts";
-            buttonClearProducts.Size = new Size(60, 60);
-            buttonClearProducts.TabIndex = 1;
-            buttonClearProducts.UseVisualStyleBackColor = true;
-            buttonClearProducts.Click += ButtonClear_Click;
             // 
             // buttonRefreshProducts
             // 
@@ -1915,7 +1773,6 @@
             // tabPageOrderDetails
             // 
             tabPageOrderDetails.BackColor = Color.FromArgb(201, 201, 209);
-            tabPageOrderDetails.Controls.Add(buttonTXTOrderDetails);
             tabPageOrderDetails.Controls.Add(buttonExcelOrderDetails);
             tabPageOrderDetails.Controls.Add(buttonNewOrderDetails);
             tabPageOrderDetails.Controls.Add(buttonDeleteOrderDetails);
@@ -1933,22 +1790,6 @@
             tabPageOrderDetails.Size = new Size(889, 1010);
             tabPageOrderDetails.TabIndex = 5;
             tabPageOrderDetails.Text = "Позиции заказов";
-            // 
-            // buttonTXTOrderDetails
-            // 
-            buttonTXTOrderDetails.BackColor = Color.FromArgb(241, 156, 55);
-            buttonTXTOrderDetails.FlatAppearance.BorderSize = 2;
-            buttonTXTOrderDetails.FlatStyle = FlatStyle.Flat;
-            buttonTXTOrderDetails.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            buttonTXTOrderDetails.ForeColor = Color.Black;
-            buttonTXTOrderDetails.Location = new Point(633, 400);
-            buttonTXTOrderDetails.Margin = new Padding(4, 3, 4, 3);
-            buttonTXTOrderDetails.Name = "buttonTXTOrderDetails";
-            buttonTXTOrderDetails.Size = new Size(236, 40);
-            buttonTXTOrderDetails.TabIndex = 6;
-            buttonTXTOrderDetails.Text = "Вывод в TXT";
-            buttonTXTOrderDetails.UseVisualStyleBackColor = false;
-            buttonTXTOrderDetails.Click += ButtonTXTOrderDetails_Click;
             // 
             // buttonExcelOrderDetails
             // 
@@ -2138,9 +1979,9 @@
             panelRecordOrderDetails.Controls.Add(labelOrderDetailID);
             panelRecordOrderDetails.Controls.Add(textBoxOrderDetailID);
             panelRecordOrderDetails.Controls.Add(labelOrderIDOrderDetails);
-            panelRecordOrderDetails.Controls.Add(textBoxOrderIDOrderDetails);
+            panelRecordOrderDetails.Controls.Add(comboBoxOrderIDOrderDetails);
             panelRecordOrderDetails.Controls.Add(labelProductIDOrderDetails);
-            panelRecordOrderDetails.Controls.Add(textBoxProductIDOrderDetails);
+            panelRecordOrderDetails.Controls.Add(comboBoxProductIDOrderDetails);
             panelRecordOrderDetails.Controls.Add(labelPriceOrderDetails);
             panelRecordOrderDetails.Controls.Add(textBoxPriceOrderDetails);
             panelRecordOrderDetails.Location = new Point(19, 450);
@@ -2194,14 +2035,15 @@
             labelOrderIDOrderDetails.TabIndex = 6;
             labelOrderIDOrderDetails.Text = "Номер заказа:";
             // 
-            // textBoxOrderIDOrderDetails
+            // comboBoxOrderIDOrderDetails
             // 
-            textBoxOrderIDOrderDetails.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxOrderIDOrderDetails.Location = new Point(528, 86);
-            textBoxOrderIDOrderDetails.Margin = new Padding(4, 3, 4, 3);
-            textBoxOrderIDOrderDetails.Name = "textBoxOrderIDOrderDetails";
-            textBoxOrderIDOrderDetails.Size = new Size(202, 33);
-            textBoxOrderIDOrderDetails.TabIndex = 1;
+            comboBoxOrderIDOrderDetails.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxOrderIDOrderDetails.Font = new Font("Segoe UI", 14.25F);
+            comboBoxOrderIDOrderDetails.FormattingEnabled = true;
+            comboBoxOrderIDOrderDetails.Location = new Point(527, 86);
+            comboBoxOrderIDOrderDetails.Name = "comboBoxOrderIDOrderDetails";
+            comboBoxOrderIDOrderDetails.Size = new Size(203, 33);
+            comboBoxOrderIDOrderDetails.TabIndex = 1;
             // 
             // labelProductIDOrderDetails
             // 
@@ -2215,14 +2057,15 @@
             labelProductIDOrderDetails.TabIndex = 7;
             labelProductIDOrderDetails.Text = "Наименование продукта:";
             // 
-            // textBoxProductIDOrderDetails
+            // comboBoxProductIDOrderDetails
             // 
-            textBoxProductIDOrderDetails.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxProductIDOrderDetails.Location = new Point(331, 125);
-            textBoxProductIDOrderDetails.Margin = new Padding(4, 3, 4, 3);
-            textBoxProductIDOrderDetails.Name = "textBoxProductIDOrderDetails";
-            textBoxProductIDOrderDetails.Size = new Size(399, 33);
-            textBoxProductIDOrderDetails.TabIndex = 2;
+            comboBoxProductIDOrderDetails.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxProductIDOrderDetails.Font = new Font("Segoe UI", 14.25F);
+            comboBoxProductIDOrderDetails.FormattingEnabled = true;
+            comboBoxProductIDOrderDetails.Location = new Point(330, 125);
+            comboBoxProductIDOrderDetails.Name = "comboBoxProductIDOrderDetails";
+            comboBoxProductIDOrderDetails.Size = new Size(400, 33);
+            comboBoxProductIDOrderDetails.TabIndex = 2;
             // 
             // labelPriceOrderDetails
             // 
@@ -2333,7 +2176,6 @@
         private TabPage tabPageEmployees;
         private Panel panelTitleEmployees;
         private Label labelTitleEmployees;
-        private Button buttonClearEmployees;
         private Button buttonRefreshEmployees;
         private TextBox textBoxSearchEmployees;
         private DataGridView dataGridViewEmployees;
@@ -2356,11 +2198,9 @@
         private Button buttonSaveEmployee;
         private Button buttonWordEmployee;
         private Button buttonExcelEmployee;
-        private Button buttonTXTEmployee;
         private TabPage tabPageOrders;
         private Panel panelTitleOrders;
         private Label labelTitleOrders;
-        private Button buttonClearOrders;
         private Button buttonRefreshOrders;
         private TextBox textBoxSearchOrders;
         private DataGridView dataGridViewOrders;
@@ -2369,9 +2209,7 @@
         private Label labelOrderID;
         private TextBox textBoxOrderID;
         private Label labelClientIDOrders;
-        private TextBox textBoxClientIDOrders;
         private Label labelEmployeeIDOrders;
-        private TextBox textBoxEmployeeIDOrders;
         private Label labelOrderDate;
         private DateTimePicker dateTimePickerOrderDate;
         private Label labelTotalAmount;
@@ -2384,11 +2222,9 @@
         private Button buttonSaveOrder;
         private Button buttonWordOrder;
         private Button buttonExcelOrder;
-        private Button buttonTXTOrder;
         private TabPage tabPageProducts;
         private Panel panelTitleProducts;
         private Label labelTitleProducts;
-        private Button buttonClearProducts;
         private Button buttonRefreshProducts;
         private TextBox textBoxSearchProducts;
         private DataGridView dataGridViewProducts;
@@ -2408,7 +2244,6 @@
         private Button buttonSaveProduct;
         private Button buttonWordProduct;
         private Button buttonExcelProduct;
-        private Button buttonTXTProduct;
         private TabPage tabPageOrderDetails;
         private Panel panelTitleOrderDetails;
         private Label labelTitleOrderDetails;
@@ -2421,9 +2256,7 @@
         private Label labelOrderDetailID;
         private TextBox textBoxOrderDetailID;
         private Label labelOrderIDOrderDetails;
-        private TextBox textBoxOrderIDOrderDetails;
         private Label labelProductIDOrderDetails;
-        private TextBox textBoxProductIDOrderDetails;
         private Label labelPriceOrderDetails;
         private Label labelControlOrderDetails;
         private Button buttonNewOrderDetails;
@@ -2432,7 +2265,6 @@
         private Button buttonSaveOrderDetails;
         private Button buttonWordOrderDetails;
         private Button buttonExcelOrderDetails;
-        private Button buttonTXTOrderDetails;
         private TextBox textBoxPhoneClients;
         private TextBox textBoxEmailEmployees;
         private TextBox textBoxGender;
@@ -2448,7 +2280,6 @@
         private Button buttonReportProducts;
         private TabPage tabPageClients;
         private Label labelControlClients;
-        private Button buttonTXTClient;
         private Button buttonExcelClient;
         private Button buttonWordClient;
         private Button buttonSaveClient;
@@ -2457,7 +2288,6 @@
         private Button buttonNewClient;
         private Panel panelTitleClients;
         private Label labelTitleClients;
-        private Button buttonClearClients;
         private Button buttonRefreshClients;
         private TextBox textBoxSearchClients;
         private DataGridView dataGridViewClients;
@@ -2489,5 +2319,9 @@
         private Panel panel9;
         private Panel panel10;
         private Label labelRecordClients;
+        private ComboBox comboBoxEmployeeIDOrders;
+        private ComboBox comboBoxClientIDOrders;
+        private ComboBox comboBoxProductIDOrderDetails;
+        private ComboBox comboBoxOrderIDOrderDetails;
     }
 }

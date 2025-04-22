@@ -10,6 +10,25 @@ namespace OrderTrack
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
+            dataBase.OpenConnection();
+            comboBoxGenderID.Items.Clear();
+            var gendersQuery = "SELECT Gender FROM Genders ORDER BY Gender";
+            var gendersCommand = new SqlCommand(gendersQuery, dataBase.GetConnection());
+            var gendersReader = gendersCommand.ExecuteReader();
+            while (gendersReader.Read())
+            {
+                comboBoxGenderID.Items.Add(gendersReader.GetString(0));
+            }
+            gendersReader.Close();
+            comboBoxPostID.Items.Clear();
+            var postsQuery = "SELECT Post FROM Posts ORDER BY Post";
+            var postsCommand = new SqlCommand(postsQuery, dataBase.GetConnection());
+            var postsReader = postsCommand.ExecuteReader();
+            while (postsReader.Read())
+            {
+                comboBoxPostID.Items.Add(postsReader.GetString(0));
+            }
+            postsReader.Close();
         }
 
         /// <summary>

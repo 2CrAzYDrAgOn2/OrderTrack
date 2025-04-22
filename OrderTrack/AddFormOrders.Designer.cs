@@ -33,13 +33,13 @@
             label1 = new Label();
             buttonSave = new Button();
             labelClientIDOrders = new Label();
-            textBoxClientIDOrders = new TextBox();
             labelEmployeeIDOrders = new Label();
-            textBoxEmployeeIDOrders = new TextBox();
             labelStatusID = new Label();
             comboBoxStatusID = new ComboBox();
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
+            comboBoxEmployeeIDOrders = new ComboBox();
+            comboBoxClientIDOrders = new ComboBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -80,7 +80,7 @@
             buttonSave.Margin = new Padding(4, 3, 4, 3);
             buttonSave.Name = "buttonSave";
             buttonSave.Size = new Size(236, 44);
-            buttonSave.TabIndex = 4;
+            buttonSave.TabIndex = 3;
             buttonSave.Text = "Сохранить";
             buttonSave.UseVisualStyleBackColor = false;
             buttonSave.Click += ButtonSave_Click;
@@ -98,15 +98,6 @@
             labelClientIDOrders.TabIndex = 7;
             labelClientIDOrders.Text = "Наименование клиента:";
             // 
-            // textBoxClientIDOrders
-            // 
-            textBoxClientIDOrders.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxClientIDOrders.Location = new Point(141, 149);
-            textBoxClientIDOrders.Margin = new Padding(4, 3, 4, 3);
-            textBoxClientIDOrders.Name = "textBoxClientIDOrders";
-            textBoxClientIDOrders.Size = new Size(455, 33);
-            textBoxClientIDOrders.TabIndex = 0;
-            // 
             // labelEmployeeIDOrders
             // 
             labelEmployeeIDOrders.AutoSize = true;
@@ -119,15 +110,6 @@
             labelEmployeeIDOrders.Size = new Size(178, 25);
             labelEmployeeIDOrders.TabIndex = 8;
             labelEmployeeIDOrders.Text = "ФИО Сотрудника:";
-            // 
-            // textBoxEmployeeIDOrders
-            // 
-            textBoxEmployeeIDOrders.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxEmployeeIDOrders.Location = new Point(141, 218);
-            textBoxEmployeeIDOrders.Margin = new Padding(4, 3, 4, 3);
-            textBoxEmployeeIDOrders.Name = "textBoxEmployeeIDOrders";
-            textBoxEmployeeIDOrders.Size = new Size(455, 33);
-            textBoxEmployeeIDOrders.TabIndex = 1;
             // 
             // labelStatusID
             // 
@@ -144,13 +126,13 @@
             // 
             // comboBoxStatusID
             // 
+            comboBoxStatusID.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxStatusID.Font = new Font("Segoe UI", 14.25F);
             comboBoxStatusID.FormattingEnabled = true;
-            comboBoxStatusID.Items.AddRange(new object[] { "В обработке", "Подтвержден", "Отменен", "Выполнен" });
             comboBoxStatusID.Location = new Point(141, 287);
             comboBoxStatusID.Name = "comboBoxStatusID";
             comboBoxStatusID.Size = new Size(455, 33);
-            comboBoxStatusID.TabIndex = 3;
+            comboBoxStatusID.TabIndex = 2;
             // 
             // panel1
             // 
@@ -173,6 +155,26 @@
             pictureBox1.TabIndex = 16;
             pictureBox1.TabStop = false;
             // 
+            // comboBoxEmployeeIDOrders
+            // 
+            comboBoxEmployeeIDOrders.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxEmployeeIDOrders.Font = new Font("Segoe UI", 14.25F);
+            comboBoxEmployeeIDOrders.FormattingEnabled = true;
+            comboBoxEmployeeIDOrders.Location = new Point(141, 218);
+            comboBoxEmployeeIDOrders.Name = "comboBoxEmployeeIDOrders";
+            comboBoxEmployeeIDOrders.Size = new Size(455, 33);
+            comboBoxEmployeeIDOrders.TabIndex = 1;
+            // 
+            // comboBoxClientIDOrders
+            // 
+            comboBoxClientIDOrders.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxClientIDOrders.Font = new Font("Segoe UI", 14.25F);
+            comboBoxClientIDOrders.FormattingEnabled = true;
+            comboBoxClientIDOrders.Location = new Point(141, 154);
+            comboBoxClientIDOrders.Name = "comboBoxClientIDOrders";
+            comboBoxClientIDOrders.Size = new Size(455, 33);
+            comboBoxClientIDOrders.TabIndex = 0;
+            // 
             // AddFormOrders
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -182,9 +184,9 @@
             ClientSize = new Size(729, 416);
             Controls.Add(panel1);
             Controls.Add(labelClientIDOrders);
-            Controls.Add(textBoxClientIDOrders);
+            Controls.Add(comboBoxClientIDOrders);
             Controls.Add(labelEmployeeIDOrders);
-            Controls.Add(textBoxEmployeeIDOrders);
+            Controls.Add(comboBoxEmployeeIDOrders);
             Controls.Add(labelStatusID);
             Controls.Add(comboBoxStatusID);
             Controls.Add(buttonSave);
@@ -204,12 +206,12 @@
         private Label label1;
         private Button buttonSave;
         private Label labelClientIDOrders;
-        private TextBox textBoxClientIDOrders;
         private Label labelEmployeeIDOrders;
-        private TextBox textBoxEmployeeIDOrders;
         private Label labelStatusID;
         private ComboBox comboBoxStatusID;
         private Panel panel1;
         private PictureBox pictureBox1;
+        private ComboBox comboBoxEmployeeIDOrders;
+        private ComboBox comboBoxClientIDOrders;
     }
 }

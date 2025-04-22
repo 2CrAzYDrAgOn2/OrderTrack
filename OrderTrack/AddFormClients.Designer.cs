@@ -133,7 +133,6 @@
             comboBoxClientTypeID.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxClientTypeID.Font = new Font("Segoe UI", 14.25F);
             comboBoxClientTypeID.FormattingEnabled = true;
-            comboBoxClientTypeID.Items.AddRange(new object[] { "Физическое лицо", "Юридическое лицо" });
             comboBoxClientTypeID.Location = new Point(230, 116);
             comboBoxClientTypeID.Name = "comboBoxClientTypeID";
             comboBoxClientTypeID.Size = new Size(307, 33);
@@ -260,9 +259,9 @@
             panel2.Controls.Add(labelEmailClients);
             panel2.Controls.Add(labelPhoneClients);
             panel2.Controls.Add(textBoxINN);
-            panel2.Controls.Add(comboBoxClientTypeID);
             panel2.Controls.Add(maskedTextBoxPhoneClients);
             panel2.Controls.Add(labelClientTypeID);
+            panel2.Controls.Add(comboBoxClientTypeID);
             panel2.Controls.Add(textBoxFullNameClients);
             panel2.Location = new Point(-2, 93);
             panel2.Name = "panel2";

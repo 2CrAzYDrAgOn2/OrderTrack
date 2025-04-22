@@ -10,6 +10,16 @@ namespace OrderTrack
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
+            dataBase.OpenConnection();
+            comboBoxClientTypeID.Items.Clear();
+            var clientTypesQuery = "SELECT ClientType FROM ClientTypes ORDER BY ClientType";
+            var clientTypesCommand = new SqlCommand(clientTypesQuery, dataBase.GetConnection());
+            var clientTypesReader = clientTypesCommand.ExecuteReader();
+            while (clientTypesReader.Read())
+            {
+                comboBoxClientTypeID.Items.Add(clientTypesReader.GetString(0));
+            }
+            clientTypesReader.Close();
         }
 
         /// <summary>
