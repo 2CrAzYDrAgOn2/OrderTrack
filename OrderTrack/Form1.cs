@@ -528,6 +528,7 @@ namespace OrderTrack
                                 var deleteQuery = $"delete from Clients where ClientID = '{clientID}'";
                                 var sqlCommand = new SqlCommand(deleteQuery, dataBase.GetConnection());
                                 sqlCommand.ExecuteNonQuery();
+                                FillAllComboBoxes();
                             }
                             if (rowStateClients == RowState.Modified)
                             {
@@ -553,6 +554,7 @@ namespace OrderTrack
                                 var changeQuery = $"update Clients set FullName = '{fullName}', ClientTypeID = '{clientTypeIdValue}', Email = '{email}', Phone = '{phone}', Address = '{address}', INN = '{iNN}', RegistrationDate = '{registrationDate}' where ClientID = '{clientID}'";
                                 var sqlCommand = new SqlCommand(changeQuery, dataBase.GetConnection());
                                 sqlCommand.ExecuteNonQuery();
+                                FillAllComboBoxes();
                             }
                             if (rowStateClients == RowState.New)
                             {
@@ -576,6 +578,7 @@ namespace OrderTrack
                                 var newQuery = $"insert into Clients (FullName, ClientTypeID, Email, Phone, Address, INN) values ('{fullName}', '{clientTypeIdValue}', '{email}', '{phone}', '{address}', '{iNN}')";
                                 var sqlCommand = new SqlCommand(newQuery, dataBase.GetConnection());
                                 sqlCommand.ExecuteNonQuery();
+                                FillAllComboBoxes();
                             }
                             break;
 
@@ -591,6 +594,7 @@ namespace OrderTrack
                                 var deleteQuery = $"delete from Employees where EmployeeID = '{employeeID}'";
                                 var sqlCommand = new SqlCommand(deleteQuery, dataBase.GetConnection());
                                 sqlCommand.ExecuteNonQuery();
+                                FillAllComboBoxes();
                             }
                             if (rowStateEmployees == RowState.Modified)
                             {
@@ -625,6 +629,7 @@ namespace OrderTrack
                                 var changeQuery = $"update Employees set FullName = '{fullName}', Phone = '{phone}', Email = '{email}', GenderID = '{genderIdValue}', PostID = '{postIdValue}' where EmployeeID = '{employeeID}'";
                                 var sqlCommand = new SqlCommand(changeQuery, dataBase.GetConnection());
                                 sqlCommand.ExecuteNonQuery();
+                                FillAllComboBoxes();
                             }
                             if (rowStateEmployees == RowState.New)
                             {
@@ -658,6 +663,7 @@ namespace OrderTrack
                                 var newQuery = $"insert into Employees (FullName, Phone, Email, GenderID, PostID) values ('{fullName}', '{phone}', '{email}', '{genderIdValue}', '{postIdValue}')";
                                 var sqlCommand = new SqlCommand(newQuery, dataBase.GetConnection());
                                 sqlCommand.ExecuteNonQuery();
+                                FillAllComboBoxes();
                             }
                             break;
 
@@ -673,6 +679,7 @@ namespace OrderTrack
                                 var deleteQuery = $"delete from Orders where OrderID = '{orderID}'";
                                 var sqlCommand = new SqlCommand(deleteQuery, dataBase.GetConnection());
                                 sqlCommand.ExecuteNonQuery();
+                                FillAllComboBoxes();
                             }
                             if (rowStateOrders == RowState.Modified)
                             {
@@ -719,6 +726,7 @@ namespace OrderTrack
                                 var changeQuery = $"update Orders set ClientID = '{clientIdValue}', EmployeeID = '{employeeIdValue}', OrderDate = '{orderDate}', TotalAmount = '{totalAmount}', StatusID = '{statusIdValue}' where OrderID = '{orderID}'";
                                 var sqlCommand = new SqlCommand(changeQuery, dataBase.GetConnection());
                                 sqlCommand.ExecuteNonQuery();
+                                FillAllComboBoxes();
                             }
                             if (rowStateOrders == RowState.New)
                             {
@@ -764,6 +772,7 @@ namespace OrderTrack
                                 var newQuery = $"insert into Orders (ClientID, EmployeeID, StatusID) values ('{clientIdValue}', '{employeeIdValue}', '{statusIdValue}')";
                                 var sqlCommand = new SqlCommand(newQuery, dataBase.GetConnection());
                                 sqlCommand.ExecuteNonQuery();
+                                FillAllComboBoxes();
                             }
                             break;
 
@@ -779,6 +788,7 @@ namespace OrderTrack
                                 var deleteQuery = $"delete from Products where ProductID = '{productID}'";
                                 var sqlCommand = new SqlCommand(deleteQuery, dataBase.GetConnection());
                                 sqlCommand.ExecuteNonQuery();
+                                FillAllComboBoxes();
                             }
                             if (rowStateProducts == RowState.Modified)
                             {
@@ -789,6 +799,7 @@ namespace OrderTrack
                                 var changeQuery = $"update Products set Name = '{name}', Description = '{description}', Price = '{price}' where ProductID = '{productID}'";
                                 var sqlCommand = new SqlCommand(changeQuery, dataBase.GetConnection());
                                 sqlCommand.ExecuteNonQuery();
+                                FillAllComboBoxes();
                             }
                             if (rowStateProducts == RowState.New)
                             {
@@ -798,6 +809,7 @@ namespace OrderTrack
                                 var newQuery = $"insert into Products (Name, Description, Price) values ('{name}', '{description}', '{price}')";
                                 var sqlCommand = new SqlCommand(newQuery, dataBase.GetConnection());
                                 sqlCommand.ExecuteNonQuery();
+                                FillAllComboBoxes();
                             }
                             break;
 
