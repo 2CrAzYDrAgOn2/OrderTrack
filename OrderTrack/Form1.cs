@@ -320,6 +320,7 @@ namespace OrderTrack
                         textBoxAddress.Text = dataGridViewRow.Cells[5].Value.ToString();
                         textBoxINN.Text = dataGridViewRow.Cells[6].Value.ToString();
                         dateTimePickerRegistrationDate.Text = dataGridViewRow.Cells[7].Value?.ToString();
+                        panelRecordClients.Visible = true;
                         break;
 
                     case "dataGridViewEmployees":
@@ -329,6 +330,7 @@ namespace OrderTrack
                         textBoxEmailEmployees.Text = dataGridViewRow.Cells[3].Value.ToString();
                         comboBoxGenderID.Text = dataGridViewRow.Cells[4].Value.ToString();
                         comboBoxPostID.Text = dataGridViewRow.Cells[5].Value.ToString();
+                        panelRecordEmployees.Visible = true;
                         break;
 
                     case "dataGridViewOrders":
@@ -338,6 +340,7 @@ namespace OrderTrack
                         dateTimePickerOrderDate.Text = dataGridViewRow.Cells[3].Value?.ToString();
                         textBoxTotalAmount.Text = dataGridViewRow.Cells[4].Value.ToString();
                         comboBoxStatusID.Text = dataGridViewRow.Cells[5].Value.ToString();
+                        panelRecordOrders.Visible = true;
                         break;
 
                     case "dataGridViewProducts":
@@ -345,6 +348,7 @@ namespace OrderTrack
                         textBoxName.Text = dataGridViewRow.Cells[1].Value.ToString();
                         textBoxDescription.Text = dataGridViewRow.Cells[2].Value.ToString();
                         textBoxPrice.Text = dataGridViewRow.Cells[3].Value.ToString();
+                        panelRecordProducts.Visible = true;
                         break;
 
                     case "dataGridViewOrderDetails":
@@ -352,6 +356,7 @@ namespace OrderTrack
                         comboBoxOrderIDOrderDetails.Text = dataGridViewRow.Cells[1].Value?.ToString();
                         comboBoxProductIDOrderDetails.Text = dataGridViewRow.Cells[2].Value?.ToString();
                         textBoxPriceOrderDetails.Text = dataGridViewRow.Cells[3].Value.ToString();
+                        panelRecordOrderDetails.Visible = true;
                         break;
                 }
             }
@@ -447,6 +452,15 @@ namespace OrderTrack
         {
             try
             {
+                DialogResult result = MessageBox.Show(
+            "Вы уверены, что хотите удалить эту запись?",
+            "Подтверждение удаления",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question);
+                if (result != DialogResult.Yes)
+                {
+                    return;
+                }
                 int index = dataGridView.CurrentCell.RowIndex;
                 dataGridView.Rows[index].Visible = false;
                 switch (dataGridView.Name)
@@ -1266,23 +1280,6 @@ namespace OrderTrack
                 RefreshDataGrid(dataGridViewOrders, "Orders");
                 RefreshDataGrid(dataGridViewProducts, "Products");
                 RefreshDataGrid(dataGridViewOrderDetails, "OrderDetails");
-                ClearFields();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        /// <summary>
-        /// ButtonClear_Click() вызывается при нажатии на кнопку очистки
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ButtonClear_Click(object sender, EventArgs e)
-        {
-            try
-            {
                 ClearFields();
             }
             catch (Exception ex)

@@ -157,7 +157,6 @@
             panel10 = new Panel();
             panel5 = new Panel();
             labelTitleOrderDetails = new Label();
-            buttonClearOrderDetails = new Button();
             buttonRefreshOrderDetails = new Button();
             textBoxSearchOrderDetails = new TextBox();
             buttonChangeOrderDetails = new Button();
@@ -455,6 +454,7 @@
             panelRecordClients.Name = "panelRecordClients";
             panelRecordClients.Size = new Size(850, 373);
             panelRecordClients.TabIndex = 1;
+            panelRecordClients.Visible = false;
             // 
             // labelRecordClients
             // 
@@ -845,6 +845,7 @@
             panelRecordEmployees.Name = "panelRecordEmployees";
             panelRecordEmployees.Size = new Size(850, 363);
             panelRecordEmployees.TabIndex = 1;
+            panelRecordEmployees.Visible = false;
             // 
             // labelRecordEmployees
             // 
@@ -1253,6 +1254,7 @@
             panelRecordOrders.Name = "panelRecordOrders";
             panelRecordOrders.Size = new Size(850, 376);
             panelRecordOrders.TabIndex = 1;
+            panelRecordOrders.Visible = false;
             // 
             // labelRecordOrders
             // 
@@ -1345,6 +1347,7 @@
             // 
             // dateTimePickerOrderDate
             // 
+            dateTimePickerOrderDate.Enabled = false;
             dateTimePickerOrderDate.Font = new Font("Segoe UI", 14.25F);
             dateTimePickerOrderDate.Location = new Point(402, 81);
             dateTimePickerOrderDate.Name = "dateTimePickerOrderDate";
@@ -1644,6 +1647,7 @@
             panelRecordProducts.Name = "panelRecordProducts";
             panelRecordProducts.Size = new Size(850, 376);
             panelRecordProducts.TabIndex = 1;
+            panelRecordProducts.Visible = false;
             // 
             // labelRecordProducts
             // 
@@ -1845,7 +1849,6 @@
             panelTitleOrderDetails.Controls.Add(panel10);
             panelTitleOrderDetails.Controls.Add(panel5);
             panelTitleOrderDetails.Controls.Add(labelTitleOrderDetails);
-            panelTitleOrderDetails.Controls.Add(buttonClearOrderDetails);
             panelTitleOrderDetails.Controls.Add(buttonRefreshOrderDetails);
             panelTitleOrderDetails.Controls.Add(textBoxSearchOrderDetails);
             panelTitleOrderDetails.Location = new Point(0, 0);
@@ -1885,20 +1888,6 @@
             labelTitleOrderDetails.Size = new Size(404, 65);
             labelTitleOrderDetails.TabIndex = 4;
             labelTitleOrderDetails.Text = "Позиции заказов";
-            // 
-            // buttonClearOrderDetails
-            // 
-            buttonClearOrderDetails.BackgroundImage = (Image)resources.GetObject("buttonClearOrderDetails.BackgroundImage");
-            buttonClearOrderDetails.BackgroundImageLayout = ImageLayout.Stretch;
-            buttonClearOrderDetails.FlatStyle = FlatStyle.Flat;
-            buttonClearOrderDetails.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            buttonClearOrderDetails.Location = new Point(514, 10);
-            buttonClearOrderDetails.Margin = new Padding(4, 3, 4, 3);
-            buttonClearOrderDetails.Name = "buttonClearOrderDetails";
-            buttonClearOrderDetails.Size = new Size(60, 60);
-            buttonClearOrderDetails.TabIndex = 0;
-            buttonClearOrderDetails.UseVisualStyleBackColor = true;
-            buttonClearOrderDetails.Click += ButtonClear_Click;
             // 
             // buttonRefreshOrderDetails
             // 
@@ -1989,6 +1978,7 @@
             panelRecordOrderDetails.Name = "panelRecordOrderDetails";
             panelRecordOrderDetails.Size = new Size(850, 376);
             panelRecordOrderDetails.TabIndex = 1;
+            panelRecordOrderDetails.Visible = false;
             // 
             // labelRecordOrderDetails
             // 
@@ -2247,7 +2237,6 @@
         private TabPage tabPageOrderDetails;
         private Panel panelTitleOrderDetails;
         private Label labelTitleOrderDetails;
-        private Button buttonClearOrderDetails;
         private Button buttonRefreshOrderDetails;
         private TextBox textBoxSearchOrderDetails;
         private DataGridView dataGridViewOrderDetails;
