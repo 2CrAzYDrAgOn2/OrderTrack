@@ -66,9 +66,9 @@
             label1.Location = new Point(314, 63);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(93, 25);
+            label1.Size = new Size(54, 25);
             label1.TabIndex = 5;
-            label1.Text = "Продукт";
+            label1.Text = "Дом";
             // 
             // buttonSave
             // 
@@ -191,7 +191,7 @@
             DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "AddFormProducts";
-            Text = "Добавить продукт";
+            Text = "Добавить дом";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

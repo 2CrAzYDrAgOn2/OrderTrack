@@ -47,13 +47,16 @@ CREATE TABLE Employees (
 CREATE TABLE Orders (
     OrderID INT PRIMARY KEY IDENTITY(1,1),
     ClientID INT NOT NULL,
+	OOOShnick VARCHAR(150), --added
     EmployeeID INT NOT NULL,
     OrderDate DATE DEFAULT GETDATE(),
     TotalAmount FLOAT DEFAULT 0.00,
     StatusID INT DEFAULT 0,
+	ProductID INT NOT NULL, --added
     FOREIGN KEY (ClientID) REFERENCES Clients(ClientID) ON DELETE CASCADE,
     FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID),
 	FOREIGN KEY (StatusID) REFERENCES Statuses(StatusID) ON DELETE CASCADE
+	FOREIGN KEY (ProductID) REFERENCES Products(ProductID) ON DELETE CASCADE
 );
 
 CREATE TABLE Products (
@@ -70,6 +73,38 @@ CREATE TABLE OrderDetails (
     Price FLOAT,
     FOREIGN KEY (OrderID) REFERENCES Orders(OrderID) ON DELETE CASCADE,
     FOREIGN KEY (ProductID) REFERENCES Products(ProductID) ON DELETE CASCADE
+);
+
+CREATE TABLE Materials (
+    MaterialID INT PRIMARY KEY IDENTITY(1,1),
+    Name NVARCHAR(150) NOT NULL,
+    Description NVARCHAR(255),
+    Unit NVARCHAR(50) NOT NULL,
+    CurrentQuantity FLOAT DEFAULT 0
+);
+
+CREATE TABLE OrderEstimates (
+    OrderEstimateID INT PRIMARY KEY IDENTITY(1,1),
+	OrderID INT NOT NULL,
+    OrderEstimateDate DATE DEFAULT GETDATE(),
+	FOREIGN KEY (OrderID) REFERENCES Orders(OrderID) ON DELETE CASCADE,
+);
+
+CREATE TABLE OrderEstimateDetails (
+    OrderEstimateDetailID INT PRIMARY KEY IDENTITY(1,1),
+    OrderEstimateID INT NOT NULL,
+    MaterialID INT NOT NULL,
+    Quantity FLOAT NOT NULL,
+    FOREIGN KEY (OrderEstimateID) REFERENCES OrderEstimates(OrderEstimateID) ON DELETE CASCADE,
+    FOREIGN KEY (MaterialID) REFERENCES Materials(MaterialID) ON DELETE CASCADE
+);
+
+CREATE TABLE OrderMaterials (
+    OrderMaterialID INT PRIMARY KEY IDENTITY(1,1),
+    MaterialID INT NOT NULL,
+    Quantity FLOAT NOT NULL,
+	RequestDate DATETIME DEFAULT GETDATE(),
+	FOREIGN KEY (MaterialID) REFERENCES Materials(MaterialID) ON DELETE CASCADE
 );
 
 CREATE TABLE Registration (
@@ -111,40 +146,130 @@ BEGIN
     ON o.OrderID = affectedOrders.OrderID;
 END;
 
+CREATE OR ALTER TRIGGER trg_CheckMaterialsAndCreateRequest
+ON OrderEstimateDetails
+AFTER INSERT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    INSERT INTO OrderMaterials (MaterialID, Quantity)
+    SELECT 
+        i.MaterialID,
+        i.Quantity - m.CurrentQuantity AS НедостающееКоличество
+    FROM inserted i
+    JOIN Materials m ON i.MaterialID = m.MaterialID
+    WHERE m.CurrentQuantity < i.Quantity;
+END;
+
+CREATE OR ALTER TRIGGER trg_UpdateMaterialQuantityOnRequest
+ON OrderMaterials
+AFTER INSERT, UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+    IF EXISTS (SELECT 1 FROM deleted)
+    BEGIN
+        UPDATE m
+        SET m.CurrentQuantity = m.CurrentQuantity + (i.Quantity - d.Quantity)
+        FROM Materials m
+        JOIN inserted i ON m.MaterialID = i.MaterialID
+        JOIN deleted d ON i.OrderMaterialID = d.OrderMaterialID
+        WHERE i.Quantity <> d.Quantity;
+    END
+END;
+
+CREATE OR ALTER TRIGGER trg_SubtractMaterialsOnOrderCompletion
+ON Orders
+AFTER UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+    BEGIN
+        UPDATE m
+        SET m.CurrentQuantity = m.CurrentQuantity - oed.Quantity
+        FROM Materials m
+        JOIN OrderEstimateDetails oed ON m.MaterialID = oed.MaterialID
+        JOIN OrderEstimates oe ON oed.OrderEstimateID = oe.OrderEstimateID
+        JOIN inserted i ON oe.OrderID = i.OrderID
+        JOIN deleted d ON i.OrderID = d.OrderID
+        WHERE i.StatusID = 2 AND d.StatusID <> 2;
+    END
+END;
+
 INSERT INTO ClientTypes (ClientType) VALUES ('Физическое лицо'), ('Юридическое лицо');
 
 INSERT INTO Genders (Gender) VALUES ('Мужской'), ('Женский');
 
-INSERT INTO Posts (Post) VALUES ('Менеджер по продажам'), ('Администратор');
+INSERT INTO Posts (Post) VALUES ('Директор'), ('Бухгалтер'), ('Подрядчик');
 
 INSERT INTO Statuses (Status) VALUES ('В обработке'), ('Подтвержден'), ('Отменен'), ('Выполнен');
 
-INSERT INTO Clients (FullName, ClientTypeID, Email, Phone, Address, INN)
-VALUES 
-    ('Иванов Иван Иванович', 1, 'ivanov@mail.ru', '+79991234567', 'г. Москва, ул. Ленина, д. 10', ''),
-    ('ООО "Ромашка"', 2, 'romashka@mail.ru', '+79991112233', 'г. Санкт-Петербург, пр. Невский, д. 25', '0987654321');
+INSERT INTO Clients (FullName, ClientTypeID, Email, Phone, Address, INN) VALUES
+('Иванов Иван Иванович', 1, 'ivanov@mail.ru', '+79161234567', 'г. Москва, ул. Ленина, д. 10, кв. 5', '1234567890'),
+('Петров Петр Петрович', 1, 'petrov@mail.ru', '+79162345678', 'г. Москва, ул. Пушкина, д. 15, кв. 12', '2345678901'),
+('ООО "СтройИнвест"', 2, 'stroyinvest@mail.ru', '+74951234567', 'г. Москва, ул. Строителей, д. 25', '3456789012'),
+('Сидорова Анна Михайловна', 1, 'sidorova@mail.ru', '+79163456789', 'г. Москва, ул. Гагарина, д. 8, кв. 33', '4567890123'),
+('ООО "ДомКомфорт"', 2, 'domkomfort@mail.ru', '+74952345678', 'г. Москва, ул. Мира, д. 17', '5678901234');
 
-INSERT INTO Employees (FullName, Phone, Email, GenderID, PostID)
-VALUES 
-    ('Петров Петр Петрович', '+7 (999) 888-77-66', 'petrov@mail.ru', 1, 1),
-    ('Сидорова Анна Сергеевна', '+7 (999) 555-44-33', 'sidorova@mail.ru', 2, 2);
+INSERT INTO Employees (FullName, Phone, Email, GenderID, PostID) VALUES
+('Смирнов Алексей Владимирович', '+79164567890', 'smirnov@company.ru', 1, 1),
+('Кузнецова Елена Сергеевна', '+79165678901', 'kuznetsova@company.ru', 2, 2),
+('Васильев Дмитрий Николаевич', '+79166789012', 'vasiliev@company.ru', 1, 3),
+('Николаева Ольга Игоревна', '+79167890123', 'nikolaeva@company.ru', 2, 2),
+('Федоров Игорь Александрович', '+79168901234', 'fedorov@company.ru', 1, 3);
 
-INSERT INTO Products (Name, Description, Price)
-VALUES 
-    ('Квартира в доме 1', 'Дом 1', 85000000.00),
-    ('Квартира в доме 12', 'Дом 2', 3500000.00),
-    ('Квартира в доме 13', 'Дом 3', 1500000.00);
+INSERT INTO Products (Name, Description, Price) VALUES
+('Дом "Эконом"', 'Одноэтажный дом площадью 60 кв.м, 2 спальни, 1 санузел', 2500000),
+('Дом "Комфорт"', 'Двухэтажный дом площадью 120 кв.м, 3 спальни, 2 санузла', 5000000),
+('Дом "Премиум"', 'Двухэтажный дом площадью 200 кв.м с гаражом, 4 спальни, 3 санузла', 8500000),
+('Коттедж "Люкс"', 'Трехэтажный коттедж площадью 300 кв.м с бассейном, 5 спален, 4 санузла', 15000000),
+('Таунхаус "Стандарт"', 'Двухэтажный таунхаус площадью 90 кв.м, 2 спальни, 1 санузел', 3500000);
 
-INSERT INTO Orders (ClientID, EmployeeID, StatusID)
-VALUES 
-    (1, 1, 1),
-    (2, 2, 2);
+INSERT INTO Materials (Name, Description, Unit, CurrentQuantity) VALUES
+('Кирпич', 'Кирпич строительный красный', 'шт', 10000),
+('Бетон', 'Бетон марки М300', 'куб.м', 50),
+('Доска обрезная', 'Доска 50х150х6000', 'шт', 500),
+('Цемент', 'Цемент М500', 'мешок 50кг', 200),
+('Металлопрокат', 'Арматура 12мм', 'м', 1000),
+('Кровельный материал', 'Металлочерепица', 'кв.м', 500),
+('Окна', 'Пластиковые окна 1.5х1.2м', 'шт', 30),
+('Двери', 'Входные металлические двери', 'шт', 15),
+('Сантехника', 'Унитаз, раковина, ванна', 'комплект', 20),
+('Электропроводка', 'Кабель ВВГнг 3х2.5', 'м', 2000);
 
-INSERT INTO OrderDetails (OrderID, ProductID)
-VALUES 
-    (1, 1),
-    (1, 2),
-    (2, 3);
+INSERT INTO Orders (ClientID, EmployeeID, StatusID, ProductID) VALUES
+(1, 3, 2, 1),
+(3, 5, 4, 3),
+(2, 3, 1, 2),
+(4, 5, 3, 1),
+(5, 3, 2, 4),
+(1, 5, 1, 5),
+(3, 3, 4, 2);
+
+INSERT INTO OrderDetails (OrderID, ProductID) VALUES
+(1, 1),
+(2, 3),
+(3, 2),
+(4, 1),
+(5, 4),
+(6, 5),
+(7, 2);
+
+INSERT INTO OrderEstimates (OrderID) VALUES
+(1), (2), (3), (5), (7);
+
+INSERT INTO OrderEstimateDetails (OrderEstimateID, MaterialID, Quantity) VALUES
+(1, 1, 5000), (1, 2, 15), (1, 3, 200), (1, 4, 50),
+(2, 1, 15000), (2, 2, 40), (2, 3, 400), (2, 4, 120), (2, 5, 800), (2, 6, 200),
+(3, 1, 8000), (3, 2, 25), (3, 3, 300), (3, 4, 80), (3, 6, 150),
+(4, 1, 20000), (4, 2, 60), (4, 3, 600), (4, 4, 150), (4, 5, 1200), (4, 6, 300), (4, 7, 15), (4, 8, 5), (4, 9, 4), (4, 10, 500),
+(5, 1, 7000), (5, 2, 20), (5, 3, 250), (5, 4, 70), (5, 6, 120);
+
+INSERT INTO OrderMaterials (MaterialID, Quantity) VALUES
+(7, 10),
+(8, 5),
+(9, 6),
+(10, 1000);
 
 INSERT INTO Registration (UserLogin, UserPassword, IsAdmin) VALUES
 ('admin', 'admin', 1),
@@ -156,9 +281,13 @@ SELECT * FROM Posts;
 SELECT * FROM Statuses;
 SELECT * FROM Clients;
 SELECT * FROM Employees;
-SELECT * FROM Orders;
 SELECT * FROM Products;
+SELECT * FROM Orders;
 SELECT * FROM OrderDetails;
+SELECT * FROM Materials;
+SELECT * FROM OrderEstimates;
+SELECT * FROM OrderEstimateDetails;
+SELECT * FROM OrderMaterials;
 SELECT * FROM Registration;
 
 -- 1. Отчет по заказам клиентов
@@ -197,3 +326,5 @@ ORDER BY COUNT(od.OrderDetailID) DESC, SUM(od.Price) DESC;
 
 
 DROP DATABASE OrderTrack;
+
+use w;

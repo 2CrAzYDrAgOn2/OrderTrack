@@ -1383,6 +1383,22 @@ namespace OrderTrack
             }
         }
 
+        private void ButtonNewMaterial_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void ButtonNewOrderEstimate_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void ButtonNewOrderEstimateDetail_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void ButtonNewOrderMaterial_Click(object sender, EventArgs e)
+        {
+        }
+
         /// <summary>
         /// ButtonDeleteClient_Click() вызывается при нажатии на кнопку "Удалить" на вкладке "Клиенты"
         /// </summary>
@@ -1473,6 +1489,22 @@ namespace OrderTrack
             }
         }
 
+        private void ButtonDeleteMaterial_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void ButtonDeleteOrderEstimate_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void ButtonDeleteOrderEstimateDetail_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void ButtonDeleteOrderMaterial_Click(object sender, EventArgs e)
+        {
+        }
+
         /// <summary>
         /// ButtonChangeClient_Click() вызывается при нажатии на кнопку "Изменить" на вкладке "Клиенты"
         /// </summary>
@@ -1561,6 +1593,22 @@ namespace OrderTrack
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void ButtonChangeMaterial_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void ButtonChangeOrderEstimate_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void ButtonChangeOrderEstimateDetail_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void ButtonChangeOrderMaterial_Click(object sender, EventArgs e)
+        {
         }
 
         /// <summary>
@@ -1662,6 +1710,22 @@ namespace OrderTrack
             }
         }
 
+        private void ButtonSaveMaterial_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void ButtonSaveOrderEstimate_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void ButtonSaveOrderEstimateDetail_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void ButtonSaveOrderMaterial_Click(object sender, EventArgs e)
+        {
+        }
+
         /// <summary>
         /// ButtonWordClient_Click() вызывается при нажатии на кнопку "Вывод в Word" на вкладке "Клиенты"
         /// </summary>
@@ -1747,6 +1811,22 @@ namespace OrderTrack
             }
         }
 
+        private void ButtonWordMaterial_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void ButtonWordOrderEstimate_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void ButtonWordOrderEstimateDetail_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void ButtonWordOrderMaterial_Click(object sender, EventArgs e)
+        {
+        }
+
         /// <summary>
         /// ButtonExcelClient_Click() вызывается при нажатии на кнопку "Вывод в Excel" на вкладке "Клиенты"
         /// </summary>
@@ -1830,6 +1910,22 @@ namespace OrderTrack
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void ButtonExcelMaterial_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void ButtonExcelOrderEstimate_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void ButtonExcelOrderEstimateDetail_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void ButtonExcelOrderMaterial_Click(object sender, EventArgs e)
+        {
         }
 
         /// <summary>

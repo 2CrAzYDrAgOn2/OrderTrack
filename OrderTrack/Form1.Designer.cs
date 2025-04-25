@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             tabControl1 = new TabControl();
             tabPageClients = new TabPage();
@@ -113,6 +114,8 @@
             textBoxOrderID = new TextBox();
             labelClientIDOrders = new Label();
             comboBoxClientIDOrders = new ComboBox();
+            labelOOOShnick = new Label();
+            textBoxOOOShnick = new TextBox();
             labelEmployeeIDOrders = new Label();
             comboBoxEmployeeIDOrders = new ComboBox();
             labelOrderDate = new Label();
@@ -121,6 +124,8 @@
             textBoxTotalAmount = new TextBox();
             labelStatusID = new Label();
             comboBoxStatusID = new ComboBox();
+            labelProductIDOrders = new Label();
+            comboBoxProductIDOrders = new ComboBox();
             buttonWordOrder = new Button();
             labelControlOrders = new Label();
             tabPageProducts = new TabPage();
@@ -174,6 +179,107 @@
             textBoxPriceOrderDetails = new TextBox();
             buttonWordOrderDetails = new Button();
             labelControlOrderDetails = new Label();
+            tabPageMaterials = new TabPage();
+            buttonExcelMaterial = new Button();
+            buttonNewMaterial = new Button();
+            buttonDeleteMaterial = new Button();
+            panelTItleMaterials = new Panel();
+            panel12 = new Panel();
+            panel13 = new Panel();
+            labelTitleMaterials = new Label();
+            buttonRefreshMaterials = new Button();
+            textBoxSearchMaterials = new TextBox();
+            buttonChangeMaterial = new Button();
+            dataGridViewMaterials = new DataGridView();
+            buttonSaveMaterial = new Button();
+            panelRecordMaterials = new Panel();
+            labelRecordMaterials = new Label();
+            labelMaterialID = new Label();
+            textBoxMaterialID = new TextBox();
+            labelNameMaterials = new Label();
+            textBoxNameMaterials = new TextBox();
+            labelDescriptionMaterials = new Label();
+            textBoxDescriptionMaterials = new TextBox();
+            labelUnit = new Label();
+            textBoxUnit = new TextBox();
+            labelCurrentQuantinity = new Label();
+            textBoxCurrentQuantity = new TextBox();
+            buttonWordMaterial = new Button();
+            labelControlMaterials = new Label();
+            tabPageOrderEstimates = new TabPage();
+            buttonExcelOrderEstimate = new Button();
+            buttonNewOrderEstimate = new Button();
+            buttonDeleteOrderEstimate = new Button();
+            panelTitleOrderEstimates = new Panel();
+            panel16 = new Panel();
+            panel17 = new Panel();
+            labelTitleOrderEstimates = new Label();
+            buttonRefreshOrderEstimates = new Button();
+            textBoxSearchOrderEstimates = new TextBox();
+            buttonChangeOrderEstimate = new Button();
+            dataGridViewOrderEstimates = new DataGridView();
+            buttonSaveOrderEstimate = new Button();
+            panelRecordOrderEstimates = new Panel();
+            labelRecordOrderEstimates = new Label();
+            labelOrderEstimateID = new Label();
+            textBoxOrderEstimateID = new TextBox();
+            labelOrderEstimateDate = new Label();
+            dateTimePickerOrderEstimateDate = new DateTimePicker();
+            labelOrderIDOrderEstimates = new Label();
+            comboBoxOrderIDOrderEstimates = new ComboBox();
+            buttonWordOrderEstimate = new Button();
+            labelControlOrderEstimates = new Label();
+            tabPageOrderEstimateDetails = new TabPage();
+            buttonExcelOrderEstimateDetail = new Button();
+            buttonNewOrderEstimateDetail = new Button();
+            buttonDeleteOrderEstimateDetail = new Button();
+            panelTitleOrderEstimateDetails = new Panel();
+            panel20 = new Panel();
+            panel21 = new Panel();
+            labelTitleOrderEstimateDetails = new Label();
+            buttonRefreshOrderEstimateDetails = new Button();
+            textBoxSearchOrderEstimateDetails = new TextBox();
+            buttonChangeOrderEstimateDetail = new Button();
+            dataGridViewOrderEstimateDetails = new DataGridView();
+            buttonSaveOrderEstimateDetail = new Button();
+            panelRecordOrderEstimateDetails = new Panel();
+            labelRecordOrderEstimateDetails = new Label();
+            labelOrderEstimateDetailID = new Label();
+            textBoxOrderEstimateDetailID = new TextBox();
+            labelOrderEstimateIDOrderEstimateDetails = new Label();
+            comboBoxOrderEstimateIDOrderEstimateDetails = new ComboBox();
+            labelMaterialIDOrderEstimateDetails = new Label();
+            comboBoxMaterialIDOrderEstimateDetails = new ComboBox();
+            labelQuantinityOrderEstimateDetails = new Label();
+            textBoxQuantinityOrderEstimateDetails = new TextBox();
+            buttonWordOrderEstimateDetail = new Button();
+            labelControlOrderEstimateDetails = new Label();
+            tabPageOrderMaterials = new TabPage();
+            buttonExcelOrderMaterial = new Button();
+            buttonNewOrderMaterial = new Button();
+            buttonDeleteOrderMaterial = new Button();
+            panelTitleOrderMaterials = new Panel();
+            panel24 = new Panel();
+            panel25 = new Panel();
+            labelTitleOrderMaterials = new Label();
+            buttonRefreshOrderMaterials = new Button();
+            textBoxSearchOrderMaterials = new TextBox();
+            buttonChangeOrderMaterial = new Button();
+            dataGridViewOrderMaterials = new DataGridView();
+            buttonSaveOrderMaterial = new Button();
+            panelRecordOrderMaterials = new Panel();
+            labelRecordOrderMaterials = new Label();
+            labelOrderMaterialID = new Label();
+            textBoxOrderMaterialID = new TextBox();
+            labelMaterialIDOrderMaterials = new Label();
+            dateTimePickerMaterialIDOrderMaterials = new DateTimePicker();
+            labelQuantinityOrderMaterials = new Label();
+            comboBoxQuantinityOrderMaterials = new ComboBox();
+            labelRequestDate = new Label();
+            textBoxRequestDate = new TextBox();
+            buttonWordOrderMaterial = new Button();
+            labelControlOrderMaterials = new Label();
+            bindingSource1 = new BindingSource(components);
             tabControl1.SuspendLayout();
             tabPageClients.SuspendLayout();
             panelTitleClients.SuspendLayout();
@@ -195,6 +301,23 @@
             panelTitleOrderDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewOrderDetails).BeginInit();
             panelRecordOrderDetails.SuspendLayout();
+            tabPageMaterials.SuspendLayout();
+            panelTItleMaterials.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewMaterials).BeginInit();
+            panelRecordMaterials.SuspendLayout();
+            tabPageOrderEstimates.SuspendLayout();
+            panelTitleOrderEstimates.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewOrderEstimates).BeginInit();
+            panelRecordOrderEstimates.SuspendLayout();
+            tabPageOrderEstimateDetails.SuspendLayout();
+            panelTitleOrderEstimateDetails.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewOrderEstimateDetails).BeginInit();
+            panelRecordOrderEstimateDetails.SuspendLayout();
+            tabPageOrderMaterials.SuspendLayout();
+            panelTitleOrderMaterials.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewOrderMaterials).BeginInit();
+            panelRecordOrderMaterials.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
@@ -204,6 +327,10 @@
             tabControl1.Controls.Add(tabPageOrders);
             tabControl1.Controls.Add(tabPageProducts);
             tabControl1.Controls.Add(tabPageOrderDetails);
+            tabControl1.Controls.Add(tabPageMaterials);
+            tabControl1.Controls.Add(tabPageOrderEstimates);
+            tabControl1.Controls.Add(tabPageOrderEstimateDetails);
+            tabControl1.Controls.Add(tabPageOrderMaterials);
             tabControl1.Location = new Point(0, 0);
             tabControl1.Margin = new Padding(4, 3, 4, 3);
             tabControl1.Name = "tabControl1";
@@ -1241,6 +1368,8 @@
             panelRecordOrders.Controls.Add(textBoxOrderID);
             panelRecordOrders.Controls.Add(labelClientIDOrders);
             panelRecordOrders.Controls.Add(comboBoxClientIDOrders);
+            panelRecordOrders.Controls.Add(labelOOOShnick);
+            panelRecordOrders.Controls.Add(textBoxOOOShnick);
             panelRecordOrders.Controls.Add(labelEmployeeIDOrders);
             panelRecordOrders.Controls.Add(comboBoxEmployeeIDOrders);
             panelRecordOrders.Controls.Add(labelOrderDate);
@@ -1249,11 +1378,13 @@
             panelRecordOrders.Controls.Add(textBoxTotalAmount);
             panelRecordOrders.Controls.Add(labelStatusID);
             panelRecordOrders.Controls.Add(comboBoxStatusID);
+            panelRecordOrders.Controls.Add(labelProductIDOrders);
+            panelRecordOrders.Controls.Add(comboBoxProductIDOrders);
             panelRecordOrders.Location = new Point(19, 459);
             panelRecordOrders.Margin = new Padding(4, 3, 4, 3);
             panelRecordOrders.Name = "panelRecordOrders";
             panelRecordOrders.Size = new Size(850, 376);
-            panelRecordOrders.TabIndex = 1;
+            panelRecordOrders.TabIndex = 0;
             panelRecordOrders.Visible = false;
             // 
             // labelRecordOrders
@@ -1261,11 +1392,11 @@
             labelRecordOrders.AutoSize = true;
             labelRecordOrders.Font = new Font("Segoe UI Semibold", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
             labelRecordOrders.ForeColor = Color.Black;
-            labelRecordOrders.Location = new Point(356, 17);
+            labelRecordOrders.Location = new Point(355, 0);
             labelRecordOrders.Margin = new Padding(4, 0, 4, 0);
             labelRecordOrders.Name = "labelRecordOrders";
             labelRecordOrders.Size = new Size(142, 47);
-            labelRecordOrders.TabIndex = 6;
+            labelRecordOrders.TabIndex = 8;
             labelRecordOrders.Text = "Запись:";
             // 
             // labelOrderID
@@ -1273,17 +1404,17 @@
             labelOrderID.AutoSize = true;
             labelOrderID.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             labelOrderID.ForeColor = Color.Black;
-            labelOrderID.Location = new Point(126, 87);
+            labelOrderID.Location = new Point(126, 56);
             labelOrderID.Margin = new Padding(4, 0, 4, 0);
             labelOrderID.Name = "labelOrderID";
             labelOrderID.Size = new Size(67, 21);
-            labelOrderID.TabIndex = 7;
+            labelOrderID.TabIndex = 9;
             labelOrderID.Text = "Номер:";
             // 
             // textBoxOrderID
             // 
             textBoxOrderID.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxOrderID.Location = new Point(201, 81);
+            textBoxOrderID.Location = new Point(201, 50);
             textBoxOrderID.Margin = new Padding(4, 3, 4, 3);
             textBoxOrderID.Name = "textBoxOrderID";
             textBoxOrderID.Size = new Size(79, 33);
@@ -1294,11 +1425,11 @@
             labelClientIDOrders.AutoSize = true;
             labelClientIDOrders.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             labelClientIDOrders.ForeColor = Color.Black;
-            labelClientIDOrders.Location = new Point(126, 132);
+            labelClientIDOrders.Location = new Point(126, 101);
             labelClientIDOrders.Margin = new Padding(4, 0, 4, 0);
             labelClientIDOrders.Name = "labelClientIDOrders";
             labelClientIDOrders.Size = new Size(201, 21);
-            labelClientIDOrders.TabIndex = 8;
+            labelClientIDOrders.TabIndex = 11;
             labelClientIDOrders.Text = "Наименование клиента:";
             // 
             // comboBoxClientIDOrders
@@ -1306,21 +1437,42 @@
             comboBoxClientIDOrders.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxClientIDOrders.Font = new Font("Segoe UI", 14.25F);
             comboBoxClientIDOrders.FormattingEnabled = true;
-            comboBoxClientIDOrders.Location = new Point(329, 126);
+            comboBoxClientIDOrders.Location = new Point(329, 95);
             comboBoxClientIDOrders.Name = "comboBoxClientIDOrders";
             comboBoxClientIDOrders.Size = new Size(399, 33);
-            comboBoxClientIDOrders.TabIndex = 1;
+            comboBoxClientIDOrders.TabIndex = 2;
+            // 
+            // labelOOOShnick
+            // 
+            labelOOOShnick.AutoSize = true;
+            labelOOOShnick.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            labelOOOShnick.ForeColor = Color.Black;
+            labelOOOShnick.Location = new Point(126, 145);
+            labelOOOShnick.Margin = new Padding(4, 0, 4, 0);
+            labelOOOShnick.Name = "labelOOOShnick";
+            labelOOOShnick.Size = new Size(129, 21);
+            labelOOOShnick.TabIndex = 12;
+            labelOOOShnick.Text = "Управляющий:";
+            // 
+            // textBoxOOOShnick
+            // 
+            textBoxOOOShnick.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxOOOShnick.Location = new Point(263, 139);
+            textBoxOOOShnick.Margin = new Padding(4, 3, 4, 3);
+            textBoxOOOShnick.Name = "textBoxOOOShnick";
+            textBoxOOOShnick.Size = new Size(465, 33);
+            textBoxOOOShnick.TabIndex = 3;
             // 
             // labelEmployeeIDOrders
             // 
             labelEmployeeIDOrders.AutoSize = true;
             labelEmployeeIDOrders.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             labelEmployeeIDOrders.ForeColor = Color.Black;
-            labelEmployeeIDOrders.Location = new Point(126, 177);
+            labelEmployeeIDOrders.Location = new Point(126, 189);
             labelEmployeeIDOrders.Margin = new Padding(4, 0, 4, 0);
             labelEmployeeIDOrders.Name = "labelEmployeeIDOrders";
             labelEmployeeIDOrders.Size = new Size(149, 21);
-            labelEmployeeIDOrders.TabIndex = 9;
+            labelEmployeeIDOrders.TabIndex = 13;
             labelEmployeeIDOrders.Text = "ФИО Сотрудника:";
             // 
             // comboBoxEmployeeIDOrders
@@ -1328,17 +1480,17 @@
             comboBoxEmployeeIDOrders.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxEmployeeIDOrders.Font = new Font("Segoe UI", 14.25F);
             comboBoxEmployeeIDOrders.FormattingEnabled = true;
-            comboBoxEmployeeIDOrders.Location = new Point(282, 171);
+            comboBoxEmployeeIDOrders.Location = new Point(282, 183);
             comboBoxEmployeeIDOrders.Name = "comboBoxEmployeeIDOrders";
             comboBoxEmployeeIDOrders.Size = new Size(446, 33);
-            comboBoxEmployeeIDOrders.TabIndex = 2;
+            comboBoxEmployeeIDOrders.TabIndex = 4;
             // 
             // labelOrderDate
             // 
             labelOrderDate.AutoSize = true;
             labelOrderDate.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             labelOrderDate.ForeColor = Color.Black;
-            labelOrderDate.Location = new Point(288, 87);
+            labelOrderDate.Location = new Point(288, 56);
             labelOrderDate.Margin = new Padding(4, 0, 4, 0);
             labelOrderDate.Name = "labelOrderDate";
             labelOrderDate.Size = new Size(107, 21);
@@ -1349,43 +1501,43 @@
             // 
             dateTimePickerOrderDate.Enabled = false;
             dateTimePickerOrderDate.Font = new Font("Segoe UI", 14.25F);
-            dateTimePickerOrderDate.Location = new Point(402, 81);
+            dateTimePickerOrderDate.Location = new Point(402, 50);
             dateTimePickerOrderDate.Name = "dateTimePickerOrderDate";
             dateTimePickerOrderDate.Size = new Size(326, 33);
-            dateTimePickerOrderDate.TabIndex = 3;
+            dateTimePickerOrderDate.TabIndex = 1;
             // 
             // labelTotalAmount
             // 
             labelTotalAmount.AutoSize = true;
             labelTotalAmount.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             labelTotalAmount.ForeColor = Color.Black;
-            labelTotalAmount.Location = new Point(126, 222);
+            labelTotalAmount.Location = new Point(126, 234);
             labelTotalAmount.Margin = new Padding(4, 0, 4, 0);
             labelTotalAmount.Name = "labelTotalAmount";
             labelTotalAmount.Size = new Size(61, 21);
-            labelTotalAmount.TabIndex = 11;
+            labelTotalAmount.TabIndex = 14;
             labelTotalAmount.Text = "Итого:";
             // 
             // textBoxTotalAmount
             // 
             textBoxTotalAmount.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxTotalAmount.Location = new Point(195, 216);
+            textBoxTotalAmount.Location = new Point(195, 228);
             textBoxTotalAmount.Margin = new Padding(4, 3, 4, 3);
             textBoxTotalAmount.Name = "textBoxTotalAmount";
             textBoxTotalAmount.ReadOnly = true;
             textBoxTotalAmount.Size = new Size(533, 33);
-            textBoxTotalAmount.TabIndex = 4;
+            textBoxTotalAmount.TabIndex = 5;
             // 
             // labelStatusID
             // 
             labelStatusID.AutoSize = true;
             labelStatusID.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             labelStatusID.ForeColor = Color.Black;
-            labelStatusID.Location = new Point(126, 269);
+            labelStatusID.Location = new Point(126, 281);
             labelStatusID.Margin = new Padding(4, 0, 4, 0);
             labelStatusID.Name = "labelStatusID";
             labelStatusID.Size = new Size(64, 21);
-            labelStatusID.TabIndex = 12;
+            labelStatusID.TabIndex = 15;
             labelStatusID.Text = "Статус:";
             // 
             // comboBoxStatusID
@@ -1394,10 +1546,33 @@
             comboBoxStatusID.Font = new Font("Segoe UI", 14.25F);
             comboBoxStatusID.FormattingEnabled = true;
             comboBoxStatusID.Items.AddRange(new object[] { "В обработке", "Подтвержден", "Отменен", "Выполнен" });
-            comboBoxStatusID.Location = new Point(195, 263);
+            comboBoxStatusID.Location = new Point(195, 275);
             comboBoxStatusID.Name = "comboBoxStatusID";
             comboBoxStatusID.Size = new Size(533, 33);
-            comboBoxStatusID.TabIndex = 5;
+            comboBoxStatusID.TabIndex = 6;
+            // 
+            // labelProductIDOrders
+            // 
+            labelProductIDOrders.AutoSize = true;
+            labelProductIDOrders.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            labelProductIDOrders.ForeColor = Color.Black;
+            labelProductIDOrders.Location = new Point(126, 329);
+            labelProductIDOrders.Margin = new Padding(4, 0, 4, 0);
+            labelProductIDOrders.Name = "labelProductIDOrders";
+            labelProductIDOrders.Size = new Size(48, 21);
+            labelProductIDOrders.TabIndex = 16;
+            labelProductIDOrders.Text = "Дом:";
+            // 
+            // comboBoxProductIDOrders
+            // 
+            comboBoxProductIDOrders.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxProductIDOrders.Font = new Font("Segoe UI", 14.25F);
+            comboBoxProductIDOrders.FormattingEnabled = true;
+            comboBoxProductIDOrders.Items.AddRange(new object[] { "В обработке", "Подтвержден", "Отменен", "Выполнен" });
+            comboBoxProductIDOrders.Location = new Point(181, 323);
+            comboBoxProductIDOrders.Name = "comboBoxProductIDOrders";
+            comboBoxProductIDOrders.Size = new Size(547, 33);
+            comboBoxProductIDOrders.TabIndex = 7;
             // 
             // buttonWordOrder
             // 
@@ -1447,7 +1622,7 @@
             tabPageProducts.Padding = new Padding(4, 3, 4, 3);
             tabPageProducts.Size = new Size(889, 1010);
             tabPageProducts.TabIndex = 4;
-            tabPageProducts.Text = "Продукты";
+            tabPageProducts.Text = "Дома";
             // 
             // buttonExcelProduct
             // 
@@ -1540,9 +1715,9 @@
             labelTitleProducts.Location = new Point(138, 12);
             labelTitleProducts.Margin = new Padding(4, 0, 4, 0);
             labelTitleProducts.Name = "labelTitleProducts";
-            labelTitleProducts.Size = new Size(245, 65);
+            labelTitleProducts.Size = new Size(147, 65);
             labelTitleProducts.TabIndex = 4;
-            labelTitleProducts.Text = "Продукты";
+            labelTitleProducts.Text = "Дома";
             // 
             // buttonReportProducts
             // 
@@ -2108,6 +2283,1322 @@
             labelControlOrderDetails.TabIndex = 4;
             labelControlOrderDetails.Text = "Управление записями:";
             // 
+            // tabPageMaterials
+            // 
+            tabPageMaterials.BackColor = Color.FromArgb(201, 201, 209);
+            tabPageMaterials.Controls.Add(buttonExcelMaterial);
+            tabPageMaterials.Controls.Add(buttonNewMaterial);
+            tabPageMaterials.Controls.Add(buttonDeleteMaterial);
+            tabPageMaterials.Controls.Add(panelTItleMaterials);
+            tabPageMaterials.Controls.Add(buttonChangeMaterial);
+            tabPageMaterials.Controls.Add(dataGridViewMaterials);
+            tabPageMaterials.Controls.Add(buttonSaveMaterial);
+            tabPageMaterials.Controls.Add(panelRecordMaterials);
+            tabPageMaterials.Controls.Add(buttonWordMaterial);
+            tabPageMaterials.Controls.Add(labelControlMaterials);
+            tabPageMaterials.Location = new Point(4, 24);
+            tabPageMaterials.Margin = new Padding(4, 3, 4, 3);
+            tabPageMaterials.Name = "tabPageMaterials";
+            tabPageMaterials.Padding = new Padding(4, 3, 4, 3);
+            tabPageMaterials.Size = new Size(889, 1010);
+            tabPageMaterials.TabIndex = 6;
+            tabPageMaterials.Text = "Материалы";
+            // 
+            // buttonExcelMaterial
+            // 
+            buttonExcelMaterial.BackColor = Color.FromArgb(241, 156, 55);
+            buttonExcelMaterial.FlatAppearance.BorderSize = 2;
+            buttonExcelMaterial.FlatStyle = FlatStyle.Flat;
+            buttonExcelMaterial.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonExcelMaterial.ForeColor = Color.Black;
+            buttonExcelMaterial.Location = new Point(633, 354);
+            buttonExcelMaterial.Margin = new Padding(4, 3, 4, 3);
+            buttonExcelMaterial.Name = "buttonExcelMaterial";
+            buttonExcelMaterial.Size = new Size(236, 40);
+            buttonExcelMaterial.TabIndex = 5;
+            buttonExcelMaterial.Text = "Вывод в Excel";
+            buttonExcelMaterial.UseVisualStyleBackColor = false;
+            buttonExcelMaterial.Click += ButtonExcelMaterial_Click;
+            // 
+            // buttonNewMaterial
+            // 
+            buttonNewMaterial.BackColor = Color.FromArgb(241, 156, 55);
+            buttonNewMaterial.FlatAppearance.BorderSize = 2;
+            buttonNewMaterial.FlatStyle = FlatStyle.Flat;
+            buttonNewMaterial.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonNewMaterial.ForeColor = Color.Black;
+            buttonNewMaterial.Location = new Point(633, 124);
+            buttonNewMaterial.Margin = new Padding(4, 3, 4, 3);
+            buttonNewMaterial.Name = "buttonNewMaterial";
+            buttonNewMaterial.Size = new Size(236, 40);
+            buttonNewMaterial.TabIndex = 0;
+            buttonNewMaterial.Text = "Новая запись";
+            buttonNewMaterial.UseVisualStyleBackColor = false;
+            buttonNewMaterial.Click += ButtonNewMaterial_Click;
+            // 
+            // buttonDeleteMaterial
+            // 
+            buttonDeleteMaterial.BackColor = Color.FromArgb(241, 156, 55);
+            buttonDeleteMaterial.FlatAppearance.BorderSize = 2;
+            buttonDeleteMaterial.FlatStyle = FlatStyle.Flat;
+            buttonDeleteMaterial.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonDeleteMaterial.ForeColor = Color.Black;
+            buttonDeleteMaterial.Location = new Point(633, 170);
+            buttonDeleteMaterial.Margin = new Padding(4, 3, 4, 3);
+            buttonDeleteMaterial.Name = "buttonDeleteMaterial";
+            buttonDeleteMaterial.Size = new Size(236, 40);
+            buttonDeleteMaterial.TabIndex = 1;
+            buttonDeleteMaterial.Text = "Удалить";
+            buttonDeleteMaterial.UseVisualStyleBackColor = false;
+            buttonDeleteMaterial.Click += ButtonDeleteMaterial_Click;
+            // 
+            // panelTItleMaterials
+            // 
+            panelTItleMaterials.BackColor = Color.FromArgb(0, 83, 133);
+            panelTItleMaterials.Controls.Add(panel12);
+            panelTItleMaterials.Controls.Add(panel13);
+            panelTItleMaterials.Controls.Add(labelTitleMaterials);
+            panelTItleMaterials.Controls.Add(buttonRefreshMaterials);
+            panelTItleMaterials.Controls.Add(textBoxSearchMaterials);
+            panelTItleMaterials.Location = new Point(0, 0);
+            panelTItleMaterials.Margin = new Padding(4, 3, 4, 3);
+            panelTItleMaterials.Name = "panelTItleMaterials";
+            panelTItleMaterials.Size = new Size(889, 84);
+            panelTItleMaterials.TabIndex = 3;
+            // 
+            // panel12
+            // 
+            panel12.BackColor = Color.FromArgb(201, 201, 209);
+            panel12.BackgroundImage = (Image)resources.GetObject("panel12.BackgroundImage");
+            panel12.BackgroundImageLayout = ImageLayout.Stretch;
+            panel12.BorderStyle = BorderStyle.FixedSingle;
+            panel12.Location = new Point(847, 27);
+            panel12.Name = "panel12";
+            panel12.Size = new Size(33, 33);
+            panel12.TabIndex = 8;
+            // 
+            // panel13
+            // 
+            panel13.BackgroundImage = (Image)resources.GetObject("panel13.BackgroundImage");
+            panel13.BackgroundImageLayout = ImageLayout.Stretch;
+            panel13.Location = new Point(3, 4);
+            panel13.Name = "panel13";
+            panel13.Size = new Size(100, 75);
+            panel13.TabIndex = 7;
+            // 
+            // labelTitleMaterials
+            // 
+            labelTitleMaterials.AutoSize = true;
+            labelTitleMaterials.Font = new Font("Segoe UI", 36F, FontStyle.Underline, GraphicsUnit.Point, 0);
+            labelTitleMaterials.ForeColor = Color.WhiteSmoke;
+            labelTitleMaterials.Location = new Point(136, 8);
+            labelTitleMaterials.Margin = new Padding(4, 0, 4, 0);
+            labelTitleMaterials.Name = "labelTitleMaterials";
+            labelTitleMaterials.Size = new Size(279, 65);
+            labelTitleMaterials.TabIndex = 5;
+            labelTitleMaterials.Text = "Материалы";
+            // 
+            // buttonRefreshMaterials
+            // 
+            buttonRefreshMaterials.BackgroundImage = (Image)resources.GetObject("buttonRefreshMaterials.BackgroundImage");
+            buttonRefreshMaterials.BackgroundImageLayout = ImageLayout.Stretch;
+            buttonRefreshMaterials.FlatStyle = FlatStyle.Flat;
+            buttonRefreshMaterials.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            buttonRefreshMaterials.Location = new Point(543, 13);
+            buttonRefreshMaterials.Margin = new Padding(4, 3, 4, 3);
+            buttonRefreshMaterials.Name = "buttonRefreshMaterials";
+            buttonRefreshMaterials.Size = new Size(60, 60);
+            buttonRefreshMaterials.TabIndex = 3;
+            buttonRefreshMaterials.UseVisualStyleBackColor = true;
+            // 
+            // textBoxSearchMaterials
+            // 
+            textBoxSearchMaterials.BackColor = Color.FromArgb(201, 201, 209);
+            textBoxSearchMaterials.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxSearchMaterials.Location = new Point(610, 27);
+            textBoxSearchMaterials.Margin = new Padding(4, 3, 4, 3);
+            textBoxSearchMaterials.Name = "textBoxSearchMaterials";
+            textBoxSearchMaterials.Size = new Size(237, 33);
+            textBoxSearchMaterials.TabIndex = 4;
+            // 
+            // buttonChangeMaterial
+            // 
+            buttonChangeMaterial.BackColor = Color.FromArgb(241, 156, 55);
+            buttonChangeMaterial.FlatAppearance.BorderSize = 2;
+            buttonChangeMaterial.FlatStyle = FlatStyle.Flat;
+            buttonChangeMaterial.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonChangeMaterial.ForeColor = Color.Black;
+            buttonChangeMaterial.Location = new Point(633, 216);
+            buttonChangeMaterial.Margin = new Padding(4, 3, 4, 3);
+            buttonChangeMaterial.Name = "buttonChangeMaterial";
+            buttonChangeMaterial.Size = new Size(236, 40);
+            buttonChangeMaterial.TabIndex = 2;
+            buttonChangeMaterial.Text = "Изменить";
+            buttonChangeMaterial.UseVisualStyleBackColor = false;
+            buttonChangeMaterial.Click += ButtonChangeMaterial_Click;
+            // 
+            // dataGridViewMaterials
+            // 
+            dataGridViewMaterials.AllowUserToAddRows = false;
+            dataGridViewMaterials.AllowUserToDeleteRows = false;
+            dataGridViewMaterials.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewMaterials.Location = new Point(19, 91);
+            dataGridViewMaterials.Margin = new Padding(4, 3, 4, 3);
+            dataGridViewMaterials.Name = "dataGridViewMaterials";
+            dataGridViewMaterials.ReadOnly = true;
+            dataGridViewMaterials.RowHeadersWidth = 62;
+            dataGridViewMaterials.Size = new Size(596, 349);
+            dataGridViewMaterials.TabIndex = 0;
+            // 
+            // buttonSaveMaterial
+            // 
+            buttonSaveMaterial.BackColor = Color.FromArgb(241, 156, 55);
+            buttonSaveMaterial.FlatAppearance.BorderSize = 2;
+            buttonSaveMaterial.FlatStyle = FlatStyle.Flat;
+            buttonSaveMaterial.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonSaveMaterial.ForeColor = Color.Black;
+            buttonSaveMaterial.Location = new Point(633, 262);
+            buttonSaveMaterial.Margin = new Padding(4, 3, 4, 3);
+            buttonSaveMaterial.Name = "buttonSaveMaterial";
+            buttonSaveMaterial.Size = new Size(236, 40);
+            buttonSaveMaterial.TabIndex = 3;
+            buttonSaveMaterial.Text = "Сохранить";
+            buttonSaveMaterial.UseVisualStyleBackColor = false;
+            buttonSaveMaterial.Click += ButtonSaveMaterial_Click;
+            // 
+            // panelRecordMaterials
+            // 
+            panelRecordMaterials.BackColor = Color.FromArgb(49, 128, 168);
+            panelRecordMaterials.BorderStyle = BorderStyle.FixedSingle;
+            panelRecordMaterials.Controls.Add(labelRecordMaterials);
+            panelRecordMaterials.Controls.Add(labelMaterialID);
+            panelRecordMaterials.Controls.Add(textBoxMaterialID);
+            panelRecordMaterials.Controls.Add(labelNameMaterials);
+            panelRecordMaterials.Controls.Add(textBoxNameMaterials);
+            panelRecordMaterials.Controls.Add(labelDescriptionMaterials);
+            panelRecordMaterials.Controls.Add(textBoxDescriptionMaterials);
+            panelRecordMaterials.Controls.Add(labelUnit);
+            panelRecordMaterials.Controls.Add(textBoxUnit);
+            panelRecordMaterials.Controls.Add(labelCurrentQuantinity);
+            panelRecordMaterials.Controls.Add(textBoxCurrentQuantity);
+            panelRecordMaterials.Location = new Point(19, 459);
+            panelRecordMaterials.Margin = new Padding(4, 3, 4, 3);
+            panelRecordMaterials.Name = "panelRecordMaterials";
+            panelRecordMaterials.Size = new Size(850, 376);
+            panelRecordMaterials.TabIndex = 1;
+            panelRecordMaterials.Visible = false;
+            // 
+            // labelRecordMaterials
+            // 
+            labelRecordMaterials.AutoSize = true;
+            labelRecordMaterials.Font = new Font("Segoe UI Semibold", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            labelRecordMaterials.ForeColor = Color.Black;
+            labelRecordMaterials.Location = new Point(355, 0);
+            labelRecordMaterials.Margin = new Padding(4, 0, 4, 0);
+            labelRecordMaterials.Name = "labelRecordMaterials";
+            labelRecordMaterials.Size = new Size(142, 47);
+            labelRecordMaterials.TabIndex = 5;
+            labelRecordMaterials.Text = "Запись:";
+            // 
+            // labelMaterialID
+            // 
+            labelMaterialID.AutoSize = true;
+            labelMaterialID.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            labelMaterialID.ForeColor = Color.Black;
+            labelMaterialID.Location = new Point(126, 56);
+            labelMaterialID.Margin = new Padding(4, 0, 4, 0);
+            labelMaterialID.Name = "labelMaterialID";
+            labelMaterialID.Size = new Size(67, 21);
+            labelMaterialID.TabIndex = 6;
+            labelMaterialID.Text = "Номер:";
+            // 
+            // textBoxMaterialID
+            // 
+            textBoxMaterialID.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxMaterialID.Location = new Point(201, 50);
+            textBoxMaterialID.Margin = new Padding(4, 3, 4, 3);
+            textBoxMaterialID.Name = "textBoxMaterialID";
+            textBoxMaterialID.Size = new Size(79, 33);
+            textBoxMaterialID.TabIndex = 0;
+            // 
+            // labelNameMaterials
+            // 
+            labelNameMaterials.AutoSize = true;
+            labelNameMaterials.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            labelNameMaterials.ForeColor = Color.Black;
+            labelNameMaterials.Location = new Point(288, 56);
+            labelNameMaterials.Margin = new Padding(4, 0, 4, 0);
+            labelNameMaterials.Name = "labelNameMaterials";
+            labelNameMaterials.Size = new Size(133, 21);
+            labelNameMaterials.TabIndex = 7;
+            labelNameMaterials.Text = "Наименование:";
+            // 
+            // textBoxNameMaterials
+            // 
+            textBoxNameMaterials.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxNameMaterials.Location = new Point(429, 50);
+            textBoxNameMaterials.Margin = new Padding(4, 3, 4, 3);
+            textBoxNameMaterials.Name = "textBoxNameMaterials";
+            textBoxNameMaterials.Size = new Size(299, 33);
+            textBoxNameMaterials.TabIndex = 1;
+            // 
+            // labelDescriptionMaterials
+            // 
+            labelDescriptionMaterials.AutoSize = true;
+            labelDescriptionMaterials.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            labelDescriptionMaterials.ForeColor = Color.Black;
+            labelDescriptionMaterials.Location = new Point(131, 106);
+            labelDescriptionMaterials.Margin = new Padding(4, 0, 4, 0);
+            labelDescriptionMaterials.Name = "labelDescriptionMaterials";
+            labelDescriptionMaterials.Size = new Size(92, 21);
+            labelDescriptionMaterials.TabIndex = 8;
+            labelDescriptionMaterials.Text = "Описание:";
+            // 
+            // textBoxDescriptionMaterials
+            // 
+            textBoxDescriptionMaterials.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxDescriptionMaterials.Location = new Point(231, 100);
+            textBoxDescriptionMaterials.Margin = new Padding(4, 3, 4, 3);
+            textBoxDescriptionMaterials.Name = "textBoxDescriptionMaterials";
+            textBoxDescriptionMaterials.Size = new Size(497, 33);
+            textBoxDescriptionMaterials.TabIndex = 2;
+            // 
+            // labelUnit
+            // 
+            labelUnit.AutoSize = true;
+            labelUnit.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            labelUnit.ForeColor = Color.Black;
+            labelUnit.Location = new Point(131, 156);
+            labelUnit.Margin = new Padding(4, 0, 4, 0);
+            labelUnit.Name = "labelUnit";
+            labelUnit.Size = new Size(173, 21);
+            labelUnit.TabIndex = 9;
+            labelUnit.Text = "Единица измерения:";
+            // 
+            // textBoxUnit
+            // 
+            textBoxUnit.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxUnit.Location = new Point(312, 150);
+            textBoxUnit.Margin = new Padding(4, 3, 4, 3);
+            textBoxUnit.Name = "textBoxUnit";
+            textBoxUnit.Size = new Size(416, 33);
+            textBoxUnit.TabIndex = 3;
+            // 
+            // labelCurrentQuantinity
+            // 
+            labelCurrentQuantinity.AutoSize = true;
+            labelCurrentQuantinity.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            labelCurrentQuantinity.ForeColor = Color.Black;
+            labelCurrentQuantinity.Location = new Point(131, 205);
+            labelCurrentQuantinity.Margin = new Padding(4, 0, 4, 0);
+            labelCurrentQuantinity.Name = "labelCurrentQuantinity";
+            labelCurrentQuantinity.Size = new Size(107, 21);
+            labelCurrentQuantinity.TabIndex = 10;
+            labelCurrentQuantinity.Text = "Количество:";
+            // 
+            // textBoxCurrentQuantity
+            // 
+            textBoxCurrentQuantity.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxCurrentQuantity.Location = new Point(246, 199);
+            textBoxCurrentQuantity.Margin = new Padding(4, 3, 4, 3);
+            textBoxCurrentQuantity.Name = "textBoxCurrentQuantity";
+            textBoxCurrentQuantity.Size = new Size(482, 33);
+            textBoxCurrentQuantity.TabIndex = 4;
+            // 
+            // buttonWordMaterial
+            // 
+            buttonWordMaterial.BackColor = Color.FromArgb(241, 156, 55);
+            buttonWordMaterial.FlatAppearance.BorderSize = 2;
+            buttonWordMaterial.FlatStyle = FlatStyle.Flat;
+            buttonWordMaterial.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonWordMaterial.ForeColor = Color.Black;
+            buttonWordMaterial.Location = new Point(633, 308);
+            buttonWordMaterial.Margin = new Padding(4, 3, 4, 3);
+            buttonWordMaterial.Name = "buttonWordMaterial";
+            buttonWordMaterial.Size = new Size(236, 40);
+            buttonWordMaterial.TabIndex = 4;
+            buttonWordMaterial.Text = "Вывод в Word";
+            buttonWordMaterial.UseVisualStyleBackColor = false;
+            buttonWordMaterial.Click += ButtonWordMaterial_Click;
+            // 
+            // labelControlMaterials
+            // 
+            labelControlMaterials.AutoSize = true;
+            labelControlMaterials.BackColor = Color.Transparent;
+            labelControlMaterials.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            labelControlMaterials.ForeColor = Color.Black;
+            labelControlMaterials.Location = new Point(647, 94);
+            labelControlMaterials.Margin = new Padding(4, 0, 4, 0);
+            labelControlMaterials.Name = "labelControlMaterials";
+            labelControlMaterials.Size = new Size(213, 25);
+            labelControlMaterials.TabIndex = 4;
+            labelControlMaterials.Text = "Управление записями:";
+            // 
+            // tabPageOrderEstimates
+            // 
+            tabPageOrderEstimates.BackColor = Color.FromArgb(201, 201, 209);
+            tabPageOrderEstimates.Controls.Add(buttonExcelOrderEstimate);
+            tabPageOrderEstimates.Controls.Add(buttonNewOrderEstimate);
+            tabPageOrderEstimates.Controls.Add(buttonDeleteOrderEstimate);
+            tabPageOrderEstimates.Controls.Add(panelTitleOrderEstimates);
+            tabPageOrderEstimates.Controls.Add(buttonChangeOrderEstimate);
+            tabPageOrderEstimates.Controls.Add(dataGridViewOrderEstimates);
+            tabPageOrderEstimates.Controls.Add(buttonSaveOrderEstimate);
+            tabPageOrderEstimates.Controls.Add(panelRecordOrderEstimates);
+            tabPageOrderEstimates.Controls.Add(buttonWordOrderEstimate);
+            tabPageOrderEstimates.Controls.Add(labelControlOrderEstimates);
+            tabPageOrderEstimates.Location = new Point(4, 24);
+            tabPageOrderEstimates.Margin = new Padding(4, 3, 4, 3);
+            tabPageOrderEstimates.Name = "tabPageOrderEstimates";
+            tabPageOrderEstimates.Padding = new Padding(4, 3, 4, 3);
+            tabPageOrderEstimates.Size = new Size(889, 1010);
+            tabPageOrderEstimates.TabIndex = 7;
+            tabPageOrderEstimates.Text = "Сметы";
+            // 
+            // buttonExcelOrderEstimate
+            // 
+            buttonExcelOrderEstimate.BackColor = Color.FromArgb(241, 156, 55);
+            buttonExcelOrderEstimate.FlatAppearance.BorderSize = 2;
+            buttonExcelOrderEstimate.FlatStyle = FlatStyle.Flat;
+            buttonExcelOrderEstimate.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonExcelOrderEstimate.ForeColor = Color.Black;
+            buttonExcelOrderEstimate.Location = new Point(633, 354);
+            buttonExcelOrderEstimate.Margin = new Padding(4, 3, 4, 3);
+            buttonExcelOrderEstimate.Name = "buttonExcelOrderEstimate";
+            buttonExcelOrderEstimate.Size = new Size(236, 40);
+            buttonExcelOrderEstimate.TabIndex = 5;
+            buttonExcelOrderEstimate.Text = "Вывод в Excel";
+            buttonExcelOrderEstimate.UseVisualStyleBackColor = false;
+            buttonExcelOrderEstimate.Click += ButtonExcelOrderEstimate_Click;
+            // 
+            // buttonNewOrderEstimate
+            // 
+            buttonNewOrderEstimate.BackColor = Color.FromArgb(241, 156, 55);
+            buttonNewOrderEstimate.FlatAppearance.BorderSize = 2;
+            buttonNewOrderEstimate.FlatStyle = FlatStyle.Flat;
+            buttonNewOrderEstimate.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonNewOrderEstimate.ForeColor = Color.Black;
+            buttonNewOrderEstimate.Location = new Point(633, 124);
+            buttonNewOrderEstimate.Margin = new Padding(4, 3, 4, 3);
+            buttonNewOrderEstimate.Name = "buttonNewOrderEstimate";
+            buttonNewOrderEstimate.Size = new Size(236, 40);
+            buttonNewOrderEstimate.TabIndex = 0;
+            buttonNewOrderEstimate.Text = "Новая запись";
+            buttonNewOrderEstimate.UseVisualStyleBackColor = false;
+            buttonNewOrderEstimate.Click += ButtonNewOrderEstimate_Click;
+            // 
+            // buttonDeleteOrderEstimate
+            // 
+            buttonDeleteOrderEstimate.BackColor = Color.FromArgb(241, 156, 55);
+            buttonDeleteOrderEstimate.FlatAppearance.BorderSize = 2;
+            buttonDeleteOrderEstimate.FlatStyle = FlatStyle.Flat;
+            buttonDeleteOrderEstimate.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonDeleteOrderEstimate.ForeColor = Color.Black;
+            buttonDeleteOrderEstimate.Location = new Point(633, 170);
+            buttonDeleteOrderEstimate.Margin = new Padding(4, 3, 4, 3);
+            buttonDeleteOrderEstimate.Name = "buttonDeleteOrderEstimate";
+            buttonDeleteOrderEstimate.Size = new Size(236, 40);
+            buttonDeleteOrderEstimate.TabIndex = 1;
+            buttonDeleteOrderEstimate.Text = "Удалить";
+            buttonDeleteOrderEstimate.UseVisualStyleBackColor = false;
+            buttonDeleteOrderEstimate.Click += ButtonDeleteOrderEstimate_Click;
+            // 
+            // panelTitleOrderEstimates
+            // 
+            panelTitleOrderEstimates.BackColor = Color.FromArgb(0, 83, 133);
+            panelTitleOrderEstimates.Controls.Add(panel16);
+            panelTitleOrderEstimates.Controls.Add(panel17);
+            panelTitleOrderEstimates.Controls.Add(labelTitleOrderEstimates);
+            panelTitleOrderEstimates.Controls.Add(buttonRefreshOrderEstimates);
+            panelTitleOrderEstimates.Controls.Add(textBoxSearchOrderEstimates);
+            panelTitleOrderEstimates.Location = new Point(0, 0);
+            panelTitleOrderEstimates.Margin = new Padding(4, 3, 4, 3);
+            panelTitleOrderEstimates.Name = "panelTitleOrderEstimates";
+            panelTitleOrderEstimates.Size = new Size(889, 84);
+            panelTitleOrderEstimates.TabIndex = 3;
+            // 
+            // panel16
+            // 
+            panel16.BackColor = Color.FromArgb(201, 201, 209);
+            panel16.BackgroundImage = (Image)resources.GetObject("panel16.BackgroundImage");
+            panel16.BackgroundImageLayout = ImageLayout.Stretch;
+            panel16.BorderStyle = BorderStyle.FixedSingle;
+            panel16.Location = new Point(847, 27);
+            panel16.Name = "panel16";
+            panel16.Size = new Size(33, 33);
+            panel16.TabIndex = 8;
+            // 
+            // panel17
+            // 
+            panel17.BackgroundImage = (Image)resources.GetObject("panel17.BackgroundImage");
+            panel17.BackgroundImageLayout = ImageLayout.Stretch;
+            panel17.Location = new Point(3, 4);
+            panel17.Name = "panel17";
+            panel17.Size = new Size(100, 75);
+            panel17.TabIndex = 7;
+            // 
+            // labelTitleOrderEstimates
+            // 
+            labelTitleOrderEstimates.AutoSize = true;
+            labelTitleOrderEstimates.Font = new Font("Segoe UI", 36F, FontStyle.Underline, GraphicsUnit.Point, 0);
+            labelTitleOrderEstimates.ForeColor = Color.WhiteSmoke;
+            labelTitleOrderEstimates.Location = new Point(136, 8);
+            labelTitleOrderEstimates.Margin = new Padding(4, 0, 4, 0);
+            labelTitleOrderEstimates.Name = "labelTitleOrderEstimates";
+            labelTitleOrderEstimates.Size = new Size(171, 65);
+            labelTitleOrderEstimates.TabIndex = 5;
+            labelTitleOrderEstimates.Text = "Сметы";
+            // 
+            // buttonRefreshOrderEstimates
+            // 
+            buttonRefreshOrderEstimates.BackgroundImage = (Image)resources.GetObject("buttonRefreshOrderEstimates.BackgroundImage");
+            buttonRefreshOrderEstimates.BackgroundImageLayout = ImageLayout.Stretch;
+            buttonRefreshOrderEstimates.FlatStyle = FlatStyle.Flat;
+            buttonRefreshOrderEstimates.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            buttonRefreshOrderEstimates.Location = new Point(543, 13);
+            buttonRefreshOrderEstimates.Margin = new Padding(4, 3, 4, 3);
+            buttonRefreshOrderEstimates.Name = "buttonRefreshOrderEstimates";
+            buttonRefreshOrderEstimates.Size = new Size(60, 60);
+            buttonRefreshOrderEstimates.TabIndex = 3;
+            buttonRefreshOrderEstimates.UseVisualStyleBackColor = true;
+            // 
+            // textBoxSearchOrderEstimates
+            // 
+            textBoxSearchOrderEstimates.BackColor = Color.FromArgb(201, 201, 209);
+            textBoxSearchOrderEstimates.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxSearchOrderEstimates.Location = new Point(610, 27);
+            textBoxSearchOrderEstimates.Margin = new Padding(4, 3, 4, 3);
+            textBoxSearchOrderEstimates.Name = "textBoxSearchOrderEstimates";
+            textBoxSearchOrderEstimates.Size = new Size(237, 33);
+            textBoxSearchOrderEstimates.TabIndex = 4;
+            // 
+            // buttonChangeOrderEstimate
+            // 
+            buttonChangeOrderEstimate.BackColor = Color.FromArgb(241, 156, 55);
+            buttonChangeOrderEstimate.FlatAppearance.BorderSize = 2;
+            buttonChangeOrderEstimate.FlatStyle = FlatStyle.Flat;
+            buttonChangeOrderEstimate.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonChangeOrderEstimate.ForeColor = Color.Black;
+            buttonChangeOrderEstimate.Location = new Point(633, 216);
+            buttonChangeOrderEstimate.Margin = new Padding(4, 3, 4, 3);
+            buttonChangeOrderEstimate.Name = "buttonChangeOrderEstimate";
+            buttonChangeOrderEstimate.Size = new Size(236, 40);
+            buttonChangeOrderEstimate.TabIndex = 2;
+            buttonChangeOrderEstimate.Text = "Изменить";
+            buttonChangeOrderEstimate.UseVisualStyleBackColor = false;
+            buttonChangeOrderEstimate.Click += ButtonChangeOrderEstimate_Click;
+            // 
+            // dataGridViewOrderEstimates
+            // 
+            dataGridViewOrderEstimates.AllowUserToAddRows = false;
+            dataGridViewOrderEstimates.AllowUserToDeleteRows = false;
+            dataGridViewOrderEstimates.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewOrderEstimates.Location = new Point(19, 91);
+            dataGridViewOrderEstimates.Margin = new Padding(4, 3, 4, 3);
+            dataGridViewOrderEstimates.Name = "dataGridViewOrderEstimates";
+            dataGridViewOrderEstimates.ReadOnly = true;
+            dataGridViewOrderEstimates.RowHeadersWidth = 62;
+            dataGridViewOrderEstimates.Size = new Size(596, 349);
+            dataGridViewOrderEstimates.TabIndex = 0;
+            // 
+            // buttonSaveOrderEstimate
+            // 
+            buttonSaveOrderEstimate.BackColor = Color.FromArgb(241, 156, 55);
+            buttonSaveOrderEstimate.FlatAppearance.BorderSize = 2;
+            buttonSaveOrderEstimate.FlatStyle = FlatStyle.Flat;
+            buttonSaveOrderEstimate.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonSaveOrderEstimate.ForeColor = Color.Black;
+            buttonSaveOrderEstimate.Location = new Point(633, 262);
+            buttonSaveOrderEstimate.Margin = new Padding(4, 3, 4, 3);
+            buttonSaveOrderEstimate.Name = "buttonSaveOrderEstimate";
+            buttonSaveOrderEstimate.Size = new Size(236, 40);
+            buttonSaveOrderEstimate.TabIndex = 3;
+            buttonSaveOrderEstimate.Text = "Сохранить";
+            buttonSaveOrderEstimate.UseVisualStyleBackColor = false;
+            buttonSaveOrderEstimate.Click += ButtonSaveOrderEstimate_Click;
+            // 
+            // panelRecordOrderEstimates
+            // 
+            panelRecordOrderEstimates.BackColor = Color.FromArgb(49, 128, 168);
+            panelRecordOrderEstimates.BorderStyle = BorderStyle.FixedSingle;
+            panelRecordOrderEstimates.Controls.Add(labelRecordOrderEstimates);
+            panelRecordOrderEstimates.Controls.Add(labelOrderEstimateID);
+            panelRecordOrderEstimates.Controls.Add(textBoxOrderEstimateID);
+            panelRecordOrderEstimates.Controls.Add(labelOrderEstimateDate);
+            panelRecordOrderEstimates.Controls.Add(dateTimePickerOrderEstimateDate);
+            panelRecordOrderEstimates.Controls.Add(labelOrderIDOrderEstimates);
+            panelRecordOrderEstimates.Controls.Add(comboBoxOrderIDOrderEstimates);
+            panelRecordOrderEstimates.Location = new Point(19, 459);
+            panelRecordOrderEstimates.Margin = new Padding(4, 3, 4, 3);
+            panelRecordOrderEstimates.Name = "panelRecordOrderEstimates";
+            panelRecordOrderEstimates.Size = new Size(850, 376);
+            panelRecordOrderEstimates.TabIndex = 0;
+            panelRecordOrderEstimates.Visible = false;
+            // 
+            // labelRecordOrderEstimates
+            // 
+            labelRecordOrderEstimates.AutoSize = true;
+            labelRecordOrderEstimates.Font = new Font("Segoe UI Semibold", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            labelRecordOrderEstimates.ForeColor = Color.Black;
+            labelRecordOrderEstimates.Location = new Point(355, 0);
+            labelRecordOrderEstimates.Margin = new Padding(4, 0, 4, 0);
+            labelRecordOrderEstimates.Name = "labelRecordOrderEstimates";
+            labelRecordOrderEstimates.Size = new Size(142, 47);
+            labelRecordOrderEstimates.TabIndex = 3;
+            labelRecordOrderEstimates.Text = "Запись:";
+            // 
+            // labelOrderEstimateID
+            // 
+            labelOrderEstimateID.AutoSize = true;
+            labelOrderEstimateID.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            labelOrderEstimateID.ForeColor = Color.Black;
+            labelOrderEstimateID.Location = new Point(126, 56);
+            labelOrderEstimateID.Margin = new Padding(4, 0, 4, 0);
+            labelOrderEstimateID.Name = "labelOrderEstimateID";
+            labelOrderEstimateID.Size = new Size(67, 21);
+            labelOrderEstimateID.TabIndex = 4;
+            labelOrderEstimateID.Text = "Номер:";
+            // 
+            // textBoxOrderEstimateID
+            // 
+            textBoxOrderEstimateID.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxOrderEstimateID.Location = new Point(201, 50);
+            textBoxOrderEstimateID.Margin = new Padding(4, 3, 4, 3);
+            textBoxOrderEstimateID.Name = "textBoxOrderEstimateID";
+            textBoxOrderEstimateID.Size = new Size(79, 33);
+            textBoxOrderEstimateID.TabIndex = 0;
+            // 
+            // labelOrderEstimateDate
+            // 
+            labelOrderEstimateDate.AutoSize = true;
+            labelOrderEstimateDate.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            labelOrderEstimateDate.ForeColor = Color.Black;
+            labelOrderEstimateDate.Location = new Point(288, 56);
+            labelOrderEstimateDate.Margin = new Padding(4, 0, 4, 0);
+            labelOrderEstimateDate.Name = "labelOrderEstimateDate";
+            labelOrderEstimateDate.Size = new Size(104, 21);
+            labelOrderEstimateDate.TabIndex = 5;
+            labelOrderEstimateDate.Text = "Дата сметы:";
+            // 
+            // dateTimePickerOrderEstimateDate
+            // 
+            dateTimePickerOrderEstimateDate.Enabled = false;
+            dateTimePickerOrderEstimateDate.Font = new Font("Segoe UI", 14.25F);
+            dateTimePickerOrderEstimateDate.Location = new Point(402, 50);
+            dateTimePickerOrderEstimateDate.Name = "dateTimePickerOrderEstimateDate";
+            dateTimePickerOrderEstimateDate.Size = new Size(326, 33);
+            dateTimePickerOrderEstimateDate.TabIndex = 1;
+            // 
+            // labelOrderIDOrderEstimates
+            // 
+            labelOrderIDOrderEstimates.AutoSize = true;
+            labelOrderIDOrderEstimates.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            labelOrderIDOrderEstimates.ForeColor = Color.Black;
+            labelOrderIDOrderEstimates.Location = new Point(126, 101);
+            labelOrderIDOrderEstimates.Margin = new Padding(4, 0, 4, 0);
+            labelOrderIDOrderEstimates.Name = "labelOrderIDOrderEstimates";
+            labelOrderIDOrderEstimates.Size = new Size(123, 21);
+            labelOrderIDOrderEstimates.TabIndex = 6;
+            labelOrderIDOrderEstimates.Text = "Номер заказа:";
+            // 
+            // comboBoxOrderIDOrderEstimates
+            // 
+            comboBoxOrderIDOrderEstimates.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxOrderIDOrderEstimates.Font = new Font("Segoe UI", 14.25F);
+            comboBoxOrderIDOrderEstimates.FormattingEnabled = true;
+            comboBoxOrderIDOrderEstimates.Location = new Point(256, 95);
+            comboBoxOrderIDOrderEstimates.Name = "comboBoxOrderIDOrderEstimates";
+            comboBoxOrderIDOrderEstimates.Size = new Size(472, 33);
+            comboBoxOrderIDOrderEstimates.TabIndex = 2;
+            // 
+            // buttonWordOrderEstimate
+            // 
+            buttonWordOrderEstimate.BackColor = Color.FromArgb(241, 156, 55);
+            buttonWordOrderEstimate.FlatAppearance.BorderSize = 2;
+            buttonWordOrderEstimate.FlatStyle = FlatStyle.Flat;
+            buttonWordOrderEstimate.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonWordOrderEstimate.ForeColor = Color.Black;
+            buttonWordOrderEstimate.Location = new Point(633, 308);
+            buttonWordOrderEstimate.Margin = new Padding(4, 3, 4, 3);
+            buttonWordOrderEstimate.Name = "buttonWordOrderEstimate";
+            buttonWordOrderEstimate.Size = new Size(236, 40);
+            buttonWordOrderEstimate.TabIndex = 4;
+            buttonWordOrderEstimate.Text = "Вывод в Word";
+            buttonWordOrderEstimate.UseVisualStyleBackColor = false;
+            buttonWordOrderEstimate.Click += ButtonWordOrderEstimate_Click;
+            // 
+            // labelControlOrderEstimates
+            // 
+            labelControlOrderEstimates.AutoSize = true;
+            labelControlOrderEstimates.BackColor = Color.Transparent;
+            labelControlOrderEstimates.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            labelControlOrderEstimates.ForeColor = Color.Black;
+            labelControlOrderEstimates.Location = new Point(647, 94);
+            labelControlOrderEstimates.Margin = new Padding(4, 0, 4, 0);
+            labelControlOrderEstimates.Name = "labelControlOrderEstimates";
+            labelControlOrderEstimates.Size = new Size(213, 25);
+            labelControlOrderEstimates.TabIndex = 4;
+            labelControlOrderEstimates.Text = "Управление записями:";
+            // 
+            // tabPageOrderEstimateDetails
+            // 
+            tabPageOrderEstimateDetails.BackColor = Color.FromArgb(201, 201, 209);
+            tabPageOrderEstimateDetails.Controls.Add(buttonExcelOrderEstimateDetail);
+            tabPageOrderEstimateDetails.Controls.Add(buttonNewOrderEstimateDetail);
+            tabPageOrderEstimateDetails.Controls.Add(buttonDeleteOrderEstimateDetail);
+            tabPageOrderEstimateDetails.Controls.Add(panelTitleOrderEstimateDetails);
+            tabPageOrderEstimateDetails.Controls.Add(buttonChangeOrderEstimateDetail);
+            tabPageOrderEstimateDetails.Controls.Add(dataGridViewOrderEstimateDetails);
+            tabPageOrderEstimateDetails.Controls.Add(buttonSaveOrderEstimateDetail);
+            tabPageOrderEstimateDetails.Controls.Add(panelRecordOrderEstimateDetails);
+            tabPageOrderEstimateDetails.Controls.Add(buttonWordOrderEstimateDetail);
+            tabPageOrderEstimateDetails.Controls.Add(labelControlOrderEstimateDetails);
+            tabPageOrderEstimateDetails.Location = new Point(4, 24);
+            tabPageOrderEstimateDetails.Margin = new Padding(4, 3, 4, 3);
+            tabPageOrderEstimateDetails.Name = "tabPageOrderEstimateDetails";
+            tabPageOrderEstimateDetails.Padding = new Padding(4, 3, 4, 3);
+            tabPageOrderEstimateDetails.Size = new Size(889, 1010);
+            tabPageOrderEstimateDetails.TabIndex = 8;
+            tabPageOrderEstimateDetails.Text = "Детали сметы";
+            // 
+            // buttonExcelOrderEstimateDetail
+            // 
+            buttonExcelOrderEstimateDetail.BackColor = Color.FromArgb(241, 156, 55);
+            buttonExcelOrderEstimateDetail.FlatAppearance.BorderSize = 2;
+            buttonExcelOrderEstimateDetail.FlatStyle = FlatStyle.Flat;
+            buttonExcelOrderEstimateDetail.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonExcelOrderEstimateDetail.ForeColor = Color.Black;
+            buttonExcelOrderEstimateDetail.Location = new Point(633, 354);
+            buttonExcelOrderEstimateDetail.Margin = new Padding(4, 3, 4, 3);
+            buttonExcelOrderEstimateDetail.Name = "buttonExcelOrderEstimateDetail";
+            buttonExcelOrderEstimateDetail.Size = new Size(236, 40);
+            buttonExcelOrderEstimateDetail.TabIndex = 5;
+            buttonExcelOrderEstimateDetail.Text = "Вывод в Excel";
+            buttonExcelOrderEstimateDetail.UseVisualStyleBackColor = false;
+            buttonExcelOrderEstimateDetail.Click += ButtonExcelOrderEstimateDetail_Click;
+            // 
+            // buttonNewOrderEstimateDetail
+            // 
+            buttonNewOrderEstimateDetail.BackColor = Color.FromArgb(241, 156, 55);
+            buttonNewOrderEstimateDetail.FlatAppearance.BorderSize = 2;
+            buttonNewOrderEstimateDetail.FlatStyle = FlatStyle.Flat;
+            buttonNewOrderEstimateDetail.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonNewOrderEstimateDetail.ForeColor = Color.Black;
+            buttonNewOrderEstimateDetail.Location = new Point(633, 124);
+            buttonNewOrderEstimateDetail.Margin = new Padding(4, 3, 4, 3);
+            buttonNewOrderEstimateDetail.Name = "buttonNewOrderEstimateDetail";
+            buttonNewOrderEstimateDetail.Size = new Size(236, 40);
+            buttonNewOrderEstimateDetail.TabIndex = 0;
+            buttonNewOrderEstimateDetail.Text = "Новая запись";
+            buttonNewOrderEstimateDetail.UseVisualStyleBackColor = false;
+            buttonNewOrderEstimateDetail.Click += ButtonNewOrderEstimateDetail_Click;
+            // 
+            // buttonDeleteOrderEstimateDetail
+            // 
+            buttonDeleteOrderEstimateDetail.BackColor = Color.FromArgb(241, 156, 55);
+            buttonDeleteOrderEstimateDetail.FlatAppearance.BorderSize = 2;
+            buttonDeleteOrderEstimateDetail.FlatStyle = FlatStyle.Flat;
+            buttonDeleteOrderEstimateDetail.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonDeleteOrderEstimateDetail.ForeColor = Color.Black;
+            buttonDeleteOrderEstimateDetail.Location = new Point(633, 170);
+            buttonDeleteOrderEstimateDetail.Margin = new Padding(4, 3, 4, 3);
+            buttonDeleteOrderEstimateDetail.Name = "buttonDeleteOrderEstimateDetail";
+            buttonDeleteOrderEstimateDetail.Size = new Size(236, 40);
+            buttonDeleteOrderEstimateDetail.TabIndex = 1;
+            buttonDeleteOrderEstimateDetail.Text = "Удалить";
+            buttonDeleteOrderEstimateDetail.UseVisualStyleBackColor = false;
+            buttonDeleteOrderEstimateDetail.Click += ButtonDeleteOrderEstimateDetail_Click;
+            // 
+            // panelTitleOrderEstimateDetails
+            // 
+            panelTitleOrderEstimateDetails.BackColor = Color.FromArgb(0, 83, 133);
+            panelTitleOrderEstimateDetails.Controls.Add(panel20);
+            panelTitleOrderEstimateDetails.Controls.Add(panel21);
+            panelTitleOrderEstimateDetails.Controls.Add(labelTitleOrderEstimateDetails);
+            panelTitleOrderEstimateDetails.Controls.Add(buttonRefreshOrderEstimateDetails);
+            panelTitleOrderEstimateDetails.Controls.Add(textBoxSearchOrderEstimateDetails);
+            panelTitleOrderEstimateDetails.Location = new Point(0, 0);
+            panelTitleOrderEstimateDetails.Margin = new Padding(4, 3, 4, 3);
+            panelTitleOrderEstimateDetails.Name = "panelTitleOrderEstimateDetails";
+            panelTitleOrderEstimateDetails.Size = new Size(889, 84);
+            panelTitleOrderEstimateDetails.TabIndex = 3;
+            // 
+            // panel20
+            // 
+            panel20.BackColor = Color.FromArgb(201, 201, 209);
+            panel20.BackgroundImage = (Image)resources.GetObject("panel20.BackgroundImage");
+            panel20.BackgroundImageLayout = ImageLayout.Stretch;
+            panel20.BorderStyle = BorderStyle.FixedSingle;
+            panel20.Location = new Point(847, 27);
+            panel20.Name = "panel20";
+            panel20.Size = new Size(33, 33);
+            panel20.TabIndex = 8;
+            // 
+            // panel21
+            // 
+            panel21.BackgroundImage = (Image)resources.GetObject("panel21.BackgroundImage");
+            panel21.BackgroundImageLayout = ImageLayout.Stretch;
+            panel21.Location = new Point(3, 4);
+            panel21.Name = "panel21";
+            panel21.Size = new Size(100, 75);
+            panel21.TabIndex = 7;
+            // 
+            // labelTitleOrderEstimateDetails
+            // 
+            labelTitleOrderEstimateDetails.AutoSize = true;
+            labelTitleOrderEstimateDetails.Font = new Font("Segoe UI", 36F, FontStyle.Underline, GraphicsUnit.Point, 0);
+            labelTitleOrderEstimateDetails.ForeColor = Color.WhiteSmoke;
+            labelTitleOrderEstimateDetails.Location = new Point(136, 8);
+            labelTitleOrderEstimateDetails.Margin = new Padding(4, 0, 4, 0);
+            labelTitleOrderEstimateDetails.Name = "labelTitleOrderEstimateDetails";
+            labelTitleOrderEstimateDetails.Size = new Size(331, 65);
+            labelTitleOrderEstimateDetails.TabIndex = 5;
+            labelTitleOrderEstimateDetails.Text = "Детали сметы";
+            // 
+            // buttonRefreshOrderEstimateDetails
+            // 
+            buttonRefreshOrderEstimateDetails.BackgroundImage = (Image)resources.GetObject("buttonRefreshOrderEstimateDetails.BackgroundImage");
+            buttonRefreshOrderEstimateDetails.BackgroundImageLayout = ImageLayout.Stretch;
+            buttonRefreshOrderEstimateDetails.FlatStyle = FlatStyle.Flat;
+            buttonRefreshOrderEstimateDetails.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            buttonRefreshOrderEstimateDetails.Location = new Point(543, 13);
+            buttonRefreshOrderEstimateDetails.Margin = new Padding(4, 3, 4, 3);
+            buttonRefreshOrderEstimateDetails.Name = "buttonRefreshOrderEstimateDetails";
+            buttonRefreshOrderEstimateDetails.Size = new Size(60, 60);
+            buttonRefreshOrderEstimateDetails.TabIndex = 3;
+            buttonRefreshOrderEstimateDetails.UseVisualStyleBackColor = true;
+            // 
+            // textBoxSearchOrderEstimateDetails
+            // 
+            textBoxSearchOrderEstimateDetails.BackColor = Color.FromArgb(201, 201, 209);
+            textBoxSearchOrderEstimateDetails.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxSearchOrderEstimateDetails.Location = new Point(610, 27);
+            textBoxSearchOrderEstimateDetails.Margin = new Padding(4, 3, 4, 3);
+            textBoxSearchOrderEstimateDetails.Name = "textBoxSearchOrderEstimateDetails";
+            textBoxSearchOrderEstimateDetails.Size = new Size(237, 33);
+            textBoxSearchOrderEstimateDetails.TabIndex = 4;
+            // 
+            // buttonChangeOrderEstimateDetail
+            // 
+            buttonChangeOrderEstimateDetail.BackColor = Color.FromArgb(241, 156, 55);
+            buttonChangeOrderEstimateDetail.FlatAppearance.BorderSize = 2;
+            buttonChangeOrderEstimateDetail.FlatStyle = FlatStyle.Flat;
+            buttonChangeOrderEstimateDetail.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonChangeOrderEstimateDetail.ForeColor = Color.Black;
+            buttonChangeOrderEstimateDetail.Location = new Point(633, 216);
+            buttonChangeOrderEstimateDetail.Margin = new Padding(4, 3, 4, 3);
+            buttonChangeOrderEstimateDetail.Name = "buttonChangeOrderEstimateDetail";
+            buttonChangeOrderEstimateDetail.Size = new Size(236, 40);
+            buttonChangeOrderEstimateDetail.TabIndex = 2;
+            buttonChangeOrderEstimateDetail.Text = "Изменить";
+            buttonChangeOrderEstimateDetail.UseVisualStyleBackColor = false;
+            buttonChangeOrderEstimateDetail.Click += ButtonChangeOrderEstimateDetail_Click;
+            // 
+            // dataGridViewOrderEstimateDetails
+            // 
+            dataGridViewOrderEstimateDetails.AllowUserToAddRows = false;
+            dataGridViewOrderEstimateDetails.AllowUserToDeleteRows = false;
+            dataGridViewOrderEstimateDetails.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewOrderEstimateDetails.Location = new Point(19, 91);
+            dataGridViewOrderEstimateDetails.Margin = new Padding(4, 3, 4, 3);
+            dataGridViewOrderEstimateDetails.Name = "dataGridViewOrderEstimateDetails";
+            dataGridViewOrderEstimateDetails.ReadOnly = true;
+            dataGridViewOrderEstimateDetails.RowHeadersWidth = 62;
+            dataGridViewOrderEstimateDetails.Size = new Size(596, 349);
+            dataGridViewOrderEstimateDetails.TabIndex = 0;
+            // 
+            // buttonSaveOrderEstimateDetail
+            // 
+            buttonSaveOrderEstimateDetail.BackColor = Color.FromArgb(241, 156, 55);
+            buttonSaveOrderEstimateDetail.FlatAppearance.BorderSize = 2;
+            buttonSaveOrderEstimateDetail.FlatStyle = FlatStyle.Flat;
+            buttonSaveOrderEstimateDetail.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonSaveOrderEstimateDetail.ForeColor = Color.Black;
+            buttonSaveOrderEstimateDetail.Location = new Point(633, 262);
+            buttonSaveOrderEstimateDetail.Margin = new Padding(4, 3, 4, 3);
+            buttonSaveOrderEstimateDetail.Name = "buttonSaveOrderEstimateDetail";
+            buttonSaveOrderEstimateDetail.Size = new Size(236, 40);
+            buttonSaveOrderEstimateDetail.TabIndex = 3;
+            buttonSaveOrderEstimateDetail.Text = "Сохранить";
+            buttonSaveOrderEstimateDetail.UseVisualStyleBackColor = false;
+            buttonSaveOrderEstimateDetail.Click += ButtonSaveOrderEstimateDetail_Click;
+            // 
+            // panelRecordOrderEstimateDetails
+            // 
+            panelRecordOrderEstimateDetails.BackColor = Color.FromArgb(49, 128, 168);
+            panelRecordOrderEstimateDetails.BorderStyle = BorderStyle.FixedSingle;
+            panelRecordOrderEstimateDetails.Controls.Add(labelRecordOrderEstimateDetails);
+            panelRecordOrderEstimateDetails.Controls.Add(labelOrderEstimateDetailID);
+            panelRecordOrderEstimateDetails.Controls.Add(textBoxOrderEstimateDetailID);
+            panelRecordOrderEstimateDetails.Controls.Add(labelOrderEstimateIDOrderEstimateDetails);
+            panelRecordOrderEstimateDetails.Controls.Add(comboBoxOrderEstimateIDOrderEstimateDetails);
+            panelRecordOrderEstimateDetails.Controls.Add(labelMaterialIDOrderEstimateDetails);
+            panelRecordOrderEstimateDetails.Controls.Add(comboBoxMaterialIDOrderEstimateDetails);
+            panelRecordOrderEstimateDetails.Controls.Add(labelQuantinityOrderEstimateDetails);
+            panelRecordOrderEstimateDetails.Controls.Add(textBoxQuantinityOrderEstimateDetails);
+            panelRecordOrderEstimateDetails.Location = new Point(19, 459);
+            panelRecordOrderEstimateDetails.Margin = new Padding(4, 3, 4, 3);
+            panelRecordOrderEstimateDetails.Name = "panelRecordOrderEstimateDetails";
+            panelRecordOrderEstimateDetails.Size = new Size(850, 376);
+            panelRecordOrderEstimateDetails.TabIndex = 0;
+            panelRecordOrderEstimateDetails.Visible = false;
+            // 
+            // labelRecordOrderEstimateDetails
+            // 
+            labelRecordOrderEstimateDetails.AutoSize = true;
+            labelRecordOrderEstimateDetails.Font = new Font("Segoe UI Semibold", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            labelRecordOrderEstimateDetails.ForeColor = Color.Black;
+            labelRecordOrderEstimateDetails.Location = new Point(355, 0);
+            labelRecordOrderEstimateDetails.Margin = new Padding(4, 0, 4, 0);
+            labelRecordOrderEstimateDetails.Name = "labelRecordOrderEstimateDetails";
+            labelRecordOrderEstimateDetails.Size = new Size(142, 47);
+            labelRecordOrderEstimateDetails.TabIndex = 4;
+            labelRecordOrderEstimateDetails.Text = "Запись:";
+            // 
+            // labelOrderEstimateDetailID
+            // 
+            labelOrderEstimateDetailID.AutoSize = true;
+            labelOrderEstimateDetailID.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            labelOrderEstimateDetailID.ForeColor = Color.Black;
+            labelOrderEstimateDetailID.Location = new Point(126, 56);
+            labelOrderEstimateDetailID.Margin = new Padding(4, 0, 4, 0);
+            labelOrderEstimateDetailID.Name = "labelOrderEstimateDetailID";
+            labelOrderEstimateDetailID.Size = new Size(67, 21);
+            labelOrderEstimateDetailID.TabIndex = 5;
+            labelOrderEstimateDetailID.Text = "Номер:";
+            // 
+            // textBoxOrderEstimateDetailID
+            // 
+            textBoxOrderEstimateDetailID.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxOrderEstimateDetailID.Location = new Point(201, 50);
+            textBoxOrderEstimateDetailID.Margin = new Padding(4, 3, 4, 3);
+            textBoxOrderEstimateDetailID.Name = "textBoxOrderEstimateDetailID";
+            textBoxOrderEstimateDetailID.Size = new Size(79, 33);
+            textBoxOrderEstimateDetailID.TabIndex = 0;
+            // 
+            // labelOrderEstimateIDOrderEstimateDetails
+            // 
+            labelOrderEstimateIDOrderEstimateDetails.AutoSize = true;
+            labelOrderEstimateIDOrderEstimateDetails.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            labelOrderEstimateIDOrderEstimateDetails.ForeColor = Color.Black;
+            labelOrderEstimateIDOrderEstimateDetails.Location = new Point(288, 56);
+            labelOrderEstimateIDOrderEstimateDetails.Margin = new Padding(4, 0, 4, 0);
+            labelOrderEstimateIDOrderEstimateDetails.Name = "labelOrderEstimateIDOrderEstimateDetails";
+            labelOrderEstimateIDOrderEstimateDetails.Size = new Size(120, 21);
+            labelOrderEstimateIDOrderEstimateDetails.TabIndex = 6;
+            labelOrderEstimateIDOrderEstimateDetails.Text = "Номер сметы:";
+            // 
+            // comboBoxOrderEstimateIDOrderEstimateDetails
+            // 
+            comboBoxOrderEstimateIDOrderEstimateDetails.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxOrderEstimateIDOrderEstimateDetails.Font = new Font("Segoe UI", 14.25F);
+            comboBoxOrderEstimateIDOrderEstimateDetails.FormattingEnabled = true;
+            comboBoxOrderEstimateIDOrderEstimateDetails.Location = new Point(415, 50);
+            comboBoxOrderEstimateIDOrderEstimateDetails.Name = "comboBoxOrderEstimateIDOrderEstimateDetails";
+            comboBoxOrderEstimateIDOrderEstimateDetails.Size = new Size(313, 33);
+            comboBoxOrderEstimateIDOrderEstimateDetails.TabIndex = 1;
+            // 
+            // labelMaterialIDOrderEstimateDetails
+            // 
+            labelMaterialIDOrderEstimateDetails.AutoSize = true;
+            labelMaterialIDOrderEstimateDetails.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            labelMaterialIDOrderEstimateDetails.ForeColor = Color.Black;
+            labelMaterialIDOrderEstimateDetails.Location = new Point(126, 101);
+            labelMaterialIDOrderEstimateDetails.Margin = new Padding(4, 0, 4, 0);
+            labelMaterialIDOrderEstimateDetails.Name = "labelMaterialIDOrderEstimateDetails";
+            labelMaterialIDOrderEstimateDetails.Size = new Size(222, 21);
+            labelMaterialIDOrderEstimateDetails.TabIndex = 7;
+            labelMaterialIDOrderEstimateDetails.Text = "Наименование материала:";
+            // 
+            // comboBoxMaterialIDOrderEstimateDetails
+            // 
+            comboBoxMaterialIDOrderEstimateDetails.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxMaterialIDOrderEstimateDetails.Font = new Font("Segoe UI", 14.25F);
+            comboBoxMaterialIDOrderEstimateDetails.FormattingEnabled = true;
+            comboBoxMaterialIDOrderEstimateDetails.Location = new Point(355, 95);
+            comboBoxMaterialIDOrderEstimateDetails.Name = "comboBoxMaterialIDOrderEstimateDetails";
+            comboBoxMaterialIDOrderEstimateDetails.Size = new Size(373, 33);
+            comboBoxMaterialIDOrderEstimateDetails.TabIndex = 2;
+            // 
+            // labelQuantinityOrderEstimateDetails
+            // 
+            labelQuantinityOrderEstimateDetails.AutoSize = true;
+            labelQuantinityOrderEstimateDetails.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            labelQuantinityOrderEstimateDetails.ForeColor = Color.Black;
+            labelQuantinityOrderEstimateDetails.Location = new Point(131, 140);
+            labelQuantinityOrderEstimateDetails.Margin = new Padding(4, 0, 4, 0);
+            labelQuantinityOrderEstimateDetails.Name = "labelQuantinityOrderEstimateDetails";
+            labelQuantinityOrderEstimateDetails.Size = new Size(107, 21);
+            labelQuantinityOrderEstimateDetails.TabIndex = 8;
+            labelQuantinityOrderEstimateDetails.Text = "Количество:";
+            // 
+            // textBoxQuantinityOrderEstimateDetails
+            // 
+            textBoxQuantinityOrderEstimateDetails.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxQuantinityOrderEstimateDetails.Location = new Point(246, 134);
+            textBoxQuantinityOrderEstimateDetails.Margin = new Padding(4, 3, 4, 3);
+            textBoxQuantinityOrderEstimateDetails.Name = "textBoxQuantinityOrderEstimateDetails";
+            textBoxQuantinityOrderEstimateDetails.Size = new Size(482, 33);
+            textBoxQuantinityOrderEstimateDetails.TabIndex = 3;
+            // 
+            // buttonWordOrderEstimateDetail
+            // 
+            buttonWordOrderEstimateDetail.BackColor = Color.FromArgb(241, 156, 55);
+            buttonWordOrderEstimateDetail.FlatAppearance.BorderSize = 2;
+            buttonWordOrderEstimateDetail.FlatStyle = FlatStyle.Flat;
+            buttonWordOrderEstimateDetail.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonWordOrderEstimateDetail.ForeColor = Color.Black;
+            buttonWordOrderEstimateDetail.Location = new Point(633, 308);
+            buttonWordOrderEstimateDetail.Margin = new Padding(4, 3, 4, 3);
+            buttonWordOrderEstimateDetail.Name = "buttonWordOrderEstimateDetail";
+            buttonWordOrderEstimateDetail.Size = new Size(236, 40);
+            buttonWordOrderEstimateDetail.TabIndex = 4;
+            buttonWordOrderEstimateDetail.Text = "Вывод в Word";
+            buttonWordOrderEstimateDetail.UseVisualStyleBackColor = false;
+            buttonWordOrderEstimateDetail.Click += ButtonWordOrderEstimateDetail_Click;
+            // 
+            // labelControlOrderEstimateDetails
+            // 
+            labelControlOrderEstimateDetails.AutoSize = true;
+            labelControlOrderEstimateDetails.BackColor = Color.Transparent;
+            labelControlOrderEstimateDetails.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            labelControlOrderEstimateDetails.ForeColor = Color.Black;
+            labelControlOrderEstimateDetails.Location = new Point(646, 96);
+            labelControlOrderEstimateDetails.Margin = new Padding(4, 0, 4, 0);
+            labelControlOrderEstimateDetails.Name = "labelControlOrderEstimateDetails";
+            labelControlOrderEstimateDetails.Size = new Size(213, 25);
+            labelControlOrderEstimateDetails.TabIndex = 6;
+            labelControlOrderEstimateDetails.Text = "Управление записями:";
+            // 
+            // tabPageOrderMaterials
+            // 
+            tabPageOrderMaterials.BackColor = Color.FromArgb(201, 201, 209);
+            tabPageOrderMaterials.Controls.Add(buttonExcelOrderMaterial);
+            tabPageOrderMaterials.Controls.Add(buttonNewOrderMaterial);
+            tabPageOrderMaterials.Controls.Add(buttonDeleteOrderMaterial);
+            tabPageOrderMaterials.Controls.Add(panelTitleOrderMaterials);
+            tabPageOrderMaterials.Controls.Add(buttonChangeOrderMaterial);
+            tabPageOrderMaterials.Controls.Add(dataGridViewOrderMaterials);
+            tabPageOrderMaterials.Controls.Add(buttonSaveOrderMaterial);
+            tabPageOrderMaterials.Controls.Add(panelRecordOrderMaterials);
+            tabPageOrderMaterials.Controls.Add(buttonWordOrderMaterial);
+            tabPageOrderMaterials.Controls.Add(labelControlOrderMaterials);
+            tabPageOrderMaterials.Location = new Point(4, 24);
+            tabPageOrderMaterials.Margin = new Padding(4, 3, 4, 3);
+            tabPageOrderMaterials.Name = "tabPageOrderMaterials";
+            tabPageOrderMaterials.Padding = new Padding(4, 3, 4, 3);
+            tabPageOrderMaterials.Size = new Size(889, 1010);
+            tabPageOrderMaterials.TabIndex = 9;
+            tabPageOrderMaterials.Text = "Заявки на материалы";
+            // 
+            // buttonExcelOrderMaterial
+            // 
+            buttonExcelOrderMaterial.BackColor = Color.FromArgb(241, 156, 55);
+            buttonExcelOrderMaterial.FlatAppearance.BorderSize = 2;
+            buttonExcelOrderMaterial.FlatStyle = FlatStyle.Flat;
+            buttonExcelOrderMaterial.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonExcelOrderMaterial.ForeColor = Color.Black;
+            buttonExcelOrderMaterial.Location = new Point(633, 354);
+            buttonExcelOrderMaterial.Margin = new Padding(4, 3, 4, 3);
+            buttonExcelOrderMaterial.Name = "buttonExcelOrderMaterial";
+            buttonExcelOrderMaterial.Size = new Size(236, 40);
+            buttonExcelOrderMaterial.TabIndex = 5;
+            buttonExcelOrderMaterial.Text = "Вывод в Excel";
+            buttonExcelOrderMaterial.UseVisualStyleBackColor = false;
+            buttonExcelOrderMaterial.Click += ButtonExcelOrderMaterial_Click;
+            // 
+            // buttonNewOrderMaterial
+            // 
+            buttonNewOrderMaterial.BackColor = Color.FromArgb(241, 156, 55);
+            buttonNewOrderMaterial.FlatAppearance.BorderSize = 2;
+            buttonNewOrderMaterial.FlatStyle = FlatStyle.Flat;
+            buttonNewOrderMaterial.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonNewOrderMaterial.ForeColor = Color.Black;
+            buttonNewOrderMaterial.Location = new Point(633, 124);
+            buttonNewOrderMaterial.Margin = new Padding(4, 3, 4, 3);
+            buttonNewOrderMaterial.Name = "buttonNewOrderMaterial";
+            buttonNewOrderMaterial.Size = new Size(236, 40);
+            buttonNewOrderMaterial.TabIndex = 0;
+            buttonNewOrderMaterial.Text = "Новая запись";
+            buttonNewOrderMaterial.UseVisualStyleBackColor = false;
+            buttonNewOrderMaterial.Click += ButtonNewOrderMaterial_Click;
+            // 
+            // buttonDeleteOrderMaterial
+            // 
+            buttonDeleteOrderMaterial.BackColor = Color.FromArgb(241, 156, 55);
+            buttonDeleteOrderMaterial.FlatAppearance.BorderSize = 2;
+            buttonDeleteOrderMaterial.FlatStyle = FlatStyle.Flat;
+            buttonDeleteOrderMaterial.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonDeleteOrderMaterial.ForeColor = Color.Black;
+            buttonDeleteOrderMaterial.Location = new Point(633, 170);
+            buttonDeleteOrderMaterial.Margin = new Padding(4, 3, 4, 3);
+            buttonDeleteOrderMaterial.Name = "buttonDeleteOrderMaterial";
+            buttonDeleteOrderMaterial.Size = new Size(236, 40);
+            buttonDeleteOrderMaterial.TabIndex = 1;
+            buttonDeleteOrderMaterial.Text = "Удалить";
+            buttonDeleteOrderMaterial.UseVisualStyleBackColor = false;
+            buttonDeleteOrderMaterial.Click += ButtonDeleteOrderMaterial_Click;
+            // 
+            // panelTitleOrderMaterials
+            // 
+            panelTitleOrderMaterials.BackColor = Color.FromArgb(0, 83, 133);
+            panelTitleOrderMaterials.Controls.Add(panel24);
+            panelTitleOrderMaterials.Controls.Add(panel25);
+            panelTitleOrderMaterials.Controls.Add(labelTitleOrderMaterials);
+            panelTitleOrderMaterials.Controls.Add(buttonRefreshOrderMaterials);
+            panelTitleOrderMaterials.Controls.Add(textBoxSearchOrderMaterials);
+            panelTitleOrderMaterials.Location = new Point(0, 0);
+            panelTitleOrderMaterials.Margin = new Padding(4, 3, 4, 3);
+            panelTitleOrderMaterials.Name = "panelTitleOrderMaterials";
+            panelTitleOrderMaterials.Size = new Size(889, 84);
+            panelTitleOrderMaterials.TabIndex = 3;
+            // 
+            // panel24
+            // 
+            panel24.BackColor = Color.FromArgb(201, 201, 209);
+            panel24.BackgroundImage = (Image)resources.GetObject("panel24.BackgroundImage");
+            panel24.BackgroundImageLayout = ImageLayout.Stretch;
+            panel24.BorderStyle = BorderStyle.FixedSingle;
+            panel24.Location = new Point(847, 27);
+            panel24.Name = "panel24";
+            panel24.Size = new Size(33, 33);
+            panel24.TabIndex = 8;
+            // 
+            // panel25
+            // 
+            panel25.BackgroundImage = (Image)resources.GetObject("panel25.BackgroundImage");
+            panel25.BackgroundImageLayout = ImageLayout.Stretch;
+            panel25.Location = new Point(3, 4);
+            panel25.Name = "panel25";
+            panel25.Size = new Size(100, 75);
+            panel25.TabIndex = 7;
+            // 
+            // labelTitleOrderMaterials
+            // 
+            labelTitleOrderMaterials.AutoSize = true;
+            labelTitleOrderMaterials.Font = new Font("Segoe UI", 36F, FontStyle.Underline, GraphicsUnit.Point, 0);
+            labelTitleOrderMaterials.ForeColor = Color.WhiteSmoke;
+            labelTitleOrderMaterials.Location = new Point(136, 8);
+            labelTitleOrderMaterials.Margin = new Padding(4, 0, 4, 0);
+            labelTitleOrderMaterials.Name = "labelTitleOrderMaterials";
+            labelTitleOrderMaterials.Size = new Size(499, 65);
+            labelTitleOrderMaterials.TabIndex = 5;
+            labelTitleOrderMaterials.Text = "Заявки на материалы";
+            // 
+            // buttonRefreshOrderMaterials
+            // 
+            buttonRefreshOrderMaterials.BackgroundImage = (Image)resources.GetObject("buttonRefreshOrderMaterials.BackgroundImage");
+            buttonRefreshOrderMaterials.BackgroundImageLayout = ImageLayout.Stretch;
+            buttonRefreshOrderMaterials.FlatStyle = FlatStyle.Flat;
+            buttonRefreshOrderMaterials.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            buttonRefreshOrderMaterials.Location = new Point(543, 13);
+            buttonRefreshOrderMaterials.Margin = new Padding(4, 3, 4, 3);
+            buttonRefreshOrderMaterials.Name = "buttonRefreshOrderMaterials";
+            buttonRefreshOrderMaterials.Size = new Size(60, 60);
+            buttonRefreshOrderMaterials.TabIndex = 3;
+            buttonRefreshOrderMaterials.UseVisualStyleBackColor = true;
+            // 
+            // textBoxSearchOrderMaterials
+            // 
+            textBoxSearchOrderMaterials.BackColor = Color.FromArgb(201, 201, 209);
+            textBoxSearchOrderMaterials.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxSearchOrderMaterials.Location = new Point(610, 27);
+            textBoxSearchOrderMaterials.Margin = new Padding(4, 3, 4, 3);
+            textBoxSearchOrderMaterials.Name = "textBoxSearchOrderMaterials";
+            textBoxSearchOrderMaterials.Size = new Size(237, 33);
+            textBoxSearchOrderMaterials.TabIndex = 4;
+            // 
+            // buttonChangeOrderMaterial
+            // 
+            buttonChangeOrderMaterial.BackColor = Color.FromArgb(241, 156, 55);
+            buttonChangeOrderMaterial.FlatAppearance.BorderSize = 2;
+            buttonChangeOrderMaterial.FlatStyle = FlatStyle.Flat;
+            buttonChangeOrderMaterial.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonChangeOrderMaterial.ForeColor = Color.Black;
+            buttonChangeOrderMaterial.Location = new Point(633, 216);
+            buttonChangeOrderMaterial.Margin = new Padding(4, 3, 4, 3);
+            buttonChangeOrderMaterial.Name = "buttonChangeOrderMaterial";
+            buttonChangeOrderMaterial.Size = new Size(236, 40);
+            buttonChangeOrderMaterial.TabIndex = 2;
+            buttonChangeOrderMaterial.Text = "Изменить";
+            buttonChangeOrderMaterial.UseVisualStyleBackColor = false;
+            buttonChangeOrderMaterial.Click += ButtonChangeOrderMaterial_Click;
+            // 
+            // dataGridViewOrderMaterials
+            // 
+            dataGridViewOrderMaterials.AllowUserToAddRows = false;
+            dataGridViewOrderMaterials.AllowUserToDeleteRows = false;
+            dataGridViewOrderMaterials.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewOrderMaterials.Location = new Point(19, 91);
+            dataGridViewOrderMaterials.Margin = new Padding(4, 3, 4, 3);
+            dataGridViewOrderMaterials.Name = "dataGridViewOrderMaterials";
+            dataGridViewOrderMaterials.ReadOnly = true;
+            dataGridViewOrderMaterials.RowHeadersWidth = 62;
+            dataGridViewOrderMaterials.Size = new Size(596, 349);
+            dataGridViewOrderMaterials.TabIndex = 0;
+            // 
+            // buttonSaveOrderMaterial
+            // 
+            buttonSaveOrderMaterial.BackColor = Color.FromArgb(241, 156, 55);
+            buttonSaveOrderMaterial.FlatAppearance.BorderSize = 2;
+            buttonSaveOrderMaterial.FlatStyle = FlatStyle.Flat;
+            buttonSaveOrderMaterial.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonSaveOrderMaterial.ForeColor = Color.Black;
+            buttonSaveOrderMaterial.Location = new Point(633, 262);
+            buttonSaveOrderMaterial.Margin = new Padding(4, 3, 4, 3);
+            buttonSaveOrderMaterial.Name = "buttonSaveOrderMaterial";
+            buttonSaveOrderMaterial.Size = new Size(236, 40);
+            buttonSaveOrderMaterial.TabIndex = 3;
+            buttonSaveOrderMaterial.Text = "Сохранить";
+            buttonSaveOrderMaterial.UseVisualStyleBackColor = false;
+            buttonSaveOrderMaterial.Click += ButtonSaveOrderMaterial_Click;
+            // 
+            // panelRecordOrderMaterials
+            // 
+            panelRecordOrderMaterials.BackColor = Color.FromArgb(49, 128, 168);
+            panelRecordOrderMaterials.BorderStyle = BorderStyle.FixedSingle;
+            panelRecordOrderMaterials.Controls.Add(labelRecordOrderMaterials);
+            panelRecordOrderMaterials.Controls.Add(labelOrderMaterialID);
+            panelRecordOrderMaterials.Controls.Add(textBoxOrderMaterialID);
+            panelRecordOrderMaterials.Controls.Add(labelMaterialIDOrderMaterials);
+            panelRecordOrderMaterials.Controls.Add(dateTimePickerMaterialIDOrderMaterials);
+            panelRecordOrderMaterials.Controls.Add(labelQuantinityOrderMaterials);
+            panelRecordOrderMaterials.Controls.Add(comboBoxQuantinityOrderMaterials);
+            panelRecordOrderMaterials.Controls.Add(labelRequestDate);
+            panelRecordOrderMaterials.Controls.Add(textBoxRequestDate);
+            panelRecordOrderMaterials.Location = new Point(19, 459);
+            panelRecordOrderMaterials.Margin = new Padding(4, 3, 4, 3);
+            panelRecordOrderMaterials.Name = "panelRecordOrderMaterials";
+            panelRecordOrderMaterials.Size = new Size(850, 376);
+            panelRecordOrderMaterials.TabIndex = 1;
+            panelRecordOrderMaterials.Visible = false;
+            // 
+            // labelRecordOrderMaterials
+            // 
+            labelRecordOrderMaterials.AutoSize = true;
+            labelRecordOrderMaterials.Font = new Font("Segoe UI Semibold", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            labelRecordOrderMaterials.ForeColor = Color.Black;
+            labelRecordOrderMaterials.Location = new Point(355, 0);
+            labelRecordOrderMaterials.Margin = new Padding(4, 0, 4, 0);
+            labelRecordOrderMaterials.Name = "labelRecordOrderMaterials";
+            labelRecordOrderMaterials.Size = new Size(142, 47);
+            labelRecordOrderMaterials.TabIndex = 4;
+            labelRecordOrderMaterials.Text = "Запись:";
+            // 
+            // labelOrderMaterialID
+            // 
+            labelOrderMaterialID.AutoSize = true;
+            labelOrderMaterialID.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            labelOrderMaterialID.ForeColor = Color.Black;
+            labelOrderMaterialID.Location = new Point(126, 56);
+            labelOrderMaterialID.Margin = new Padding(4, 0, 4, 0);
+            labelOrderMaterialID.Name = "labelOrderMaterialID";
+            labelOrderMaterialID.Size = new Size(67, 21);
+            labelOrderMaterialID.TabIndex = 5;
+            labelOrderMaterialID.Text = "Номер:";
+            // 
+            // textBoxOrderMaterialID
+            // 
+            textBoxOrderMaterialID.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxOrderMaterialID.Location = new Point(201, 50);
+            textBoxOrderMaterialID.Margin = new Padding(4, 3, 4, 3);
+            textBoxOrderMaterialID.Name = "textBoxOrderMaterialID";
+            textBoxOrderMaterialID.Size = new Size(79, 33);
+            textBoxOrderMaterialID.TabIndex = 0;
+            // 
+            // labelMaterialIDOrderMaterials
+            // 
+            labelMaterialIDOrderMaterials.AutoSize = true;
+            labelMaterialIDOrderMaterials.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            labelMaterialIDOrderMaterials.ForeColor = Color.Black;
+            labelMaterialIDOrderMaterials.Location = new Point(288, 56);
+            labelMaterialIDOrderMaterials.Margin = new Padding(4, 0, 4, 0);
+            labelMaterialIDOrderMaterials.Name = "labelMaterialIDOrderMaterials";
+            labelMaterialIDOrderMaterials.Size = new Size(109, 21);
+            labelMaterialIDOrderMaterials.TabIndex = 6;
+            labelMaterialIDOrderMaterials.Text = "Дата заявки:";
+            // 
+            // dateTimePickerMaterialIDOrderMaterials
+            // 
+            dateTimePickerMaterialIDOrderMaterials.Enabled = false;
+            dateTimePickerMaterialIDOrderMaterials.Font = new Font("Segoe UI", 14.25F);
+            dateTimePickerMaterialIDOrderMaterials.Location = new Point(404, 50);
+            dateTimePickerMaterialIDOrderMaterials.Name = "dateTimePickerMaterialIDOrderMaterials";
+            dateTimePickerMaterialIDOrderMaterials.Size = new Size(324, 33);
+            dateTimePickerMaterialIDOrderMaterials.TabIndex = 1;
+            // 
+            // labelQuantinityOrderMaterials
+            // 
+            labelQuantinityOrderMaterials.AutoSize = true;
+            labelQuantinityOrderMaterials.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            labelQuantinityOrderMaterials.ForeColor = Color.Black;
+            labelQuantinityOrderMaterials.Location = new Point(126, 101);
+            labelQuantinityOrderMaterials.Margin = new Padding(4, 0, 4, 0);
+            labelQuantinityOrderMaterials.Name = "labelQuantinityOrderMaterials";
+            labelQuantinityOrderMaterials.Size = new Size(222, 21);
+            labelQuantinityOrderMaterials.TabIndex = 7;
+            labelQuantinityOrderMaterials.Text = "Наименование материала:";
+            // 
+            // comboBoxQuantinityOrderMaterials
+            // 
+            comboBoxQuantinityOrderMaterials.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxQuantinityOrderMaterials.Font = new Font("Segoe UI", 14.25F);
+            comboBoxQuantinityOrderMaterials.FormattingEnabled = true;
+            comboBoxQuantinityOrderMaterials.Location = new Point(355, 95);
+            comboBoxQuantinityOrderMaterials.Name = "comboBoxQuantinityOrderMaterials";
+            comboBoxQuantinityOrderMaterials.Size = new Size(373, 33);
+            comboBoxQuantinityOrderMaterials.TabIndex = 2;
+            // 
+            // labelRequestDate
+            // 
+            labelRequestDate.AutoSize = true;
+            labelRequestDate.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            labelRequestDate.ForeColor = Color.Black;
+            labelRequestDate.Location = new Point(131, 140);
+            labelRequestDate.Margin = new Padding(4, 0, 4, 0);
+            labelRequestDate.Name = "labelRequestDate";
+            labelRequestDate.Size = new Size(107, 21);
+            labelRequestDate.TabIndex = 8;
+            labelRequestDate.Text = "Количество:";
+            // 
+            // textBoxRequestDate
+            // 
+            textBoxRequestDate.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxRequestDate.Location = new Point(246, 134);
+            textBoxRequestDate.Margin = new Padding(4, 3, 4, 3);
+            textBoxRequestDate.Name = "textBoxRequestDate";
+            textBoxRequestDate.Size = new Size(482, 33);
+            textBoxRequestDate.TabIndex = 3;
+            // 
+            // buttonWordOrderMaterial
+            // 
+            buttonWordOrderMaterial.BackColor = Color.FromArgb(241, 156, 55);
+            buttonWordOrderMaterial.FlatAppearance.BorderSize = 2;
+            buttonWordOrderMaterial.FlatStyle = FlatStyle.Flat;
+            buttonWordOrderMaterial.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonWordOrderMaterial.ForeColor = Color.Black;
+            buttonWordOrderMaterial.Location = new Point(633, 308);
+            buttonWordOrderMaterial.Margin = new Padding(4, 3, 4, 3);
+            buttonWordOrderMaterial.Name = "buttonWordOrderMaterial";
+            buttonWordOrderMaterial.Size = new Size(236, 40);
+            buttonWordOrderMaterial.TabIndex = 4;
+            buttonWordOrderMaterial.Text = "Вывод в Word";
+            buttonWordOrderMaterial.UseVisualStyleBackColor = false;
+            buttonWordOrderMaterial.Click += ButtonWordOrderMaterial_Click;
+            // 
+            // labelControlOrderMaterials
+            // 
+            labelControlOrderMaterials.AutoSize = true;
+            labelControlOrderMaterials.BackColor = Color.Transparent;
+            labelControlOrderMaterials.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            labelControlOrderMaterials.ForeColor = Color.Black;
+            labelControlOrderMaterials.Location = new Point(647, 94);
+            labelControlOrderMaterials.Margin = new Padding(4, 0, 4, 0);
+            labelControlOrderMaterials.Name = "labelControlOrderMaterials";
+            labelControlOrderMaterials.Size = new Size(213, 25);
+            labelControlOrderMaterials.TabIndex = 4;
+            labelControlOrderMaterials.Text = "Управление записями:";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -2157,6 +3648,35 @@
             ((System.ComponentModel.ISupportInitialize)dataGridViewOrderDetails).EndInit();
             panelRecordOrderDetails.ResumeLayout(false);
             panelRecordOrderDetails.PerformLayout();
+            tabPageMaterials.ResumeLayout(false);
+            tabPageMaterials.PerformLayout();
+            panelTItleMaterials.ResumeLayout(false);
+            panelTItleMaterials.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewMaterials).EndInit();
+            panelRecordMaterials.ResumeLayout(false);
+            panelRecordMaterials.PerformLayout();
+            tabPageOrderEstimates.ResumeLayout(false);
+            tabPageOrderEstimates.PerformLayout();
+            panelTitleOrderEstimates.ResumeLayout(false);
+            panelTitleOrderEstimates.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewOrderEstimates).EndInit();
+            panelRecordOrderEstimates.ResumeLayout(false);
+            panelRecordOrderEstimates.PerformLayout();
+            tabPageOrderEstimateDetails.ResumeLayout(false);
+            tabPageOrderEstimateDetails.PerformLayout();
+            panelTitleOrderEstimateDetails.ResumeLayout(false);
+            panelTitleOrderEstimateDetails.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewOrderEstimateDetails).EndInit();
+            panelRecordOrderEstimateDetails.ResumeLayout(false);
+            panelRecordOrderEstimateDetails.PerformLayout();
+            tabPageOrderMaterials.ResumeLayout(false);
+            tabPageOrderMaterials.PerformLayout();
+            panelTitleOrderMaterials.ResumeLayout(false);
+            panelTitleOrderMaterials.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewOrderMaterials).EndInit();
+            panelRecordOrderMaterials.ResumeLayout(false);
+            panelRecordOrderMaterials.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
             ResumeLayout(false);
         }
 
@@ -2198,12 +3718,7 @@
         private Label labelRecordOrders;
         private Label labelOrderID;
         private TextBox textBoxOrderID;
-        private Label labelClientIDOrders;
-        private Label labelEmployeeIDOrders;
-        private Label labelOrderDate;
-        private DateTimePicker dateTimePickerOrderDate;
         private Label labelTotalAmount;
-        private Label labelStatusID;
         private TextBox textBoxStatus;
         private Label labelControlOrders;
         private Button buttonNewOrder;
@@ -2262,7 +3777,6 @@
         private TextBox textBoxPriceOrderDetails;
         private ComboBox comboBoxGenderID;
         private ComboBox comboBoxPostID;
-        private ComboBox comboBoxStatusID;
         private MaskedTextBox maskedTextBoxPhoneEmployees;
         private Button buttonMonthlyReportOrders;
         private Button buttonReportOrders;
@@ -2308,9 +3822,120 @@
         private Panel panel9;
         private Panel panel10;
         private Label labelRecordClients;
-        private ComboBox comboBoxEmployeeIDOrders;
-        private ComboBox comboBoxClientIDOrders;
         private ComboBox comboBoxProductIDOrderDetails;
         private ComboBox comboBoxOrderIDOrderDetails;
+        private TabPage tabPageMaterials;
+        private Button buttonExcelMaterial;
+        private Button buttonNewMaterial;
+        private Button buttonDeleteMaterial;
+        private Panel panelTItleMaterials;
+        private Panel panel12;
+        private Panel panel13;
+        private Label labelTitleMaterials;
+        private Button buttonRefreshMaterials;
+        private TextBox textBoxSearchMaterials;
+        private Button buttonChangeMaterial;
+        private DataGridView dataGridViewMaterials;
+        private Button buttonSaveMaterial;
+        private Panel panelRecordMaterials;
+        private Label labelRecordMaterials;
+        private Label labelMaterialID;
+        private TextBox textBoxMaterialID;
+        private Button buttonWordMaterial;
+        private Label labelControlMaterials;
+        private BindingSource bindingSource1;
+        private TabPage tabPageOrderEstimates;
+        private Button buttonExcelOrderEstimate;
+        private Button buttonNewOrderEstimate;
+        private Button buttonDeleteOrderEstimate;
+        private Panel panelTitleOrderEstimates;
+        private Panel panel16;
+        private Panel panel17;
+        private Label labelTitleOrderEstimates;
+        private Button buttonRefreshOrderEstimates;
+        private TextBox textBoxSearchOrderEstimates;
+        private Button buttonChangeOrderEstimate;
+        private DataGridView dataGridViewOrderEstimates;
+        private Button buttonSaveOrderEstimate;
+        private Panel panelRecordOrderEstimates;
+        private Label labelRecordOrderEstimates;
+        private Label labelOrderEstimateID;
+        private TextBox textBoxOrderEstimateID;
+        private Label labelOrderIDOrderEstimates;
+        private ComboBox comboBoxOrderIDOrderEstimates;
+        private Label labelOrderEstimateDate;
+        private DateTimePicker dateTimePickerOrderEstimateDate;
+        private Button buttonWordOrderEstimate;
+        private Label labelControlOrderEstimates;
+        private TabPage tabPageOrderEstimateDetails;
+        private Button buttonExcelOrderEstimateDetail;
+        private Button buttonNewOrderEstimateDetail;
+        private Button buttonDeleteOrderEstimateDetail;
+        private Panel panelTitleOrderEstimateDetails;
+        private Panel panel20;
+        private Panel panel21;
+        private Label labelTitleOrderEstimateDetails;
+        private Button buttonRefreshOrderEstimateDetails;
+        private TextBox textBoxSearchOrderEstimateDetails;
+        private Button buttonChangeOrderEstimateDetail;
+        private DataGridView dataGridViewOrderEstimateDetails;
+        private Button buttonSaveOrderEstimateDetail;
+        private Panel panelRecordOrderEstimateDetails;
+        private Label labelRecordOrderEstimateDetails;
+        private Label labelOrderEstimateDetailID;
+        private TextBox textBoxOrderEstimateDetailID;
+        private Label labelMaterialIDOrderEstimateDetails;
+        private ComboBox comboBoxMaterialIDOrderEstimateDetails;
+        private Label labelOrderEstimateIDOrderEstimateDetails;
+        private ComboBox comboBoxOrderEstimateIDOrderEstimateDetails;
+        private Button buttonWordOrderEstimateDetail;
+        private TabPage tabPageOrderMaterials;
+        private Button buttonExcelOrderMaterial;
+        private Button buttonNewOrderMaterial;
+        private Button buttonDeleteOrderMaterial;
+        private Panel panelTitleOrderMaterials;
+        private Panel panel24;
+        private Panel panel25;
+        private Label labelTitleOrderMaterials;
+        private Button buttonRefreshOrderMaterials;
+        private TextBox textBoxSearchOrderMaterials;
+        private Button buttonChangeOrderMaterial;
+        private DataGridView dataGridViewOrderMaterials;
+        private Button buttonSaveOrderMaterial;
+        private Panel panelRecordOrderMaterials;
+        private Label labelRequestDate;
+        private TextBox textBoxRequestDate;
+        private Label labelRecordOrderMaterials;
+        private Label labelOrderMaterialID;
+        private TextBox textBoxOrderMaterialID;
+        private Label labelQuantinityOrderMaterials;
+        private ComboBox comboBoxQuantinityOrderMaterials;
+        private Label labelMaterialIDOrderMaterials;
+        private DateTimePicker dateTimePickerMaterialIDOrderMaterials;
+        private Button buttonWordOrderMaterial;
+        private Label labelControlOrderMaterials;
+        private Label labelControlOrderEstimateDetails;
+        private Label labelUnit;
+        private TextBox textBoxUnit;
+        private Label labelOOOShnick;
+        private TextBox textBoxOOOShnick;
+        private Label labelProductIDOrders;
+        private ComboBox comboBoxProductIDOrders;
+        private Label labelClientIDOrders;
+        private ComboBox comboBoxClientIDOrders;
+        private Label labelEmployeeIDOrders;
+        private ComboBox comboBoxEmployeeIDOrders;
+        private Label labelOrderDate;
+        private DateTimePicker dateTimePickerOrderDate;
+        private Label labelStatusID;
+        private ComboBox comboBoxStatusID;
+        private Label labelNameMaterials;
+        private TextBox textBoxNameMaterials;
+        private Label labelCurrentQuantinity;
+        private TextBox textBoxCurrentQuantity;
+        private Label labelDescriptionMaterials;
+        private TextBox textBoxDescriptionMaterials;
+        private Label labelQuantinityOrderEstimateDetails;
+        private TextBox textBoxQuantinityOrderEstimateDetails;
     }
 }
