@@ -44,21 +44,6 @@ CREATE TABLE Employees (
 	FOREIGN KEY (PostID) REFERENCES Posts(PostID)
 );
 
-CREATE TABLE Orders (
-    OrderID INT PRIMARY KEY IDENTITY(1,1),
-    ClientID INT NOT NULL,
-	OOOShnick VARCHAR(150), --added
-    EmployeeID INT NOT NULL,
-    OrderDate DATE DEFAULT GETDATE(),
-    TotalAmount FLOAT DEFAULT 0.00,
-    StatusID INT DEFAULT 0,
-	ProductID INT NOT NULL, --added
-    FOREIGN KEY (ClientID) REFERENCES Clients(ClientID) ON DELETE CASCADE,
-    FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID),
-	FOREIGN KEY (StatusID) REFERENCES Statuses(StatusID) ON DELETE CASCADE
-	FOREIGN KEY (ProductID) REFERENCES Products(ProductID) ON DELETE CASCADE
-);
-
 CREATE TABLE Products (
     ProductID INT PRIMARY KEY IDENTITY(1,1),
     Name NVARCHAR(150) NOT NULL,
@@ -66,13 +51,28 @@ CREATE TABLE Products (
     Price FLOAT NOT NULL
 );
 
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY IDENTITY(1,1),
+    ClientID INT NOT NULL,
+	OOOShnick VARCHAR(150),
+    EmployeeID INT NOT NULL,
+    OrderDate DATE DEFAULT GETDATE(),
+    TotalAmount FLOAT DEFAULT 0.00,
+    StatusID INT DEFAULT 0,
+	ProductID INT NOT NULL,
+    FOREIGN KEY (ClientID) REFERENCES Clients(ClientID) ON DELETE CASCADE,
+    FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID),
+	FOREIGN KEY (StatusID) REFERENCES Statuses(StatusID) ON DELETE CASCADE,
+	FOREIGN KEY (ProductID) REFERENCES Products(ProductID) ON DELETE CASCADE
+);
+
 CREATE TABLE OrderDetails (
     OrderDetailID INT PRIMARY KEY IDENTITY(1,1),
     OrderID INT NOT NULL,
     ProductID INT NOT NULL,
     Price FLOAT,
-    FOREIGN KEY (OrderID) REFERENCES Orders(OrderID) ON DELETE CASCADE,
-    FOREIGN KEY (ProductID) REFERENCES Products(ProductID) ON DELETE CASCADE
+    FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
+    FOREIGN KEY (ProductID) REFERENCES Products(ProductID)
 );
 
 CREATE TABLE Materials (
@@ -196,6 +196,36 @@ BEGIN
     END
 END;
 
+CREATE TRIGGER tr_OnlyOneConfirmedOrderInDatabase3
+ON Orders
+AFTER INSERT, UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+    DECLARE @ConfirmedStatusID INT;
+    SELECT @ConfirmedStatusID = StatusID FROM Statuses WHERE Status = 'Подтвержден';
+    IF @ConfirmedStatusID IS NULL
+    BEGIN
+        RAISERROR('Статус "Подтвержден" не найден в системе', 16, 1);
+        RETURN;
+    END
+    IF EXISTS (SELECT 1 FROM inserted WHERE StatusID = @ConfirmedStatusID)
+    BEGIN
+        DECLARE @CurrentConfirmedOrderID INT = NULL;
+        SELECT TOP 1 @CurrentConfirmedOrderID = OrderID 
+        FROM Orders 
+        WHERE StatusID = @ConfirmedStatusID
+        AND OrderID NOT IN (SELECT OrderID FROM deleted WHERE StatusID = @ConfirmedStatusID);
+        IF @CurrentConfirmedOrderID IS NOT NULL AND 
+           NOT EXISTS (SELECT 1 FROM inserted WHERE OrderID = @CurrentConfirmedOrderID)
+        BEGIN
+            RAISERROR('В системе может быть только один подтвержденный заказ', 16, 1);
+            ROLLBACK TRANSACTION;
+            RETURN;
+        END
+    END
+END
+
 INSERT INTO ClientTypes (ClientType) VALUES ('Физическое лицо'), ('Юридическое лицо');
 
 INSERT INTO Genders (Gender) VALUES ('Мужской'), ('Женский');
@@ -237,14 +267,14 @@ INSERT INTO Materials (Name, Description, Unit, CurrentQuantity) VALUES
 ('Сантехника', 'Унитаз, раковина, ванна', 'комплект', 20),
 ('Электропроводка', 'Кабель ВВГнг 3х2.5', 'м', 2000);
 
-INSERT INTO Orders (ClientID, EmployeeID, StatusID, ProductID) VALUES
-(1, 3, 2, 1),
-(3, 5, 4, 3),
-(2, 3, 1, 2),
-(4, 5, 3, 1),
-(5, 3, 2, 4),
-(1, 5, 1, 5),
-(3, 3, 4, 2);
+INSERT INTO Orders (ClientID, OOOShnick, EmployeeID, StatusID, ProductID) VALUES
+(1, 'Иванов Иван Иванович', 3, 2, 1),
+(3,'Петрова Анна Сергеевна', 5, 4, 3),
+(2,'Кузнецов Дмитрий Олегович', 3, 1, 2),
+(4,'Смирнова Екатерина Викторовна', 5, 3, 1),
+(5,'Лебедев Алексей Петрович', 3, 2, 4),
+(1,'Николаева Ольга Дмитриевна', 5, 1, 5),
+(3,'Шмаков Артем Сергеевич', 3, 4, 2);
 
 INSERT INTO OrderDetails (OrderID, ProductID) VALUES
 (1, 1),
@@ -304,17 +334,7 @@ JOIN Employees e ON o.EmployeeID = e.EmployeeID
 JOIN Statuses s ON o.StatusID = s.StatusID
 ORDER BY o.OrderDate DESC;
 
--- 2. Отчет по продажам за месяц
-SELECT 
-    YEAR(OrderDate) AS 'Год',
-    MONTH(OrderDate) AS 'Месяц',
-    COUNT(OrderID) AS 'Количество заказов',
-    SUM(TotalAmount) AS 'Общая сумма продаж'
-FROM Orders
-GROUP BY YEAR(OrderDate), MONTH(OrderDate)
-ORDER BY YEAR(OrderDate) DESC, MONTH(OrderDate) DESC;
-
--- 3. Отчет по популярным товарам
+-- 2. Отчет по популярным товарам
 SELECT 
     p.Name AS 'Товар',
     COUNT(od.OrderDetailID) AS 'Количество продаж',
@@ -323,7 +343,6 @@ FROM OrderDetails od
 JOIN Products p ON od.ProductID = p.ProductID
 GROUP BY p.Name
 ORDER BY COUNT(od.OrderDetailID) DESC, SUM(od.Price) DESC;
-
 
 DROP DATABASE OrderTrack;
 

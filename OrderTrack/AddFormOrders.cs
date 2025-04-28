@@ -39,6 +39,15 @@ namespace OrderTrack
                 comboBoxStatusID.Items.Add(statusesReader.GetString(0));
             }
             statusesReader.Close();
+            comboBoxProductIDOrders.Items.Clear();
+            var productsForOrdersQuery = "SELECT Name FROM Products ORDER BY Name";
+            var productsForOrdersCommand = new SqlCommand(productsForOrdersQuery, dataBase.GetConnection());
+            var productsForOrdersReader = productsForOrdersCommand.ExecuteReader();
+            while (productsForOrdersReader.Read())
+            {
+                comboBoxProductIDOrders.Items.Add(productsForOrdersReader.GetString(0));
+            }
+            productsForOrdersReader.Close();
         }
 
         /// <summary>
@@ -51,28 +60,32 @@ namespace OrderTrack
             try
             {
                 dataBase.OpenConnection();
-                var client = comboBoxClientIDOrders.Text;
-                string queryClient = $"SELECT ClientID FROM Clients WHERE FullName = '{client}'";
-                SqlCommand commandClient = new(queryClient, dataBase.GetConnection());
-                dataBase.OpenConnection();
+                string queryClient = $"SELECT ClientID FROM Clients WHERE FullName = '{comboBoxClientIDOrders.Text}'";
+                SqlCommand commandClient = new SqlCommand(queryClient, dataBase.GetConnection());
                 object resultClient = commandClient.ExecuteScalar();
-                var clientIDOrders = resultClient.ToString();
-                var employee = comboBoxEmployeeIDOrders.Text;
-                string queryEmployee = $"SELECT EmployeeID FROM Employees WHERE FullName = '{employee}'";
-                SqlCommand commandEmployee = new(queryEmployee, dataBase.GetConnection());
-                dataBase.OpenConnection();
+                string clientID = resultClient.ToString();
+                string queryEmployee = $"SELECT EmployeeID FROM Employees WHERE FullName = '{comboBoxEmployeeIDOrders.Text}'";
+                SqlCommand commandEmployee = new SqlCommand(queryEmployee, dataBase.GetConnection());
                 object resultEmployee = commandEmployee.ExecuteScalar();
-                var employeeIDOrders = resultEmployee.ToString();
-                var status = comboBoxStatusID.Text;
-                string queryStatus = $"SELECT StatusID FROM Statuses WHERE Status = '{status}'";
-                SqlCommand commandStatus = new(queryStatus, dataBase.GetConnection());
-                dataBase.OpenConnection();
+                string employeeID = resultEmployee.ToString();
+                string queryStatus = $"SELECT StatusID FROM Statuses WHERE Status = '{comboBoxStatusID.Text}'";
+                SqlCommand commandStatus = new SqlCommand(queryStatus, dataBase.GetConnection());
                 object resultStatus = commandStatus.ExecuteScalar();
-                var statusID = resultStatus.ToString();
-                var addQuery = $"insert into Orders (ClientID, EmployeeID, StatusID) values ('{clientIDOrders}', '{employeeIDOrders}', '{statusID}')";
-                var sqlCommand = new SqlCommand(addQuery, dataBase.GetConnection());
+                string statusID = resultStatus.ToString();
+                string queryProduct = $"SELECT ProductID FROM Products WHERE Name = '{comboBoxProductIDOrders.Text}'";
+                SqlCommand commandProduct = new SqlCommand(queryProduct, dataBase.GetConnection());
+                object resultProduct = commandProduct.ExecuteScalar();
+                string productID = resultProduct.ToString();
+                string oooShnick = textBoxOOOShnick.Text;
+                string addQuery = $@"INSERT INTO Orders
+            (ClientID, OOOShnick, EmployeeID, OrderDate, StatusID, ProductID)
+            VALUES
+            ('{clientID}', '{oooShnick}', '{employeeID}', GETDATE(), '{statusID}', '{productID}')";
+
+                SqlCommand sqlCommand = new SqlCommand(addQuery, dataBase.GetConnection());
                 sqlCommand.ExecuteNonQuery();
-                MessageBox.Show("Запись успешно создана!", "Успех!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                MessageBox.Show("Заказ успешно создан!", "Успех!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {

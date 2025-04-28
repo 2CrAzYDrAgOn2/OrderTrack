@@ -271,12 +271,12 @@
             labelRecordOrderMaterials = new Label();
             labelOrderMaterialID = new Label();
             textBoxOrderMaterialID = new TextBox();
-            labelMaterialIDOrderMaterials = new Label();
-            dateTimePickerMaterialIDOrderMaterials = new DateTimePicker();
-            labelQuantinityOrderMaterials = new Label();
-            comboBoxQuantinityOrderMaterials = new ComboBox();
             labelRequestDate = new Label();
-            textBoxRequestDate = new TextBox();
+            dateTimePickerRequestDate = new DateTimePicker();
+            labelMaterialIDOrderMaterials = new Label();
+            comboBoxMaterialIDOrderMaterials = new ComboBox();
+            labelQuantityOrderMaterials = new Label();
+            textBoxQuantityOrderMaterials = new TextBox();
             buttonWordOrderMaterial = new Button();
             labelControlOrderMaterials = new Label();
             bindingSource1 = new BindingSource(components);
@@ -2410,6 +2410,7 @@
             buttonRefreshMaterials.Size = new Size(60, 60);
             buttonRefreshMaterials.TabIndex = 3;
             buttonRefreshMaterials.UseVisualStyleBackColor = true;
+            buttonRefreshMaterials.Click += ButtonRefresh_Click;
             // 
             // textBoxSearchMaterials
             // 
@@ -2420,6 +2421,7 @@
             textBoxSearchMaterials.Name = "textBoxSearchMaterials";
             textBoxSearchMaterials.Size = new Size(237, 33);
             textBoxSearchMaterials.TabIndex = 4;
+            textBoxSearchMaterials.TextChanged += TextBoxSearchMaterials_TextChanged;
             // 
             // buttonChangeMaterial
             // 
@@ -2449,6 +2451,7 @@
             dataGridViewMaterials.RowHeadersWidth = 62;
             dataGridViewMaterials.Size = new Size(596, 349);
             dataGridViewMaterials.TabIndex = 0;
+            dataGridViewMaterials.CellClick += DataGridViewMaterials_CellClick;
             // 
             // buttonSaveMaterial
             // 
@@ -2761,6 +2764,7 @@
             buttonRefreshOrderEstimates.Size = new Size(60, 60);
             buttonRefreshOrderEstimates.TabIndex = 3;
             buttonRefreshOrderEstimates.UseVisualStyleBackColor = true;
+            buttonRefreshOrderEstimates.Click += ButtonRefresh_Click;
             // 
             // textBoxSearchOrderEstimates
             // 
@@ -2771,6 +2775,7 @@
             textBoxSearchOrderEstimates.Name = "textBoxSearchOrderEstimates";
             textBoxSearchOrderEstimates.Size = new Size(237, 33);
             textBoxSearchOrderEstimates.TabIndex = 4;
+            textBoxSearchOrderEstimates.TextChanged += TextBoxSearchOrderEstimates_TextChanged;
             // 
             // buttonChangeOrderEstimate
             // 
@@ -2800,6 +2805,7 @@
             dataGridViewOrderEstimates.RowHeadersWidth = 62;
             dataGridViewOrderEstimates.Size = new Size(596, 349);
             dataGridViewOrderEstimates.TabIndex = 0;
+            dataGridViewOrderEstimates.CellClick += DataGridViewOrderEstimates_CellClick;
             // 
             // buttonSaveOrderEstimate
             // 
@@ -3067,6 +3073,7 @@
             buttonRefreshOrderEstimateDetails.Size = new Size(60, 60);
             buttonRefreshOrderEstimateDetails.TabIndex = 3;
             buttonRefreshOrderEstimateDetails.UseVisualStyleBackColor = true;
+            buttonRefreshOrderEstimateDetails.Click += ButtonRefresh_Click;
             // 
             // textBoxSearchOrderEstimateDetails
             // 
@@ -3077,6 +3084,7 @@
             textBoxSearchOrderEstimateDetails.Name = "textBoxSearchOrderEstimateDetails";
             textBoxSearchOrderEstimateDetails.Size = new Size(237, 33);
             textBoxSearchOrderEstimateDetails.TabIndex = 4;
+            textBoxSearchOrderEstimateDetails.TextChanged += TextBoxSearchOrderEstimateDetails_TextChanged;
             // 
             // buttonChangeOrderEstimateDetail
             // 
@@ -3106,6 +3114,7 @@
             dataGridViewOrderEstimateDetails.RowHeadersWidth = 62;
             dataGridViewOrderEstimateDetails.Size = new Size(596, 349);
             dataGridViewOrderEstimateDetails.TabIndex = 0;
+            dataGridViewOrderEstimateDetails.CellClick += DataGridViewOrderEstimateDetails_CellClick;
             // 
             // buttonSaveOrderEstimateDetail
             // 
@@ -3391,22 +3400,24 @@
             buttonRefreshOrderMaterials.BackgroundImageLayout = ImageLayout.Stretch;
             buttonRefreshOrderMaterials.FlatStyle = FlatStyle.Flat;
             buttonRefreshOrderMaterials.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            buttonRefreshOrderMaterials.Location = new Point(543, 13);
+            buttonRefreshOrderMaterials.Location = new Point(643, 12);
             buttonRefreshOrderMaterials.Margin = new Padding(4, 3, 4, 3);
             buttonRefreshOrderMaterials.Name = "buttonRefreshOrderMaterials";
             buttonRefreshOrderMaterials.Size = new Size(60, 60);
             buttonRefreshOrderMaterials.TabIndex = 3;
             buttonRefreshOrderMaterials.UseVisualStyleBackColor = true;
+            buttonRefreshOrderMaterials.Click += ButtonRefresh_Click;
             // 
             // textBoxSearchOrderMaterials
             // 
             textBoxSearchOrderMaterials.BackColor = Color.FromArgb(201, 201, 209);
             textBoxSearchOrderMaterials.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxSearchOrderMaterials.Location = new Point(610, 27);
+            textBoxSearchOrderMaterials.Location = new Point(711, 27);
             textBoxSearchOrderMaterials.Margin = new Padding(4, 3, 4, 3);
             textBoxSearchOrderMaterials.Name = "textBoxSearchOrderMaterials";
-            textBoxSearchOrderMaterials.Size = new Size(237, 33);
+            textBoxSearchOrderMaterials.Size = new Size(136, 33);
             textBoxSearchOrderMaterials.TabIndex = 4;
+            textBoxSearchOrderMaterials.TextChanged += TextBoxSearchOrderMaterials_TextChanged;
             // 
             // buttonChangeOrderMaterial
             // 
@@ -3436,6 +3447,7 @@
             dataGridViewOrderMaterials.RowHeadersWidth = 62;
             dataGridViewOrderMaterials.Size = new Size(596, 349);
             dataGridViewOrderMaterials.TabIndex = 0;
+            dataGridViewOrderMaterials.CellClick += DataGridViewOrderMaterials_CellClick;
             // 
             // buttonSaveOrderMaterial
             // 
@@ -3460,12 +3472,12 @@
             panelRecordOrderMaterials.Controls.Add(labelRecordOrderMaterials);
             panelRecordOrderMaterials.Controls.Add(labelOrderMaterialID);
             panelRecordOrderMaterials.Controls.Add(textBoxOrderMaterialID);
-            panelRecordOrderMaterials.Controls.Add(labelMaterialIDOrderMaterials);
-            panelRecordOrderMaterials.Controls.Add(dateTimePickerMaterialIDOrderMaterials);
-            panelRecordOrderMaterials.Controls.Add(labelQuantinityOrderMaterials);
-            panelRecordOrderMaterials.Controls.Add(comboBoxQuantinityOrderMaterials);
             panelRecordOrderMaterials.Controls.Add(labelRequestDate);
-            panelRecordOrderMaterials.Controls.Add(textBoxRequestDate);
+            panelRecordOrderMaterials.Controls.Add(dateTimePickerRequestDate);
+            panelRecordOrderMaterials.Controls.Add(labelMaterialIDOrderMaterials);
+            panelRecordOrderMaterials.Controls.Add(comboBoxMaterialIDOrderMaterials);
+            panelRecordOrderMaterials.Controls.Add(labelQuantityOrderMaterials);
+            panelRecordOrderMaterials.Controls.Add(textBoxQuantityOrderMaterials);
             panelRecordOrderMaterials.Location = new Point(19, 459);
             panelRecordOrderMaterials.Margin = new Padding(4, 3, 4, 3);
             panelRecordOrderMaterials.Name = "panelRecordOrderMaterials";
@@ -3506,69 +3518,69 @@
             textBoxOrderMaterialID.Size = new Size(79, 33);
             textBoxOrderMaterialID.TabIndex = 0;
             // 
-            // labelMaterialIDOrderMaterials
-            // 
-            labelMaterialIDOrderMaterials.AutoSize = true;
-            labelMaterialIDOrderMaterials.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            labelMaterialIDOrderMaterials.ForeColor = Color.Black;
-            labelMaterialIDOrderMaterials.Location = new Point(288, 56);
-            labelMaterialIDOrderMaterials.Margin = new Padding(4, 0, 4, 0);
-            labelMaterialIDOrderMaterials.Name = "labelMaterialIDOrderMaterials";
-            labelMaterialIDOrderMaterials.Size = new Size(109, 21);
-            labelMaterialIDOrderMaterials.TabIndex = 6;
-            labelMaterialIDOrderMaterials.Text = "Дата заявки:";
-            // 
-            // dateTimePickerMaterialIDOrderMaterials
-            // 
-            dateTimePickerMaterialIDOrderMaterials.Enabled = false;
-            dateTimePickerMaterialIDOrderMaterials.Font = new Font("Segoe UI", 14.25F);
-            dateTimePickerMaterialIDOrderMaterials.Location = new Point(404, 50);
-            dateTimePickerMaterialIDOrderMaterials.Name = "dateTimePickerMaterialIDOrderMaterials";
-            dateTimePickerMaterialIDOrderMaterials.Size = new Size(324, 33);
-            dateTimePickerMaterialIDOrderMaterials.TabIndex = 1;
-            // 
-            // labelQuantinityOrderMaterials
-            // 
-            labelQuantinityOrderMaterials.AutoSize = true;
-            labelQuantinityOrderMaterials.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            labelQuantinityOrderMaterials.ForeColor = Color.Black;
-            labelQuantinityOrderMaterials.Location = new Point(126, 101);
-            labelQuantinityOrderMaterials.Margin = new Padding(4, 0, 4, 0);
-            labelQuantinityOrderMaterials.Name = "labelQuantinityOrderMaterials";
-            labelQuantinityOrderMaterials.Size = new Size(222, 21);
-            labelQuantinityOrderMaterials.TabIndex = 7;
-            labelQuantinityOrderMaterials.Text = "Наименование материала:";
-            // 
-            // comboBoxQuantinityOrderMaterials
-            // 
-            comboBoxQuantinityOrderMaterials.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxQuantinityOrderMaterials.Font = new Font("Segoe UI", 14.25F);
-            comboBoxQuantinityOrderMaterials.FormattingEnabled = true;
-            comboBoxQuantinityOrderMaterials.Location = new Point(355, 95);
-            comboBoxQuantinityOrderMaterials.Name = "comboBoxQuantinityOrderMaterials";
-            comboBoxQuantinityOrderMaterials.Size = new Size(373, 33);
-            comboBoxQuantinityOrderMaterials.TabIndex = 2;
-            // 
             // labelRequestDate
             // 
             labelRequestDate.AutoSize = true;
             labelRequestDate.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             labelRequestDate.ForeColor = Color.Black;
-            labelRequestDate.Location = new Point(131, 140);
+            labelRequestDate.Location = new Point(288, 56);
             labelRequestDate.Margin = new Padding(4, 0, 4, 0);
             labelRequestDate.Name = "labelRequestDate";
-            labelRequestDate.Size = new Size(107, 21);
-            labelRequestDate.TabIndex = 8;
-            labelRequestDate.Text = "Количество:";
+            labelRequestDate.Size = new Size(109, 21);
+            labelRequestDate.TabIndex = 6;
+            labelRequestDate.Text = "Дата заявки:";
             // 
-            // textBoxRequestDate
+            // dateTimePickerRequestDate
             // 
-            textBoxRequestDate.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxRequestDate.Location = new Point(246, 134);
-            textBoxRequestDate.Margin = new Padding(4, 3, 4, 3);
-            textBoxRequestDate.Name = "textBoxRequestDate";
-            textBoxRequestDate.Size = new Size(482, 33);
-            textBoxRequestDate.TabIndex = 3;
+            dateTimePickerRequestDate.Enabled = false;
+            dateTimePickerRequestDate.Font = new Font("Segoe UI", 14.25F);
+            dateTimePickerRequestDate.Location = new Point(404, 50);
+            dateTimePickerRequestDate.Name = "dateTimePickerRequestDate";
+            dateTimePickerRequestDate.Size = new Size(324, 33);
+            dateTimePickerRequestDate.TabIndex = 1;
+            // 
+            // labelMaterialIDOrderMaterials
+            // 
+            labelMaterialIDOrderMaterials.AutoSize = true;
+            labelMaterialIDOrderMaterials.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            labelMaterialIDOrderMaterials.ForeColor = Color.Black;
+            labelMaterialIDOrderMaterials.Location = new Point(126, 101);
+            labelMaterialIDOrderMaterials.Margin = new Padding(4, 0, 4, 0);
+            labelMaterialIDOrderMaterials.Name = "labelMaterialIDOrderMaterials";
+            labelMaterialIDOrderMaterials.Size = new Size(222, 21);
+            labelMaterialIDOrderMaterials.TabIndex = 7;
+            labelMaterialIDOrderMaterials.Text = "Наименование материала:";
+            // 
+            // comboBoxMaterialIDOrderMaterials
+            // 
+            comboBoxMaterialIDOrderMaterials.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxMaterialIDOrderMaterials.Font = new Font("Segoe UI", 14.25F);
+            comboBoxMaterialIDOrderMaterials.FormattingEnabled = true;
+            comboBoxMaterialIDOrderMaterials.Location = new Point(355, 95);
+            comboBoxMaterialIDOrderMaterials.Name = "comboBoxMaterialIDOrderMaterials";
+            comboBoxMaterialIDOrderMaterials.Size = new Size(373, 33);
+            comboBoxMaterialIDOrderMaterials.TabIndex = 2;
+            // 
+            // labelQuantityOrderMaterials
+            // 
+            labelQuantityOrderMaterials.AutoSize = true;
+            labelQuantityOrderMaterials.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            labelQuantityOrderMaterials.ForeColor = Color.Black;
+            labelQuantityOrderMaterials.Location = new Point(131, 140);
+            labelQuantityOrderMaterials.Margin = new Padding(4, 0, 4, 0);
+            labelQuantityOrderMaterials.Name = "labelQuantityOrderMaterials";
+            labelQuantityOrderMaterials.Size = new Size(107, 21);
+            labelQuantityOrderMaterials.TabIndex = 8;
+            labelQuantityOrderMaterials.Text = "Количество:";
+            // 
+            // textBoxQuantityOrderMaterials
+            // 
+            textBoxQuantityOrderMaterials.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxQuantityOrderMaterials.Location = new Point(246, 134);
+            textBoxQuantityOrderMaterials.Margin = new Padding(4, 3, 4, 3);
+            textBoxQuantityOrderMaterials.Name = "textBoxQuantityOrderMaterials";
+            textBoxQuantityOrderMaterials.Size = new Size(482, 33);
+            textBoxQuantityOrderMaterials.TabIndex = 3;
             // 
             // buttonWordOrderMaterial
             // 
@@ -3903,15 +3915,15 @@
         private DataGridView dataGridViewOrderMaterials;
         private Button buttonSaveOrderMaterial;
         private Panel panelRecordOrderMaterials;
-        private Label labelRequestDate;
-        private TextBox textBoxRequestDate;
+        private Label labelQuantityOrderMaterials;
+        private TextBox textBoxQuantityOrderMaterials;
         private Label labelRecordOrderMaterials;
         private Label labelOrderMaterialID;
         private TextBox textBoxOrderMaterialID;
-        private Label labelQuantinityOrderMaterials;
-        private ComboBox comboBoxQuantinityOrderMaterials;
         private Label labelMaterialIDOrderMaterials;
-        private DateTimePicker dateTimePickerMaterialIDOrderMaterials;
+        private ComboBox comboBoxMaterialIDOrderMaterials;
+        private Label labelRequestDate;
+        private DateTimePicker dateTimePickerRequestDate;
         private Button buttonWordOrderMaterial;
         private Label labelControlOrderMaterials;
         private Label labelControlOrderEstimateDetails;

@@ -40,6 +40,10 @@
             pictureBox1 = new PictureBox();
             comboBoxEmployeeIDOrders = new ComboBox();
             comboBoxClientIDOrders = new ComboBox();
+            label2 = new Label();
+            textBoxOOOShnick = new TextBox();
+            label3 = new Label();
+            comboBoxProductIDOrders = new ComboBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -76,7 +80,7 @@
             buttonSave.FlatStyle = FlatStyle.Flat;
             buttonSave.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
             buttonSave.ForeColor = Color.Black;
-            buttonSave.Location = new Point(246, 347);
+            buttonSave.Location = new Point(246, 466);
             buttonSave.Margin = new Padding(4, 3, 4, 3);
             buttonSave.Name = "buttonSave";
             buttonSave.Size = new Size(236, 44);
@@ -104,7 +108,7 @@
             labelEmployeeIDOrders.BackColor = Color.Transparent;
             labelEmployeeIDOrders.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
             labelEmployeeIDOrders.ForeColor = Color.FromArgb(97, 97, 97);
-            labelEmployeeIDOrders.Location = new Point(284, 190);
+            labelEmployeeIDOrders.Location = new Point(284, 266);
             labelEmployeeIDOrders.Margin = new Padding(4, 0, 4, 0);
             labelEmployeeIDOrders.Name = "labelEmployeeIDOrders";
             labelEmployeeIDOrders.Size = new Size(178, 25);
@@ -117,7 +121,7 @@
             labelStatusID.BackColor = Color.Transparent;
             labelStatusID.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
             labelStatusID.ForeColor = Color.FromArgb(97, 97, 97);
-            labelStatusID.Location = new Point(332, 259);
+            labelStatusID.Location = new Point(332, 335);
             labelStatusID.Margin = new Padding(4, 0, 4, 0);
             labelStatusID.Name = "labelStatusID";
             labelStatusID.Size = new Size(76, 25);
@@ -129,7 +133,7 @@
             comboBoxStatusID.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxStatusID.Font = new Font("Segoe UI", 14.25F);
             comboBoxStatusID.FormattingEnabled = true;
-            comboBoxStatusID.Location = new Point(141, 287);
+            comboBoxStatusID.Location = new Point(141, 363);
             comboBoxStatusID.Name = "comboBoxStatusID";
             comboBoxStatusID.Size = new Size(455, 33);
             comboBoxStatusID.TabIndex = 2;
@@ -160,7 +164,7 @@
             comboBoxEmployeeIDOrders.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxEmployeeIDOrders.Font = new Font("Segoe UI", 14.25F);
             comboBoxEmployeeIDOrders.FormattingEnabled = true;
-            comboBoxEmployeeIDOrders.Location = new Point(141, 218);
+            comboBoxEmployeeIDOrders.Location = new Point(141, 294);
             comboBoxEmployeeIDOrders.Name = "comboBoxEmployeeIDOrders";
             comboBoxEmployeeIDOrders.Size = new Size(455, 33);
             comboBoxEmployeeIDOrders.TabIndex = 1;
@@ -175,20 +179,70 @@
             comboBoxClientIDOrders.Size = new Size(455, 33);
             comboBoxClientIDOrders.TabIndex = 0;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
+            label2.ForeColor = Color.FromArgb(97, 97, 97);
+            label2.Location = new Point(297, 190);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(153, 25);
+            label2.TabIndex = 20;
+            label2.Text = "Управляющий:";
+            // 
+            // textBoxOOOShnick
+            // 
+            textBoxOOOShnick.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxOOOShnick.Location = new Point(141, 218);
+            textBoxOOOShnick.Margin = new Padding(4, 3, 4, 3);
+            textBoxOOOShnick.Name = "textBoxOOOShnick";
+            textBoxOOOShnick.Size = new Size(455, 33);
+            textBoxOOOShnick.TabIndex = 21;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
+            label3.ForeColor = Color.FromArgb(97, 97, 97);
+            label3.Location = new Point(336, 399);
+            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(59, 25);
+            label3.TabIndex = 22;
+            label3.Text = "Дом:";
+            // 
+            // comboBoxProductIDOrders
+            // 
+            comboBoxProductIDOrders.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxProductIDOrders.Font = new Font("Segoe UI", 14.25F);
+            comboBoxProductIDOrders.FormattingEnabled = true;
+            comboBoxProductIDOrders.Items.AddRange(new object[] { "В обработке", "Подтвержден", "Отменен", "Выполнен" });
+            comboBoxProductIDOrders.Location = new Point(141, 427);
+            comboBoxProductIDOrders.Name = "comboBoxProductIDOrders";
+            comboBoxProductIDOrders.Size = new Size(455, 33);
+            comboBoxProductIDOrders.TabIndex = 23;
+            // 
             // AddFormOrders
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(201, 201, 209);
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(729, 416);
+            ClientSize = new Size(729, 523);
             Controls.Add(panel1);
             Controls.Add(labelClientIDOrders);
             Controls.Add(comboBoxClientIDOrders);
+            Controls.Add(label2);
+            Controls.Add(textBoxOOOShnick);
             Controls.Add(labelEmployeeIDOrders);
             Controls.Add(comboBoxEmployeeIDOrders);
             Controls.Add(labelStatusID);
             Controls.Add(comboBoxStatusID);
+            Controls.Add(label3);
+            Controls.Add(comboBoxProductIDOrders);
             Controls.Add(buttonSave);
             DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -213,5 +267,9 @@
         private PictureBox pictureBox1;
         private ComboBox comboBoxEmployeeIDOrders;
         private ComboBox comboBoxClientIDOrders;
+        private Label label2;
+        private TextBox textBoxOOOShnick;
+        private Label label3;
+        private ComboBox comboBoxProductIDOrders;
     }
 }

@@ -31,18 +31,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddFormMaterials));
             panel2 = new Panel();
             labelFullNameClients = new Label();
+            textBoxNameMaterials = new TextBox();
+            label2 = new Label();
+            textBoxDescriptionMaterials = new TextBox();
+            label4 = new Label();
+            textBoxUnit = new TextBox();
+            label3 = new Label();
+            textBoxCurrentQuantity = new TextBox();
             buttonSave = new Button();
-            textBoxFullNameClients = new TextBox();
             labelTitle = new Label();
             pictureBox1 = new PictureBox();
             label1 = new Label();
             panel1 = new Panel();
-            textBoxDescriptionMaterials = new TextBox();
-            textBoxUnit = new TextBox();
-            textBoxCurrentQuantity = new TextBox();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
@@ -52,7 +52,7 @@
             // 
             panel2.BackColor = Color.FromArgb(201, 201, 209);
             panel2.Controls.Add(labelFullNameClients);
-            panel2.Controls.Add(textBoxFullNameClients);
+            panel2.Controls.Add(textBoxNameMaterials);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(textBoxDescriptionMaterials);
             panel2.Controls.Add(label4);
@@ -78,6 +78,81 @@
             labelFullNameClients.TabIndex = 5;
             labelFullNameClients.Text = "Наименование:";
             // 
+            // textBoxNameMaterials
+            // 
+            textBoxNameMaterials.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxNameMaterials.Location = new Point(151, 46);
+            textBoxNameMaterials.Margin = new Padding(4, 3, 4, 3);
+            textBoxNameMaterials.Name = "textBoxNameMaterials";
+            textBoxNameMaterials.Size = new Size(455, 33);
+            textBoxNameMaterials.TabIndex = 0;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label2.ForeColor = Color.FromArgb(97, 97, 97);
+            label2.Location = new Point(327, 82);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(108, 25);
+            label2.TabIndex = 6;
+            label2.Text = "Описание:";
+            // 
+            // textBoxDescriptionMaterials
+            // 
+            textBoxDescriptionMaterials.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxDescriptionMaterials.Location = new Point(151, 110);
+            textBoxDescriptionMaterials.Margin = new Padding(4, 3, 4, 3);
+            textBoxDescriptionMaterials.Name = "textBoxDescriptionMaterials";
+            textBoxDescriptionMaterials.Size = new Size(455, 33);
+            textBoxDescriptionMaterials.TabIndex = 1;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = Color.Transparent;
+            label4.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label4.ForeColor = Color.FromArgb(97, 97, 97);
+            label4.Location = new Point(318, 210);
+            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(126, 25);
+            label4.TabIndex = 8;
+            label4.Text = "Количество:";
+            // 
+            // textBoxUnit
+            // 
+            textBoxUnit.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxUnit.Location = new Point(151, 174);
+            textBoxUnit.Margin = new Padding(4, 3, 4, 3);
+            textBoxUnit.Name = "textBoxUnit";
+            textBoxUnit.Size = new Size(455, 33);
+            textBoxUnit.TabIndex = 2;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label3.ForeColor = Color.FromArgb(97, 97, 97);
+            label3.Location = new Point(273, 146);
+            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(205, 25);
+            label3.TabIndex = 7;
+            label3.Text = "Единица измерения:";
+            // 
+            // textBoxCurrentQuantity
+            // 
+            textBoxCurrentQuantity.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxCurrentQuantity.Location = new Point(151, 238);
+            textBoxCurrentQuantity.Margin = new Padding(4, 3, 4, 3);
+            textBoxCurrentQuantity.Name = "textBoxCurrentQuantity";
+            textBoxCurrentQuantity.Size = new Size(455, 33);
+            textBoxCurrentQuantity.TabIndex = 3;
+            // 
             // buttonSave
             // 
             buttonSave.BackColor = Color.FromArgb(241, 156, 55);
@@ -91,15 +166,7 @@
             buttonSave.TabIndex = 4;
             buttonSave.Text = "Сохранить";
             buttonSave.UseVisualStyleBackColor = false;
-            // 
-            // textBoxFullNameClients
-            // 
-            textBoxFullNameClients.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxFullNameClients.Location = new Point(151, 46);
-            textBoxFullNameClients.Margin = new Padding(4, 3, 4, 3);
-            textBoxFullNameClients.Name = "textBoxFullNameClients";
-            textBoxFullNameClients.Size = new Size(455, 33);
-            textBoxFullNameClients.TabIndex = 0;
+            buttonSave.Click += ButtonSave_Click;
             // 
             // labelTitle
             // 
@@ -147,72 +214,6 @@
             panel1.Size = new Size(753, 97);
             panel1.TabIndex = 19;
             // 
-            // textBoxDescriptionMaterials
-            // 
-            textBoxDescriptionMaterials.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxDescriptionMaterials.Location = new Point(151, 110);
-            textBoxDescriptionMaterials.Margin = new Padding(4, 3, 4, 3);
-            textBoxDescriptionMaterials.Name = "textBoxDescriptionMaterials";
-            textBoxDescriptionMaterials.Size = new Size(455, 33);
-            textBoxDescriptionMaterials.TabIndex = 1;
-            // 
-            // textBoxUnit
-            // 
-            textBoxUnit.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxUnit.Location = new Point(151, 174);
-            textBoxUnit.Margin = new Padding(4, 3, 4, 3);
-            textBoxUnit.Name = "textBoxUnit";
-            textBoxUnit.Size = new Size(455, 33);
-            textBoxUnit.TabIndex = 2;
-            // 
-            // textBoxCurrentQuantity
-            // 
-            textBoxCurrentQuantity.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxCurrentQuantity.Location = new Point(151, 238);
-            textBoxCurrentQuantity.Margin = new Padding(4, 3, 4, 3);
-            textBoxCurrentQuantity.Name = "textBoxCurrentQuantity";
-            textBoxCurrentQuantity.Size = new Size(455, 33);
-            textBoxCurrentQuantity.TabIndex = 3;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label2.ForeColor = Color.FromArgb(97, 97, 97);
-            label2.Location = new Point(327, 82);
-            label2.Margin = new Padding(4, 0, 4, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(108, 25);
-            label2.TabIndex = 6;
-            label2.Text = "Описание:";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.Transparent;
-            label3.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label3.ForeColor = Color.FromArgb(97, 97, 97);
-            label3.Location = new Point(273, 146);
-            label3.Margin = new Padding(4, 0, 4, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(205, 25);
-            label3.TabIndex = 7;
-            label3.Text = "Единица измерения:";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.BackColor = Color.Transparent;
-            label4.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label4.ForeColor = Color.FromArgb(97, 97, 97);
-            label4.Location = new Point(318, 210);
-            label4.Margin = new Padding(4, 0, 4, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(126, 25);
-            label4.TabIndex = 8;
-            label4.Text = "Количество:";
-            // 
             // AddFormMaterials
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -236,7 +237,7 @@
         private Panel panel2;
         private Label labelFullNameClients;
         private Button buttonSave;
-        private TextBox textBoxFullNameClients;
+        private TextBox textBoxNameMaterials;
         private Label labelTitle;
         private PictureBox pictureBox1;
         private Label label1;

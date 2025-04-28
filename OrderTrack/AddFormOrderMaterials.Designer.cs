@@ -31,16 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddFormOrderMaterials));
             panel2 = new Panel();
             labelFullNameClients = new Label();
+            dateTimePickerRequestDate = new DateTimePicker();
+            label2 = new Label();
+            comboBoxMaterialIDOrderMaterials = new ComboBox();
+            label3 = new Label();
+            textBoxQuantinityOrderMaterials = new TextBox();
             buttonSave = new Button();
             labelTitle = new Label();
             pictureBox1 = new PictureBox();
             label1 = new Label();
             panel1 = new Panel();
-            dateTimePickerMaterialIDOrderMaterials = new DateTimePicker();
-            comboBoxQuantinityOrderMaterials = new ComboBox();
-            textBoxRequestDate = new TextBox();
-            label2 = new Label();
-            label3 = new Label();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
@@ -50,11 +50,11 @@
             // 
             panel2.BackColor = Color.FromArgb(201, 201, 209);
             panel2.Controls.Add(labelFullNameClients);
-            panel2.Controls.Add(dateTimePickerMaterialIDOrderMaterials);
+            panel2.Controls.Add(dateTimePickerRequestDate);
             panel2.Controls.Add(label2);
-            panel2.Controls.Add(comboBoxQuantinityOrderMaterials);
+            panel2.Controls.Add(comboBoxMaterialIDOrderMaterials);
             panel2.Controls.Add(label3);
-            panel2.Controls.Add(textBoxRequestDate);
+            panel2.Controls.Add(textBoxQuantinityOrderMaterials);
             panel2.Controls.Add(buttonSave);
             panel2.Location = new Point(-1, 92);
             panel2.Name = "panel2";
@@ -67,12 +67,66 @@
             labelFullNameClients.BackColor = Color.Transparent;
             labelFullNameClients.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
             labelFullNameClients.ForeColor = Color.FromArgb(97, 97, 97);
-            labelFullNameClients.Location = new Point(224, 18);
+            labelFullNameClients.Location = new Point(325, 18);
             labelFullNameClients.Margin = new Padding(4, 0, 4, 0);
             labelFullNameClients.Name = "labelFullNameClients";
-            labelFullNameClients.Size = new Size(318, 25);
+            labelFullNameClients.Size = new Size(130, 25);
             labelFullNameClients.TabIndex = 4;
-            labelFullNameClients.Text = "Контактное лицо / Организация:";
+            labelFullNameClients.Text = "Дата заявки:";
+            // 
+            // dateTimePickerRequestDate
+            // 
+            dateTimePickerRequestDate.Enabled = false;
+            dateTimePickerRequestDate.Font = new Font("Segoe UI", 14.25F);
+            dateTimePickerRequestDate.Location = new Point(151, 46);
+            dateTimePickerRequestDate.Name = "dateTimePickerRequestDate";
+            dateTimePickerRequestDate.Size = new Size(455, 33);
+            dateTimePickerRequestDate.TabIndex = 0;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label2.ForeColor = Color.FromArgb(97, 97, 97);
+            label2.Location = new Point(260, 82);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(262, 25);
+            label2.TabIndex = 5;
+            label2.Text = "Наименование материала:";
+            // 
+            // comboBoxMaterialIDOrderMaterials
+            // 
+            comboBoxMaterialIDOrderMaterials.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxMaterialIDOrderMaterials.Font = new Font("Segoe UI", 14.25F);
+            comboBoxMaterialIDOrderMaterials.FormattingEnabled = true;
+            comboBoxMaterialIDOrderMaterials.Location = new Point(151, 110);
+            comboBoxMaterialIDOrderMaterials.Name = "comboBoxMaterialIDOrderMaterials";
+            comboBoxMaterialIDOrderMaterials.Size = new Size(455, 33);
+            comboBoxMaterialIDOrderMaterials.TabIndex = 1;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label3.ForeColor = Color.FromArgb(97, 97, 97);
+            label3.Location = new Point(325, 146);
+            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(126, 25);
+            label3.TabIndex = 6;
+            label3.Text = "Количество:";
+            // 
+            // textBoxQuantinityOrderMaterials
+            // 
+            textBoxQuantinityOrderMaterials.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxQuantinityOrderMaterials.Location = new Point(151, 174);
+            textBoxQuantinityOrderMaterials.Margin = new Padding(4, 3, 4, 3);
+            textBoxQuantinityOrderMaterials.Name = "textBoxQuantinityOrderMaterials";
+            textBoxQuantinityOrderMaterials.Size = new Size(455, 33);
+            textBoxQuantinityOrderMaterials.TabIndex = 2;
             // 
             // buttonSave
             // 
@@ -80,13 +134,14 @@
             buttonSave.FlatStyle = FlatStyle.Flat;
             buttonSave.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
             buttonSave.ForeColor = Color.Black;
-            buttonSave.Location = new Point(260, 452);
+            buttonSave.Location = new Point(260, 224);
             buttonSave.Margin = new Padding(4, 3, 4, 3);
             buttonSave.Name = "buttonSave";
             buttonSave.Size = new Size(236, 44);
             buttonSave.TabIndex = 3;
             buttonSave.Text = "Сохранить";
             buttonSave.UseVisualStyleBackColor = false;
+            buttonSave.Click += ButtonSave_Click;
             // 
             // labelTitle
             // 
@@ -134,65 +189,11 @@
             panel1.Size = new Size(753, 97);
             panel1.TabIndex = 19;
             // 
-            // dateTimePickerMaterialIDOrderMaterials
-            // 
-            dateTimePickerMaterialIDOrderMaterials.Enabled = false;
-            dateTimePickerMaterialIDOrderMaterials.Font = new Font("Segoe UI", 14.25F);
-            dateTimePickerMaterialIDOrderMaterials.Location = new Point(151, 46);
-            dateTimePickerMaterialIDOrderMaterials.Name = "dateTimePickerMaterialIDOrderMaterials";
-            dateTimePickerMaterialIDOrderMaterials.Size = new Size(455, 33);
-            dateTimePickerMaterialIDOrderMaterials.TabIndex = 0;
-            // 
-            // comboBoxQuantinityOrderMaterials
-            // 
-            comboBoxQuantinityOrderMaterials.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxQuantinityOrderMaterials.Font = new Font("Segoe UI", 14.25F);
-            comboBoxQuantinityOrderMaterials.FormattingEnabled = true;
-            comboBoxQuantinityOrderMaterials.Location = new Point(151, 110);
-            comboBoxQuantinityOrderMaterials.Name = "comboBoxQuantinityOrderMaterials";
-            comboBoxQuantinityOrderMaterials.Size = new Size(455, 33);
-            comboBoxQuantinityOrderMaterials.TabIndex = 1;
-            // 
-            // textBoxRequestDate
-            // 
-            textBoxRequestDate.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxRequestDate.Location = new Point(151, 174);
-            textBoxRequestDate.Margin = new Padding(4, 3, 4, 3);
-            textBoxRequestDate.Name = "textBoxRequestDate";
-            textBoxRequestDate.Size = new Size(455, 33);
-            textBoxRequestDate.TabIndex = 2;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label2.ForeColor = Color.FromArgb(97, 97, 97);
-            label2.Location = new Point(224, 82);
-            label2.Margin = new Padding(4, 0, 4, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(318, 25);
-            label2.TabIndex = 5;
-            label2.Text = "Контактное лицо / Организация:";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.Transparent;
-            label3.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label3.ForeColor = Color.FromArgb(97, 97, 97);
-            label3.Location = new Point(224, 146);
-            label3.Margin = new Padding(4, 0, 4, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(318, 25);
-            label3.TabIndex = 6;
-            label3.Text = "Контактное лицо / Организация:";
-            // 
             // AddFormOrderMaterials
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(751, 614);
+            ClientSize = new Size(751, 369);
             Controls.Add(panel2);
             Controls.Add(pictureBox1);
             Controls.Add(panel1);
@@ -215,10 +216,10 @@
         private PictureBox pictureBox1;
         private Label label1;
         private Panel panel1;
-        private DateTimePicker dateTimePickerMaterialIDOrderMaterials;
+        private DateTimePicker dateTimePickerRequestDate;
         private Label label2;
-        private ComboBox comboBoxQuantinityOrderMaterials;
+        private ComboBox comboBoxMaterialIDOrderMaterials;
         private Label label3;
-        private TextBox textBoxRequestDate;
+        private TextBox textBoxQuantinityOrderMaterials;
     }
 }

@@ -31,16 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddFormOrderEstimateDetails));
             panel2 = new Panel();
             labelFullNameClients = new Label();
+            comboBoxOrderEstimateIDOrderEstimateDetails = new ComboBox();
+            label2 = new Label();
+            comboBoxMaterialIDOrderEstimateDetails = new ComboBox();
+            label3 = new Label();
+            textBoxQuantinityOrderEstimateDetails = new TextBox();
             buttonSave = new Button();
             labelTitle = new Label();
             pictureBox1 = new PictureBox();
             label1 = new Label();
             panel1 = new Panel();
-            comboBoxOrderEstimateIDOrderEstimateDetails = new ComboBox();
-            comboBoxMaterialIDOrderEstimateDetails = new ComboBox();
-            textBoxQuantinityOrderEstimateDetails = new TextBox();
-            label2 = new Label();
-            label3 = new Label();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
@@ -74,19 +74,75 @@
             labelFullNameClients.TabIndex = 4;
             labelFullNameClients.Text = "Номер сметы:";
             // 
+            // comboBoxOrderEstimateIDOrderEstimateDetails
+            // 
+            comboBoxOrderEstimateIDOrderEstimateDetails.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxOrderEstimateIDOrderEstimateDetails.Font = new Font("Segoe UI", 14.25F);
+            comboBoxOrderEstimateIDOrderEstimateDetails.FormattingEnabled = true;
+            comboBoxOrderEstimateIDOrderEstimateDetails.Location = new Point(153, 46);
+            comboBoxOrderEstimateIDOrderEstimateDetails.Name = "comboBoxOrderEstimateIDOrderEstimateDetails";
+            comboBoxOrderEstimateIDOrderEstimateDetails.Size = new Size(455, 33);
+            comboBoxOrderEstimateIDOrderEstimateDetails.TabIndex = 0;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label2.ForeColor = Color.FromArgb(97, 97, 97);
+            label2.Location = new Point(260, 82);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(262, 25);
+            label2.TabIndex = 5;
+            label2.Text = "Наименование материала:";
+            // 
+            // comboBoxMaterialIDOrderEstimateDetails
+            // 
+            comboBoxMaterialIDOrderEstimateDetails.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxMaterialIDOrderEstimateDetails.Font = new Font("Segoe UI", 14.25F);
+            comboBoxMaterialIDOrderEstimateDetails.FormattingEnabled = true;
+            comboBoxMaterialIDOrderEstimateDetails.Location = new Point(153, 110);
+            comboBoxMaterialIDOrderEstimateDetails.Name = "comboBoxMaterialIDOrderEstimateDetails";
+            comboBoxMaterialIDOrderEstimateDetails.Size = new Size(455, 33);
+            comboBoxMaterialIDOrderEstimateDetails.TabIndex = 1;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label3.ForeColor = Color.FromArgb(97, 97, 97);
+            label3.Location = new Point(328, 146);
+            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(126, 25);
+            label3.TabIndex = 6;
+            label3.Text = "Количество:";
+            // 
+            // textBoxQuantinityOrderEstimateDetails
+            // 
+            textBoxQuantinityOrderEstimateDetails.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBoxQuantinityOrderEstimateDetails.Location = new Point(153, 174);
+            textBoxQuantinityOrderEstimateDetails.Margin = new Padding(4, 3, 4, 3);
+            textBoxQuantinityOrderEstimateDetails.Name = "textBoxQuantinityOrderEstimateDetails";
+            textBoxQuantinityOrderEstimateDetails.Size = new Size(455, 33);
+            textBoxQuantinityOrderEstimateDetails.TabIndex = 2;
+            // 
             // buttonSave
             // 
             buttonSave.BackColor = Color.FromArgb(241, 156, 55);
             buttonSave.FlatStyle = FlatStyle.Flat;
             buttonSave.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
             buttonSave.ForeColor = Color.Black;
-            buttonSave.Location = new Point(260, 452);
+            buttonSave.Location = new Point(260, 213);
             buttonSave.Margin = new Padding(4, 3, 4, 3);
             buttonSave.Name = "buttonSave";
             buttonSave.Size = new Size(236, 44);
             buttonSave.TabIndex = 3;
             buttonSave.Text = "Сохранить";
             buttonSave.UseVisualStyleBackColor = false;
+            buttonSave.Click += ButtonSave_Click;
             // 
             // labelTitle
             // 
@@ -134,66 +190,11 @@
             panel1.Size = new Size(753, 97);
             panel1.TabIndex = 19;
             // 
-            // comboBoxOrderEstimateIDOrderEstimateDetails
-            // 
-            comboBoxOrderEstimateIDOrderEstimateDetails.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxOrderEstimateIDOrderEstimateDetails.Font = new Font("Segoe UI", 14.25F);
-            comboBoxOrderEstimateIDOrderEstimateDetails.FormattingEnabled = true;
-            comboBoxOrderEstimateIDOrderEstimateDetails.Location = new Point(153, 46);
-            comboBoxOrderEstimateIDOrderEstimateDetails.Name = "comboBoxOrderEstimateIDOrderEstimateDetails";
-            comboBoxOrderEstimateIDOrderEstimateDetails.Size = new Size(455, 33);
-            comboBoxOrderEstimateIDOrderEstimateDetails.TabIndex = 0;
-            // 
-            // comboBoxMaterialIDOrderEstimateDetails
-            // 
-            comboBoxMaterialIDOrderEstimateDetails.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxMaterialIDOrderEstimateDetails.Font = new Font("Segoe UI", 14.25F);
-            comboBoxMaterialIDOrderEstimateDetails.FormattingEnabled = true;
-            comboBoxMaterialIDOrderEstimateDetails.Location = new Point(153, 110);
-            comboBoxMaterialIDOrderEstimateDetails.Name = "comboBoxMaterialIDOrderEstimateDetails";
-            comboBoxMaterialIDOrderEstimateDetails.Size = new Size(455, 33);
-            comboBoxMaterialIDOrderEstimateDetails.TabIndex = 1;
-            // 
-            // textBoxQuantinityOrderEstimateDetails
-            // 
-            textBoxQuantinityOrderEstimateDetails.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxQuantinityOrderEstimateDetails.Location = new Point(153, 174);
-            textBoxQuantinityOrderEstimateDetails.Margin = new Padding(4, 3, 4, 3);
-            textBoxQuantinityOrderEstimateDetails.Name = "textBoxQuantinityOrderEstimateDetails";
-            textBoxQuantinityOrderEstimateDetails.Size = new Size(455, 33);
-            textBoxQuantinityOrderEstimateDetails.TabIndex = 2;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label2.ForeColor = Color.FromArgb(97, 97, 97);
-            label2.Location = new Point(260, 82);
-            label2.Margin = new Padding(4, 0, 4, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(262, 25);
-            label2.TabIndex = 5;
-            label2.Text = "Наименование материала:";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.Transparent;
-            label3.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label3.ForeColor = Color.FromArgb(97, 97, 97);
-            label3.Location = new Point(328, 146);
-            label3.Margin = new Padding(4, 0, 4, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(126, 25);
-            label3.TabIndex = 6;
-            label3.Text = "Количество:";
-            // 
             // AddFormOrderEstimateDetails
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(751, 614);
+            ClientSize = new Size(751, 364);
             Controls.Add(panel2);
             Controls.Add(pictureBox1);
             Controls.Add(panel1);

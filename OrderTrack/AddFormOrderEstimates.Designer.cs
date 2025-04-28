@@ -30,15 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddFormOrderEstimates));
             panel2 = new Panel();
+            label2 = new Label();
+            dateTimePickerOrderEstimateDate = new DateTimePicker();
+            label3 = new Label();
+            comboBoxOrderIDOrderEstimates = new ComboBox();
             buttonSave = new Button();
             labelTitle = new Label();
             pictureBox1 = new PictureBox();
             label1 = new Label();
             panel1 = new Panel();
-            dateTimePickerOrderEstimateDate = new DateTimePicker();
-            comboBoxOrderIDOrderEstimates = new ComboBox();
-            label2 = new Label();
-            label3 = new Label();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
@@ -57,19 +57,65 @@
             panel2.Size = new Size(753, 523);
             panel2.TabIndex = 20;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label2.ForeColor = Color.FromArgb(97, 97, 97);
+            label2.Location = new Point(312, 7);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(124, 25);
+            label2.TabIndex = 3;
+            label2.Text = "Дата сметы:";
+            // 
+            // dateTimePickerOrderEstimateDate
+            // 
+            dateTimePickerOrderEstimateDate.Enabled = false;
+            dateTimePickerOrderEstimateDate.Font = new Font("Segoe UI", 14.25F);
+            dateTimePickerOrderEstimateDate.Location = new Point(152, 35);
+            dateTimePickerOrderEstimateDate.Name = "dateTimePickerOrderEstimateDate";
+            dateTimePickerOrderEstimateDate.Size = new Size(455, 33);
+            dateTimePickerOrderEstimateDate.TabIndex = 0;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label3.ForeColor = Color.FromArgb(97, 97, 97);
+            label3.Location = new Point(302, 71);
+            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(145, 25);
+            label3.TabIndex = 4;
+            label3.Text = "Номер заказа:";
+            // 
+            // comboBoxOrderIDOrderEstimates
+            // 
+            comboBoxOrderIDOrderEstimates.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxOrderIDOrderEstimates.Font = new Font("Segoe UI", 14.25F);
+            comboBoxOrderIDOrderEstimates.FormattingEnabled = true;
+            comboBoxOrderIDOrderEstimates.Location = new Point(152, 99);
+            comboBoxOrderIDOrderEstimates.Name = "comboBoxOrderIDOrderEstimates";
+            comboBoxOrderIDOrderEstimates.Size = new Size(455, 33);
+            comboBoxOrderIDOrderEstimates.TabIndex = 1;
+            // 
             // buttonSave
             // 
             buttonSave.BackColor = Color.FromArgb(241, 156, 55);
             buttonSave.FlatStyle = FlatStyle.Flat;
             buttonSave.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
             buttonSave.ForeColor = Color.Black;
-            buttonSave.Location = new Point(260, 452);
+            buttonSave.Location = new Point(260, 148);
             buttonSave.Margin = new Padding(4, 3, 4, 3);
             buttonSave.Name = "buttonSave";
             buttonSave.Size = new Size(236, 44);
             buttonSave.TabIndex = 2;
             buttonSave.Text = "Сохранить";
             buttonSave.UseVisualStyleBackColor = false;
+            buttonSave.Click += ButtonSave_Click;
             // 
             // labelTitle
             // 
@@ -117,56 +163,11 @@
             panel1.Size = new Size(753, 97);
             panel1.TabIndex = 19;
             // 
-            // dateTimePickerOrderEstimateDate
-            // 
-            dateTimePickerOrderEstimateDate.Enabled = false;
-            dateTimePickerOrderEstimateDate.Font = new Font("Segoe UI", 14.25F);
-            dateTimePickerOrderEstimateDate.Location = new Point(152, 35);
-            dateTimePickerOrderEstimateDate.Name = "dateTimePickerOrderEstimateDate";
-            dateTimePickerOrderEstimateDate.Size = new Size(455, 33);
-            dateTimePickerOrderEstimateDate.TabIndex = 0;
-            // 
-            // comboBoxOrderIDOrderEstimates
-            // 
-            comboBoxOrderIDOrderEstimates.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxOrderIDOrderEstimates.Font = new Font("Segoe UI", 14.25F);
-            comboBoxOrderIDOrderEstimates.FormattingEnabled = true;
-            comboBoxOrderIDOrderEstimates.Location = new Point(152, 99);
-            comboBoxOrderIDOrderEstimates.Name = "comboBoxOrderIDOrderEstimates";
-            comboBoxOrderIDOrderEstimates.Size = new Size(455, 33);
-            comboBoxOrderIDOrderEstimates.TabIndex = 1;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label2.ForeColor = Color.FromArgb(97, 97, 97);
-            label2.Location = new Point(312, 7);
-            label2.Margin = new Padding(4, 0, 4, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(124, 25);
-            label2.TabIndex = 3;
-            label2.Text = "Дата сметы:";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.Transparent;
-            label3.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label3.ForeColor = Color.FromArgb(97, 97, 97);
-            label3.Location = new Point(302, 71);
-            label3.Margin = new Padding(4, 0, 4, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(145, 25);
-            label3.TabIndex = 4;
-            label3.Text = "Номер заказа:";
-            // 
             // AddFormOrderEstimates
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(751, 614);
+            ClientSize = new Size(751, 295);
             Controls.Add(panel2);
             Controls.Add(pictureBox1);
             Controls.Add(panel1);

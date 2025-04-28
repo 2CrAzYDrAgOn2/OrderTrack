@@ -66,10 +66,12 @@ namespace OrderTrack
                 dataGridViewEmployees.Columns.Add("IsNew", String.Empty);
                 dataGridViewOrders.Columns.Add("Номер", "Номер");
                 dataGridViewOrders.Columns.Add("Наименование клиента", "Наименование клиента");
+                dataGridViewOrders.Columns.Add("Управляющий", "Управляющий");
                 dataGridViewOrders.Columns.Add("ФИО сотрудника", "ФИО сотрудника");
                 dataGridViewOrders.Columns.Add("Дата заказа", "Дата заказа");
                 dataGridViewOrders.Columns.Add("Итого", "Итого");
                 dataGridViewOrders.Columns.Add("Статус", "Статус");
+                dataGridViewOrders.Columns.Add("Дом", "Дом");
                 dataGridViewOrders.Columns.Add("IsNew", String.Empty);
                 dataGridViewProducts.Columns.Add("Номер", "Номер");
                 dataGridViewProducts.Columns.Add("Наименование", "Наименование");
@@ -81,6 +83,27 @@ namespace OrderTrack
                 dataGridViewOrderDetails.Columns.Add("Наименование продукта", "Наименование продукта");
                 dataGridViewOrderDetails.Columns.Add("Цена", "Цена");
                 dataGridViewOrderDetails.Columns.Add("IsNew", String.Empty);
+                dataGridViewMaterials.Columns.Add("Номер", "Номер");
+                dataGridViewMaterials.Columns.Add("Наименование", "Наименование");
+                dataGridViewMaterials.Columns.Add("Описание", "Описание");
+                dataGridViewMaterials.Columns.Add("Единица измерения", "Единица измерения");
+                dataGridViewMaterials.Columns.Add("Текущее количество", "Текущее количество");
+                dataGridViewMaterials.Columns.Add("IsNew", String.Empty);
+                dataGridViewOrderEstimates.Columns.Add("Номер", "Номер");
+                dataGridViewOrderEstimates.Columns.Add("Номер заказа", "Номер заказа");
+                dataGridViewOrderEstimates.Columns.Add("Дата оценки", "Дата оценки");
+                dataGridViewOrderEstimates.Columns.Add("IsNew", String.Empty);
+                dataGridViewOrderEstimateDetails.Columns.Add("Номер", "Номер");
+                dataGridViewOrderEstimateDetails.Columns.Add("Номер оценки", "Номер оценки");
+                dataGridViewOrderEstimateDetails.Columns.Add("Материал", "Материал");
+                dataGridViewOrderEstimateDetails.Columns.Add("Количество", "Количество");
+                dataGridViewOrderEstimateDetails.Columns.Add("IsNew", String.Empty);
+                dataGridViewOrderMaterials.Columns.Add("Номер", "Номер");
+                dataGridViewOrderMaterials.Columns.Add("Материал", "Материал");
+                dataGridViewOrderMaterials.Columns.Add("Количество", "Количество");
+                dataGridViewOrderMaterials.Columns.Add("Дата запроса", "Дата запроса");
+                dataGridViewOrderMaterials.Columns.Add("IsNew", String.Empty);
+
                 HideLastColumns();
             }
             catch (Exception ex)
@@ -89,13 +112,20 @@ namespace OrderTrack
             }
         }
 
+        /// <summary>
+        /// HideLastColumns() скрывает последние колонки
+        /// </summary>
         private void HideLastColumns()
         {
             dataGridViewClients.Columns["IsNew"].Visible = false;
             dataGridViewEmployees.Columns["IsNew"].Visible = false;
             dataGridViewOrders.Columns["IsNew"].Visible = false;
-            dataGridViewProducts.Columns["IsNew"].Visible = false;
+            dataGridViewMaterials.Columns["IsNew"].Visible = false;
             dataGridViewOrderDetails.Columns["IsNew"].Visible = false;
+            dataGridViewOrderDetails.Columns["IsNew"].Visible = false;
+            dataGridViewOrderEstimates.Columns["IsNew"].Visible = false;
+            dataGridViewOrderEstimateDetails.Columns["IsNew"].Visible = false;
+            dataGridViewOrderMaterials.Columns["IsNew"].Visible = false;
         }
 
         /// <summary>
@@ -116,6 +146,7 @@ namespace OrderTrack
                 maskedTextBoxPhoneEmployees.Text = "";
                 textBoxEmailEmployees.Text = "";
                 textBoxOrderID.Text = "";
+                textBoxOOOShnick.Text = "";
                 textBoxTotalAmount.Text = "";
                 textBoxProductID.Text = "";
                 textBoxName.Text = "";
@@ -123,6 +154,16 @@ namespace OrderTrack
                 textBoxPrice.Text = "";
                 textBoxOrderDetailID.Text = "";
                 textBoxPriceOrderDetails.Text = "";
+                textBoxMaterialID.Text = "";
+                textBoxNameMaterials.Text = "";
+                textBoxDescriptionMaterials.Text = "";
+                textBoxUnit.Text = "";
+                textBoxCurrentQuantity.Text = "";
+                textBoxOrderEstimateID.Text = "";
+                textBoxOrderEstimateDetailID.Text = "";
+                textBoxQuantinityOrderEstimateDetails.Text = "";
+                textBoxOrderMaterialID.Text = "";
+                textBoxQuantityOrderMaterials.Text = "";
             }
             catch (Exception ex)
             {
@@ -150,7 +191,7 @@ namespace OrderTrack
                         break;
 
                     case "dataGridViewOrders":
-                        dataGridView.Rows.Add(iDataRecord.GetInt32(0), iDataRecord.GetString(1), iDataRecord.GetString(2), iDataRecord.GetDateTime(3).ToString("yyyy-MM-dd"), iDataRecord.GetDouble(4), iDataRecord.GetString(5), RowState.Modified);
+                        dataGridView.Rows.Add(iDataRecord.GetInt32(0), iDataRecord.GetString(1), iDataRecord.GetString(2), iDataRecord.GetString(3), iDataRecord.GetDateTime(4).ToString("yyyy-MM-dd"), iDataRecord.GetDouble(5), iDataRecord.GetString(6), iDataRecord.GetString(7), RowState.Modified);
                         break;
 
                     case "dataGridViewProducts":
@@ -159,6 +200,22 @@ namespace OrderTrack
 
                     case "dataGridViewOrderDetails":
                         dataGridView.Rows.Add(iDataRecord.GetInt32(0), iDataRecord.GetInt32(1), iDataRecord.GetString(2), iDataRecord.GetDouble(3), RowState.Modified);
+                        break;
+
+                    case "dataGridViewMaterials":
+                        dataGridView.Rows.Add(iDataRecord.GetInt32(0), iDataRecord.GetString(1), iDataRecord.IsDBNull(2) ? "" : iDataRecord.GetString(2), iDataRecord.GetString(3), iDataRecord.GetDouble(4), RowState.Modified);
+                        break;
+
+                    case "dataGridViewOrderEstimates":
+                        dataGridView.Rows.Add(iDataRecord.GetInt32(0), iDataRecord.GetInt32(1), iDataRecord.GetDateTime(2).ToString("yyyy-MM-dd"), RowState.Modified);
+                        break;
+
+                    case "dataGridViewOrderEstimateDetails":
+                        dataGridView.Rows.Add(iDataRecord.GetInt32(0), iDataRecord.GetInt32(1), iDataRecord.GetString(2), iDataRecord.GetDouble(3), RowState.Modified);
+                        break;
+
+                    case "dataGridViewOrderMaterials":
+                        dataGridView.Rows.Add(iDataRecord.GetInt32(0), iDataRecord.GetString(1), iDataRecord.GetDouble(2), iDataRecord.GetDateTime(3).ToString("yyyy-MM-dd HH:mm:ss"), RowState.Modified);
                         break;
                 }
             }
@@ -179,51 +236,93 @@ namespace OrderTrack
             {
                 dataGridView.Rows.Clear();
                 string queryString = "";
-
                 switch (tableName)
                 {
                     case "Clients":
                         queryString = @"SELECT c.ClientID, c.FullName, ct.ClientType, c.Email, c.Phone,
-                                c.Address, c.INN, c.RegistrationDate
-                                FROM Clients c
-                                LEFT JOIN ClientTypes ct ON c.ClientTypeID = ct.ClientTypeID";
+                        c.Address, c.INN, c.RegistrationDate
+                        FROM Clients c
+                        LEFT JOIN ClientTypes ct ON c.ClientTypeID = ct.ClientTypeID
+                        ORDER BY c.ClientID";
                         break;
 
                     case "Employees":
                         queryString = @"SELECT e.EmployeeID, e.FullName, e.Phone, e.Email,
-                                g.Gender, p.Post
-                                FROM Employees e
-                                LEFT JOIN Genders g ON e.GenderID = g.GenderID
-                                LEFT JOIN Posts p ON e.PostID = p.PostID";
+                        g.Gender, p.Post
+                        FROM Employees e
+                        LEFT JOIN Genders g ON e.GenderID = g.GenderID
+                        LEFT JOIN Posts p ON e.PostID = p.PostID
+                        ORDER BY e.EmployeeID";
                         break;
 
                     case "Orders":
-                        queryString = @"SELECT o.OrderID, cl.FullName AS ClientName, emp.FullName AS EmployeeName,
-                                o.OrderDate, o.TotalAmount, s.Status
-                                FROM Orders o
-                                LEFT JOIN Clients cl ON o.ClientID = cl.ClientID
-                                LEFT JOIN Employees emp ON o.EmployeeID = emp.EmployeeID
-                                LEFT JOIN Statuses s ON o.StatusID = s.StatusID";
+                        queryString = @"SELECT
+                            o.OrderID,
+                            cl.FullName AS ClientName,
+                            emp.FullName AS EmployeeName,
+                            o.OOOShnick,
+                            o.OrderDate,
+                            o.TotalAmount,
+                            s.Status AS StatusName,
+                            p.Name AS ProductName
+                        FROM Orders o
+                        LEFT JOIN Clients cl ON o.ClientID = cl.ClientID
+                        LEFT JOIN Employees emp ON o.EmployeeID = emp.EmployeeID
+                        LEFT JOIN Statuses s ON o.StatusID = s.StatusID
+                        LEFT JOIN Products p ON o.ProductID = p.ProductID
+                        ORDER BY o.OrderDate DESC, o.OrderID";
                         break;
 
                     case "Products":
-                        queryString = "SELECT ProductID, Name, Description, Price FROM Products";
+                        queryString = @"SELECT ProductID, Name, Description, Price
+                        FROM Products
+                        ORDER BY Name";
                         break;
 
                     case "OrderDetails":
                         queryString = @"SELECT od.OrderDetailID, od.OrderID, p.Name AS ProductName, od.Price
-                                FROM OrderDetails od
-                                LEFT JOIN Products p ON od.ProductID = p.ProductID";
+                        FROM OrderDetails od
+                        LEFT JOIN Products p ON od.ProductID = p.ProductID
+                        ORDER BY od.OrderID, od.OrderDetailID";
+                        break;
+
+                    case "Materials":
+                        queryString = @"SELECT MaterialID, Name, Description, Unit, CurrentQuantity
+                        FROM Materials
+                        ORDER BY Name";
+                        break;
+
+                    case "OrderEstimates":
+                        queryString = @"SELECT oe.OrderEstimateID, oe.OrderID, oe.OrderEstimateDate
+                        FROM OrderEstimates oe
+                        ORDER BY oe.OrderEstimateDate DESC";
+                        break;
+
+                    case "OrderEstimateDetails":
+                        queryString = @"SELECT oed.OrderEstimateDetailID, oed.OrderEstimateID,
+                        m.Name AS MaterialName, oed.Quantity
+                        FROM OrderEstimateDetails oed
+                        LEFT JOIN Materials m ON oed.MaterialID = m.MaterialID
+                        ORDER BY oed.OrderEstimateID";
+                        break;
+
+                    case "OrderMaterials":
+                        queryString = @"SELECT om.OrderMaterialID, m.Name AS MaterialName,
+                        om.Quantity, om.RequestDate
+                        FROM OrderMaterials om
+                        LEFT JOIN Materials m ON om.MaterialID = m.MaterialID
+                        ORDER BY om.RequestDate DESC";
                         break;
                 }
                 SqlCommand sqlCommand = new(queryString, dataBase.GetConnection());
                 dataBase.OpenConnection();
-                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-                while (sqlDataReader.Read())
+                using (SqlDataReader sqlDataReader = sqlCommand.ExecuteReader())
                 {
-                    ReadSingleRow(dataGridView, sqlDataReader);
+                    while (sqlDataReader.Read())
+                    {
+                        ReadSingleRow(dataGridView, sqlDataReader);
+                    }
                 }
-                sqlDataReader.Close();
                 FillAllComboBoxes();
             }
             catch (Exception ex)
@@ -292,6 +391,10 @@ namespace OrderTrack
                 RefreshDataGrid(dataGridViewOrders, "Orders");
                 RefreshDataGrid(dataGridViewProducts, "Products");
                 RefreshDataGrid(dataGridViewOrderDetails, "OrderDetails");
+                RefreshDataGrid(dataGridViewMaterials, "Materials");
+                RefreshDataGrid(dataGridViewOrderEstimates, "OrderEstimates");
+                RefreshDataGrid(dataGridViewOrderEstimateDetails, "OrderEstimateDetails");
+                RefreshDataGrid(dataGridViewOrderMaterials, "OrderMaterials");
             }
             catch (Exception ex)
             {
@@ -337,9 +440,11 @@ namespace OrderTrack
                         textBoxOrderID.Text = dataGridViewRow.Cells[0].Value.ToString();
                         comboBoxClientIDOrders.Text = dataGridViewRow.Cells[1].Value.ToString();
                         comboBoxEmployeeIDOrders.Text = dataGridViewRow.Cells[2].Value.ToString();
-                        dateTimePickerOrderDate.Text = dataGridViewRow.Cells[3].Value?.ToString();
-                        textBoxTotalAmount.Text = dataGridViewRow.Cells[4].Value.ToString();
-                        comboBoxStatusID.Text = dataGridViewRow.Cells[5].Value.ToString();
+                        textBoxOOOShnick.Text = dataGridViewRow.Cells[3].Value?.ToString();
+                        dateTimePickerOrderDate.Text = dataGridViewRow.Cells[4].Value?.ToString();
+                        textBoxTotalAmount.Text = dataGridViewRow.Cells[5].Value.ToString();
+                        comboBoxStatusID.Text = dataGridViewRow.Cells[6].Value.ToString();
+                        comboBoxProductIDOrders.Text = dataGridViewRow.Cells[7].Value.ToString();
                         panelRecordOrders.Visible = true;
                         break;
 
@@ -357,6 +462,38 @@ namespace OrderTrack
                         comboBoxProductIDOrderDetails.Text = dataGridViewRow.Cells[2].Value?.ToString();
                         textBoxPriceOrderDetails.Text = dataGridViewRow.Cells[3].Value.ToString();
                         panelRecordOrderDetails.Visible = true;
+                        break;
+
+                    case "dataGridViewMaterials":
+                        textBoxMaterialID.Text = dataGridViewRow.Cells[0].Value.ToString();
+                        textBoxNameMaterials.Text = dataGridViewRow.Cells[1].Value.ToString();
+                        textBoxDescriptionMaterials.Text = dataGridViewRow.Cells[2].Value?.ToString();
+                        textBoxUnit.Text = dataGridViewRow.Cells[3].Value.ToString();
+                        textBoxCurrentQuantity.Text = dataGridViewRow.Cells[4].Value.ToString();
+                        panelRecordMaterials.Visible = true;
+                        break;
+
+                    case "dataGridViewOrderEstimates":
+                        textBoxOrderEstimateID.Text = dataGridViewRow.Cells[0].Value.ToString();
+                        comboBoxOrderIDOrderEstimates.Text = dataGridViewRow.Cells[1].Value.ToString();
+                        dateTimePickerOrderEstimateDate.Text = dataGridViewRow.Cells[2].Value?.ToString();
+                        panelRecordOrderEstimates.Visible = true;
+                        break;
+
+                    case "dataGridViewOrderEstimateDetails":
+                        textBoxOrderEstimateDetailID.Text = dataGridViewRow.Cells[0].Value.ToString();
+                        comboBoxOrderEstimateIDOrderEstimateDetails.Text = dataGridViewRow.Cells[1].Value.ToString();
+                        comboBoxMaterialIDOrderEstimateDetails.Text = dataGridViewRow.Cells[2].Value.ToString();
+                        textBoxQuantinityOrderEstimateDetails.Text = dataGridViewRow.Cells[3].Value.ToString();
+                        panelRecordOrderEstimateDetails.Visible = true;
+                        break;
+
+                    case "dataGridViewOrderMaterials":
+                        textBoxOrderMaterialID.Text = dataGridViewRow.Cells[0].Value.ToString();
+                        comboBoxMaterialIDOrderMaterials.Text = dataGridViewRow.Cells[1].Value.ToString();
+                        textBoxQuantityOrderMaterials.Text = dataGridViewRow.Cells[2].Value.ToString();
+                        dateTimePickerRequestDate.Text = dataGridViewRow.Cells[3].Value?.ToString();
+                        panelRecordOrderMaterials.Visible = true;
                         break;
                 }
             }
@@ -378,7 +515,12 @@ namespace OrderTrack
                 switch (dataGridView.Name)
                 {
                     case "dataGridViewClients":
-                        string searchStringClient = $"select * from Clients where concat (ClientID, FullName, ClientTypeID, Email, Phone, Address, INN, RegistrationDate) like '%" + textBoxSearchClients.Text + "%'";
+                        string searchStringClient = $@"SELECT c.ClientID, c.FullName, ct.ClientType, c.Email, c.Phone,
+                        c.Address, c.INN, c.RegistrationDate
+                        FROM Clients c
+                        LEFT JOIN ClientTypes ct ON c.ClientTypeID = ct.ClientTypeID
+                        WHERE CONCAT(c.ClientID, c.FullName, ct.ClientType, c.Email, c.Phone, c.Address, c.INN, c.RegistrationDate)
+                        LIKE '%{textBoxSearchClients.Text}%'";
                         SqlCommand sqlCommandClient = new(searchStringClient, dataBase.GetConnection());
                         dataBase.OpenConnection();
                         SqlDataReader sqlDataReaderClient = sqlCommandClient.ExecuteReader();
@@ -390,7 +532,13 @@ namespace OrderTrack
                         break;
 
                     case "dataGridViewEmployees":
-                        string searchStringEmployees = $"select * from Employees where concat (EmployeeID, FullName, Phone, Email, GenderID, PostID) like '%" + textBoxSearchEmployees.Text + "%'";
+                        string searchStringEmployees = $@"SELECT e.EmployeeID, e.FullName, e.Phone, e.Email,
+                        g.Gender, p.Post
+                        FROM Employees e
+                        LEFT JOIN Genders g ON e.GenderID = g.GenderID
+                        LEFT JOIN Posts p ON e.PostID = p.PostID
+                        WHERE CONCAT(e.EmployeeID, e.FullName, e.Phone, e.Email, g.Gender, p.Post)
+                        LIKE '%{textBoxSearchEmployees.Text}%'";
                         SqlCommand sqlCommandEmployees = new(searchStringEmployees, dataBase.GetConnection());
                         dataBase.OpenConnection();
                         SqlDataReader sqlDataReaderEmployees = sqlCommandEmployees.ExecuteReader();
@@ -402,7 +550,14 @@ namespace OrderTrack
                         break;
 
                     case "dataGridViewOrders":
-                        string searchStringOrders = $"select * from Orders where concat (OrderID, ClientID, EmployeeID, OrderDate, TotalAmount, StatusID) like '%" + textBoxSearchOrders.Text + "%'";
+                        string searchStringOrders = $@"SELECT o.OrderID, cl.FullName AS ClientName, emp.FullName AS EmployeeName,
+                        o.OOOShnick, o.OrderDate, o.TotalAmount, s.Status
+                        FROM Orders o
+                        LEFT JOIN Clients cl ON o.ClientID = cl.ClientID
+                        LEFT JOIN Employees emp ON o.EmployeeID = emp.EmployeeID
+                        LEFT JOIN Statuses s ON o.StatusID = s.StatusID
+                        WHERE CONCAT(o.OrderID, cl.FullName, emp.FullName, o.OOOShnick, o.OrderDate, o.TotalAmount, s.Status)
+                        LIKE '%{textBoxSearchOrders.Text}%'";
                         SqlCommand sqlCommandOrders = new(searchStringOrders, dataBase.GetConnection());
                         dataBase.OpenConnection();
                         SqlDataReader sqlDataReaderOrders = sqlCommandOrders.ExecuteReader();
@@ -414,7 +569,10 @@ namespace OrderTrack
                         break;
 
                     case "dataGridViewProducts":
-                        string searchStringProducts = $"select * from Products where concat (ProductID, Name, Description, Price) like '%" + textBoxSearchProducts.Text + "%'";
+                        string searchStringProducts = $@"SELECT ProductID, Name, Description, Price
+                        FROM Products
+                        WHERE CONCAT(ProductID, Name, Description, Price)
+                        LIKE '%{textBoxSearchProducts.Text}%'";
                         SqlCommand sqlCommandProducts = new(searchStringProducts, dataBase.GetConnection());
                         dataBase.OpenConnection();
                         SqlDataReader sqlDataReaderProducts = sqlCommandProducts.ExecuteReader();
@@ -426,7 +584,11 @@ namespace OrderTrack
                         break;
 
                     case "dataGridViewOrderDetails":
-                        string searchStringOrderDetails = $"select * from OrderDetails where concat (OrderDetailID, OrderID, ProductID, Price) like '%" + textBoxSearchOrderDetails.Text + "%'";
+                        string searchStringOrderDetails = $@"SELECT od.OrderDetailID, od.OrderID, p.Name AS ProductName, od.Price
+                        FROM OrderDetails od
+                        LEFT JOIN Products p ON od.ProductID = p.ProductID
+                        WHERE CONCAT(od.OrderDetailID, od.OrderID, p.Name, od.Price)
+                        LIKE '%{textBoxSearchOrderDetails.Text}%'";
                         SqlCommand sqlCommandOrderDetails = new(searchStringOrderDetails, dataBase.GetConnection());
                         dataBase.OpenConnection();
                         SqlDataReader sqlDataReaderOrderDetails = sqlCommandOrderDetails.ExecuteReader();
@@ -435,6 +597,36 @@ namespace OrderTrack
                             ReadSingleRow(dataGridView, sqlDataReaderOrderDetails);
                         }
                         sqlDataReaderOrderDetails.Close();
+                        break;
+
+                    case "dataGridViewMaterials":
+                        string searchStringMaterials = $@"SELECT MaterialID, Name, Description, Unit, CurrentQuantity
+                        FROM Materials
+                        WHERE CONCAT(MaterialID, Name, Description, Unit, CurrentQuantity)
+                        LIKE '%{textBoxSearchMaterials.Text}%'";
+                        SqlCommand sqlCommandMaterials = new(searchStringMaterials, dataBase.GetConnection());
+                        dataBase.OpenConnection();
+                        SqlDataReader sqlDataReaderMaterials = sqlCommandMaterials.ExecuteReader();
+                        while (sqlDataReaderMaterials.Read())
+                        {
+                            ReadSingleRow(dataGridView, sqlDataReaderMaterials);
+                        }
+                        sqlDataReaderMaterials.Close();
+                        break;
+
+                    case "dataGridViewOrderEstimates":
+                        string searchStringOrderEstimates = $@"SELECT oe.OrderEstimateID, oe.OrderID, oe.OrderEstimateDate
+                        FROM OrderEstimates oe
+                        WHERE CONCAT(oe.OrderEstimateID, oe.OrderID, oe.OrderEstimateDate)
+                        LIKE '%{textBoxSearchOrderEstimates.Text}%'";
+                        SqlCommand sqlCommandOrderEstimates = new(searchStringOrderEstimates, dataBase.GetConnection());
+                        dataBase.OpenConnection();
+                        SqlDataReader sqlDataReaderOrderEstimates = sqlCommandOrderEstimates.ExecuteReader();
+                        while (sqlDataReaderOrderEstimates.Read())
+                        {
+                            ReadSingleRow(dataGridView, sqlDataReaderOrderEstimates);
+                        }
+                        sqlDataReaderOrderEstimates.Close();
                         break;
                 }
             }
@@ -486,10 +678,10 @@ namespace OrderTrack
                     case "dataGridViewOrders":
                         if (dataGridView.Rows[index].Cells[0].Value.ToString() == string.Empty)
                         {
-                            dataGridView.Rows[index].Cells[6].Value = RowState.Deleted;
+                            dataGridView.Rows[index].Cells[8].Value = RowState.Deleted;
                             return;
                         }
-                        dataGridView.Rows[index].Cells[6].Value = RowState.Deleted;
+                        dataGridView.Rows[index].Cells[8].Value = RowState.Deleted;
                         break;
 
                     case "dataGridViewProducts":
@@ -502,6 +694,42 @@ namespace OrderTrack
                         break;
 
                     case "dataGridViewOrderDetails":
+                        if (dataGridView.Rows[index].Cells[0].Value.ToString() == string.Empty)
+                        {
+                            dataGridView.Rows[index].Cells[4].Value = RowState.Deleted;
+                            return;
+                        }
+                        dataGridView.Rows[index].Cells[4].Value = RowState.Deleted;
+                        break;
+
+                    case "dataGridViewMaterials":
+                        if (dataGridView.Rows[index].Cells[0].Value.ToString() == string.Empty)
+                        {
+                            dataGridView.Rows[index].Cells[5].Value = RowState.Deleted;
+                            return;
+                        }
+                        dataGridView.Rows[index].Cells[5].Value = RowState.Deleted;
+                        break;
+
+                    case "dataGridViewOrderEstimates":
+                        if (dataGridView.Rows[index].Cells[0].Value.ToString() == string.Empty)
+                        {
+                            dataGridView.Rows[index].Cells[3].Value = RowState.Deleted;
+                            return;
+                        }
+                        dataGridView.Rows[index].Cells[3].Value = RowState.Deleted;
+                        break;
+
+                    case "dataGridViewOrderEstimateDetails":
+                        if (dataGridView.Rows[index].Cells[0].Value.ToString() == string.Empty)
+                        {
+                            dataGridView.Rows[index].Cells[4].Value = RowState.Deleted;
+                            return;
+                        }
+                        dataGridView.Rows[index].Cells[4].Value = RowState.Deleted;
+                        break;
+
+                    case "dataGridViewOrderMaterials":
                         if (dataGridView.Rows[index].Cells[0].Value.ToString() == string.Empty)
                         {
                             dataGridView.Rows[index].Cells[4].Value = RowState.Deleted;
@@ -682,7 +910,7 @@ namespace OrderTrack
                             break;
 
                         case "dataGridViewOrders":
-                            var rowStateOrders = (RowState)dataGridView.Rows[index].Cells[6].Value;
+                            var rowStateOrders = (RowState)dataGridView.Rows[index].Cells[8].Value;
                             if (rowStateOrders == RowState.Existed)
                             {
                                 continue;
@@ -699,6 +927,13 @@ namespace OrderTrack
                             {
                                 var orderID = dataGridView.Rows[index].Cells[0].Value.ToString();
                                 var clientName = dataGridView.Rows[index].Cells[1].Value?.ToString();
+                                var employeeName = dataGridView.Rows[index].Cells[2].Value?.ToString();
+                                var oooShnick = dataGridView.Rows[index].Cells[3].Value?.ToString();
+                                var orderDate = dataGridView.Rows[index].Cells[4].Value.ToString();
+                                var totalAmount = dataGridView.Rows[index].Cells[5].Value.ToString();
+                                var statusName = dataGridView.Rows[index].Cells[6].Value?.ToString();
+                                var productName = dataGridView.Rows[index].Cells[7].Value?.ToString();
+
                                 string clientIdValue = "NULL";
                                 if (!string.IsNullOrEmpty(clientName))
                                 {
@@ -710,7 +945,7 @@ namespace OrderTrack
                                         clientIdValue = result.ToString();
                                     }
                                 }
-                                var employeeName = dataGridView.Rows[index].Cells[2].Value?.ToString();
+
                                 string employeeIdValue = "NULL";
                                 if (!string.IsNullOrEmpty(employeeName))
                                 {
@@ -723,9 +958,6 @@ namespace OrderTrack
                                     }
                                 }
 
-                                var orderDate = dataGridView.Rows[index].Cells[3].Value.ToString();
-                                var totalAmount = dataGridView.Rows[index].Cells[4].Value.ToString();
-                                var statusName = dataGridView.Rows[index].Cells[5].Value?.ToString();
                                 string statusIdValue = "NULL";
                                 if (!string.IsNullOrEmpty(statusName))
                                 {
@@ -737,7 +969,20 @@ namespace OrderTrack
                                         statusIdValue = result.ToString();
                                     }
                                 }
-                                var changeQuery = $"update Orders set ClientID = '{clientIdValue}', EmployeeID = '{employeeIdValue}', OrderDate = '{orderDate}', TotalAmount = '{totalAmount}', StatusID = '{statusIdValue}' where OrderID = '{orderID}'";
+
+                                string productIdValue = "NULL";
+                                if (!string.IsNullOrEmpty(productName))
+                                {
+                                    var getProductIdQuery = $"SELECT ProductID FROM Products WHERE Name = '{productName}'";
+                                    var productIdCommand = new SqlCommand(getProductIdQuery, dataBase.GetConnection());
+                                    var result = productIdCommand.ExecuteScalar();
+                                    if (result != null)
+                                    {
+                                        productIdValue = result.ToString();
+                                    }
+                                }
+
+                                var changeQuery = $@"update Orders set ClientID = '{clientIdValue}', EmployeeID = '{employeeIdValue}', OOOShnick = '{oooShnick}', OrderDate = '{orderDate}', TotalAmount = '{totalAmount}', StatusID = '{statusIdValue}', ProductID = '{productIdValue}' where OrderID = '{orderID}'";
                                 var sqlCommand = new SqlCommand(changeQuery, dataBase.GetConnection());
                                 sqlCommand.ExecuteNonQuery();
                                 FillAllComboBoxes();
@@ -745,6 +990,12 @@ namespace OrderTrack
                             if (rowStateOrders == RowState.New)
                             {
                                 var clientName = dataGridView.Rows[index].Cells[1].Value?.ToString();
+                                var employeeName = dataGridView.Rows[index].Cells[2].Value?.ToString();
+                                var oooShnick = dataGridView.Rows[index].Cells[3].Value?.ToString();
+                                var orderDate = dataGridView.Rows[index].Cells[4].Value.ToString();
+                                var totalAmount = dataGridView.Rows[index].Cells[5].Value.ToString();
+                                var statusName = dataGridView.Rows[index].Cells[6].Value?.ToString();
+                                var productName = dataGridView.Rows[index].Cells[7].Value?.ToString();
                                 string clientIdValue = "NULL";
                                 if (!string.IsNullOrEmpty(clientName))
                                 {
@@ -756,7 +1007,6 @@ namespace OrderTrack
                                         clientIdValue = result.ToString();
                                     }
                                 }
-                                var employeeName = dataGridView.Rows[index].Cells[2].Value?.ToString();
                                 string employeeIdValue = "NULL";
                                 if (!string.IsNullOrEmpty(employeeName))
                                 {
@@ -768,10 +1018,6 @@ namespace OrderTrack
                                         employeeIdValue = result.ToString();
                                     }
                                 }
-
-                                var orderDate = dataGridView.Rows[index].Cells[3].Value.ToString();
-                                var totalAmount = dataGridView.Rows[index].Cells[4].Value.ToString();
-                                var statusName = dataGridView.Rows[index].Cells[5].Value?.ToString();
                                 string statusIdValue = "NULL";
                                 if (!string.IsNullOrEmpty(statusName))
                                 {
@@ -783,7 +1029,18 @@ namespace OrderTrack
                                         statusIdValue = result.ToString();
                                     }
                                 }
-                                var newQuery = $"insert into Orders (ClientID, EmployeeID, StatusID) values ('{clientIdValue}', '{employeeIdValue}', '{statusIdValue}')";
+                                string productIdValue = "NULL";
+                                if (!string.IsNullOrEmpty(productName))
+                                {
+                                    var getProductIdQuery = $"SELECT ProductID FROM Products WHERE Name = '{productName}'";
+                                    var productIdCommand = new SqlCommand(getProductIdQuery, dataBase.GetConnection());
+                                    var result = productIdCommand.ExecuteScalar();
+                                    if (result != null)
+                                    {
+                                        productIdValue = result.ToString();
+                                    }
+                                }
+                                var newQuery = $@"insert into Orders (ClientID, EmployeeID, OOOShnick, OrderDate, TotalAmount, StatusID, ProductID) values ('{clientIdValue}', '{employeeIdValue}', '{oooShnick}', '{orderDate}', '{totalAmount}', '{statusIdValue}', '{productIdValue}')";
                                 var sqlCommand = new SqlCommand(newQuery, dataBase.GetConnection());
                                 sqlCommand.ExecuteNonQuery();
                                 FillAllComboBoxes();
@@ -933,28 +1190,66 @@ namespace OrderTrack
                         var orderID = textBoxOrderID.Text;
                         var clientIDOrders = comboBoxClientIDOrders.Text;
                         var employeeIDOrders = comboBoxEmployeeIDOrders.Text;
+                        var oooShnick = textBoxOOOShnick.Text;
                         var orderDate = dateTimePickerOrderDate.Value;
                         var totalAmount = textBoxTotalAmount.Text;
                         var statusID = comboBoxStatusID.Text;
-                        dataGridView.Rows[selectedRowIndex].SetValues(orderID, clientIDOrders, employeeIDOrders, orderDate, totalAmount, statusID);
-                        dataGridView.Rows[selectedRowIndex].Cells[6].Value = RowState.Modified;
+                        var productID = comboBoxProductIDOrders.Text;
+                        dataGridView.Rows[selectedRowIndex].SetValues(orderID, clientIDOrders, employeeIDOrders, oooShnick, orderDate, totalAmount, statusID, productID);
+                        dataGridView.Rows[selectedRowIndex].Cells[8].Value = RowState.Modified;
                         break;
 
                     case "dataGridViewProducts":
-                        var productID = textBoxProductID.Text;
+                        var productIDProd = textBoxProductID.Text;
                         var name = textBoxName.Text;
                         var description = textBoxDescription.Text;
                         var price = textBoxPrice.Text;
-                        dataGridView.Rows[selectedRowIndex].SetValues(productID, name, description, price);
+                        dataGridView.Rows[selectedRowIndex].SetValues(productIDProd, name, description, price);
                         dataGridView.Rows[selectedRowIndex].Cells[4].Value = RowState.Modified;
                         break;
 
                     case "dataGridViewOrderDetails":
                         var orderDetailID = textBoxOrderDetailID.Text;
-                        var orderIDOrderDetails = comboBoxProductIDOrderDetails.Text;
-                        var productIDOrderDetails = comboBoxOrderIDOrderDetails.Text;
+                        var orderIDOrderDetails = comboBoxOrderIDOrderDetails.Text;
+                        var productIDOrderDetails = comboBoxProductIDOrderDetails.Text;
                         var priceOrderDetails = textBoxPriceOrderDetails.Text;
                         dataGridView.Rows[selectedRowIndex].SetValues(orderDetailID, orderIDOrderDetails, productIDOrderDetails, priceOrderDetails);
+                        dataGridView.Rows[selectedRowIndex].Cells[4].Value = RowState.Modified;
+                        break;
+
+                    case "dataGridViewMaterials":
+                        var materialID = textBoxMaterialID.Text;
+                        var materialName = textBoxNameMaterials.Text;
+                        var materialDescription = textBoxDescriptionMaterials.Text;
+                        var unit = textBoxUnit.Text;
+                        var currentQuantity = textBoxCurrentQuantity.Text;
+                        dataGridView.Rows[selectedRowIndex].SetValues(materialID, materialName, materialDescription, unit, currentQuantity);
+                        dataGridView.Rows[selectedRowIndex].Cells[5].Value = RowState.Modified;
+                        break;
+
+                    case "dataGridViewOrderEstimates":
+                        var orderEstimateID = textBoxOrderEstimateID.Text;
+                        var orderIDEstimates = comboBoxOrderIDOrderEstimates.Text;
+                        var estimateDate = dateTimePickerOrderEstimateDate.Value;
+                        dataGridView.Rows[selectedRowIndex].SetValues(orderEstimateID, orderIDEstimates, estimateDate);
+                        dataGridView.Rows[selectedRowIndex].Cells[3].Value = RowState.Modified;
+                        break;
+
+                    case "dataGridViewOrderEstimateDetails":
+                        var orderEstimateDetailID = textBoxOrderEstimateDetailID.Text;
+                        var orderEstimateIDDetails = comboBoxOrderEstimateIDOrderEstimateDetails.Text;
+                        var materialIDDetails = comboBoxMaterialIDOrderEstimateDetails.Text;
+                        var estimateQuantity = textBoxQuantinityOrderEstimateDetails.Text;
+                        dataGridView.Rows[selectedRowIndex].SetValues(orderEstimateDetailID, orderEstimateIDDetails, materialIDDetails, estimateQuantity);
+                        dataGridView.Rows[selectedRowIndex].Cells[4].Value = RowState.Modified;
+                        break;
+
+                    case "dataGridViewOrderMaterials":
+                        var orderMaterialID = textBoxOrderMaterialID.Text;
+                        var materialIDOrder = comboBoxMaterialIDOrderMaterials.Text;
+                        var orderQuantity = textBoxQuantityOrderMaterials.Text;
+                        var requestDate = dateTimePickerRequestDate.Value;
+                        dataGridView.Rows[selectedRowIndex].SetValues(orderMaterialID, materialIDOrder, orderQuantity, requestDate);
                         dataGridView.Rows[selectedRowIndex].Cells[4].Value = RowState.Modified;
                         break;
                 }
@@ -979,7 +1274,44 @@ namespace OrderTrack
                 };
                 Document doc = wordApp.Documents.Add();
                 Paragraph title = doc.Paragraphs.Add();
-                title.Range.Text = "Отчет по заказам клиентов";
+                switch (dataGridView.Name)
+                {
+                    case "dataGridViewClients":
+                        title.Range.Text = "Данные клиентов";
+                        break;
+
+                    case "dataGridViewEmployees":
+                        title.Range.Text = "Данные сотрудников";
+                        break;
+
+                    case "dataGridViewOrders":
+                        title.Range.Text = "Данные заказов";
+                        break;
+
+                    case "dataGridViewProducts":
+                        title.Range.Text = "Данные продуктов";
+                        break;
+
+                    case "dataGridViewOrderDetails":
+                        title.Range.Text = "Данные деталей заказов";
+                        break;
+
+                    case "dataGridViewMaterials":
+                        title.Range.Text = "Данные материалов";
+                        break;
+
+                    case "dataGridViewOrderEstimates":
+                        title.Range.Text = "Данные сметы";
+                        break;
+
+                    case "dataGridViewOrderEstimateDetails":
+                        title.Range.Text = "Данные деталей сметы";
+                        break;
+
+                    case "dataGridViewOrderMaterials":
+                        title.Range.Text = "Данные заявок на материалы";
+                        break;
+                }
                 title.Range.Font.Bold = 1;
                 title.Range.Font.Size = 14;
                 title.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
@@ -1038,6 +1370,22 @@ namespace OrderTrack
 
                     case "dataGridViewOrderDetails":
                         title = "Данные деталей заказов";
+                        break;
+
+                    case "dataGridViewMaterials":
+                        title = "Данные материалов";
+                        break;
+
+                    case "dataGridViewOrderEstimates":
+                        title = "Данные сметы";
+                        break;
+
+                    case "dataGridViewOrderEstimateDetails":
+                        title = "Данные деталей сметы";
+                        break;
+
+                    case "dataGridViewOrderMaterials":
+                        title = "Данные заявок на материалы";
                         break;
                 }
                 Excel.Range titleRange = worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, dataGridView.ColumnCount - 1]];
@@ -1099,19 +1447,6 @@ namespace OrderTrack
                     ;
                     break;
 
-                case "MonthlyReportOrders":
-                    title.Range.Text = "Отчет по продажам за месяц";
-                    query = @"SELECT
-                                YEAR(OrderDate) AS 'Год',
-                                MONTH(OrderDate) AS 'Месяц',
-                                COUNT(OrderID) AS 'Количество заказов',
-                                SUM(TotalAmount) AS 'Общая сумма продаж'
-                            FROM Orders
-                            GROUP BY YEAR(OrderDate), MONTH(OrderDate)
-                            ORDER BY YEAR(OrderDate) DESC, MONTH(OrderDate) DESC;"
-                    ;
-                    break;
-
                 case "ReportProducts":
                     title.Range.Text = "Отчет по популярным товарам";
                     query = @"SELECT
@@ -1146,6 +1481,103 @@ namespace OrderTrack
                 {
                     table.Cell(row + 2, col + 1).Range.Text = dataTable.Rows[row][col].ToString();
                 }
+            }
+        }
+
+        /// <summary>
+        /// GenerateSignedOrderReport() вызывается при создании отчет по заказам с полями для подписи
+        /// </summary>
+        private void GenerateSignedOrderReport()
+        {
+            try
+            {
+                dataBase.OpenConnection();
+
+                // Создаем Word документ
+                var wordApp = new Application { Visible = true };
+                Document doc = wordApp.Documents.Add();
+                Paragraph title = doc.Paragraphs.Add();
+                title.Range.Text = "АКТ ВЫПОЛНЕННЫХ РАБОТ\n(оказанных услуг)";
+                title.Range.Font.Bold = 1;
+                title.Range.Font.Size = 16;
+                title.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
+                title.Range.InsertParagraphAfter();
+                string query = @"SELECT
+                        o.OrderID,
+                        c.FullName AS ClientName,
+                        c.Phone,
+                        c.INN,
+                        e.FullName AS ManagerName,
+                        p.Name AS ProductName,
+                        p.Price,
+                        o.OrderDate,
+                        o.TotalAmount,
+                        s.Status
+                    FROM Orders o
+                    JOIN Clients c ON o.ClientID = c.ClientID
+                    JOIN Employees e ON o.EmployeeID = e.EmployeeID
+                    JOIN Products p ON o.ProductID = p.ProductID
+                    JOIN Statuses s ON o.StatusID = s.StatusID
+                    WHERE o.StatusID = 2
+                    ORDER BY o.OrderDate DESC";
+                SqlCommand command = new(query, dataBase.GetConnection());
+                SqlDataAdapter adapter = new(command);
+                System.Data.DataTable dataTable = new();
+                adapter.Fill(dataTable);
+
+                if (dataTable.Rows.Count == 0)
+                {
+                    MessageBox.Show("Нет данных для отчета");
+                    return;
+                }
+                Table dataTableWord = doc.Tables.Add(title.Range, dataTable.Rows.Count + 1, 4);
+                dataTableWord.Borders.Enable = 1;
+                dataTableWord.Cell(1, 1).Range.Text = "№ п/п";
+                dataTableWord.Cell(1, 2).Range.Text = "Наименование услуги";
+                dataTableWord.Cell(1, 3).Range.Text = "Количество";
+                dataTableWord.Cell(1, 4).Range.Text = "Сумма";
+                for (int row = 0; row < dataTable.Rows.Count; row++)
+                {
+                    dataTableWord.Cell(row + 2, 1).Range.Text = (row + 1).ToString();
+                    dataTableWord.Cell(row + 2, 2).Range.Text = dataTable.Rows[row]["ProductName"].ToString();
+                    dataTableWord.Cell(row + 2, 3).Range.Text = "1";
+                    dataTableWord.Cell(row + 2, 4).Range.Text = dataTable.Rows[row]["Price"].ToString();
+                }
+                decimal totalAmount = Convert.ToDecimal(dataTable.Compute("SUM(Price)", ""));
+                Paragraph total = doc.Paragraphs.Add();
+                total.Range.Text = $"Итого: {totalAmount} руб.";
+                total.Range.Font.Bold = 1;
+                total.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
+                total.Range.InsertParagraphAfter();
+                Paragraph signatures = doc.Paragraphs.Add();
+                signatures.Range.Text = "ИСПОЛНИТЕЛЬ\t\t\tЗАКАЗЧИК";
+                signatures.Range.Font.Bold = 1;
+                signatures.Range.InsertParagraphAfter();
+                Paragraph execSign = doc.Paragraphs.Add();
+                execSign.Range.Text = "_________________/_________________";
+                execSign.Range.InsertParagraphAfter();
+                execSign.Range.Text = "М.П.\t\t\t\tМ.П.";
+                execSign.Range.InsertParagraphAfter();
+                Paragraph info = doc.Paragraphs.Add();
+                info.Range.Text = "Исполнитель: ООО 'СитиСервисПлюс'";
+                if (dataTable.Rows.Count > 0)
+                {
+                    info.Range.Text += $"\nЗаказчик: {dataTable.Rows[0]["ClientName"]}";
+                    info.Range.Text += $"\nИНН: {dataTable.Rows[0]["INN"]}";
+                    info.Range.Text += $"\nТелефон: {dataTable.Rows[0]["Phone"]}";
+                }
+                info.Range.InsertParagraphAfter();
+                Paragraph date = doc.Paragraphs.Add();
+                date.Range.Text = $"Дата составления: {DateTime.Now:dd.MM.yyyy}";
+                date.Alignment = WdParagraphAlignment.wdAlignParagraphRight;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при формировании отчета: {ex.Message}");
+            }
+            finally
+            {
+                dataBase.CloseConnection();
             }
         }
 
@@ -1211,6 +1643,15 @@ namespace OrderTrack
                     comboBoxStatusID.Items.Add(statusesReader.GetString(0));
                 }
                 statusesReader.Close();
+                comboBoxProductIDOrders.Items.Clear();
+                var productsForOrdersQuery = "SELECT Name FROM Products ORDER BY Name";
+                var productsForOrdersCommand = new SqlCommand(productsForOrdersQuery, dataBase.GetConnection());
+                var productsForOrdersReader = productsForOrdersCommand.ExecuteReader();
+                while (productsForOrdersReader.Read())
+                {
+                    comboBoxProductIDOrders.Items.Add(productsForOrdersReader.GetString(0));
+                }
+                productsForOrdersReader.Close();
                 comboBoxOrderIDOrderDetails.Items.Clear();
                 var ordersQuery = "SELECT OrderID FROM Orders ORDER BY OrderID";
                 var ordersCommand = new SqlCommand(ordersQuery, dataBase.GetConnection());
@@ -1229,6 +1670,45 @@ namespace OrderTrack
                     comboBoxProductIDOrderDetails.Items.Add(productsReader.GetString(0));
                 }
                 productsReader.Close();
+                comboBoxOrderIDOrderEstimates.Items.Clear();
+                var orderEstimatesQuery = "SELECT OrderID FROM Orders ORDER BY OrderID";
+                var orderEstimatesCommand = new SqlCommand(orderEstimatesQuery, dataBase.GetConnection());
+                var orderEstimatesReader = orderEstimatesCommand.ExecuteReader();
+                while (orderEstimatesReader.Read())
+                {
+                    comboBoxOrderIDOrderEstimates.Items.Add(orderEstimatesReader.GetInt32(0));
+                }
+                orderEstimatesReader.Close();
+
+                comboBoxOrderEstimateIDOrderEstimateDetails.Items.Clear();
+                var orderEstimateIDsQuery = "SELECT OrderEstimateID FROM OrderEstimates ORDER BY OrderEstimateID";
+                var orderEstimateIDsCommand = new SqlCommand(orderEstimateIDsQuery, dataBase.GetConnection());
+                var orderEstimateIDsReader = orderEstimateIDsCommand.ExecuteReader();
+                while (orderEstimateIDsReader.Read())
+                {
+                    comboBoxOrderEstimateIDOrderEstimateDetails.Items.Add(orderEstimateIDsReader.GetInt32(0));
+                }
+                orderEstimateIDsReader.Close();
+
+                comboBoxMaterialIDOrderEstimateDetails.Items.Clear();
+                var materialsQuery = "SELECT Name FROM Materials ORDER BY Name";
+                var materialsCommand = new SqlCommand(materialsQuery, dataBase.GetConnection());
+                var materialsReader = materialsCommand.ExecuteReader();
+                while (materialsReader.Read())
+                {
+                    comboBoxMaterialIDOrderEstimateDetails.Items.Add(materialsReader.GetString(0));
+                }
+                materialsReader.Close();
+
+                comboBoxMaterialIDOrderMaterials.Items.Clear();
+                var materialsForOrderQuery = "SELECT Name FROM Materials ORDER BY Name";
+                var materialsForOrderCommand = new SqlCommand(materialsForOrderQuery, dataBase.GetConnection());
+                var materialsForOrderReader = materialsForOrderCommand.ExecuteReader();
+                while (materialsForOrderReader.Read())
+                {
+                    comboBoxMaterialIDOrderMaterials.Items.Add(materialsForOrderReader.GetString(0));
+                }
+                materialsForOrderReader.Close();
             }
             catch (Exception ex)
             {
@@ -1253,7 +1733,7 @@ namespace OrderTrack
         /// <param name="e"></param>
         private void ButtonMonthlyReportOrders_Click(object sender, EventArgs e)
         {
-            Reports("MonthlyReportOrders");
+            GenerateSignedOrderReport();
         }
 
         /// <summary>
@@ -1280,6 +1760,10 @@ namespace OrderTrack
                 RefreshDataGrid(dataGridViewOrders, "Orders");
                 RefreshDataGrid(dataGridViewProducts, "Products");
                 RefreshDataGrid(dataGridViewOrderDetails, "OrderDetails");
+                RefreshDataGrid(dataGridViewMaterials, "Materials");
+                RefreshDataGrid(dataGridViewOrderEstimates, "OrderEstimates");
+                RefreshDataGrid(dataGridViewOrderEstimateDetails, "OrderEstimateDetails");
+                RefreshDataGrid(dataGridViewOrderMaterials, "OrderMaterials");
                 ClearFields();
             }
             catch (Exception ex)
@@ -1383,20 +1867,80 @@ namespace OrderTrack
             }
         }
 
+        /// <summary>
+        /// ButtonNewMaterial_Click() вызывается при нажатии на кнопку "Создать запись" на вкладке "Материалы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonNewMaterial_Click(object sender, EventArgs e)
         {
+            try
+            {
+                AddFormMaterials addForm = new();
+                addForm.Show();
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
+        /// <summary>
+        /// ButtonNewOrderEstimate_Click() вызывается при нажатии на кнопку "Создать запись" на вкладке "Сметы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonNewOrderEstimate_Click(object sender, EventArgs e)
         {
+            try
+            {
+                AddFormOrderEstimates addForm = new();
+                addForm.Show();
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
+        /// <summary>
+        /// ButtonNewOrderEstimateDetail_Click() вызывается при нажатии на кнопку "Создать запись" на вкладке "Детали сметы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonNewOrderEstimateDetail_Click(object sender, EventArgs e)
         {
+            try
+            {
+                AddFormOrderEstimateDetails addForm = new();
+                addForm.Show();
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
+        /// <summary>
+        /// ButtonNewOrderMaterial_Click() вызывается при нажатии на кнопку "Создать запись" на вкладке "Заявки на материалы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonNewOrderMaterial_Click(object sender, EventArgs e)
         {
+            try
+            {
+                AddFormOrderMaterials addForm = new();
+                addForm.Show();
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         /// <summary>
@@ -1489,20 +2033,76 @@ namespace OrderTrack
             }
         }
 
+        /// <summary>
+        /// ButtonDeleteMaterial_Click() вызывается при нажатии на кнопку "Удалить" на вкладке "Материалы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonDeleteMaterial_Click(object sender, EventArgs e)
         {
+            try
+            {
+                DeleteRow(dataGridViewMaterials);
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
+        /// <summary>
+        /// ButtonDeleteOrderEstimate_Click() вызывается при нажатии на кнопку "Удалить" на вкладке "Сметы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonDeleteOrderEstimate_Click(object sender, EventArgs e)
         {
+            try
+            {
+                DeleteRow(dataGridViewOrderEstimates);
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
+        /// <summary>
+        /// ButtonDeleteOrderEstimateDetail_Click() вызывается при нажатии на кнопку "Удалить" на вкладке "Детали сметы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonDeleteOrderEstimateDetail_Click(object sender, EventArgs e)
         {
+            try
+            {
+                DeleteRow(dataGridViewOrderEstimateDetails);
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
+        /// <summary>
+        /// ButtonDeleteOrderMaterial_Click() вызывается при нажатии на кнопку "Удалить" на вкладке "Заявки на материалы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonDeleteOrderMaterial_Click(object sender, EventArgs e)
         {
+            try
+            {
+                DeleteRow(dataGridViewOrderMaterials);
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         /// <summary>
@@ -1595,20 +2195,76 @@ namespace OrderTrack
             }
         }
 
+        /// <summary>
+        /// ButtonChangeOrderDetails_Click() вызывается при нажатии на кнопку "Изменить" на вкладке "Материалы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonChangeMaterial_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Change(dataGridViewMaterials);
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
+        /// <summary>
+        /// ButtonChangeOrderEstimate_Click() вызывается при нажатии на кнопку "Изменить" на вкладке "Сметы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonChangeOrderEstimate_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Change(dataGridViewOrderEstimates);
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
+        /// <summary>
+        /// ButtonChangeOrderEstimateDetail_Click() вызывается при нажатии на кнопку "Изменить" на вкладке "Детали сметы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonChangeOrderEstimateDetail_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Change(dataGridViewOrderEstimateDetails);
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
+        /// <summary>
+        /// ButtonChangeOrderMaterial_Click() вызывается при нажатии на кнопку "Изменить" на вкладке "Заявки на материалы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonChangeOrderMaterial_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Change(dataGridViewOrderMaterials);
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         /// <summary>
@@ -1710,20 +2366,72 @@ namespace OrderTrack
             }
         }
 
+        /// <summary>
+        /// ButtonSaveMaterial_Click() вызывается при нажатии на кнопку "Сохранить" на вкладке "Материалы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonSaveMaterial_Click(object sender, EventArgs e)
         {
+            try
+            {
+                UpdateBase(dataGridViewMaterials);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
+        /// <summary>
+        /// ButtonSaveOrderEstimate_Click() вызывается при нажатии на кнопку "Сохранить" на вкладке "Сметы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonSaveOrderEstimate_Click(object sender, EventArgs e)
         {
+            try
+            {
+                UpdateBase(dataGridViewOrderEstimates);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
+        /// <summary>
+        /// ButtonSaveOrderEstimateDetail_Click() вызывается при нажатии на кнопку "Сохранить" на вкладке "Детали сметы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonSaveOrderEstimateDetail_Click(object sender, EventArgs e)
         {
+            try
+            {
+                UpdateBase(dataGridViewOrderEstimateDetails);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
+        /// <summary>
+        /// ButtonSaveOrderMaterial_Click() вызывается при нажатии на кнопку "Сохранить" на вкладке "Заявки на материалы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonSaveOrderMaterial_Click(object sender, EventArgs e)
         {
+            try
+            {
+                UpdateBase(dataGridViewOrderMaterials);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         /// <summary>
@@ -1811,20 +2519,72 @@ namespace OrderTrack
             }
         }
 
+        /// <summary>
+        /// ButtonWordMaterial_Click() вызывается при нажатии на кнопку "Вывод в Word" на вкладке "Материалы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonWordMaterial_Click(object sender, EventArgs e)
         {
+            try
+            {
+                ExportToWord(dataGridViewMaterials);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
+        /// <summary>
+        /// ButtonWordOrderEstimate_Click() вызывается при нажатии на кнопку "Вывод в Word" на вкладке "Сметы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonWordOrderEstimate_Click(object sender, EventArgs e)
         {
+            try
+            {
+                ExportToWord(dataGridViewOrderEstimates);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
+        /// <summary>
+        /// ButtonWordOrderEstimateDetail_Click() вызывается при нажатии на кнопку "Вывод в Word" на вкладке "Детали сметы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonWordOrderEstimateDetail_Click(object sender, EventArgs e)
         {
+            try
+            {
+                ExportToWord(dataGridViewOrderEstimateDetails);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
+        /// <summary>
+        /// ButtonWordOrderMaterial_Click() вызывается при нажатии на кнопку "Вывод в Word" на вкладке "Заявки на материалы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonWordOrderMaterial_Click(object sender, EventArgs e)
         {
+            try
+            {
+                ExportToWord(dataGridViewOrderMaterials);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         /// <summary>
@@ -1912,20 +2672,72 @@ namespace OrderTrack
             }
         }
 
+        /// <summary>
+        /// ButtonExcelMaterial_Click() вызывается при нажатии на кнопку "Вывод в Excel" на вкладке "Материалы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonExcelMaterial_Click(object sender, EventArgs e)
         {
+            try
+            {
+                ExportToExcel(dataGridViewMaterials);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
+        /// <summary>
+        /// ButtonExcelOrderEstimate_Click() вызывается при нажатии на кнопку "Вывод в Excel" на вкладке "Сметы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonExcelOrderEstimate_Click(object sender, EventArgs e)
         {
+            try
+            {
+                ExportToExcel(dataGridViewOrderEstimates);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
+        /// <summary>
+        /// ButtonExcelOrderEstimateDetail_Click() вызывается при нажатии на кнопку "Вывод в Excel" на вкладке "Детали сметы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonExcelOrderEstimateDetail_Click(object sender, EventArgs e)
         {
+            try
+            {
+                ExportToExcel(dataGridViewOrderEstimateDetails);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
+        /// <summary>
+        /// ButtonExcelOrderMaterial_Click() вызывается при нажатии на кнопку "Вывод в Excel" на вкладке "Заявки на материалы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonExcelOrderMaterial_Click(object sender, EventArgs e)
         {
+            try
+            {
+                ExportToExcel(dataGridViewOrderMaterials);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         /// <summary>
@@ -2034,6 +2846,90 @@ namespace OrderTrack
         }
 
         /// <summary>
+        /// DataGridViewMaterials_CellClick() вызывается при нажатии на ячейку на вкладке "Материалы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DataGridViewMaterials_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                selectedRow = e.RowIndex;
+                if (e.RowIndex >= 0)
+                {
+                    DataGridView_CellClick(dataGridViewMaterials, selectedRow);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// DataGridViewOrderEstimates_CellClick() вызывается при нажатии на ячейку на вкладке "Сметы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DataGridViewOrderEstimates_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                selectedRow = e.RowIndex;
+                if (e.RowIndex >= 0)
+                {
+                    DataGridView_CellClick(dataGridViewOrderEstimates, selectedRow);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// DataGridViewOrderEstimateDetails_CellClick() вызывается при нажатии на ячейку на вкладке "Детали сметы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DataGridViewOrderEstimateDetails_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                selectedRow = e.RowIndex;
+                if (e.RowIndex >= 0)
+                {
+                    DataGridView_CellClick(dataGridViewOrderEstimateDetails, selectedRow);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// DataGridViewOrderMaterials_CellClick() вызывается при нажатии на ячейку на вкладке "Заявки на материалы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DataGridViewOrderMaterials_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                selectedRow = e.RowIndex;
+                if (e.RowIndex >= 0)
+                {
+                    DataGridView_CellClick(dataGridViewOrderMaterials, selectedRow);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
         /// TextBoxSearchClients_TextChanged() вызывается при изменении текста на вкладке "Клиенты"
         /// </summary>
         /// <param name="sender"></param>
@@ -2111,6 +3007,74 @@ namespace OrderTrack
             try
             {
                 Search(dataGridViewOrderDetails);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// TextBoxSearchMaterials_TextChanged() вызывается при изменении текста на вкладке "Материалы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TextBoxSearchMaterials_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Search(dataGridViewMaterials);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// TextBoxSearchOrderEstimates_TextChanged() вызывается при изменении текста на вкладке "Сметы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TextBoxSearchOrderEstimates_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Search(dataGridViewOrderEstimates);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// TextBoxSearchOrderEstimateDetails_TextChanged() вызывается при изменении текста на вкладке "Детали сметы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TextBoxSearchOrderEstimateDetails_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Search(dataGridViewOrderEstimateDetails);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// TextBoxSearchOrderMaterials_TextChanged() вызывается при изменении текста на вкладке "Заявки на материалы"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TextBoxSearchOrderMaterials_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Search(dataGridViewOrderMaterials);
             }
             catch (Exception ex)
             {
