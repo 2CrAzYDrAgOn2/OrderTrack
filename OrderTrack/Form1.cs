@@ -66,8 +66,8 @@ namespace OrderTrack
                 dataGridViewEmployees.Columns.Add("IsNew", String.Empty);
                 dataGridViewOrders.Columns.Add("Номер", "Номер");
                 dataGridViewOrders.Columns.Add("Наименование клиента", "Наименование клиента");
-                dataGridViewOrders.Columns.Add("Управляющий", "Управляющий");
                 dataGridViewOrders.Columns.Add("ФИО сотрудника", "ФИО сотрудника");
+                dataGridViewOrders.Columns.Add("Управляющий", "Управляющий");
                 dataGridViewOrders.Columns.Add("Дата заказа", "Дата заказа");
                 dataGridViewOrders.Columns.Add("Итого", "Итого");
                 dataGridViewOrders.Columns.Add("Статус", "Статус");
